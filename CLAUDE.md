@@ -77,8 +77,10 @@ Local build (npm run build)
     ↓
 dist/ folder pushed to `deploy` branch
     ↓
-Hostinger auto-pulls from `deploy` branch via webhook
+GitHub webhook triggers Hostinger auto-deploy
 ```
+
+**Webhook:** `https://webhooks.hostinger.com/deploy/23981a6fc840c374aee4eb316bed27ff` (configured on GitHub)
 
 **GitHub Repo:** `trey1mossman-ai/cleancut-astro` (public)
 **Branches:**
