@@ -4,6 +4,14 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
+import HorizontalProcess from '../../components/HorizontalProcess.astro';
+
+const processSteps = [
+  { number: 1, title: "Protect", description: "Protect furniture, floors, and fixtures" },
+  { number: 2, title: "Prep", description: "Prep surfaces with sanding, priming, and repairs" },
+  { number: 3, title: "Apply", description: "Apply expert finish coats for lasting results" },
+  { number: 4, title: "Inspect", description: "Inspect and finalize with your approval" }
+];
 ---
 
 <Layout
@@ -155,65 +163,8 @@ import Lightbox from '../../components/Lightbox.astro';
       </div>
     </section>
 
-    <!-- Our Process Section - Card Style like Core Values -->
-    <section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover; background-position: center;">
-      <div class="absolute inset-0 bg-[#144787]/90"></div>
-      <div class="container-custom relative z-10">
-        <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-white mb-12">
-          Our Process in a Snapshot
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          <!-- Card 1 -->
-          <div class="bg-white rounded-xl p-6 shadow-lg text-center">
-            <div class="w-16 h-16 rounded-full bg-sky-400 text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-              1
-            </div>
-            <h3 class="text-lg font-bold text-[#144787] mb-3">
-              Protect
-            </h3>
-            <p class="text-gray-600 text-sm">
-              Protect furniture, floors, and fixtures
-            </p>
-          </div>
-          <!-- Card 2 -->
-          <div class="bg-white rounded-xl p-6 shadow-lg text-center">
-            <div class="w-16 h-16 rounded-full bg-sky-400 text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-              2
-            </div>
-            <h3 class="text-lg font-bold text-[#144787] mb-3">
-              Prep
-            </h3>
-            <p class="text-gray-600 text-sm">
-              Prep surfaces with sanding, priming, and repairs
-            </p>
-          </div>
-          <!-- Card 3 -->
-          <div class="bg-white rounded-xl p-6 shadow-lg text-center">
-            <div class="w-16 h-16 rounded-full bg-sky-400 text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-              3
-            </div>
-            <h3 class="text-lg font-bold text-[#144787] mb-3">
-              Apply
-            </h3>
-            <p class="text-gray-600 text-sm">
-              Apply expert finish coats for lasting results
-            </p>
-          </div>
-          <!-- Card 4 -->
-          <div class="bg-white rounded-xl p-6 shadow-lg text-center">
-            <div class="w-16 h-16 rounded-full bg-sky-400 text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-              4
-            </div>
-            <h3 class="text-lg font-bold text-[#144787] mb-3">
-              Inspect
-            </h3>
-            <p class="text-gray-600 text-sm">
-              Inspect and finalize with your approval
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Our Process Section - Horizontal Layout -->
+    <HorizontalProcess steps={processSteps} />
 
     <!-- Gallery Section -->
     <section class="py-20 bg-gray-50">

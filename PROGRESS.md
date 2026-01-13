@@ -96,3 +96,61 @@
 - Connected Hostinger to pull from `deploy` branch
 - Site now auto-deploys when deploy branch is updated
 - Created DEPLOYMENT.md with full deployment workflow documentation
+
+---
+
+## Task List (from Colleen's Jan 12 Email + Google Doc)
+
+### Priority: Layout/Design Changes (from Email)
+
+#### Service Pages Redesign
+- [ ] **Smaller hero images on service pages** - Reduce height, less dominant
+- [ ] **Background color changes** - Per attached screenshot (needs review)
+- [ ] **Process section: Horizontal scroll/straight line layout** - Instead of vertical steps
+- [ ] **Keep existing process wording** - Per Colby, current wording is good
+
+### Priority: Content Implementation (from Google Doc)
+
+#### About Us Page
+- [ ] Apply copy from Google Doc (Our Story section)
+- [ ] "From Quick Touch-Ups to Full Home Transformations" header
+- [ ] Team intro section with headshots (download from Drive)
+
+#### Residential Services (6 pages)
+- [ ] **Interior Painting** - Already updated, verify matches doc
+- [ ] **Exterior Painting** - Apply full copy from doc
+- [ ] **Power Washing** - Apply full copy from doc
+- [ ] **Cabinet Refinishing** - Apply full copy from doc  
+- [ ] **Drywall Services** - Apply full copy from doc
+- [ ] **Handyman Services** - Apply full copy from doc
+
+#### Commercial Page
+- [ ] Apply full commercial copy from doc
+- [ ] "Professional Commercial Painting for Your Business" focus
+- [ ] Service list: offices, retail, warehouses, etc.
+
+#### Who We Are Page
+- [ ] Download team headshots from Drive folder
+- [ ] Create team section with bios
+- [ ] Add core values (if not already present)
+- [ ] Mission statement from doc
+
+#### Our Work / Gallery
+- [ ] Verify gallery matches expectations
+- [ ] Add any missing project photos from Drive
+
+#### Contact Page
+- [ ] Add **Springfield location** (new from doc)
+  - Address: 3143 E Elm St, Ste E, Springfield, MO 65802
+  - Phone: 417-540-2020
+- [ ] Verify Colorado Springs location info correct
+- [ ] Update service areas if needed
+
+### Assets to Download
+- [ ] Team headshots: https://drive.google.com/drive/folders/1rWSXfI9-m72y4xtn70dDMLTUeDgPL8pN
+- [ ] Additional photos: https://drive.google.com/drive/folders/1MLch6y_u4DHMS0qyOdaDXmk-3oMYsDkE
+
+### Technical
+- [ ] Build and test all changes locally
+- [ ] Deploy to Hostinger via deploy branch
+- [ ] Verify mobile responsiveness on all updated pages
