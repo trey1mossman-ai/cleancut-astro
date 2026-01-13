@@ -1,156 +1,64 @@
 # CleanCut Pros - Progress
 
 ## Last Updated
-2026-01-13 - GitHub + Hostinger Git deployment setup
+2026-01-13 - Colleen feedback implemented, awaiting approval
 
 ## Current State
-- **Status:** Deployed to Hostinger via GitHub
-- **Site:** https://indigo-badger-869654.hostingersite.com/
+- **Status:** Preview on Vercel, Hostinger auto-deploy not working (use Vercel for now)
+- **Vercel Preview:** https://cleancut-astro.vercel.app
+- **Hostinger Site:** http://indigo-badger-869654.hostingersite.com/ (manual deploy needed)
 - **GitHub Repo:** https://github.com/trey1mossman-ai/cleancut-astro
 - **Source Branch:** main
-- **Deploy Branch:** deploy (static files only)
-
----
-
-## Completed Today (Dec 29)
-
-### Morning Session
-- [x] Footer changed from gray to black
-- [x] Removed stats section from About on homepage
-- [x] Removed "Learn More" button from Services section
-- [x] Commercial made its own nav button
-- [x] Removed blue dots from service dropdown items
-- [x] Google Reviews section: "Trusted by Your Neighbors" header + new pill format
-- [x] Profile colors changed to navy blue
-- [x] "Leave a Review" button changed to light blue
-- [x] Navigation restructured (About Us, Residential dropdown, Commercial, Who We Are dropdown)
-- [x] Owner responses removed from reviews
-- [x] About page CTA section changed to white background
-- [x] Gallery featured images widened on all 7 service pages
-- [x] Footer social icons shrunk by ~25%
-- [x] Removed old hostinger-deploy folder, documented correct deployment path
-
-### Post-Call Session (While user at gym)
-- [x] Remove arrow from Meet the Team button
-- [x] Align hero text with equal padding (flex items-center)
-- [x] Change "Residential Interior Painting" to "Interior Painting"
-- [x] Update Interior Painting page with new copy from Google Doc
-- [x] Center the Interior Painting hero section
-- [x] Redesign "Our Interior Painting Process" as cards (like Core Values)
-- [x] Add Gallery CTA to Interior Painting page (2 CTAs added)
-- [x] Fix Service Areas accordion to only open one region at a time
-
----
-
-## Remaining Tasks
-
-### Needs Client Input
-- [ ] Break out Who We Are into its own page with headshots and team
-  - Headshots folder: https://drive.google.com/drive/folders/1rWSXfI9-m72y4xtn70dDMLTUeDgPL8pN
-  - Need to download headshots and create team page
-- [ ] Send FAQs to client for answers
-
-### Pending
-- [ ] Add videos from live gallery page to Our Work section
-  - Need to check live site for video sources
-
----
-
-## Resources
-- **Google Drive:** https://drive.google.com/drive/folders/1nrfGrFZlKPSGkbGxVrnqdEPVA_9dpDq3
-- **Website Copy Doc:** 1QZzrmitx3MAII4fjjycoJSQFGh3_1ZW9JNAJLJIcIbg
-- **Live site (old):** Reference for videos in gallery
-- **Headshots folder:** https://drive.google.com/drive/folders/1rWSXfI9-m72y4xtn70dDMLTUeDgPL8pN
+- **Deploy Branch:** deploy
 
 ---
 
 ## Session Log
 
-### 2025-12-29 (Post-Call - Gym Session)
-- Read Website Copy doc from Google Drive
-- Implemented 8 tasks from call notes while user at gym
-- Updated Interior Painting page with new copy structure
-- Fixed Service Areas accordion behavior
-- Build successful, deployment folder updated
+### 2026-01-13 - Colleen Feedback Implementation
+**Focus:** Implement all feedback from Colleen's Jan 12 email
 
-### 2025-12-29 (11am Call)
-- Reviewed updates with Colleen
-- New task list from call feedback
-- All tasks need to be completed today
+**Completed:**
+- [x] Created HorizontalProcess.astro component (1-2-3-4 horizontal layout)
+- [x] Applied to interior-painting.astro for approval before rollout
+- [x] Reduced hero height on service pages (500px to 350px)
+- [x] Fixed alternating section backgrounds (bg-gray-200 for visibility)
+- [x] Fixed About page alternating backgrounds
+- [x] Fixed CTA pattern visibility (opacity-20 like CareersCTA)
+- [x] Updated GitHub Actions workflow to match Kinship Landing pattern
+- [x] Set up Vercel deployment as reliable preview alternative
+- [x] Emailed Colleen with preview link and changes summary
 
-### 2025-12-29 (Morning)
-- Implemented all feedback from Google Drive
-- Fixed deployment folder confusion
-- Sent update email to Colleen with changes list
-- Set up Google Drive API access
+**Files Changed:**
+- src/components/HorizontalProcess.astro - NEW: horizontal process steps component
+- src/pages/residential/interior-painting.astro - hero height, bg-gray-200, CTA pattern fix
+- src/pages/about.astro - bg-gray-200 for alternating sections
+- .github/workflows/deploy.yml - updated to match Kinship pattern
 
-### 2025-12-23
-- Created project documentation files
-- Initial audit of missing elements
+**Technical Notes:**
+- Tailwind v4 bg-gray-50 and bg-gray-100 are too light - use bg-gray-200 for visible gray
+- Hostinger webhook delivering 200 OK but not pulling changes - needs investigation
+- Vercel auto-deploys from main branch reliably
 
-### 2026-01-13 - GitHub Deployment Setup
-- Created GitHub repo: `trey1mossman-ai/cleancut-astro`
-- Pushed source code to `main` branch
-- Compressed video testimonials from 185-272MB to 9-14MB each (ffmpeg CRF 28)
-- Created `deploy` branch with only static built files (83MB)
-- Connected Hostinger to pull from `deploy` branch
-- Site now auto-deploys when deploy branch is updated
-- Created DEPLOYMENT.md with full deployment workflow documentation
+**Waiting On:**
+- Colleen approval of interior-painting layout before rolling out to all service pages
 
 ---
 
-## Task List (from Colleen's Jan 12 Email + Google Doc)
+## Remaining Tasks
 
-### Priority: Layout/Design Changes (from Email)
+### Pending Colleen Approval
+- Task 6: Apply Google Doc copy to ALL service pages
+  - Waiting for approval of interior-painting layout
+  - Once approved, roll out HorizontalProcess + copy to all service pages
 
-#### Service Pages Redesign
-- [ ] **Smaller hero images on service pages** - Reduce height, less dominant
-- [ ] **Background color changes** - Per attached screenshot (needs review)
-- [ ] **Process section: Horizontal scroll/straight line layout** - Instead of vertical steps
-- [ ] **Keep existing process wording** - Per Colby, current wording is good
+### Technical Debt
+- Fix Hostinger auto-deploy (webhook delivers but doesnt pull)
+- Investigate why GitHub Actions deploy branch not syncing to Hostinger
 
-### Priority: Content Implementation (from Google Doc)
+---
 
-#### About Us Page
-- [ ] Apply copy from Google Doc (Our Story section)
-- [ ] "From Quick Touch-Ups to Full Home Transformations" header
-- [ ] Team intro section with headshots (download from Drive)
-
-#### Residential Services (6 pages)
-- [ ] **Interior Painting** - Already updated, verify matches doc
-- [ ] **Exterior Painting** - Apply full copy from doc
-- [ ] **Power Washing** - Apply full copy from doc
-- [ ] **Cabinet Refinishing** - Apply full copy from doc  
-- [ ] **Drywall Services** - Apply full copy from doc
-- [ ] **Handyman Services** - Apply full copy from doc
-
-#### Commercial Page
-- [ ] Apply full commercial copy from doc
-- [ ] "Professional Commercial Painting for Your Business" focus
-- [ ] Service list: offices, retail, warehouses, etc.
-
-#### Who We Are Page
-- [ ] Download team headshots from Drive folder
-- [ ] Create team section with bios
-- [ ] Add core values (if not already present)
-- [ ] Mission statement from doc
-
-#### Our Work / Gallery
-- [ ] Verify gallery matches expectations
-- [ ] Add any missing project photos from Drive
-
-#### Contact Page
-- [ ] Add **Springfield location** (new from doc)
-  - Address: 3143 E Elm St, Ste E, Springfield, MO 65802
-  - Phone: 417-540-2020
-- [ ] Verify Colorado Springs location info correct
-- [ ] Update service areas if needed
-
-### Assets to Download
-- [ ] Team headshots: https://drive.google.com/drive/folders/1rWSXfI9-m72y4xtn70dDMLTUeDgPL8pN
-- [ ] Additional photos: https://drive.google.com/drive/folders/1MLch6y_u4DHMS0qyOdaDXmk-3oMYsDkE
-
-### Technical
-- [ ] Build and test all changes locally
-- [ ] Deploy to Hostinger via deploy branch
-- [ ] Verify mobile responsiveness on all updated pages
+## Resources
+- **Vercel Preview:** https://cleancut-astro.vercel.app
+- **Google Drive:** https://drive.google.com/drive/folders/1nrfGrFZlKPSGkbGxVrnqdEPVA_9dpDq3
+- **Website Copy Doc:** 1QZzrmitx3MAII4fjjycoJSQFGh3_1ZW9JNAJLJIcIbg
