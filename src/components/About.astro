@@ -1,0 +1,180 @@
+---
+// About section component for Clean Cut Painting & Handyman
+
+const images = [
+  { src: '/images/clean-cut-about.webp', alt: 'Clean Cut team at work' },
+  { src: '/images/Home Page/About Us/CC _ Home Page Photos_About Us_2.webp', alt: 'Professional painting services' },
+  { src: '/images/Home Page/About Us/CC _ Home Page Photos_About Us_3.webp', alt: 'Family-owned business' },
+  { src: '/images/Home Page/About Us/CC _ Home Page Photos_About Us_4.webp', alt: 'Quality craftsmanship' },
+];
+---
+
+<section class="py-16 bg-gray-50/50">
+  <div class="container-custom">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Image Carousel -->
+      <div class="order-2 lg:order-1 relative">
+        <div class="relative rounded-2xl shadow-2xl overflow-hidden bg-white">
+          <!-- Main Image Container -->
+          <div class="relative aspect-[4/3]">
+            {images.map((image, index) => (
+              <img
+                src={image.src}
+                alt={image.alt}
+                class:list={[
+                  "carousel-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-500",
+                  index === 0 ? "opacity-100" : "opacity-0"
+                ]}
+                data-slide={index}
+                loading={index === 0 ? 'eager' : 'lazy'}
+              />
+            ))}
+          </div>
+
+          <!-- Navigation Arrows -->
+          <button
+            id="carousel-prev"
+            class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group z-10"
+            aria-label="Previous image"
+          >
+            <svg class="w-5 h-5 text-gray-700 group-hover:text-sky-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <button
+            id="carousel-next"
+            class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group z-10"
+            aria-label="Next image"
+          >
+            <svg class="w-5 h-5 text-gray-700 group-hover:text-sky-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+          <!-- Dots Indicator -->
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            {images.map((_, index) => (
+              <button
+                class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300"
+                data-index={index}
+                aria-label={`Go to image ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-sky-400/20 rounded-2xl -z-10"></div>
+        <div class="absolute -top-4 -left-4 w-16 h-16 bg-[#144787]/10 rounded-xl -z-10"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="order-1 lg:order-2">
+        <span class="inline-block px-4 py-1.5 bg-sky-100 text-sky-600 text-sm font-semibold rounded-full mb-4">
+          Family-Owned Since 2018
+        </span>
+        <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
+          About Clean Cut
+        </h2>
+        <p class="text-lg text-gray-600 mb-5 leading-relaxed">
+          Clean Cut Painting & Handyman is a family-operated business proudly serving Central Illinois since 2018. We're committed to delivering exceptional quality, honest pricing, and personalized service on every project.
+        </p>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+          Our mission is simple: transform your spaces with precision, care, and craftsmanship that exceeds expectations. From the first consultation to the final brushstroke, we treat your home or business as if it were our own.
+        </p>
+
+
+        <a href="/about" class="inline-flex items-center px-6 py-3 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+          Meet the Team
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
+  const carouselContainer = document.querySelector('.aspect-\\[4\\/3\\]');
+  const totalSlides = slides.length;
+  let currentIndex = 0;
+  let autoplayInterval: ReturnType<typeof setInterval>;
+
+  function updateCarousel() {
+    // Update slides
+    slides.forEach((slide, index) => {
+      if (index === currentIndex) {
+        slide.classList.remove('opacity-0');
+        slide.classList.add('opacity-100');
+      } else {
+        slide.classList.remove('opacity-100');
+        slide.classList.add('opacity-0');
+      }
+    });
+
+    // Update dots
+    dots.forEach((dot, index) => {
+      if (index === currentIndex) {
+        dot.classList.remove('bg-white/50');
+        dot.classList.add('bg-white', 'scale-125');
+      } else {
+        dot.classList.remove('bg-white', 'scale-125');
+        dot.classList.add('bg-white/50');
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  }
+
+  function goToSlide(index: number) {
+    currentIndex = index;
+    updateCarousel();
+  }
+
+  function startAutoplay() {
+    autoplayInterval = setInterval(nextSlide, 4000);
+  }
+
+  function stopAutoplay() {
+    clearInterval(autoplayInterval);
+  }
+
+  // Event listeners
+  nextBtn?.addEventListener('click', () => {
+    stopAutoplay();
+    nextSlide();
+    startAutoplay();
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    stopAutoplay();
+    prevSlide();
+    startAutoplay();
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      stopAutoplay();
+      goToSlide(index);
+      startAutoplay();
+    });
+  });
+
+  // Pause on hover
+  carouselContainer?.addEventListener('mouseenter', stopAutoplay);
+  carouselContainer?.addEventListener('mouseleave', startAutoplay);
+
+  // Initialize
+  updateCarousel();
+  startAutoplay();
+</script>

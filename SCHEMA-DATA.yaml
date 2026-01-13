@@ -1,0 +1,103 @@
+# CleanCut Pros - Business Schema Data
+# ✅ VERIFIED from website Footer.astro
+# Last verified: 2025-12-23
+
+# =============================================================================
+# BUSINESS IDENTITY
+# =============================================================================
+business:
+  name: "Clean Cut Painting & Handyman"
+  legal_name: "Clean Cut Painting & Handyman"
+  tagline: "Professional Painting & Handyman Services"
+  description: "Clean Cut Painting & Handyman provides professional painting and handyman services to residential and commercial customers in Central Illinois."
+  year_established: null  # VERIFY with client
+  
+# =============================================================================
+# CONTACT INFORMATION (NAP - Must be consistent everywhere)
+# =============================================================================
+contact:
+  phone: "(217) 330-7310"
+  phone_raw: "+12173307310"
+  email: "info@cleancutservice.com"
+  website: "https://cleancutservice.com"  # VERIFY exact domain
+  
+address:
+  street: "1004 E Eldorado St"
+  city: "Decatur"
+  state: "IL"
+  zip: "62521"
+  country: "USA"
+  full: "1004 E Eldorado St, Decatur, IL 62521"
+  
+# =============================================================================
+# SERVICE AREAS
+# =============================================================================
+service_areas:
+  primary:
+    - name: "Decatur"
+      state: "IL"
+  region: "Central Illinois"
+
+# =============================================================================
+# SERVICES OFFERED
+# =============================================================================
+services:
+  - name: "Interior Painting"
+    slug: "interior-painting"
+    
+  - name: "Exterior Painting"
+    slug: "exterior-painting"
+    
+  - name: "Cabinet Refinishing"
+    slug: "cabinet-refinishing"
+    
+  - name: "Deck Staining"
+    slug: "deck-staining"
+    
+  - name: "Power Washing"
+    slug: "power-washing"
+    
+  - name: "Handyman Services"
+    slug: "handyman"
+
+# =============================================================================
+# BUSINESS HOURS
+# =============================================================================
+hours:
+  monday: "8AM - 6PM"
+  tuesday: "8AM - 6PM"
+  wednesday: "8AM - 6PM"
+  thursday: "8AM - 6PM"
+  friday: "8AM - 6PM"
+  saturday: "9AM - 4PM"
+  sunday: "Closed"
+
+# =============================================================================
+# SOCIAL MEDIA & LISTINGS
+# =============================================================================
+social:
+  facebook: "https://www.facebook.com/profile.php?id=100095230540722"
+  instagram: "https://www.instagram.com/cleancutdecatur"
+  yelp: "https://www.yelp.com/biz/clean-cut-painting-and-handyman-services-decatur"
+  google_business: "https://www.google.com/search?q=clean+cut+painting+and+handyman+decatur+il"
+  
+# =============================================================================
+# SCHEMA.ORG DATA
+# =============================================================================
+schema:
+  type: "LocalBusiness"
+  additional_types:
+    - "HomeAndConstructionBusiness"
+    - "HousePainter"
+    - "HandymanService"
+  price_range: "$$"
+  
+# =============================================================================
+# VERIFICATION LOG
+# =============================================================================
+verification:
+  last_verified: "2025-12-23"
+  verified_by: "Pillar 3 (from Footer.astro)"
+  source: "src/components/Footer.astro"
+  client_approved: false  # Needs Colleen to confirm
+  notes: "Data extracted from live website footer"

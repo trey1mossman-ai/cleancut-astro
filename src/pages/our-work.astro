@@ -1,0 +1,340 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FloatingCallButton from '../components/FloatingCallButton.astro';
+import Lightbox from '../components/Lightbox.astro';
+
+// Gallery data organized by category
+const galleryCategories = [
+  {
+    id: 'interior',
+    title: 'Interior Painting',
+    images: [
+      {
+        src: '/images/services-optimized/interior-painting/6t4a6783.webp',
+        alt: 'Professional interior painting - wall and ceiling work'
+      },
+      {
+        src: '/images/services-optimized/interior-painting/6t4a6843.webp',
+        alt: 'Interior painting project - finished home interior'
+      },
+      {
+        src: '/images/services-optimized/interior-painting/6t4a6822-2.webp',
+        alt: 'Clean Cut Painting - custom interior color selection'
+      },
+      {
+        src: '/images/services-optimized/interior-painting/6t4a6873.webp',
+        alt: 'Beautifully finished bedroom with freshly painted walls'
+      },
+      {
+        src: '/images/services-optimized/interior-painting/2.webp',
+        alt: 'Professional interior painting - kitchen with white painted cabinets'
+      },
+      {
+        src: '/images/services-optimized/interior-painting/march-26.webp',
+        alt: 'Clean Cut Painting interior project - freshly painted walls'
+      }
+    ]
+  },
+  {
+    id: 'exterior',
+    title: 'Exterior Painting',
+    images: [
+      {
+        src: '/images/services-optimized/exterior-painting/552533568_18029634086725762_2275584699687083915_n.webp',
+        alt: 'Professional exterior house painting - blue siding'
+      },
+      {
+        src: '/images/services-optimized/exterior-painting/519661187_18021421895725762_3375230967664930050_n.webp',
+        alt: 'Exterior painting project - residential home transformation'
+      },
+      {
+        src: '/images/services-optimized/exterior-painting/2-2.webp',
+        alt: 'Exterior home painting - quality craftsmanship'
+      },
+      {
+        src: '/images/services-optimized/exterior-painting/1.webp',
+        alt: 'Residential exterior painting - fresh paint finish'
+      },
+      {
+        src: '/images/services-optimized/exterior-painting/march-25.webp',
+        alt: 'Exterior painting - completed home project'
+      },
+      {
+        src: '/images/services-optimized/exterior-painting/3-3.webp',
+        alt: 'Professional exterior painting service'
+      }
+    ]
+  },
+  {
+    id: 'cabinets',
+    title: 'Cabinet Refinishing',
+    images: [
+      {
+        src: '/images/services-optimized/cabinet-refinishing/copy-of-2.webp',
+        alt: 'Professional cabinet refinishing and painting'
+      },
+      {
+        src: '/images/Home Page/Residential Services/CC _ Home Page Photos_Cabinet Refinishing.webp',
+        alt: 'Kitchen cabinet transformation with professional refinishing'
+      }
+    ]
+  },
+  {
+    id: 'deck',
+    title: 'Deck Staining',
+    images: [
+      {
+        src: '/images/services-optimized/deck-staining/june-26.webp',
+        alt: 'Professional deck staining and restoration'
+      },
+      {
+        src: '/images/services-optimized/deck-staining/543742067_18027770942725762_6809030153408573163_n.webp',
+        alt: 'Deck staining project - beautifully finished outdoor space'
+      },
+      {
+        src: '/images/services-optimized/deck-staining/544063718_18027770906725762_8407492106307251719_n.webp',
+        alt: 'Deck refinishing and staining service'
+      },
+      {
+        src: '/images/services-optimized/deck-staining/543046979_18027770933725762_2680363837880653339_n.webp',
+        alt: 'Professional deck staining - outdoor living enhancement'
+      },
+      {
+        src: '/images/services-optimized/deck-staining/april-7.webp',
+        alt: 'Deck staining and sealing project'
+      },
+      {
+        src: '/images/services-optimized/deck-staining/april-6.webp',
+        alt: 'Complete deck restoration and staining'
+      }
+    ]
+  },
+  {
+    id: 'commercial',
+    title: 'Commercial Projects',
+    images: [
+      {
+        src: '/images/services-optimized/commercial-projects/2-3.webp',
+        alt: 'Commercial painting and renovation project'
+      },
+      {
+        src: '/images/services-optimized/commercial-projects/april-10.webp',
+        alt: 'Commercial exterior painting service'
+      },
+      {
+        src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Commerical Exterior.webp',
+        alt: 'Commercial building exterior painting'
+      }
+    ]
+  },
+  {
+    id: 'other',
+    title: 'Additional Projects',
+    images: [
+      {
+        src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Pool Repair & Repaint.webp',
+        alt: 'Pool area repair and repainting project'
+      },
+      {
+        src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Garage Repaint-12.webp',
+        alt: 'Garage floor and wall repainting'
+      },
+      {
+        src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Garage Repaint-13.webp',
+        alt: 'Completed garage renovation and painting'
+      },
+      {
+        src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Deck Rebuild.webp',
+        alt: 'Complete deck rebuild and refinishing project'
+      },
+      {
+        src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Deck & Boat House Rebuild.webp',
+        alt: 'Deck and boat house rebuild and painting'
+      }
+    ]
+  }
+];
+---
+
+<Layout
+  title="Our Work | Clean Cut Painting & Handyman Gallery"
+  description="Browse our portfolio of painting and handyman projects across Decatur, Springfield, and Central Illinois. See our quality interior, exterior, cabinet, and deck work."
+>
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-[500px] py-20 lg:py-24 overflow-hidden">
+      <img
+        src="/images/Home Page/Residential Services/CC _ Home Page Photos_Interior Painting.webp"
+        alt="Our work - professional painting and handyman services"
+        class="absolute inset-0 w-full h-full object-cover"
+      >
+      <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
+      <div class="container-custom relative z-10">
+        <div class="max-w-4xl mx-auto text-center text-white">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 drop-shadow-lg">
+            Our Work
+          </h1>
+          <p class="text-lg sm:text-xl lg:text-2xl text-white/95 font-medium max-w-3xl mx-auto">
+            Browse our portfolio of completed projects across Decatur, Springfield, and Central Illinois. Quality craftsmanship in every detail.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-4">
+            Project Gallery
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Explore our comprehensive portfolio showcasing quality craftsmanship across all our services
+          </p>
+        </div>
+
+        {galleryCategories.map((category, index) => (
+          <div class={index > 0 ? "mt-16" : ""}>
+            <h3 class="text-2xl lg:text-3xl font-display font-bold text-[#144787] mb-8">
+              {category.title}
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              {category.images.map((image) => (
+                <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    data-lightbox-gallery="our-work-gallery"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Video Gallery Section -->
+    <section class="py-16 bg-white">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-4">
+            Video Gallery
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Watch our team in action and see the quality craftsmanship we bring to every project
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="aspect-video rounded-lg overflow-hidden shadow-lg">
+            <video 
+              class="w-full h-full object-cover" 
+              controls 
+              preload="metadata"
+              poster="/images/video-poster.webp"
+            >
+              <source src="https://player.vimeo.com/progressive_redirect/playback/919437556/rendition/1080p/file.mp4?loc=external&log_user=0&signature=eb333e5eeba651e3cdd540e12b7fd79719a319bd5b3122d8c99aa0b625442058" type="video/mp4">
+            </video>
+          </div>
+          <div class="aspect-video rounded-lg overflow-hidden shadow-lg">
+            <video 
+              class="w-full h-full object-cover" 
+              controls 
+              preload="metadata"
+            >
+              <source src="https://player.vimeo.com/progressive_redirect/playback/919436979/rendition/1080p/file.mp4?loc=external&log_user=0&signature=f74928338fb4138169d8747388433979e7cae5e41d6e0c841cdee977eeaac004" type="video/mp4">
+            </video>
+          </div>
+          <div class="aspect-video rounded-lg overflow-hidden shadow-lg">
+            <video 
+              class="w-full h-full object-cover" 
+              controls 
+              preload="metadata"
+            >
+              <source src="https://player.vimeo.com/progressive_redirect/playback/919437138/rendition/1080p/file.mp4?loc=external&log_user=0&signature=739ef3e8456ed249af4a6d9968231c76b93d06f27f2c4bbd06bae63c9aff83ce" type="video/mp4">
+            </video>
+          </div>
+          <div class="aspect-video rounded-lg overflow-hidden shadow-lg">
+            <video 
+              class="w-full h-full object-cover" 
+              controls 
+              preload="metadata"
+            >
+              <source src="https://player.vimeo.com/progressive_redirect/playback/919437399/rendition/1080p/file.mp4?loc=external&log_user=0&signature=6fe890952f01340bafca0084977087848d1b615dd9d6616ad3b546e133556576" type="video/mp4">
+            </video>
+          </div>
+          <div class="aspect-video rounded-lg overflow-hidden shadow-lg">
+            <video 
+              class="w-full h-full object-cover" 
+              controls 
+              preload="metadata"
+            >
+              <source src="https://player.vimeo.com/progressive_redirect/playback/919437263/rendition/1080p/file.mp4?loc=external&log_user=0&signature=5ef81898bc2b2c14a72352b272d76e9609c49156c3cb19dd66f9fd0f4b91c4c3" type="video/mp4">
+            </video>
+          </div>
+          <div class="aspect-video rounded-lg overflow-hidden shadow-lg">
+            <video 
+              class="w-full h-full object-cover" 
+              controls 
+              preload="metadata"
+            >
+              <source src="https://player.vimeo.com/progressive_redirect/playback/919437458/rendition/1080p/file.mp4?loc=external&log_user=0&signature=9c3e481f7d5f313ae5e65ac5c975b0ee8069d4f4804b24b7bc932659c0f08470" type="video/mp4">
+            </video>
+          </div>
+          <div class="aspect-video rounded-lg overflow-hidden shadow-lg">
+            <video 
+              class="w-full h-full object-cover" 
+              controls 
+              preload="metadata"
+            >
+              <source src="https://player.vimeo.com/progressive_redirect/playback/919437519/rendition/1080p/file.mp4?loc=external&log_user=0&signature=7bd056d5c3a43623fc9caee83683fac77e7da5f64eee0143682a920ea292500f" type="video/mp4">
+            </video>
+          </div>
+          <div class="aspect-video rounded-lg overflow-hidden shadow-lg">
+            <video 
+              class="w-full h-full object-cover" 
+              controls 
+              preload="metadata"
+            >
+              <source src="https://player.vimeo.com/progressive_redirect/playback/919437335/rendition/1080p/file.mp4?loc=external&log_user=0&signature=c63f4c94c30150aad1912cb8e1b384a31028744d4daa1c39cb347b63c46e60b5" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover; background-position: center;">
+      <div class="absolute inset-0 bg-[#144787]/90"></div>
+      <div class="container-custom relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl lg:text-4xl font-display font-bold text-white mb-6">
+            Ready to Start Your Project?
+          </h2>
+          <p class="text-lg text-white/90 mb-8">
+            Let's transform your space with professional painting and handyman services. Contact us today for a free estimate!
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact" class="px-8 py-4 bg-sky-400 text-white font-bold text-lg rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+              Get Free Estimate
+            </a>
+            <a href="tel:+12173307310" class="px-8 py-4 bg-white text-[#144787] font-bold text-lg rounded-lg hover:bg-gray-100 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+              Call (217) 330-7310
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingCallButton />
+  <Lightbox />
+</Layout>

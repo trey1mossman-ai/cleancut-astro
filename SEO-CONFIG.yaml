@@ -1,0 +1,108 @@
+# CleanCut Pros - SEO Configuration
+# Keywords, meta templates, and image naming conventions
+
+# =============================================================================
+# PRIMARY KEYWORDS
+# =============================================================================
+keywords:
+  primary:
+    - "painting contractor Decatur IL"
+    - "handyman services Decatur"
+    - "CleanCut Pros"
+    
+  secondary:
+    - "house painting Decatur Illinois"
+    - "commercial painting Central Illinois"
+    - "pressure washing Decatur"
+    - "drywall repair Decatur IL"
+    - "residential painting services"
+    
+  long_tail:
+    - "professional painters near me Decatur"
+    - "affordable handyman Decatur IL"
+    - "interior painting services Decatur Illinois"
+    - "exterior house painting Central IL"
+
+# =============================================================================
+# META TEMPLATES
+# =============================================================================
+meta:
+  title_template: "{page} | CleanCut Pros - Decatur, IL"
+  title_max_length: 60
+  
+  description_template: "{description} Professional painting and handyman services in Decatur, IL. Call CleanCut Pros today!"
+  description_max_length: 160
+  
+  default_title: "CleanCut Pros | Professional Painting & Handyman Services in Decatur, IL"
+  default_description: "CleanCut Pros provides professional painting and handyman services to residential and commercial customers in Decatur, Illinois. Free estimates!"
+
+# =============================================================================
+# PAGE-SPECIFIC SEO
+# =============================================================================
+pages:
+  home:
+    title: "CleanCut Pros | Professional Painting & Handyman Services in Decatur, IL"
+    description: "CleanCut Pros provides professional painting and handyman services in Decatur, IL. Residential & commercial. Free estimates!"
+    h1: "Professional Painting & Handyman Services in Decatur, IL"
+    
+  about:
+    title: "About Us | CleanCut Pros - Decatur, IL"
+    description: "Learn about CleanCut Pros, your trusted painting and handyman service provider in Decatur, Illinois."
+    
+  contact:
+    title: "Contact Us | CleanCut Pros - Decatur, IL"
+    description: "Contact CleanCut Pros for a free estimate on painting and handyman services in Decatur, IL."
+    
+  services:
+    residential:
+      title: "Residential Painting Services | CleanCut Pros - Decatur, IL"
+      description: "Professional residential painting services in Decatur, IL. Interior and exterior painting. Free estimates!"
+      
+    commercial:
+      title: "Commercial Painting Services | CleanCut Pros - Decatur, IL"
+      description: "Commercial painting services for businesses in Decatur and Central Illinois. Professional results guaranteed."
+
+# =============================================================================
+# IMAGE NAMING CONVENTIONS
+# =============================================================================
+images:
+  naming_pattern: "{keyword}-{location}-{descriptor}.{ext}"
+  examples:
+    - "residential-painting-decatur-il-exterior.jpg"
+    - "handyman-services-decatur-illinois-drywall.jpg"
+    - "cleancut-pros-team-decatur.jpg"
+    
+  required_metadata:
+    title: "Primary keyword"
+    alt: "Descriptive alt text with keyword"
+    iptc_keywords: "Up to 10 relevant keywords"
+    gps: "Business location coordinates"
+
+# =============================================================================
+# LOCAL SEO
+# =============================================================================
+local:
+  geo_coordinates:
+    latitude: null   # VERIFY
+    longitude: null  # VERIFY
+    
+  geo_region: "US-IL"
+  geo_placename: "Decatur, Illinois"
+  
+  structured_data:
+    - LocalBusiness
+    - Service
+    - FAQPage (if FAQ exists)
+
+# =============================================================================
+# TECHNICAL SEO
+# =============================================================================
+technical:
+  sitemap: "/sitemap.xml"
+  robots: "/robots.txt"
+  canonical_domain: null  # VERIFY - "https://..."
+  
+  required_pages:
+    - sitemap.xml
+    - robots.txt
+    - 404.html

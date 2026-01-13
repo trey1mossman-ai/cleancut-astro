@@ -1,0 +1,346 @@
+---
+// Video Testimonials Section - Real customer video reviews
+
+// All testimonials - first one will be featured initially
+const allTestimonials = [
+  {
+    name: "Shannon",
+    tagline: "Fast, clean, and professional",
+    video: "/videos/testimonials/testimonial-shannon.mp4",
+    thumbnail: "/videos/testimonials/Shannon Thumbnail.webp",
+    category: "residential"
+  },
+  {
+    name: "Jim",
+    tagline: "Outstanding service",
+    video: "/videos/testimonials/testimonial-jim.mp4",
+    thumbnail: "/videos/testimonials/Jim Thumbnail.webp",
+    category: "commercial"
+  },
+  {
+    name: "Jack",
+    tagline: "True to their values",
+    video: "/videos/testimonials/testimonial-jack.mp4",
+    thumbnail: "/videos/testimonials/Jack-thumbnail.webp",
+    category: "residential"
+  },
+  {
+    name: "Carolyn",
+    tagline: "Transformed our space",
+    video: "/videos/testimonials/testimonial-carolyn.mp4",
+    thumbnail: "/videos/testimonials/carolyn thumbnail.webp",
+    category: "residential"
+  },
+  {
+    name: "Ryan",
+    tagline: "Community focused",
+    video: "/videos/testimonials/testimonial-ryan.mp4",
+    thumbnail: "/videos/testimonials/Ryan Thumbnail.webp",
+    category: "commercial"
+  }
+];
+
+const featuredTestimonial = allTestimonials[0];
+const thumbnailTestimonials = allTestimonials.slice(1);
+---
+
+<section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-02.webp'); background-size: cover; background-position: center;">
+  <div class="container-custom relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-8">
+      <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-4">Client Stories</h2>
+      <p class="text-lg text-gray-700 max-w-2xl mx-auto">Real projects, real results.</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="flex justify-center gap-2 mb-8">
+      <button
+        class="filter-btn px-5 py-2 rounded-full font-medium text-sm transition-all duration-300 bg-[#144787] text-white"
+        data-filter="all"
+      >
+        All Projects
+      </button>
+      <button
+        class="filter-btn px-5 py-2 rounded-full font-medium text-sm transition-all duration-300 bg-gray-100 text-gray-600 hover:bg-gray-200"
+        data-filter="residential"
+      >
+        Residential
+      </button>
+      <button
+        class="filter-btn px-5 py-2 rounded-full font-medium text-sm transition-all duration-300 bg-gray-100 text-gray-600 hover:bg-gray-200"
+        data-filter="commercial"
+      >
+        Commercial
+      </button>
+    </div>
+
+    <!-- YouTube-style Layout -->
+    <div class="max-w-3xl mx-auto">
+      <!-- Main Video Player -->
+      <div id="main-video-container" class="relative rounded-2xl overflow-hidden shadow-2xl mb-4 bg-black group/video">
+        <!-- Previous Arrow -->
+        <button
+          id="video-prev"
+          class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 group-hover/video:opacity-100 disabled:opacity-30 disabled:cursor-not-allowed"
+          aria-label="Previous video"
+        >
+          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#144787]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+
+        <!-- Next Arrow -->
+        <button
+          id="video-next"
+          class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 group-hover/video:opacity-100 disabled:opacity-30 disabled:cursor-not-allowed"
+          aria-label="Next video"
+        >
+          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#144787]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+        <!-- Thumbnail overlay (shown initially, hidden when playing) -->
+        <div id="video-thumbnail-overlay" class="absolute inset-0 z-10 cursor-pointer">
+          <img
+            id="main-thumbnail"
+            src={featuredTestimonial.thumbnail}
+            alt={`${featuredTestimonial.name}'s testimonial`}
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+          <!-- Play Button -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/80 flex items-center justify-center shadow-lg hover:scale-105 hover:bg-white/90 transition-all duration-300">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#144787] ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Name Badge -->
+          <div id="main-name-badge" class="absolute bottom-6 left-6 right-6">
+            <span id="main-video-name" class="text-white font-light tracking-wide text-lg sm:text-xl drop-shadow-lg block">{featuredTestimonial.name}</span>
+            <span id="main-video-tagline" class="text-white/70 text-xs sm:text-sm tracking-widest uppercase drop-shadow-lg">{featuredTestimonial.tagline}</span>
+          </div>
+        </div>
+
+        <!-- Video Player -->
+        <video
+          id="main-video"
+          class="w-full aspect-[9/16] sm:aspect-video max-h-[500px] object-contain bg-black"
+          controls
+          playsinline
+          data-video={featuredTestimonial.video}
+          data-name={featuredTestimonial.name}
+          data-tagline={featuredTestimonial.tagline}
+          data-thumbnail={featuredTestimonial.thumbnail}
+        >
+          <source src={featuredTestimonial.video} type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- Thumbnail Row - Smaller -->
+      <div class="flex justify-center gap-2 sm:gap-3">
+        {allTestimonials.map((testimonial, index) => (
+          <div
+            class:list={[
+              "thumb-card group cursor-pointer relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:ring-2 hover:ring-[#144787] w-16 sm:w-20",
+              index === 0 && "ring-2 ring-[#144787]"
+            ]}
+            data-video={testimonial.video}
+            data-name={testimonial.name}
+            data-tagline={testimonial.tagline}
+            data-thumbnail={testimonial.thumbnail}
+            data-category={testimonial.category}
+            data-index={index}
+          >
+            <div class="aspect-[9/16] relative">
+              <img
+                src={testimonial.thumbnail}
+                alt={`${testimonial.name}'s testimonial`}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+
+              <!-- Small Play Icon -->
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                  <svg class="w-3 h-3 sm:w-4 sm:h-4 text-[#144787] ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Name Badge -->
+              <div class="absolute bottom-1.5 left-1 right-1">
+                <span class="text-white/90 font-light tracking-wide text-[7px] sm:text-[9px] uppercase drop-shadow-lg block truncate">{testimonial.name}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const mainVideo = document.getElementById('main-video') as HTMLVideoElement;
+  const mainVideoSource = mainVideo?.querySelector('source');
+  const thumbnailOverlay = document.getElementById('video-thumbnail-overlay');
+  const mainThumbnail = document.getElementById('main-thumbnail') as HTMLImageElement;
+  const mainVideoName = document.getElementById('main-video-name');
+  const mainVideoTagline = document.getElementById('main-video-tagline');
+  const thumbCards = document.querySelectorAll('.thumb-card');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const prevBtn = document.getElementById('video-prev') as HTMLButtonElement;
+  const nextBtn = document.getElementById('video-next') as HTMLButtonElement;
+
+  let currentActiveIndex = 0;
+  const totalVideos = thumbCards.length;
+
+  function loadVideo(videoUrl: string, name: string, tagline: string, thumbnail: string, index: number) {
+    if (mainVideoSource && mainVideo && mainThumbnail && mainVideoName && mainVideoTagline) {
+      // Pause current video
+      mainVideo.pause();
+
+      // Update video source
+      mainVideoSource.src = videoUrl;
+      mainVideo.load();
+
+      // Update thumbnail overlay
+      mainThumbnail.src = thumbnail;
+      mainVideoName.textContent = name;
+      mainVideoTagline.textContent = tagline;
+
+      // Show thumbnail overlay
+      thumbnailOverlay?.classList.remove('hidden');
+
+      // Update active state on thumbnails
+      thumbCards.forEach((card, i) => {
+        if (i === index) {
+          card.classList.add('ring-2', 'ring-[#144787]');
+        } else {
+          card.classList.remove('ring-2', 'ring-[#144787]');
+        }
+      });
+
+      currentActiveIndex = index;
+      updateNavButtons();
+    }
+  }
+
+  function updateNavButtons() {
+    if (prevBtn) {
+      prevBtn.disabled = currentActiveIndex === 0;
+    }
+    if (nextBtn) {
+      nextBtn.disabled = currentActiveIndex === totalVideos - 1;
+    }
+  }
+
+  function navigateVideo(direction: 'prev' | 'next') {
+    const newIndex = direction === 'prev' ? currentActiveIndex - 1 : currentActiveIndex + 1;
+
+    if (newIndex >= 0 && newIndex < totalVideos) {
+      const card = thumbCards[newIndex] as HTMLElement;
+      const videoUrl = card.getAttribute('data-video');
+      const name = card.getAttribute('data-name');
+      const tagline = card.getAttribute('data-tagline');
+      const thumbnail = card.getAttribute('data-thumbnail');
+
+      if (videoUrl && name && tagline && thumbnail) {
+        loadVideo(videoUrl, name, tagline, thumbnail, newIndex);
+      }
+    }
+  }
+
+  // Initialize nav button states
+  updateNavButtons();
+
+  function playVideo() {
+    thumbnailOverlay?.classList.add('hidden');
+    mainVideo?.play();
+  }
+
+  // Click thumbnail overlay to play
+  thumbnailOverlay?.addEventListener('click', playVideo);
+
+  // Navigation arrows
+  prevBtn?.addEventListener('click', () => navigateVideo('prev'));
+  nextBtn?.addEventListener('click', () => navigateVideo('next'));
+
+  // Click thumbnail cards to load that video
+  thumbCards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      const videoUrl = card.getAttribute('data-video');
+      const name = card.getAttribute('data-name');
+      const tagline = card.getAttribute('data-tagline');
+      const thumbnail = card.getAttribute('data-thumbnail');
+
+      if (videoUrl && name && tagline && thumbnail) {
+        loadVideo(videoUrl, name, tagline, thumbnail, index);
+        // Auto-play when clicking a thumbnail
+        setTimeout(playVideo, 100);
+      }
+    });
+  });
+
+  // When video ends, show thumbnail overlay again
+  mainVideo?.addEventListener('ended', () => {
+    thumbnailOverlay?.classList.remove('hidden');
+  });
+
+  // Filter functionality
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      // Update button styles
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-[#144787]', 'text-white');
+        b.classList.add('bg-gray-100', 'text-gray-600', 'hover:bg-gray-200');
+      });
+      btn.classList.remove('bg-gray-100', 'text-gray-600', 'hover:bg-gray-200');
+      btn.classList.add('bg-[#144787]', 'text-white');
+
+      // Filter thumbnail cards and find first visible card
+      let firstVisibleCard: HTMLElement | null = null;
+      let firstVisibleIndex = -1;
+
+      thumbCards.forEach((card, index) => {
+        const category = card.getAttribute('data-category');
+        const cardEl = card as HTMLElement;
+
+        if (filter === 'all' || category === filter) {
+          cardEl.style.display = '';
+          if (!firstVisibleCard) {
+            firstVisibleCard = cardEl;
+            firstVisibleIndex = index;
+          }
+        } else {
+          cardEl.style.display = 'none';
+        }
+      });
+
+      // Load the first visible video as the main video
+      if (firstVisibleCard && firstVisibleIndex !== -1) {
+        const videoUrl = firstVisibleCard.getAttribute('data-video');
+        const name = firstVisibleCard.getAttribute('data-name');
+        const tagline = firstVisibleCard.getAttribute('data-tagline');
+        const thumbnail = firstVisibleCard.getAttribute('data-thumbnail');
+
+        if (videoUrl && name && tagline && thumbnail) {
+          loadVideo(videoUrl, name, tagline, thumbnail, firstVisibleIndex);
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .thumb-card:hover {
+    transform: translateY(-2px);
+  }
+</style>

@@ -1,0 +1,417 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FloatingCallButton from '../components/FloatingCallButton.astro';
+import Lightbox from '../components/Lightbox.astro';
+---
+
+<Layout
+  title="Our Process | Clean Cut Painting & Handyman | 7-Step Project Journey"
+  description="Experience the Clean Cut difference with our proven 7-step process. From initial consultation to post-project warranty, we ensure quality and transparency at every stage."
+>
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-[500px] py-20 lg:py-24 overflow-hidden">
+      <img
+        src="/images/Correct-Hero.webp"
+        alt="Clean Cut Painting & Handyman professional process"
+        class="absolute inset-0 w-full h-full object-cover"
+      >
+      <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
+      <div class="container-custom relative z-10">
+        <div class="max-w-4xl mx-auto text-center text-white">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 drop-shadow-lg">
+            Our Process
+          </h1>
+          <p class="text-lg sm:text-xl lg:text-2xl text-white/95 font-medium max-w-3xl mx-auto">
+            From first contact to final walkthrough, experience the Clean Cut difference at every step.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7-Step Process Section -->
+    <section class="py-16 bg-white">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-4">
+              The Clean Cut Project Journey
+            </h2>
+          </div>
+
+          <!-- Timeline Steps -->
+          <div class="space-y-12 lg:space-y-16">
+            <!-- Step 1 -->
+            <div class="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-sky-400 text-white font-bold flex items-center justify-center text-xl lg:text-2xl shadow-lg">
+                  1
+                </div>
+              </div>
+              <div class="flex-1 lg:pt-2">
+                <h3 class="text-2xl lg:text-3xl font-display font-bold text-[#144787] mb-3">
+                  Project Inquiry & Consultation
+                </h3>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                  Reach out through our website or phone. We conduct thorough consultations to understand your project needs and objectives.
+                </p>
+              </div>
+            </div>
+
+            <!-- Connector Line -->
+            <div class="ml-6 lg:ml-8 h-8 w-0.5 bg-gradient-to-b from-sky-400 to-sky-300"></div>
+
+            <!-- Step 2 -->
+            <div class="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-sky-400 text-white font-bold flex items-center justify-center text-xl lg:text-2xl shadow-lg">
+                  2
+                </div>
+              </div>
+              <div class="flex-1 lg:pt-2">
+                <h3 class="text-2xl lg:text-3xl font-display font-bold text-[#144787] mb-3">
+                  Detailed Project Assessment
+                </h3>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                  Our specialists perform comprehensive evaluations with complimentary scope-of-work documentation customized to your project's distinct requirements.
+                </p>
+              </div>
+            </div>
+
+            <!-- Connector Line -->
+            <div class="ml-6 lg:ml-8 h-8 w-0.5 bg-gradient-to-b from-sky-400 to-sky-300"></div>
+
+            <!-- Step 3 -->
+            <div class="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-sky-400 text-white font-bold flex items-center justify-center text-xl lg:text-2xl shadow-lg">
+                  3
+                </div>
+              </div>
+              <div class="flex-1 lg:pt-2">
+                <h3 class="text-2xl lg:text-3xl font-display font-bold text-[#144787] mb-3">
+                  Custom Proposal Presentation
+                </h3>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                  Receive a detailed proposal covering scope, timeline, and pricing. We emphasize transparency throughout the presentation.
+                </p>
+              </div>
+            </div>
+
+            <!-- Connector Line -->
+            <div class="ml-6 lg:ml-8 h-8 w-0.5 bg-gradient-to-b from-sky-400 to-sky-300"></div>
+
+            <!-- Step 4 -->
+            <div class="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-sky-400 text-white font-bold flex items-center justify-center text-xl lg:text-2xl shadow-lg">
+                  4
+                </div>
+              </div>
+              <div class="flex-1 lg:pt-2">
+                <h3 class="text-2xl lg:text-3xl font-display font-bold text-[#144787] mb-3">
+                  Project Approval & Onboarding
+                </h3>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                  Upon your approval, the onboarding phase begins. We establish conditions for our dedicated teams to execute your vision.
+                </p>
+              </div>
+            </div>
+
+            <!-- Connector Line -->
+            <div class="ml-6 lg:ml-8 h-8 w-0.5 bg-gradient-to-b from-sky-400 to-sky-300"></div>
+
+            <!-- Step 5 -->
+            <div class="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-sky-400 text-white font-bold flex items-center justify-center text-xl lg:text-2xl shadow-lg">
+                  5
+                </div>
+              </div>
+              <div class="flex-1 lg:pt-2">
+                <h3 class="text-2xl lg:text-3xl font-display font-bold text-[#144787] mb-3">
+                  Dedicated Foremen Oversight
+                </h3>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                  Our dedicated foremen take charge. Meticulous inspections are conducted throughout to guarantee quality at every stage.
+                </p>
+              </div>
+            </div>
+
+            <!-- Connector Line -->
+            <div class="ml-6 lg:ml-8 h-8 w-0.5 bg-gradient-to-b from-sky-400 to-sky-300"></div>
+
+            <!-- Step 6 -->
+            <div class="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-sky-400 text-white font-bold flex items-center justify-center text-xl lg:text-2xl shadow-lg">
+                  6
+                </div>
+              </div>
+              <div class="flex-1 lg:pt-2">
+                <h3 class="text-2xl lg:text-3xl font-display font-bold text-[#144787] mb-3">
+                  Finalization & Payment
+                </h3>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                  Our team ensures all details meet our high standards while coordinating final payment arrangements.
+                </p>
+              </div>
+            </div>
+
+            <!-- Connector Line -->
+            <div class="ml-6 lg:ml-8 h-8 w-0.5 bg-gradient-to-b from-sky-400 to-sky-300"></div>
+
+            <!-- Step 7 -->
+            <div class="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-sky-400 text-white font-bold flex items-center justify-center text-xl lg:text-2xl shadow-lg">
+                  7
+                </div>
+              </div>
+              <div class="flex-1 lg:pt-2">
+                <h3 class="text-2xl lg:text-3xl font-display font-bold text-[#144787] mb-3">
+                  Post-Project Assurance & Warranty
+                </h3>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                  Our commitment doesn't end with project completion. We provide post-project assurance and back our work with warranty commitments.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-Width Visual Break -->
+    <section class="relative h-96 overflow-hidden">
+      <img
+        src="/images/services-optimized/interior-painting/6t4a6873.webp"
+        alt="Clean Cut Painting professional craftsmanship"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+      />
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-4">
+            Meet Our Leadership
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          <!-- Team Member 1 -->
+          <div class="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-sky-400 to-sky-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-display font-bold text-[#144787] mb-1">
+              Dara Geiser
+            </h3>
+            <p class="text-gray-600 font-medium">
+              Owner/CEO
+            </p>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-sky-400 to-sky-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-display font-bold text-[#144787] mb-1">
+              Colby Geiser
+            </h3>
+            <p class="text-gray-600 font-medium">
+              Operations Manager
+            </p>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-sky-400 to-sky-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-display font-bold text-[#144787] mb-1">
+              Jim Hayes
+            </h3>
+            <p class="text-gray-600 font-medium">
+              Director of Production
+            </p>
+          </div>
+
+          <!-- Team Member 4 -->
+          <div class="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-sky-400 to-sky-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-display font-bold text-[#144787] mb-1">
+              Jack Geiser
+            </h3>
+            <p class="text-gray-600 font-medium">
+              Springfield Market Manager
+            </p>
+          </div>
+
+          <!-- Team Member 5 -->
+          <div class="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-sky-400 to-sky-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-display font-bold text-[#144787] mb-1">
+              Tyler Tate
+            </h3>
+            <p class="text-gray-600 font-medium">
+              Project Management Support
+            </p>
+          </div>
+
+          <!-- Team Member 6 -->
+          <div class="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+            <div class="w-20 h-20 bg-gradient-to-br from-sky-400 to-sky-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-display font-bold text-[#144787] mb-1">
+              Alyssa
+            </h3>
+            <p class="text-gray-600 font-medium">
+              Administrative Assistant
+            </p>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="text-xl text-gray-600 font-semibold">
+            Plus over 50+ skilled in-house applicators and installers
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-Width Visual Break -->
+    <section class="relative h-96 overflow-hidden">
+      <img
+        src="/images/services-optimized/interior-painting/6t4a6843.webp"
+        alt="Clean Cut Painting completed project"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+      />
+    </section>
+
+    <!-- Process Detail Section -->
+    <section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover; background-position: center;">
+      <div class="absolute inset-0 bg-[#144787]/90"></div>
+      <div class="container-custom relative z-10">
+        <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-white mb-12">
+          Quality at Every Step
+        </h2>
+        <div class="max-w-4xl mx-auto space-y-6">
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                1
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Protection & Preparation
+              </h3>
+              <p class="text-gray-600">
+                Complete masking and protection of furniture, floors, and fixtures to ensure your property stays clean throughout the project.
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                2
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Surface Preparation
+              </h3>
+              <p class="text-gray-600">
+                Detaching outlet covers, repairing drywall, sanding, and priming for a flawless finish.
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                3
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Expert Application
+              </h3>
+              <p class="text-gray-600">
+                Two finish coats applied with precision for complete, lasting coverage that looks beautiful for years.
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                4
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Quality Inspection
+              </h3>
+              <p class="text-gray-600">
+                Thorough final walkthrough ensuring every detail meets our high standards and your expectations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover; background-position: center;">
+      <div class="absolute inset-0 bg-[#144787]/90"></div>
+      <div class="container-custom relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl lg:text-4xl font-display font-bold text-white mb-6">
+            Ready to Experience the Clean Cut Process?
+          </h2>
+          <p class="text-lg text-white/90 mb-8">
+            Get a free estimate for your project today
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact" class="px-8 py-4 bg-sky-400 text-white font-bold text-lg rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+              Get Free Estimate
+            </a>
+            <a href="tel:+12173307310" class="px-8 py-4 bg-white text-[#144787] font-bold text-lg rounded-lg hover:bg-gray-100 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+              Call (217) 330-7310
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingCallButton />
+  <Lightbox />
+</Layout>

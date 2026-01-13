@@ -1,0 +1,50 @@
+---
+// Gallery items data
+const galleryItems = [
+  {
+    title: "Deck Rebuild",
+    image: "/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Deck Rebuild.webp"
+  },
+  {
+    title: "Deck & Boat House",
+    image: "/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Deck & Boat House Rebuild.webp"
+  },
+  {
+    title: "Pool Repair & Repaint",
+    image: "/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Pool Repair & Repaint.webp"
+  },
+  {
+    title: "Garage Repaint",
+    image: "/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Garage Repaint-12.webp"
+  },
+  {
+    title: "Slatwall and Hidden Door",
+    image: "/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Garage Repaint-13.webp"
+  },
+  {
+    title: "Commercial Exterior",
+    image: "/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Commerical Exterior.webp"
+  }
+];
+---
+
+<section id="gallery" class="py-16 bg-white">
+  <div class="container-custom">
+    <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-[#144787] mb-4">Our Recent Work</h2>
+    <p class="text-center text-[#374151] text-lg mb-10 max-w-2xl mx-auto">Browse our portfolio of completed projects across Decatur and Springfield.</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {galleryItems.map((item) => (
+        <figure class="group relative overflow-hidden rounded-lg shadow-md">
+          <img src={item.image} alt={item.title} class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+          <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+            <p class="text-white font-semibold">{item.title}</p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+    <div class="text-center mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/our-work" class="btn-outline inline-block">Open Gallery</a>
+      <a href="/contact" class="btn-primary inline-block">Get My Free Estimate</a>
+    </div>
+  </div>
+</section>

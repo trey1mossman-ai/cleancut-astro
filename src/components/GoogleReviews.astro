@@ -1,0 +1,387 @@
+---
+// Google Reviews Section - Carousel style with equal-sized cards
+
+const reviews = [
+  {
+    name: "Tina Weakley",
+    rating: 5,
+    text: "We can't say enough good things about Clean Cut! Tyler, the Chief Revenue Officer and Manager, was absolutely amazing—always quick to answer our calls, emails, and texts, and made sure everything ran smoothly from start to finish. Gustavo and Valeria were the painters, and they did a fantastic job! They painted the entire house ceiling, including the garage, and you'd never even know they'd been here except for how beautiful everything looks now.",
+    services: ["Water damage repair", "Interior painting"],
+    response: "Thank you for sharing your fantastic experience with Clean Cut! We're thrilled to hear that Tyler, Gustavo, and Valeria exceeded your expectations and delivered such outstanding results on your home. It's wonderful to know that the quality of our work transformed your space and addressed the water damage effectively. We look forward to helping you with your interior wall colors and making sure your next project is just as successful. Your trust in us means a lot, and we'll be ready to assist whenever you need!"
+  },
+  {
+    name: "Brenda Thorp",
+    rating: 5,
+    text: "Tyler and his crew at Clean Cut did a great job at painting the exterior of my house. From the power washing, wood repair, prep work, painting and clean up everyone was professional and dependable. The house looks better than I expected.",
+    services: ["Exterior painting"],
+    response: "Thank you for your wonderful review, Brenda! We're thrilled to hear that you were pleased with the work Tyler and the team did on your home. It's great to know that the entire process met your expectations, from preparation to clean-up. Your recommendation means a lot to us, and we look forward to helping you with future projects!"
+  },
+  {
+    name: "Paul Willis",
+    rating: 5,
+    text: "I hired Clean Cut to paint the windows and sills on my 2 story house. I think there were approximately 40 windows total. The painter was very professional, courteous, and thorough. He took time and care with the taping of the windows and the prep work. His finished work was excellent! He was very thorough with the clean up afterwards! I definitely would recommend them and plan on doing different projects in the future with them. Communication before, during, and afterwards with Clean Cut was excellent as well!",
+    services: ["Exterior painting"],
+    response: "Thank you for your wonderful feedback, Paul! We're thrilled to hear that you were satisfied with the painting of your windows and sills. Our team prides itself on professionalism and thoroughness, so it's great to know that reflected in your experience. We appreciate your recommendation and look forward to working with you on future projects!"
+  },
+  {
+    name: "Jodi Ferriell",
+    rating: 5,
+    text: "Clean Cut painted my kitchen and hallway, power-washed my house and repaired some siding. The painters were very professional and did a great job! The power-washing and siding repair turned out well. Tyler was very helpful and communicated with me until the project was complete. I highly recommend Clean Cut for all your painting and handyman needs!",
+    services: ["Interior painting", "Power washing"],
+    response: "Thank you for your wonderful feedback, Jodi! We're thrilled to hear that you were pleased with the painting, power-washing, and siding repairs. It's great to know that our team, especially Tyler, provided you with the professional service and communication you deserve. Your recommendation means a lot to us, and we look forward to helping you with any future projects!"
+  },
+  {
+    name: "Dalton Geisler",
+    rating: 5,
+    text: "Very happy with our deck staining project. Tyler came out and gave me an honest and straightforward quote, which I really appreciated. Dave and Lavern did the actual staining work on my deck and did a fantastic job. I'm very pleased with how it turned out and will definitely be calling them again for future projects.",
+    services: ["Deck staining"],
+    response: "Thank you for your kind words, Dalton! We're thrilled to hear that you had a positive experience with our team and that you're pleased with the results of your deck staining. We take pride in providing honest quotes and quality workmanship. We look forward to working with you again on your future projects!"
+  },
+  {
+    name: "Katy Doolin",
+    rating: 5,
+    text: "Very polite and did a great job! George and his crew worked to make sure the job was done on time. I had huge holes in my drywall and they repaired and painted them and you would never know. Thank you!",
+    services: ["Drywall repair", "Interior painting"],
+    response: "Thank you for your kind words, Katy! We're thrilled to hear that George and his crew exceeded your expectations and delivered quality work on time. It's wonderful to know that the drywall repairs blend perfectly with your space. We appreciate your feedback and hope to assist you again in the future!"
+  }
+];
+
+// Keywords to highlight
+const highlightKeywords = [
+  "fantastic job", "excellent", "highly recommend", "professional",
+  "thorough", "great job", "on time", "quality", "dependable",
+  "honest", "amazing", "incredible", "beautiful", "wonderful"
+];
+
+function highlightText(text: string): string {
+  let result = text;
+  highlightKeywords.forEach(keyword => {
+    const regex = new RegExp(`(${keyword})`, 'gi');
+    result = result.replace(regex, '<mark class="bg-sky-100 text-sky-800 px-1 rounded font-medium">$1</mark>');
+  });
+  return result;
+}
+
+function getInitials(name: string): string {
+  return name.split(' ').map(n => n[0]).join('').toUpperCase();
+}
+
+function truncateText(text: string, maxLength: number): { truncated: string; isTruncated: boolean } {
+  if (text.length <= maxLength) return { truncated: text, isTruncated: false };
+  return { truncated: text.substring(0, maxLength).trim() + '...', isTruncated: true };
+}
+---
+
+<section class="py-16 bg-white">
+  <div class="container-custom">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-2">Trusted by Your Neighbors</h2>
+      <p class="text-gray-600 mb-6">See what our customers in Decatur and Springfield are saying</p>
+
+      <!-- Google Reviews Pill -->
+      <div class="inline-flex items-center gap-3 px-5 py-2.5 bg-white rounded-full shadow-md border border-gray-200">
+        <!-- Google G Logo -->
+        <svg class="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+        </svg>
+        <span class="text-base font-bold text-gray-800">4.7</span>
+        <!-- 5 Stars -->
+        <div class="flex gap-0.5">
+          <svg class="w-4 h-4 text-[#FBBC05]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-[#FBBC05]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-[#FBBC05]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-[#FBBC05]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-[#FBBC05]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <span class="text-gray-300">|</span>
+        <span class="text-sm font-medium text-gray-600">300+ reviews</span>
+        <a
+          href="https://www.google.com/search?q=clean+cut+painting+and+handyman+decatur+il+reviews"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm font-medium text-[#4285F4] hover:underline"
+        >
+          View All
+        </a>
+      </div>
+    </div>
+
+    <!-- Carousel Container -->
+    <div class="relative">
+      <!-- Navigation Buttons -->
+      <button
+        id="reviews-carousel-prev"
+        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        aria-label="Previous reviews"
+      >
+        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+
+      <button
+        id="reviews-carousel-next"
+        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        aria-label="Next reviews"
+      >
+        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+
+      <!-- Carousel Track -->
+      <div class="overflow-hidden mx-8">
+        <div id="reviews-carousel-track" class="flex transition-transform duration-500 ease-out gap-6">
+          {reviews.map((review, index) => {
+            const { truncated, isTruncated } = truncateText(review.text, 200);
+            return (
+              <div
+                class="review-card flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col"
+                data-review-index={index}
+              >
+                <!-- Card Content -->
+                <div class="p-6 flex-1 flex flex-col">
+                  <!-- Header -->
+                  <div class="flex items-start gap-4 mb-4">
+                    <!-- Avatar with Google G background -->
+                    <div class="relative flex-shrink-0">
+                      <div class="w-12 h-12 rounded-full bg-[#144787] flex items-center justify-center">
+                        <span class="text-white font-semibold text-lg">{getInitials(review.name)}</span>
+                      </div>
+                      <!-- Google verification checkmark -->
+                      <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center shadow-sm">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24">
+                          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                      </div>
+                    </div>
+
+                    <div class="flex-1">
+                      <h4 class="font-semibold text-gray-900">{review.name}</h4>
+                      <!-- Stars -->
+                      <div class="flex gap-0.5 mt-1">
+                        {[...Array(5)].map((_, i) => (
+                          <svg class:list={["w-4 h-4", i < review.rating ? "text-[#FBBC05]" : "text-gray-300"]} fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                          </svg>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Review Text -->
+                  <div class="review-text-container flex-1">
+                    <p
+                      class="text-gray-700 text-sm leading-relaxed review-text-truncated"
+                      set:html={highlightText(truncated)}
+                    />
+                    <p
+                      class="text-gray-700 text-sm leading-relaxed review-text-full hidden"
+                      set:html={highlightText(review.text.replace(/\n/g, '<br/>'))}
+                    />
+                    {isTruncated && (
+                      <button class="read-more-btn text-[#4285F4] text-sm font-medium mt-2 hover:underline">
+                        Read more
+                      </button>
+                    )}
+                  </div>
+
+                  <!-- Services Tags -->
+                  {review.services && (
+                    <div class="flex flex-wrap gap-2 mt-4">
+                      {review.services.map(service => (
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">{service}</span>
+                      ))}
+                    </div>
+                  )}
+
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- Dots Indicator -->
+      <div id="reviews-carousel-dots" class="flex justify-center gap-2 mt-8">
+        {reviews.map((_, index) => (
+          <button
+            class="reviews-carousel-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300 hover:bg-gray-400"
+            data-index={index}
+            aria-label={`Go to review ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+      <a
+        href="https://www.google.com/search?q=clean+cut+painting+and+handyman+decatur+il+reviews#lrd=0x8874b0ef6dbf4aff:0x8c1a05fdf205e71f,1,,,,"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-full hover:border-[#4285F4] hover:shadow-md transition-all duration-300"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+        </svg>
+        <span class="font-medium text-gray-700">See All Reviews on Google</span>
+      </a>
+      <a
+        href="https://www.google.com/search?sca_esv=07184412e727670b&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1H0LjzvGIEdHiqCADdPaJFiehRB8-x-jqvWCY2L5-RgfN3Nr52W6HReTfEDZNTiQD8yfVsMRTzhgOP2MRdOHKwwhrNykQYrGhxK-vm83wq_6kyiCQ%3D%3D&q=Clean+Cut+Painting+%26+Handyman+Reviews&sa=X&ved=2ahUKEwizzoX7zLuRAxXWDjQIHTNfIyUQ0bkNegQIIhAE&biw=1504&bih=743&dpr=2#lrd=0x8874b0ef6dbf4aff:0x8c1a05fdf205e71f,3,,,,"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-sky-400 text-white rounded-full hover:bg-sky-500 transition-all duration-300 shadow-md hover:shadow-lg"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+        </svg>
+        <span class="font-medium">Leave Us a Review</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Carousel functionality
+  const track = document.getElementById('reviews-carousel-track');
+  const prevBtn = document.getElementById('reviews-carousel-prev');
+  const nextBtn = document.getElementById('reviews-carousel-next');
+  const dots = document.querySelectorAll('.reviews-carousel-dot');
+  const cards = track?.querySelectorAll('.review-card');
+
+  let currentIndex = 0;
+  let cardsPerView = 3;
+
+  function updateCardsPerView() {
+    if (window.innerWidth < 768) {
+      cardsPerView = 1;
+    } else if (window.innerWidth < 1024) {
+      cardsPerView = 2;
+    } else {
+      cardsPerView = 3;
+    }
+  }
+
+  function getMaxIndex() {
+    return Math.max(0, (cards?.length || 0) - cardsPerView);
+  }
+
+  function updateCarousel() {
+    if (!track || !cards?.length) return;
+
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 24; // 6 * 4 = 24px gap
+    const offset = currentIndex * (cardWidth + gap);
+    track.style.transform = `translateX(-${offset}px)`;
+
+    // Update dots
+    dots.forEach((dot, i) => {
+      if (i === currentIndex) {
+        dot.classList.remove('bg-gray-300');
+        dot.classList.add('bg-[#4285F4]', 'w-4');
+      } else {
+        dot.classList.add('bg-gray-300');
+        dot.classList.remove('bg-[#4285F4]', 'w-4');
+      }
+    });
+
+    // Update button states
+    if (prevBtn) prevBtn.disabled = currentIndex === 0;
+    if (nextBtn) nextBtn.disabled = currentIndex >= getMaxIndex();
+  }
+
+  function goToSlide(index: number) {
+    currentIndex = Math.max(0, Math.min(index, getMaxIndex()));
+    updateCarousel();
+  }
+
+  // Event listeners
+  prevBtn?.addEventListener('click', () => goToSlide(currentIndex - 1));
+  nextBtn?.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => goToSlide(index));
+  });
+
+  // Initialize
+  updateCardsPerView();
+  updateCarousel();
+
+  // Handle resize
+  window.addEventListener('resize', () => {
+    updateCardsPerView();
+    currentIndex = Math.min(currentIndex, getMaxIndex());
+    updateCarousel();
+  });
+
+  // Read more functionality
+  document.querySelectorAll('.read-more-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const container = btn.closest('.review-text-container');
+      const truncatedText = container?.querySelector('.review-text-truncated');
+      const fullText = container?.querySelector('.review-text-full');
+
+      if (truncatedText && fullText) {
+        truncatedText.classList.toggle('hidden');
+        fullText.classList.toggle('hidden');
+        btn.textContent = truncatedText.classList.contains('hidden') ? 'Show less' : 'Read more';
+      }
+    });
+  });
+
+  // View response functionality
+  document.querySelectorAll('.view-response-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.review-card');
+      const responseContainer = card?.querySelector('.response-container');
+      const chevron = btn.querySelector('.response-chevron');
+      const buttonText = btn.querySelector('span');
+
+      if (responseContainer) {
+        responseContainer.classList.toggle('hidden');
+        chevron?.classList.toggle('rotate-180');
+        if (buttonText) {
+          buttonText.textContent = responseContainer.classList.contains('hidden')
+            ? 'View response from Clean Cut'
+            : 'Hide response';
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .review-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .response-chevron {
+    transition: transform 0.3s ease;
+  }
+
+  .response-container {
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      max-height: 0;
+    }
+    to {
+      opacity: 1;
+      max-height: 500px;
+    }
+  }
+</style>

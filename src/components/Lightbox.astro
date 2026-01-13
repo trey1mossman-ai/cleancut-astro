@@ -1,0 +1,197 @@
+---
+// Lightbox component for full-screen image viewing
+// Usage: Add data-lightbox-gallery="gallery-name" to clickable images
+// Images with the same gallery name will have prev/next navigation
+---
+
+<!-- Lightbox Overlay -->
+<div
+  id="lightbox-overlay"
+  class="fixed inset-0 z-50 bg-black/95 hidden opacity-0 transition-opacity duration-300"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image lightbox"
+>
+  <!-- Close Button -->
+  <button
+    id="lightbox-close"
+    class="absolute top-4 right-4 z-10 w-12 h-12 flex items-center justify-center text-white/80 hover:text-white transition-colors"
+    aria-label="Close lightbox"
+  >
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <!-- Navigation Arrows -->
+  <button
+    id="lightbox-prev"
+    class="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-14 h-14 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-all hidden"
+    aria-label="Previous image"
+  >
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    </svg>
+  </button>
+  <button
+    id="lightbox-next"
+    class="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-14 h-14 flex items-center justify-center text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-all hidden"
+    aria-label="Next image"
+  >
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+    </svg>
+  </button>
+
+  <!-- Image Container -->
+  <div class="flex items-center justify-center w-full h-full p-4 sm:p-8 lg:p-16">
+    <img
+      id="lightbox-image"
+      src=""
+      alt=""
+      class="max-w-full max-h-full object-contain opacity-0 transition-opacity duration-300"
+    />
+  </div>
+
+  <!-- Image Counter -->
+  <div
+    id="lightbox-counter"
+    class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/70 text-sm hidden"
+  ></div>
+</div>
+
+<script>
+  interface LightboxState {
+    isOpen: boolean;
+    currentIndex: number;
+    images: HTMLImageElement[];
+    galleryName: string | null;
+  }
+
+  const state: LightboxState = {
+    isOpen: false,
+    currentIndex: 0,
+    images: [],
+    galleryName: null
+  };
+
+  const overlay = document.getElementById('lightbox-overlay')!;
+  const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
+  const closeBtn = document.getElementById('lightbox-close')!;
+  const prevBtn = document.getElementById('lightbox-prev')!;
+  const nextBtn = document.getElementById('lightbox-next')!;
+  const counter = document.getElementById('lightbox-counter')!;
+
+  function openLightbox(img: HTMLImageElement) {
+    const galleryName = img.dataset.lightboxGallery || null;
+    state.galleryName = galleryName;
+
+    // Get all images in the same gallery
+    if (galleryName) {
+      state.images = Array.from(
+        document.querySelectorAll<HTMLImageElement>(`[data-lightbox-gallery="${galleryName}"]`)
+      );
+      state.currentIndex = state.images.indexOf(img);
+    } else {
+      state.images = [img];
+      state.currentIndex = 0;
+    }
+
+    // Show/hide navigation based on gallery size
+    const hasMultiple = state.images.length > 1;
+    prevBtn.classList.toggle('hidden', !hasMultiple);
+    nextBtn.classList.toggle('hidden', !hasMultiple);
+    counter.classList.toggle('hidden', !hasMultiple);
+
+    updateImage();
+
+    // Show overlay
+    overlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+
+    // Fade in
+    requestAnimationFrame(() => {
+      overlay.classList.remove('opacity-0');
+      lightboxImage.classList.remove('opacity-0');
+    });
+
+    state.isOpen = true;
+  }
+
+  function closeLightbox() {
+    overlay.classList.add('opacity-0');
+    lightboxImage.classList.add('opacity-0');
+
+    setTimeout(() => {
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }, 300);
+
+    state.isOpen = false;
+  }
+
+  function updateImage() {
+    const img = state.images[state.currentIndex];
+    lightboxImage.src = img.src;
+    lightboxImage.alt = img.alt;
+
+    if (state.images.length > 1) {
+      counter.textContent = `${state.currentIndex + 1} / ${state.images.length}`;
+    }
+  }
+
+  function nextImage() {
+    if (state.images.length <= 1) return;
+    state.currentIndex = (state.currentIndex + 1) % state.images.length;
+    updateImage();
+  }
+
+  function prevImage() {
+    if (state.images.length <= 1) return;
+    state.currentIndex = (state.currentIndex - 1 + state.images.length) % state.images.length;
+    updateImage();
+  }
+
+  // Event Listeners
+  closeBtn.addEventListener('click', closeLightbox);
+  prevBtn.addEventListener('click', prevImage);
+  nextBtn.addEventListener('click', nextImage);
+
+  // Close on backdrop click
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay || (e.target as HTMLElement).closest('#lightbox-image')?.parentElement === e.target) {
+      closeLightbox();
+    }
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!state.isOpen) return;
+
+    switch (e.key) {
+      case 'Escape':
+        closeLightbox();
+        break;
+      case 'ArrowLeft':
+        prevImage();
+        break;
+      case 'ArrowRight':
+        nextImage();
+        break;
+    }
+  });
+
+  // Initialize - attach click handlers to all lightbox images
+  function initLightbox() {
+    const lightboxImages = document.querySelectorAll<HTMLImageElement>('[data-lightbox-gallery]');
+
+    lightboxImages.forEach((img) => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => openLightbox(img));
+    });
+  }
+
+  // Run on load and after view transitions
+  initLightbox();
+  document.addEventListener('astro:after-swap', initLightbox);
+</script>

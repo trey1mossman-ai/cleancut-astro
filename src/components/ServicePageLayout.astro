@@ -1,0 +1,182 @@
+---
+// ServicePageLayout.astro - Reusable Service Page Layout Component
+// For Clean Cut Painting & Handyman service pages
+
+interface Props {
+  title: string;           // Page title for SEO
+  heading: string;         // Main h1 heading
+  description: string;     // Intro paragraph
+  heroImage: string;       // Hero background image path
+  services?: string[];     // List of services/areas covered
+  processSteps?: {         // Process steps array
+    title: string;
+    description: string;
+  }[];
+  galleryImages?: string[]; // Gallery image paths
+}
+
+const {
+  title,
+  heading,
+  description,
+  heroImage,
+  services,
+  processSteps,
+  galleryImages
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section
+    class="relative min-h-[500px] lg:min-h-[600px] py-20 lg:py-32 overflow-hidden"
+    style={`background-image: url('${heroImage}'); background-size: cover; background-position: center center;`}
+  >
+    <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/90 via-[#144787]/80 to-[#144787]/70"></div>
+    <div class="container-custom relative z-10">
+      <div class="max-w-4xl mx-auto text-center text-white">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 lg:mb-8 drop-shadow-lg" style="font-family: 'PT Sans', Arial, sans-serif;">
+          {heading}
+        </h1>
+        <p class="text-base sm:text-lg lg:text-xl text-white/90 font-medium mb-8 lg:mb-10 max-w-3xl mx-auto" style="font-family: 'PT Sans', Arial, sans-serif;">
+          {description}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button class="px-8 py-3.5 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl text-base">
+            Get Free Estimate
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview Section -->
+  {services && services.length > 0 && (
+    <section class="py-16 bg-gray-50">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl lg:text-4xl font-bold text-[#144787] mb-4" style="font-family: 'PT Sans', Arial, sans-serif;">
+            What We Cover
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Our comprehensive services ensure every detail is handled with expertise and care.
+          </p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {services.map((service) => (
+            <div class="flex items-start gap-3 p-5 bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-all">
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-sky-400 flex items-center justify-center mt-0.5">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-[#144787] font-medium text-base">{service}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Our Process Section -->
+  {processSteps && processSteps.length > 0 && (
+    <section
+      class="py-16 relative overflow-hidden"
+      style="background-image: url('/patterns/pattern-02.webp'); background-size: cover; background-position: center;"
+    >
+      <div class="container-custom relative z-10">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl lg:text-4xl font-bold text-[#144787] mb-4" style="font-family: 'PT Sans', Arial, sans-serif;">
+            Our Process
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            We follow a proven process to ensure exceptional results every time.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {processSteps.map((step, index) => (
+            <div class="group p-6 rounded-lg border border-gray-200 hover:border-sky-400 hover:shadow-lg transition-all bg-white h-full">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-sky-400 flex items-center justify-center">
+                  <span class="text-white font-bold text-xl">{index + 1}</span>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold text-[#144787] mb-2">
+                    {step.title}
+                  </h3>
+                  <p class="text-gray-600 text-sm">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Gallery Section -->
+  {galleryImages && galleryImages.length > 0 && (
+    <section class="py-16 bg-white">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl lg:text-4xl font-bold text-[#144787] mb-4" style="font-family: 'PT Sans', Arial, sans-serif;">
+            Recent Projects
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            See the quality of our work in these recently completed projects.
+          </p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {galleryImages.map((image) => (
+            <div class="group relative overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300">
+              <img
+                src={image}
+                alt="Project gallery image"
+                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Slot for custom content -->
+  <slot />
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-[#144787]">
+    <div class="container-custom">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4" style="font-family: 'PT Sans', Arial, sans-serif;">
+          Ready to Get Started?
+        </h2>
+        <p class="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+          Get your free, no-obligation estimate today. We're ready to bring your vision to life.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button class="px-8 py-3.5 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl text-base">
+            Get Free Estimate
+          </button>
+          <a
+            href="tel:+12173307310"
+            class="px-8 py-3.5 text-white border-2 border-sky-300 rounded-lg hover:bg-sky-400/20 transition-all text-base font-semibold"
+          >
+            Call (217) 330-7310
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

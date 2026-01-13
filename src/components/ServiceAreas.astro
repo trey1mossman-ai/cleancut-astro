@@ -1,0 +1,199 @@
+---
+// Service Areas Section - Two independent region accordions
+// Using native HTML details/summary - completely independent, no JavaScript needed
+
+const decaturCities = [
+  { name: "Decatur", url: "https://www.google.com/maps/place/Decatur,+IL" },
+  { name: "Forsyth", url: "https://www.google.com/maps/place/Forsyth,+IL" },
+  { name: "Mount Zion", url: "https://www.google.com/maps/place/Mount+Zion,+IL" },
+  { name: "Maroa", url: "https://www.google.com/maps/place/Maroa,+IL" },
+  { name: "Warrensburg", url: "https://www.google.com/maps/place/Warrensburg,+IL" },
+  { name: "Oreana", url: "https://www.google.com/maps/place/Oreana,+IL" },
+  { name: "Argenta", url: "https://www.google.com/maps/place/Argenta,+IL" },
+  { name: "Harristown", url: "https://www.google.com/maps/place/Harristown,+IL" },
+  { name: "Niantic", url: "https://www.google.com/maps/place/Niantic,+IL" },
+  { name: "Blue Mound", url: "https://www.google.com/maps/place/Blue+Mound,+IL" },
+  { name: "Macon", url: "https://www.google.com/maps/place/Macon,+IL" },
+  { name: "Dalton City", url: "https://www.google.com/maps/place/Dalton+City,+IL" },
+  { name: "Long Creek", url: "https://www.google.com/maps/place/Long+Creek,+IL" },
+  { name: "Sullivan", url: "https://www.google.com/maps/place/Sullivan,+IL" },
+  { name: "Shelbyville", url: "https://www.google.com/maps/place/Shelbyville,+IL" },
+  { name: "Monticello", url: "https://www.google.com/maps/place/Monticello,+IL" },
+  { name: "Oakley", url: "https://www.google.com/maps/place/Oakley,+IL" },
+  { name: "Bethany", url: "https://www.google.com/maps/place/Bethany,+IL" },
+  { name: "Clinton", url: "https://www.google.com/maps/place/Clinton,+IL" },
+  { name: "Assumption", url: "https://www.google.com/maps/place/Assumption,+IL" },
+  { name: "Atwood", url: "https://www.google.com/maps/place/Atwood,+IL" },
+  { name: "Mount Pulaski", url: "https://www.google.com/maps/place/Mount+Pulaski,+IL" },
+  { name: "Taylorville", url: "https://www.google.com/maps/place/Taylorville,+IL" },
+  { name: "Boody", url: "https://www.google.com/maps/place/Boody,+IL" }
+];
+
+const springfieldCities = [
+  { name: "Springfield", url: "https://www.google.com/maps/place/Springfield,+IL" },
+  { name: "Rochester", url: "https://www.google.com/maps/place/Rochester,+IL" },
+  { name: "Chatham", url: "https://www.google.com/maps/place/Chatham,+IL" },
+  { name: "Williamsville", url: "https://www.google.com/maps/place/Williamsville,+IL" },
+  { name: "Pleasant Plains", url: "https://www.google.com/maps/place/Pleasant+Plains,+IL" },
+  { name: "Riverton", url: "https://www.google.com/maps/place/Riverton,+IL" },
+  { name: "Leland Grove", url: "https://www.google.com/maps/place/Leland+Grove,+IL" },
+  { name: "Lincoln", url: "https://www.google.com/maps/place/Lincoln,+IL" },
+  { name: "Taylorville", url: "https://www.google.com/maps/place/Taylorville,+IL" },
+  { name: "Jacksonville", url: "https://www.google.com/maps/place/Jacksonville,+IL" },
+  { name: "Pawnee", url: "https://www.google.com/maps/place/Pawnee,+IL" },
+  { name: "New Berlin", url: "https://www.google.com/maps/place/New+Berlin,+IL" },
+  { name: "Sherman", url: "https://www.google.com/maps/place/Sherman,+IL" },
+  { name: "Southernview", url: "https://www.google.com/maps/place/Southernview,+IL" },
+  { name: "Illiopolis", url: "https://www.google.com/maps/place/Illiopolis,+IL" },
+  { name: "Divernon", url: "https://www.google.com/maps/place/Divernon,+IL" },
+  { name: "Grandview", url: "https://www.google.com/maps/place/Grandview,+IL" },
+  { name: "Auburn", url: "https://www.google.com/maps/place/Auburn,+IL" },
+  { name: "Jerome", url: "https://www.google.com/maps/place/Jerome,+IL" }
+];
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="container-custom">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-4">Service Areas</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Professional painting and handyman services throughout Central Illinois</p>
+    </div>
+
+    <!-- Region Cards - Using flexbox with align-items-start so cards don't stretch to match heights -->
+    <div class="flex flex-col md:flex-row gap-6 max-w-4xl mx-auto items-start">
+      
+      <!-- Decatur Region -->
+      <div class="w-full md:w-1/2">
+        <details class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden" id="decatur-accordion">
+          <summary class="p-6 cursor-pointer select-none">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 rounded-full bg-[#144787]/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-[#144787]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-[#144787]">Decatur Region</h3>
+                <p class="text-gray-500 text-sm">Based in Decatur, IL</p>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-gray-600 font-medium">{decaturCities.length} Cities</span>
+              <span class="flex items-center gap-2 text-[#144787] font-medium">
+                <span class="show-text">Show All</span>
+                <span class="hide-text">Hide</span>
+                <svg class="w-5 h-5 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </span>
+            </div>
+          </summary>
+          <div class="border-t border-gray-100">
+            <div class="p-4 bg-gray-50">
+              <p class="text-xs text-gray-500 mb-3">Click any city to view location</p>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {decaturCities.map(city => (
+                  <a
+                    href={city.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm text-gray-700 hover:text-[#144787] hover:bg-white px-2 py-1.5 rounded transition-colors"
+                  >
+                    {city.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Springfield Region -->
+      <div class="w-full md:w-1/2">
+        <details class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden" id="springfield-accordion">
+          <summary class="p-6 cursor-pointer select-none">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 rounded-full bg-[#144787]/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-[#144787]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-[#144787]">Springfield Region</h3>
+                <p class="text-gray-500 text-sm">Based in Springfield, IL</p>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-gray-600 font-medium">{springfieldCities.length} Cities</span>
+              <span class="flex items-center gap-2 text-[#144787] font-medium">
+                <span class="show-text">Show All</span>
+                <span class="hide-text">Hide</span>
+                <svg class="w-5 h-5 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </span>
+            </div>
+          </summary>
+          <div class="border-t border-gray-100">
+            <div class="p-4 bg-gray-50">
+              <p class="text-xs text-gray-500 mb-3">Click any city to view location</p>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {springfieldCities.map(city => (
+                  <a
+                    href={city.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm text-gray-700 hover:text-[#144787] hover:bg-white px-2 py-1.5 rounded transition-colors"
+                  >
+                    {city.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Hide default browser marker/arrow */
+  details summary {
+    list-style: none;
+  }
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary::marker {
+    display: none;
+    content: '';
+  }
+  
+  /* Toggle show/hide text based on open state */
+  details .hide-text {
+    display: none;
+  }
+  details .show-text {
+    display: inline;
+  }
+  
+  details[open] .hide-text {
+    display: inline;
+  }
+  details[open] .show-text {
+    display: none;
+  }
+  
+  /* Rotate chevron when open */
+  details .chevron-icon {
+    transition: transform 0.3s ease;
+  }
+  details[open] .chevron-icon {
+    transform: rotate(180deg);
+  }
+</style>

@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* ===== Custom Theme Variables ===== */
+@theme {
+  /* Colors */
+  --color-primary: #38bdf8;
+  --color-primary-dark: #0ea5e9;
+  --color-dark: #374151;
+  --color-dark-blue: #144787;
+  --color-light: #f9fafb;
+
+  /* Fonts */
+  --font-display: 'PT Sans', Arial, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+/* ===== Base Styles ===== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    @apply text-dark bg-white antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/* ===== Component Classes ===== */
+@layer components {
+  .container-custom {
+    @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transition-colors shadow-md;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-dark-blue text-dark-blue font-semibold rounded-lg hover:bg-dark-blue hover:text-white transition-all;
+  }
+
+  .section-heading {
+    @apply text-3xl lg:text-4xl font-display font-bold text-dark-blue mb-4;
+  }
+}

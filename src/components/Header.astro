@@ -1,0 +1,233 @@
+---
+// Header/Navigation component for Clean Cut Painting & Handyman
+
+const services = [
+  { name: 'Interior Painting', href: '/residential/interior-painting' },
+  { name: 'Exterior Painting', href: '/residential/exterior-painting' },
+  { name: 'Cabinet Refinishing', href: '/residential/cabinet-refinishing' },
+  { name: 'Deck Services', href: '/residential/deck-staining' },
+  { name: 'Powerwashing', href: '/residential/power-washing' },
+  { name: 'Handyman Services', href: '/residential/handyman' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-white transition-all duration-300 py-4 shadow-sm">
+  <nav class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between gap-8">
+      <div class="flex-shrink-0 mr-auto">
+        <a href="/">
+          <img
+            src="/CC _ Logo Full Color.webp"
+            alt="Clean Cut Painting & Handyman"
+            width="400"
+            height="120"
+            class="transition-all duration-300 h-12 w-auto"
+          >
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center gap-5 xl:gap-7">
+        <a
+          class="text-gray-700 hover:text-sky-500 transition-colors font-medium text-sm xl:text-base whitespace-nowrap"
+          href="/about"
+        >
+          About Us
+        </a>
+
+        <!-- Residential Dropdown -->
+        <div class="relative group">
+          <button
+            class="flex items-center gap-1 text-gray-700 hover:text-sky-500 transition-colors font-medium text-sm xl:text-base whitespace-nowrap"
+            type="button"
+          >
+            Residential
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-white rounded-xl shadow-2xl border border-gray-100 py-3 min-w-[240px] overflow-hidden">
+              {services.map((service) => (
+                <a
+                  href={service.href}
+                  class="flex items-center px-4 py-2.5 text-gray-700 hover:bg-sky-50 hover:text-sky-600 transition-colors text-sm font-medium"
+                >
+                  {service.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <a
+          class="text-gray-700 hover:text-sky-500 transition-colors font-medium text-sm xl:text-base whitespace-nowrap"
+          href="/commercial"
+        >
+          Commercial
+        </a>
+
+        <a
+          class="text-gray-700 hover:text-sky-500 transition-colors font-medium text-sm xl:text-base whitespace-nowrap"
+          href="/who-we-are"
+        >
+          Who We Are
+        </a>
+
+        <a
+          class="text-gray-700 hover:text-sky-500 transition-colors font-medium text-sm xl:text-base whitespace-nowrap"
+          href="/our-work"
+        >
+          Our Work
+        </a>
+
+        <a
+          class="text-gray-700 hover:text-sky-500 transition-colors font-medium text-sm xl:text-base whitespace-nowrap"
+          href="/contact"
+        >
+          Contact
+        </a>
+
+        <a
+          href="/contact"
+          class="px-5 xl:px-6 py-2.5 bg-sky-400 text-white text-xs xl:text-sm font-semibold rounded-lg hover:bg-sky-500 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap"
+        >
+          Get Free Estimate
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-button"
+        class="lg:hidden p-2 text-gray-700 hover:text-sky-500 transition-colors"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <svg
+          id="menu-icon-open"
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+        <svg
+          id="menu-icon-close"
+          class="w-6 h-6 hidden"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4 border-t border-gray-100 pt-4">
+      <div class="flex flex-col space-y-1">
+        <a href="/about" class="px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 rounded-lg font-medium transition-colors">
+          About Us
+        </a>
+
+        <!-- Mobile Residential Accordion -->
+        <div class="mobile-accordion">
+          <button
+            class="mobile-accordion-trigger w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 rounded-lg font-medium transition-colors"
+            type="button"
+          >
+            Residential
+            <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="mobile-accordion-content hidden pl-4 space-y-1 mt-1">
+            {services.map((service) => (
+              <a
+                href={service.href}
+                class="block px-4 py-2.5 text-gray-600 hover:bg-sky-50 hover:text-sky-600 rounded-lg text-sm transition-colors"
+              >
+                {service.name}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <a href="/commercial" class="px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 rounded-lg font-medium transition-colors">
+          Commercial
+        </a>
+
+        <a href="/who-we-are" class="px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 rounded-lg font-medium transition-colors">
+          Who We Are
+        </a>
+
+        <a href="/our-work" class="px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 rounded-lg font-medium transition-colors">
+          Our Work
+        </a>
+
+        <a href="/contact" class="px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 rounded-lg font-medium transition-colors">
+          Contact
+        </a>
+
+        <div class="pt-3 px-4">
+          <a
+            href="/contact"
+            class="block w-full text-center px-6 py-3 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transition-colors shadow-md"
+          >
+            Get Free Estimate
+          </a>
+        </div>
+
+        <!-- Mobile Contact Info -->
+        <div class="pt-4 px-4 border-t border-gray-100 mt-3">
+          <a href="tel:+12173307310" class="flex items-center gap-2 text-gray-600 hover:text-sky-500 transition-colors py-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            <span class="font-medium">(217) 330-7310</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+    mobileMenuButton.setAttribute('aria-expanded', (!isExpanded).toString());
+    mobileMenu?.classList.toggle('hidden');
+    menuIconOpen?.classList.toggle('hidden');
+    menuIconClose?.classList.toggle('hidden');
+  });
+
+  // Mobile accordion for services
+  const accordionTriggers = document.querySelectorAll('.mobile-accordion-trigger');
+  accordionTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const content = trigger.nextElementSibling;
+      const icon = trigger.querySelector('svg');
+      content?.classList.toggle('hidden');
+      icon?.classList.toggle('rotate-180');
+    });
+  });
+</script>

@@ -1,0 +1,361 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FloatingCallButton from '../../components/FloatingCallButton.astro';
+import Lightbox from '../../components/Lightbox.astro';
+---
+
+<Layout
+  title="Clean Cut Power Washing | Professional Pressure Washing Services"
+  description="Power washing services that go beyond the basics with meticulous attention to detail and comprehensive home care. Serving Decatur & Springfield IL. Free estimates!"
+>
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-[500px] py-20 lg:py-24 overflow-hidden">
+      <img
+        src="/images/Home Page/Residential Services/CC _ Home Page Photos_Power Washing.webp"
+        alt="Professional power washing services"
+        class="absolute inset-0 w-full h-full object-cover"
+      >
+      <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
+      <div class="container-custom relative z-10">
+        <div class="max-w-4xl mx-auto text-center text-white">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 drop-shadow-lg">
+            Clean Cut Power Washing
+          </h1>
+          <p class="text-lg sm:text-xl lg:text-2xl text-white/95 font-medium max-w-3xl mx-auto">
+            Power washing services that go beyond the basics with meticulous attention to detail and comprehensive home care.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container-custom">
+        <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-[#144787] mb-6">
+          Comprehensive Power Washing Services
+        </h2>
+        <p class="text-lg text-gray-600 text-center mb-16 max-w-2xl mx-auto">
+          From exterior surfaces to concrete, we clean every area with meticulous attention to detail
+        </p>
+
+        <!-- Image Grid Showcase -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16 max-w-6xl mx-auto">
+          <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
+            <img
+              src="/images/services-optimized/exterior-painting/1.webp"
+              alt="Professional home exterior power washing"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              data-lightbox-gallery="power-washing-services"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
+              <p class="text-white font-semibold">Home Exteriors</p>
+            </div>
+          </div>
+          <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
+            <img
+              src="/images/services-optimized/exterior-painting/1-1.webp"
+              alt="Driveway and walkway power washing"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              data-lightbox-gallery="power-washing-services"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
+              <p class="text-white font-semibold">Driveways & Walkways</p>
+            </div>
+          </div>
+          <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
+            <img
+              src="/images/services-optimized/exterior-painting/2-2.webp"
+              alt="Deck and patio power washing"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              data-lightbox-gallery="power-washing-services"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
+              <p class="text-white font-semibold">Decks & Patios</p>
+            </div>
+          </div>
+          <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
+            <img
+              src="/images/services-optimized/exterior-painting/2-4.webp"
+              alt="Fence power washing services"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              data-lightbox-gallery="power-washing-services"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
+              <p class="text-white font-semibold">Fences</p>
+            </div>
+          </div>
+          <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
+            <img
+              src="/images/services-optimized/exterior-painting/3-3.webp"
+              alt="Gutter cleaning and maintenance"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              data-lightbox-gallery="power-washing-services"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
+              <p class="text-white font-semibold">Gutters</p>
+            </div>
+          </div>
+          <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
+            <img
+              src="/images/services-optimized/exterior-painting/4-1.webp"
+              alt="Window and frame power washing"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              data-lightbox-gallery="power-washing-services"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
+              <p class="text-white font-semibold">Windows & Frames</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-Width Visual Break -->
+    <section class="relative h-96 overflow-hidden">
+      <img
+        src="/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Pool Repair & Repaint.webp"
+        alt="Outdoor power washing project transformation"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+      />
+    </section>
+
+    <!-- Beyond the Basics Section -->
+    <section class="py-16 bg-white">
+      <div class="container-custom">
+        <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+          <div class="order-2 lg:order-1">
+            <img
+              src="/images/services-optimized/exterior-painting/march-25.webp"
+              alt="Detailed hand scrubbing and power washing services"
+              class="rounded-lg shadow-2xl w-full h-auto"
+              loading="lazy"
+              data-lightbox-gallery="power-washing-gallery"
+            />
+          </div>
+          <div class="order-1 lg:order-2">
+            <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
+              Beyond Basic Power Washing
+            </h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              We go the extra mile with hand scrubbing and deep cleaning of surfaces including windows, light fixtures, and door/window frames. Our meticulous attention to detail ensures every surface is thoroughly cleaned.
+            </p>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+              Complete gutter maintenance with debris removal and downspout flushing, plus specialized concrete degreaser for driveways, patios, and walkways.
+            </p>
+            <a href="/contact" class="inline-block px-8 py-3.5 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+              Request Service
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Process Section -->
+    <section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover; background-position: center;">
+      <div class="absolute inset-0 bg-[#144787]/90"></div>
+      <div class="container-custom relative z-10">
+        <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-white mb-12">
+          Our Power Washing Process
+        </h2>
+        <div class="max-w-4xl mx-auto space-y-6">
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                1
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Property Assessment
+              </h3>
+              <p class="text-gray-600">
+                Thorough inspection of all surfaces to determine the best cleaning approach and pressure settings
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                2
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Surface Preparation
+              </h3>
+              <p class="text-gray-600">
+                Protection of plants, furniture, and fixtures, plus application of specialized cleaning solutions
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                3
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Power Washing
+              </h3>
+              <p class="text-gray-600">
+                Professional pressure washing using appropriate techniques for each surface type
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                4
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Hand Scrubbing & Detail Work
+              </h3>
+              <p class="text-gray-600">
+                Meticulous hand cleaning of windows, frames, light fixtures, and hard-to-reach areas
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                5
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Final Inspection
+              </h3>
+              <p class="text-gray-600">
+                Complete walkthrough to ensure every surface meets our quality standards
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container-custom">
+        <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-[#144787] mb-6">
+          Our Power Washing Projects
+        </h2>
+        <p class="text-lg text-gray-600 text-center mb-16 max-w-2xl mx-auto">
+          See the dramatic transformations we achieve with professional power washing services.
+        </p>
+
+        <!-- Featured Large Image -->
+        <div class="max-w-6xl mx-auto mb-12">
+          <div class="relative overflow-hidden rounded-lg shadow-2xl group h-96">
+            <img
+              src="/images/services-optimized/exterior-painting/1.webp"
+              alt="Featured power washing transformation"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+              data-lightbox-gallery="power-washing-gallery"
+            />
+          </div>
+        </div>
+
+        <!-- Grid Gallery -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
+            <img
+              src="/images/services-optimized/exterior-painting/519661187_18021421895725762_3375230967664930050_n.webp"
+              alt="Professional power washing - home exterior"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox-gallery="power-washing-gallery"
+            />
+          </div>
+          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
+            <img
+              src="/images/services-optimized/exterior-painting/552533568_18029634086725762_2275584699687083915_n.webp"
+              alt="Power washing project - driveway and walkway"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox-gallery="power-washing-gallery"
+            />
+          </div>
+          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
+            <img
+              src="/images/services-optimized/exterior-painting/552527896_18029634068725762_4311999433661823934_n.webp"
+              alt="Clean Cut Power Washing - deck and patio cleaning"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox-gallery="power-washing-gallery"
+            />
+          </div>
+          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
+            <img
+              src="/images/services-optimized/exterior-painting/539876508_18026133380725762_7240269548733735434_n.webp"
+              alt="Professional power washing - fence cleaning"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox-gallery="power-washing-gallery"
+            />
+          </div>
+          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
+            <img
+              src="/images/services-optimized/exterior-painting/539451089_18026133398725762_4830453403844705301_n.webp"
+              alt="Power washing - quality exterior cleaning"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox-gallery="power-washing-gallery"
+            />
+          </div>
+          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
+            <img
+              src="/images/services-optimized/exterior-painting/515325683_18019944374725762_2104403430114134139_n.webp"
+              alt="Clean Cut power washing project - complete exterior"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox-gallery="power-washing-gallery"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 lg:py-20 bg-[#144787]">
+      <div class="container-custom">
+        <div class="text-center">
+          <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4" style="font-family: 'PT Sans', Arial, sans-serif;">
+            Transform Your Home's Appearance
+          </h2>
+          <p class="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+            Schedule your power washing consultation today.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button class="px-8 py-3.5 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+              Get Free Estimate
+            </button>
+            <a href="tel:+12173307310" class="px-8 py-3.5 text-white border-2 border-sky-300 rounded-lg hover:bg-sky-400/20 transition-all font-semibold">
+              Call (217) 330-7310
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingCallButton />
+  <Lightbox />
+</Layout>

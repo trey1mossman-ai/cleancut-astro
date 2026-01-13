@@ -1,0 +1,402 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FloatingCallButton from '../../components/FloatingCallButton.astro';
+import Lightbox from '../../components/Lightbox.astro';
+---
+
+<Layout
+  title="Exterior Painting Services | Clean Cut Painting & Handyman"
+  description="Expert exterior painting services in Central Illinois. Hundreds of projects completed annually. Licensed, insured, and fully guaranteed. Free estimates available."
+>
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-[500px] py-20 lg:py-24 overflow-hidden">
+      <img
+        src="/images/Home Page/Residential Services/CC _ Home Page Photos_Exterior Painting.webp"
+        alt="Professional exterior painting services"
+        class="absolute inset-0 w-full h-full object-cover"
+      >
+      <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
+      <div class="container-custom relative z-10">
+        <div class="max-w-4xl mx-auto text-center text-white">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 drop-shadow-lg">
+            Residential Exterior Painting
+          </h1>
+          <p class="text-lg sm:text-xl lg:text-2xl text-white/95 font-medium max-w-3xl mx-auto">
+            Transform your home's exterior with precision and expertise. Our seasoned team completes hundreds of exterior projects annually across Central Illinois.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container-custom">
+        <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-[#144787] mb-6">
+          Complete Exterior Coverage
+        </h2>
+        <p class="text-lg text-gray-600 text-center mb-16 max-w-2xl mx-auto">
+          From siding to trim, we handle every surface with precision and care
+        </p>
+
+        <!-- Image Grid Showcase -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16 max-w-6xl mx-auto">
+          <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
+            <img
+              src="/images/services-optimized/exterior-painting/1-1.webp"
+              alt="Siding and brick painting"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              data-lightbox-gallery="exterior-services"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
+              <p class="text-white font-semibold">Siding & Brick</p>
+            </div>
+          </div>
+          <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
+            <img
+              src="/images/services-optimized/exterior-painting/2-2.webp"
+              alt="Soffits and fascia painting"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              data-lightbox-gallery="exterior-services"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
+              <p class="text-white font-semibold">Soffits & Fascia</p>
+            </div>
+          </div>
+          <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
+            <img
+              src="/images/services-optimized/exterior-painting/3-3.webp"
+              alt="Gutters and downspouts painting"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              data-lightbox-gallery="exterior-services"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
+              <p class="text-white font-semibold">Gutters & Downspouts</p>
+            </div>
+          </div>
+          <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
+            <img
+              src="/images/services-optimized/exterior-painting/4-1.webp"
+              alt="Windows and doors painting"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              data-lightbox-gallery="exterior-services"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
+              <p class="text-white font-semibold">Windows & Doors</p>
+            </div>
+          </div>
+          <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
+            <img
+              src="/images/services-optimized/exterior-painting/487402286_505828639268150_4215644748292993585_n.webp"
+              alt="Porch posts and railings painting"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              data-lightbox-gallery="exterior-services"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
+              <p class="text-white font-semibold">Porch Posts & Railings</p>
+            </div>
+          </div>
+          <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
+            <img
+              src="/images/services-optimized/exterior-painting/552527896_18029634068725762_4311999433661823934_n.webp"
+              alt="All exterior surfaces painting"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              data-lightbox-gallery="exterior-services"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
+              <p class="text-white font-semibold">All Exterior Surfaces</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-Width Visual Break -->
+    <section class="relative h-96 overflow-hidden">
+      <img
+        src="/images/services-optimized/exterior-painting/2-4.webp"
+        alt="Beautiful blue-gray home with wrap-around porch and stone foundation - completed exterior painting"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+      />
+    </section>
+
+    <!-- Additional Services Section -->
+    <section class="py-16 bg-white">
+      <div class="container-custom">
+        <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+          <div class="order-2 lg:order-1">
+            <img
+              src="/images/services-optimized/exterior-painting/1.webp"
+              alt="Clean Cut Painting crew actively working on exterior painting project"
+              class="rounded-lg shadow-2xl w-full h-auto"
+              loading="lazy"
+              data-lightbox-gallery="exterior-gallery"
+            />
+          </div>
+          <div class="order-1 lg:order-2">
+            <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
+              Beyond Painting
+            </h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              We offer comprehensive exterior services including tuckpointing, porch repair, landscaping, and patios. Our team handles all the details to ensure every aspect of your project is complete.
+            </p>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+              From small repairs to major transformations, we make the process seamless and stress-free.
+            </p>
+            <a href="/contact" class="inline-block px-8 py-3.5 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+              Schedule Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Process Section -->
+    <section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover; background-position: center;">
+      <div class="absolute inset-0 bg-[#144787]/90"></div>
+      <div class="container-custom relative z-10">
+        <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-white mb-12">
+          Our Proven 8-Step Process
+        </h2>
+        <div class="max-w-4xl mx-auto space-y-6">
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                1
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Deep Cleaning
+              </h3>
+              <p class="text-gray-600">
+                Pressure washing, hand scrubbing, and rinsing to remove dirt and mildew
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                2
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Attention to Detail
+              </h3>
+              <p class="text-gray-600">
+                Careful fixture and hardware detachment and reset
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                3
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Surface Preparation
+              </h3>
+              <p class="text-gray-600">
+                Scraping and sanding loose or peeling paint
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                4
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Wood Restoration
+              </h3>
+              <p class="text-gray-600">
+                Replacing rotted or damaged wood
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                5
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Surface Rehabilitation
+              </h3>
+              <p class="text-gray-600">
+                Repairing and re-securing surfaces
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                6
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Sealing Perfection
+              </h3>
+              <p class="text-gray-600">
+                Applying new caulking to all gaps
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                7
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Finishing Touch
+              </h3>
+              <p class="text-gray-600">
+                Two coats of exterior satin latex for complete, lasting coverage
+              </p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
+                8
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-[#144787] mb-2">
+                Client Satisfaction
+              </h3>
+              <p class="text-gray-600">
+                Project completion with your approval and warranty guarantee
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container-custom">
+        <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-[#144787] mb-6">
+          Our Exterior Painting Projects
+        </h2>
+        <p class="text-lg text-gray-600 text-center mb-16 max-w-2xl mx-auto">
+          Explore our portfolio of completed exterior painting projects showcasing our attention to detail and quality craftsmanship.
+        </p>
+
+        <!-- Featured Large Image -->
+        <div class="max-w-6xl mx-auto mb-12">
+          <div class="relative overflow-hidden rounded-lg shadow-2xl group h-96">
+            <img
+              src="/images/services-optimized/exterior-painting/519661187_18021421895725762_3375230967664930050_n.webp"
+              alt="Featured exterior painting transformation"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+              data-lightbox-gallery="exterior-gallery"
+            />
+          </div>
+        </div>
+
+        <!-- Grid Gallery -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
+            <img
+              src="/images/services-optimized/exterior-painting/552533568_18029634086725762_2275584699687083915_n.webp"
+              alt="Professional exterior painting - siding and trim work"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox-gallery="exterior-gallery"
+            />
+          </div>
+          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
+            <img
+              src="/images/services-optimized/exterior-painting/march-25.webp"
+              alt="Exterior painting project - finished home exterior"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox-gallery="exterior-gallery"
+            />
+          </div>
+          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
+            <img
+              src="/images/services-optimized/exterior-painting/500393461_546646668519680_4024686709663572418_n.webp"
+              alt="Clean Cut Painting - custom exterior color selection"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox-gallery="exterior-gallery"
+            />
+          </div>
+          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
+            <img
+              src="/images/services-optimized/exterior-painting/500888133_546646671853013_7280622945184023242_n.webp"
+              alt="Professional exterior painting - house with fresh paint"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox-gallery="exterior-gallery"
+            />
+          </div>
+          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
+            <img
+              src="/images/services-optimized/exterior-painting/515325683_18019944374725762_2104403430114134139_n.webp"
+              alt="Exterior painting - quality craftsmanship showcase"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox-gallery="exterior-gallery"
+            />
+          </div>
+          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
+            <img
+              src="/images/services-optimized/exterior-painting/575511257_18035041877725762_8577609490548752017_n.webp"
+              alt="Clean Cut Painting exterior project - freshly painted home"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              data-lightbox-gallery="exterior-gallery"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-[#144787] text-white">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl lg:text-4xl font-display font-bold mb-4">Schedule Your Exterior Consultation</h2>
+          <p class="text-lg text-white/90 mb-8">Experience the artistry of exterior painting done right.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button class="px-8 py-3.5 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl text-base">
+              Get Free Estimate
+            </button>
+            <a href="tel:+12173307310" class="px-8 py-3.5 text-white border-2 border-sky-300 rounded-lg hover:bg-sky-400/20 transition-all text-base font-semibold">
+              Call (217) 330-7310
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingCallButton />
+  <Lightbox />
+</Layout>
