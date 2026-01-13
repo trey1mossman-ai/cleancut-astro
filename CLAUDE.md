@@ -49,11 +49,41 @@ dist/               # Build output (deploy this)
 - Pressure washing
 - Drywall repair
 
-## Deployment
+## Deployment (IMPORTANT - READ THIS)
+
+**DO NOT use GitHub Actions workflow for this project.** The gh CLI token doesn't have `workflow` scope.
+
+**Deploy via local build + push to deploy branch:**
+
 ```bash
-npm run build        # Build to dist/
-# Upload dist/ contents to Hostinger via FTP or file manager
+# 1. Build the site
+cd /Users/treymossman/Projects/cleancut-static/cleancut-astro
+npm run build
+
+# 2. Push dist/ to deploy branch (Hostinger pulls from this)
+cd dist
+rm -rf .git  # Clean any old git init
+git init
+git config user.email "trey@voxemarketing.com"
+git config user.name "Trey Mossman"
+git add -A
+git commit -m "Deploy: [description of changes]"
+git push --force https://github.com/trey1mossman-ai/cleancut-astro.git HEAD:deploy
 ```
+
+**Architecture:**
+```
+Local build (npm run build)
+    ↓
+dist/ folder pushed to `deploy` branch
+    ↓
+Hostinger auto-pulls from `deploy` branch via webhook
+```
+
+**GitHub Repo:** `trey1mossman-ai/cleancut-astro` (public)
+**Branches:**
+- `main` - Source code
+- `deploy` - Built static files only (Hostinger pulls from here)
 
 ## Contact
 - **Client:** Colleen
