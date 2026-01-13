@@ -1,13 +1,14 @@
 # CleanCut Pros - Progress
 
 ## Last Updated
-2025-12-29 - Post-call with Colleen, implementing task list
+2026-01-13 - GitHub + Hostinger Git deployment setup
 
 ## Current State
-- **Status:** Deployed to Hostinger, revision round in progress
+- **Status:** Deployed to Hostinger via GitHub
 - **Site:** https://indigo-badger-869654.hostingersite.com/
-- **Deployment Folder:** `/Users/treymossman/Projects/cleancut-static/cleancut-astro/hostinger-deployment/`
-- **Branch:** main
+- **GitHub Repo:** https://github.com/trey1mossman-ai/cleancut-astro
+- **Source Branch:** main
+- **Deploy Branch:** deploy (static files only)
 
 ---
 
@@ -86,3 +87,12 @@
 ### 2025-12-23
 - Created project documentation files
 - Initial audit of missing elements
+
+### 2026-01-13 - GitHub Deployment Setup
+- Created GitHub repo: `trey1mossman-ai/cleancut-astro`
+- Pushed source code to `main` branch
+- Compressed video testimonials from 185-272MB to 9-14MB each (ffmpeg CRF 28)
+- Created `deploy` branch with only static built files (83MB)
+- Connected Hostinger to pull from `deploy` branch
+- Site now auto-deploys when deploy branch is updated
+- Created DEPLOYMENT.md with full deployment workflow documentation
