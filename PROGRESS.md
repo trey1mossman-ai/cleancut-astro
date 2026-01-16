@@ -1,7 +1,7 @@
 # CleanCut Pros - Progress
 
 ## Last Updated
-2026-01-14 - Interior painting page updates per Colleen's Jan 13 feedback
+2026-01-16 - ProcessScrollCards simplified, emailed Colleen with correct link
 
 ## Current State
 - **Status:** Preview on Vercel, Hostinger auto-deploy not working (use Vercel for now)
@@ -14,6 +14,24 @@
 ---
 
 ## Session Log
+
+### 2026-01-16 - ProcessScrollCards Fix & Correct Link
+**Focus:** Fix process cards display and send Colleen correct preview link
+
+**Completed:**
+- [x] Simplified ProcessScrollCards component - removed "Step X of X" counters
+- [x] Added "See Step 5" button for cleaner UX
+- [x] Deployed to Vercel (live at cleancut-astro.vercel.app)
+- [x] Emailed Colleen with CORRECT link (interior-painting, not services/interior-painting)
+- [x] Offered to hop on a call to expedite approval
+
+**Files Changed:**
+- src/components/ProcessScrollCards.astro - simplified layout, removed step counters
+
+**Waiting On:**
+- Colleen: Final approval of interior-painting page layout
+
+---
 
 ### 2026-01-14 - Interior Painting Page Refinements
 **Focus:** Implement Colleen's feedback from Jan 13 email
@@ -29,9 +47,6 @@
 
 **Files Changed:**
 - src/pages/residential/interior-painting.astro - all copy updates, section merge, photo added
-
-**Waiting On:**
-- Colleen: FAQs and final website review/approval (expected by 2026-01-16)
 
 ---
 
@@ -59,9 +74,6 @@
 - Tailwind v4 bg-gray-50 and bg-gray-100 are too light - use bg-gray-200 for visible gray
 - Hostinger webhook delivering 200 OK but not pulling changes - needs investigation
 - Vercel auto-deploys from main branch reliably
-
-**Waiting On:**
-- Colleen approval of interior-painting layout before rolling out to all service pages
 
 ---
 
