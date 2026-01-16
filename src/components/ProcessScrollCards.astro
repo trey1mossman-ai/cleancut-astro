@@ -16,166 +16,225 @@ const { steps, title = "Our Process in a Snapshot" } = Astro.props;
 <section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover; background-position: center;">
   <div class="absolute inset-0 bg-[#144787]/90"></div>
   <div class="relative z-10">
-    <div class="container-custom">
-      <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-white mb-4">
+    <!-- Header -->
+    <div class="container-custom mb-10">
+      <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-white mb-3">
         {title}
       </h2>
-      <p class="text-white/70 text-center mb-12 max-w-2xl mx-auto">
+      <p class="text-white/70 text-center max-w-2xl mx-auto">
         Our proven approach ensures exceptional results every time
       </p>
     </div>
 
-    <!-- Horizontal Scroll Container -->
-    <div class="process-scroll-container relative">
-      <div class="process-scroll-track flex gap-6 px-6 md:px-12 pb-6 overflow-x-auto scroll-smooth snap-x snap-mandatory" style="scrollbar-width: none; -ms-overflow-style: none;">
+    <!-- Cards Scroll Wrapper -->
+    <div class="process-wrapper relative">
+      <!-- Scroll Track -->
+      <div 
+        class="process-track flex gap-5 px-5 md:px-8 lg:px-12 pb-4 overflow-x-auto overscroll-x-contain"
+        style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;"
+      >
         {steps.map((step, index) => (
-          <div 
-            class="process-card flex-shrink-0 w-[300px] md:w-[340px] bg-white rounded-2xl shadow-2xl p-8 snap-center transform transition-all duration-500 hover:scale-[1.02] hover:shadow-3xl"
-            style={`animation-delay: ${index * 100}ms;`}
+          <article 
+            class="process-card flex-none w-[280px] sm:w-[300px] md:w-[320px] bg-white rounded-xl shadow-xl p-6 md:p-7"
+            style="scroll-snap-align: start;"
           >
-            <!-- Step Number Badge -->
-            <div class="flex items-center gap-4 mb-6">
-              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-sky-400 to-sky-500 text-white flex items-center justify-center text-2xl font-bold shadow-lg">
+            <!-- Step Header -->
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg bg-gradient-to-br from-sky-400 to-sky-500 text-white flex items-center justify-center text-xl md:text-2xl font-bold shadow-md flex-shrink-0">
                 {step.number}
               </div>
-              <div class="h-1 flex-1 bg-gradient-to-r from-sky-400/50 to-transparent rounded-full"></div>
+              <div class="flex-1 h-0.5 bg-gradient-to-r from-sky-400/40 to-transparent rounded-full"></div>
             </div>
             
             <!-- Content -->
-            <h3 class="text-xl font-bold text-[#144787] mb-4 leading-tight">
+            <h3 class="text-lg md:text-xl font-bold text-[#144787] mb-3 leading-snug">
               {step.title}
             </h3>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-600 text-sm md:text-base leading-relaxed">
               {step.description}
             </p>
             
-            <!-- Progress indicator -->
-            <div class="mt-6 flex items-center gap-2">
-              <span class="text-xs font-semibold text-sky-400">Step {step.number}</span>
-              <span class="text-xs text-gray-400">of {steps.length}</span>
+            <!-- Step indicator -->
+            <div class="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-semibold text-sky-500">Step {step.number} of {steps.length}</span>
+              {index < steps.length - 1 && (
+                <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              )}
+              {index === steps.length - 1 && (
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              )}
             </div>
-          </div>
+          </article>
         ))}
-        
-        <!-- Spacer for last card visibility -->
-        <div class="flex-shrink-0 w-6 md:w-12"></div>
+        <!-- End spacer for proper scroll padding -->
+        <div class="flex-none w-5 md:w-8 lg:w-12" aria-hidden="true"></div>
       </div>
 
-      <!-- Scroll Indicators -->
-      <div class="flex justify-center gap-2 mt-6">
-        {steps.map((_, index) => (
-          <button 
-            class="scroll-indicator w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60"
-            data-index={index}
-            aria-label={`Go to step ${index + 1}`}
-          ></button>
-        ))}
-      </div>
-
-      <!-- Scroll hint for mobile -->
-      <p class="text-white/50 text-sm text-center mt-4 md:hidden flex items-center justify-center gap-2">
-        <svg class="w-4 h-4 animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+      <!-- Navigation Arrows (desktop) -->
+      <button 
+        class="scroll-prev hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg items-center justify-center text-[#144787] transition-all hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed z-10"
+        aria-label="Previous step"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
         </svg>
-        Swipe to explore
-      </p>
+      </button>
+      <button 
+        class="scroll-next hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg items-center justify-center text-[#144787] transition-all hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed z-10"
+        aria-label="Next step"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
     </div>
+
+    <!-- Scroll Dots -->
+    <div class="flex justify-center gap-2 mt-6 px-4">
+      {steps.map((_, index) => (
+        <button 
+          class="scroll-dot w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/50"
+          data-index={index}
+          aria-label={`Go to step ${index + 1}`}
+        ></button>
+      ))}
+    </div>
+
+    <!-- Mobile swipe hint -->
+    <p class="text-white/50 text-xs text-center mt-3 md:hidden flex items-center justify-center gap-1.5">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+      </svg>
+      Swipe to see all steps
+    </p>
   </div>
 </section>
 
 <style>
-  .process-scroll-track::-webkit-scrollbar {
+  /* Hide scrollbar but keep functionality */
+  .process-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .process-track::-webkit-scrollbar {
     display: none;
   }
   
+  /* Card hover effect */
   .process-card {
-    animation: fadeSlideIn 0.6s ease-out forwards;
-    opacity: 0;
-    transform: translateY(20px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .process-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
   }
   
-  @keyframes fadeSlideIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes bounce-x {
-    0%, 100% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(4px);
-    }
-  }
-  
-  .animate-bounce-x {
-    animation: bounce-x 1s ease-in-out infinite;
-  }
-  
-  .scroll-indicator.active {
+  /* Active dot state */
+  .scroll-dot.active {
     background-color: rgba(255, 255, 255, 0.9);
-    width: 1.5rem;
+    width: 1.25rem;
   }
-
-  /* Desktop: Center cards if they fit */
-  @media (min-width: 1200px) {
-    .process-scroll-track {
-      justify-content: center;
+  
+  /* Ensure touch scrolling works on iOS */
+  @supports (-webkit-touch-callout: none) {
+    .process-track {
+      -webkit-overflow-scrolling: touch;
     }
   }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.process-scroll-track');
-    const indicators = document.querySelectorAll('.scroll-indicator');
+  function initProcessCards() {
+    const wrapper = document.querySelector('.process-wrapper');
+    const track = document.querySelector('.process-track');
     const cards = document.querySelectorAll('.process-card');
+    const dots = document.querySelectorAll('.scroll-dot');
+    const prevBtn = document.querySelector('.scroll-prev');
+    const nextBtn = document.querySelector('.scroll-next');
     
-    if (!track || !indicators.length) return;
+    if (!track || !cards.length) return;
     
-    // Update active indicator on scroll
-    const updateIndicators = () => {
+    const getCardWidth = () => {
+      const card = cards[0];
+      const style = window.getComputedStyle(track);
+      const gap = parseInt(style.gap) || 20;
+      return card.offsetWidth + gap;
+    };
+    
+    const getActiveIndex = () => {
       const scrollLeft = track.scrollLeft;
-      const cardWidth = cards[0]?.offsetWidth || 340;
-      const gap = 24; // gap-6 = 1.5rem = 24px
-      const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
+      const cardWidth = getCardWidth();
+      return Math.round(scrollLeft / cardWidth);
+    };
+    
+    const updateUI = () => {
+      const activeIndex = getActiveIndex();
+      const maxIndex = cards.length - 1;
       
-      indicators.forEach((ind, i) => {
-        ind.classList.toggle('active', i === activeIndex);
+      // Update dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === activeIndex);
+      });
+      
+      // Update arrow states
+      if (prevBtn) prevBtn.disabled = activeIndex === 0;
+      if (nextBtn) nextBtn.disabled = activeIndex >= maxIndex;
+    };
+    
+    const scrollToIndex = (index) => {
+      const cardWidth = getCardWidth();
+      track.scrollTo({
+        left: index * cardWidth,
+        behavior: 'smooth'
       });
     };
     
-    track.addEventListener('scroll', updateIndicators, { passive: true });
+    // Scroll event
+    let scrollTimeout;
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(updateUI, 50);
+    }, { passive: true });
     
-    // Click indicator to scroll to card
-    indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => {
-        const cardWidth = cards[0]?.offsetWidth || 340;
-        const gap = 24;
-        track.scrollTo({
-          left: index * (cardWidth + gap),
-          behavior: 'smooth'
-        });
-      });
+    // Dot clicks
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => scrollToIndex(index));
     });
+    
+    // Arrow clicks
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        const current = getActiveIndex();
+        if (current > 0) scrollToIndex(current - 1);
+      });
+    }
+    
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const current = getActiveIndex();
+        if (current < cards.length - 1) scrollToIndex(current + 1);
+      });
+    }
     
     // Initialize
-    updateIndicators();
+    updateUI();
     
-    // Trigger card animations when in view
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = 'running';
-        }
-      });
-    }, { threshold: 0.2 });
-    
-    cards.forEach(card => {
-      card.style.animationPlayState = 'paused';
-      observer.observe(card);
+    // Re-init on resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(updateUI, 100);
     });
-  });
+  }
+  
+  // Run on load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProcessCards);
+  } else {
+    initProcessCards();
+  }
 </script>
