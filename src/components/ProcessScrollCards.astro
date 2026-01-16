@@ -26,105 +26,55 @@ const { steps, title = "Our Process" } = Astro.props;
       </p>
     </div>
 
-    <!-- Cards Scroll Wrapper -->
-    <div class="process-wrapper relative">
-      <!-- Scroll Track -->
-      <div 
-        class="process-track flex gap-5 px-5 md:px-8 lg:px-12 pb-4 overflow-x-auto overscroll-x-contain"
-        style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;"
-      >
-        {steps.map((step, index) => (
-          <article 
-            class="process-card flex-none w-[280px] sm:w-[300px] md:w-[320px] bg-white rounded-xl shadow-xl p-6 md:p-7"
-            style="scroll-snap-align: start;"
-          >
-            <!-- Step Header -->
-            <div class="flex items-center gap-3 mb-5">
-              <div class="w-12 h-12 md:w-14 md:h-14 rounded-lg bg-gradient-to-br from-sky-400 to-sky-500 text-white flex items-center justify-center text-xl md:text-2xl font-bold shadow-md flex-shrink-0">
-                {step.number}
-              </div>
-              <div class="flex-1 h-0.5 bg-gradient-to-r from-sky-400/40 to-transparent rounded-full"></div>
+    <!-- Cards Container -->
+    <div class="process-container max-w-7xl mx-auto px-4">
+      <!-- Cards Grid - shows 4 on desktop, scrolls to 5th -->
+      <div class="process-track flex gap-4 overflow-x-auto pb-2 cursor-grab active:cursor-grabbing">
+        {steps.map((step) => (
+          <article class="process-card flex-none w-[calc(25%-12px)] min-w-[260px] bg-white rounded-xl shadow-xl p-6">
+            <!-- Step Number -->
+            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-sky-400 to-sky-500 text-white flex items-center justify-center text-xl font-bold shadow-md mb-5">
+              {step.number}
             </div>
             
             <!-- Content -->
-            <h3 class="text-lg md:text-xl font-bold text-[#144787] mb-3 leading-snug">
+            <h3 class="text-lg font-bold text-[#144787] mb-3 leading-snug">
               {step.title}
             </h3>
-            <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+            <p class="text-gray-600 text-sm leading-relaxed">
               {step.description}
             </p>
-            
-            <!-- Step indicator -->
-            <div class="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between">
-              <span class="text-xs font-semibold text-sky-500">Step {step.number} of {steps.length}</span>
-              {index < steps.length - 1 && (
-                <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              )}
-              {index === steps.length - 1 && (
-                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-              )}
-            </div>
           </article>
         ))}
-        <!-- End spacer for proper scroll padding -->
-        <div class="flex-none w-5 md:w-8 lg:w-12" aria-hidden="true"></div>
       </div>
 
-      <!-- Navigation Arrows (desktop) -->
-      <button 
-        class="scroll-prev hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg items-center justify-center text-[#144787] transition-all hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed z-10"
-        aria-label="Previous step"
-      >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-        </svg>
-      </button>
-      <button 
-        class="scroll-next hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full shadow-lg items-center justify-center text-[#144787] transition-all hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed z-10"
-        aria-label="Next step"
-      >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Scroll Dots -->
-    <div class="flex justify-center gap-2 mt-6 px-4">
-      {steps.map((_, index) => (
+      <!-- Scroll Button -->
+      <div class="flex justify-center mt-6">
         <button 
-          class="scroll-dot w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/50"
-          data-index={index}
-          aria-label={`Go to step ${index + 1}`}
-        ></button>
-      ))}
+          class="scroll-more-btn flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/30 rounded-full text-white text-sm font-medium transition-all duration-300 group"
+          aria-label="See more steps"
+        >
+          <span class="btn-text">See Step 5</span>
+          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </button>
+      </div>
     </div>
-
-    <!-- Mobile swipe hint -->
-    <p class="text-white/50 text-xs text-center mt-3 md:hidden flex items-center justify-center gap-1.5">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
-      </svg>
-      Swipe to see all steps
-    </p>
   </div>
 </section>
 
 <style>
-  /* Hide scrollbar but keep functionality */
+  /* Hide scrollbar */
   .process-track {
     scrollbar-width: none;
     -ms-overflow-style: none;
+    scroll-behavior: smooth;
   }
   .process-track::-webkit-scrollbar {
     display: none;
   }
   
-  /* Card hover effect */
   .process-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
@@ -133,105 +83,97 @@ const { steps, title = "Our Process" } = Astro.props;
     box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
   }
   
-  /* Active dot state */
-  .scroll-dot.active {
-    background-color: rgba(255, 255, 255, 0.9);
-    width: 1.25rem;
+  /* Responsive card widths */
+  @media (max-width: 1200px) {
+    .process-card {
+      width: calc(33.333% - 11px);
+      min-width: 240px;
+    }
   }
-  
-  /* Ensure touch scrolling works on iOS */
-  @supports (-webkit-touch-callout: none) {
-    .process-track {
-      -webkit-overflow-scrolling: touch;
+  @media (max-width: 900px) {
+    .process-card {
+      width: calc(50% - 8px);
+      min-width: 220px;
+    }
+  }
+  @media (max-width: 600px) {
+    .process-card {
+      width: 85%;
+      min-width: 260px;
     }
   }
 </style>
 
 <script>
   function initProcessCards() {
-    const wrapper = document.querySelector('.process-wrapper');
-    const track = document.querySelector('.process-track');
+    const track = document.querySelector('.process-track') as HTMLElement;
+    const btn = document.querySelector('.scroll-more-btn') as HTMLElement;
+    const btnText = btn?.querySelector('.btn-text') as HTMLElement;
     const cards = document.querySelectorAll('.process-card');
-    const dots = document.querySelectorAll('.scroll-dot');
-    const prevBtn = document.querySelector('.scroll-prev');
-    const nextBtn = document.querySelector('.scroll-next');
     
-    if (!track || !cards.length) return;
+    if (!track || !btn || !cards.length) return;
     
-    const getCardWidth = () => {
-      const card = cards[0];
-      const style = window.getComputedStyle(track);
-      const gap = parseInt(style.gap) || 20;
-      return card.offsetWidth + gap;
-    };
+    let atEnd = false;
     
-    const getActiveIndex = () => {
-      const scrollLeft = track.scrollLeft;
-      const cardWidth = getCardWidth();
-      return Math.round(scrollLeft / cardWidth);
-    };
+    // Mouse drag scrolling
+    let isDown = false;
+    let startX: number;
+    let scrollLeft: number;
     
-    const updateUI = () => {
-      const activeIndex = getActiveIndex();
-      const maxIndex = cards.length - 1;
-      
-      // Update dots
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === activeIndex);
-      });
-      
-      // Update arrow states
-      if (prevBtn) prevBtn.disabled = activeIndex === 0;
-      if (nextBtn) nextBtn.disabled = activeIndex >= maxIndex;
-    };
-    
-    const scrollToIndex = (index) => {
-      const cardWidth = getCardWidth();
-      track.scrollTo({
-        left: index * cardWidth,
-        behavior: 'smooth'
-      });
-    };
-    
-    // Scroll event
-    let scrollTimeout;
-    track.addEventListener('scroll', () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(updateUI, 50);
-    }, { passive: true });
-    
-    // Dot clicks
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => scrollToIndex(index));
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      track.style.cursor = 'grabbing';
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
     });
     
-    // Arrow clicks
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        const current = getActiveIndex();
-        if (current > 0) scrollToIndex(current - 1);
-      });
-    }
+    track.addEventListener('mouseleave', () => {
+      isDown = false;
+      track.style.cursor = 'grab';
+    });
     
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        const current = getActiveIndex();
-        if (current < cards.length - 1) scrollToIndex(current + 1);
-      });
-    }
+    track.addEventListener('mouseup', () => {
+      isDown = false;
+      track.style.cursor = 'grab';
+    });
+    
+    track.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      const walk = (x - startX) * 2;
+      track.scrollLeft = scrollLeft - walk;
+    });
+    
+    // Update button state based on scroll position
+    const updateButton = () => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      atEnd = track.scrollLeft >= maxScroll - 10;
+      
+      if (atEnd) {
+        btnText.textContent = 'Back to Start';
+        btn.querySelector('svg')?.classList.add('rotate-180');
+      } else {
+        btnText.textContent = 'See Step 5';
+        btn.querySelector('svg')?.classList.remove('rotate-180');
+      }
+    };
+    
+    track.addEventListener('scroll', updateButton, { passive: true });
+    
+    // Button click - scroll to end or back to start
+    btn.addEventListener('click', () => {
+      if (atEnd) {
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+      }
+    });
     
     // Initialize
-    updateUI();
-    
-    // Re-init on resize
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(updateUI, 100);
-    });
+    updateButton();
   }
   
-  // Run on load
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initProcessCards);
   } else {
