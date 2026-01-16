@@ -4,13 +4,14 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
-import HorizontalProcess from '../../components/HorizontalProcess.astro';
+import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
 
 const processSteps = [
   { number: 1, title: "Protection and Preparation", description: "We meticulously mask and safeguard all flooring, fixtures, and contents as required." },
-  { number: 2, title: "Detail Oriented Care", description: "Outlet covers, wall vents, and fixtures are detached and reset, ensuring no detail is overlooked." },
+  { number: 2, title: "Detail-Oriented Care", description: "Outlet covers, wall vents, and fixtures are detached and reset, ensuring no detail is overlooked." },
   { number: 3, title: "Surface Perfection", description: "Our team expertly repairs surfaces, followed by thorough sanding and priming to prepare for a flawless finish." },
-  { number: 4, title: "Precision Painting", description: "Two finish coats of paint are applied to all surfaces to ensure proper depth and coverage." }
+  { number: 4, title: "Precision Painting", description: "Upon completion of the repairs and priming, two finish coats are applied to all surfaces to ensure proper depth and coverage." },
+  { number: 5, title: "Client Satisfaction Guaranteed", description: "We don't consider our job done until you are 100% satisfied. We provide post-project assurance and back our work with warranty commitments, ensuring your ongoing satisfaction and peace of mind." }
 ];
 ---
 
@@ -41,23 +42,19 @@ const processSteps = [
       </div>
     </section>
 
-    <!-- Intro Section -->
-    <section class="py-16 bg-[#eaeaea]">
+    <!-- Combined Intro + What We Paint Section (same gray background) -->
+    <section class="py-16 bg-gray-50/50">
       <div class="container-custom">
-        <div class="max-w-4xl mx-auto text-center">
+        <!-- Intro Text -->
+        <div class="max-w-4xl mx-auto text-center mb-12">
           <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
             Color, Style, and Craftsmanship You Can Trust
           </h2>
-          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+          <p class="text-lg text-gray-600 leading-relaxed">
             Specializing in high-quality interior painting that refreshes your home from the inside out. Our team delivers smooth finishes, clean lines, and results that reflect your personal style.
           </p>
         </div>
-      </div>
-    </section>
 
-    <!-- What We Paint Section -->
-    <section class="py-16 bg-white">
-      <div class="container-custom">
         <!-- Image Grid Showcase -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-6xl mx-auto">
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
@@ -120,7 +117,7 @@ const processSteps = [
     </section>
 
     <!-- Clear Estimates & Beyond the Paint Combined Section -->
-    <section class="py-16 bg-[#eaeaea]">
+    <section class="py-16 bg-white">
       <div class="container-custom">
         <!-- Clear Estimates -->
         <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto mb-20">
@@ -159,7 +156,7 @@ const processSteps = [
             <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
               Beyond the Paint
             </h2>
-            <p class="text-lg text-gray-600 mb-4 leading-relaxed">
+            <p class="text-xl font-bold text-sky-500 mb-4">
               A great paint job is more than just color.
             </p>
             <p class="text-lg text-gray-600 leading-relaxed">
@@ -170,8 +167,8 @@ const processSteps = [
       </div>
     </section>
 
-    <!-- Our Process Section - Horizontal Layout -->
-    <HorizontalProcess steps={processSteps} />
+    <!-- Our Process Section - Horizontal Scroll Cards -->
+    <ProcessScrollCards steps={processSteps} />
 
     <!-- Gallery Section -->
     <section class="py-20 bg-gray-50">
