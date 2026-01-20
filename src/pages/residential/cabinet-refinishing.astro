@@ -4,54 +4,68 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
+import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
+
+const processSteps = [
+  { number: 1, title: "Protection First", description: "We begin by meticulously masking and protecting all flooring, fixtures, and contents, ensuring a clean and damage-free environment." },
+  { number: 2, title: "Hardware Expertise", description: "Every detail matters, so we carefully detach and reset all hardware as needed, preserving the integrity of your cabinets." },
+  { number: 3, title: "Surface Preparation", description: "De-glossing is key to a smooth finish. We expertly sand all surfaces, creating the ideal canvas for our refinishing process." },
+  { number: 4, title: "Primer Perfection", description: "A single coat of stain-blocking oil primer is applied to all surfaces, laying the foundation for a flawless and long-lasting finish." },
+  { number: 5, title: "Attention to Detail", description: "New caulking is meticulously installed to fill and seal all gaps and voids, while nail holes are filled, sanded, and surfaces are prepped for the transformation." },
+  { number: 6, title: "Artful Application", description: "Two coats of interior semi-gloss latex are skillfully applied to every surface, ensuring a durable and visually stunning result." },
+  { number: 7, title: "Client Satisfaction", description: "Your project is considered complete only when you are 100% satisfied with the refreshed look of your cabinets. We provide post-project assurance and back our work with warranty commitments, ensuring your ongoing satisfaction and peace of mind." }
+];
 ---
 
 <Layout
-  title="Cabinet Refinishing Services | Clean Cut Painting & Handyman"
-  description="Transform your kitchen cabinets, bathroom vanities, built-ins, bookcases, and entertainment centers with Clean Cut's professional cabinet refinishing services in Decatur & Springfield IL."
+  title="Cabinet Refinishing | Clean Cut Painting & Handyman"
+  description="Transform your kitchen cabinets, bathroom vanities, and built-ins with professional refinishing. A cost-effective alternative to replacement. Free estimates in Decatur & Springfield IL!"
 >
   <Header />
 
   <main>
-    <!-- Hero Section -->
-    <section class="relative min-h-[500px] py-20 lg:py-24 overflow-hidden">
+    <!-- Hero Section - Centered -->
+    <section class="relative min-h-[350px] flex items-center overflow-hidden">
       <img
         src="/images/Home Page/Residential Services/CC _ Home Page Photos_Cabinet Refinishing.webp"
         alt="Professional cabinet refinishing services"
         class="absolute inset-0 w-full h-full object-cover"
       >
       <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
-      <div class="container-custom relative z-10">
+      <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
           <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 drop-shadow-lg">
-            Cabinet Refinishing Services
+            Cabinet Refinishing
           </h1>
           <p class="text-lg sm:text-xl lg:text-2xl text-white/95 font-medium max-w-3xl mx-auto">
-            A savvy and cost-effective alternative to replacement. Transform your kitchen cabinets, bathroom vanities, built-ins, bookcases, and entertainment centers.
+            A Fresh Look Without the Full Remodel
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Services Overview Section -->
-    <section class="py-16 bg-gray-50">
+    <!-- Combined Intro + What We Refinish Section (same gray background) -->
+    <section class="py-16 bg-gray-50/50">
       <div class="container-custom">
-        <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-[#144787] mb-6">
-          What We Refinish
-        </h2>
-        <p class="text-lg text-gray-600 text-center mb-16 max-w-2xl mx-auto">
-          From kitchens to bathrooms, we handle every cabinet surface with precision and care
-        </p>
+        <!-- Intro Text -->
+        <div class="max-w-4xl mx-auto text-center mb-12">
+          <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
+            Modern Style, Refined Craftsmanship
+          </h2>
+          <p class="text-lg text-gray-600 leading-relaxed">
+            Breathe new life into your kitchen, bathroom, or living spaces without the expense and disruption of full replacement. We refinish kitchen cabinets, bathroom vanities, built-ins, bookcases, and entertainment centers.
+          </p>
+        </div>
 
         <!-- Image Grid Showcase -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16 max-w-6xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12 max-w-6xl mx-auto">
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/cabinet-refinishing/copy-of-2.webp"
               alt="Kitchen cabinet refinishing"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
-              data-lightbox-gallery="cabinet-services"
+              data-lightbox-gallery="services-gallery"
             />
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Kitchen Cabinets</p>
@@ -63,7 +77,7 @@ import Lightbox from '../../components/Lightbox.astro';
               alt="Bathroom vanity refinishing"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
-              data-lightbox-gallery="cabinet-services"
+              data-lightbox-gallery="services-gallery"
             />
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Bathroom Vanities</p>
@@ -75,7 +89,7 @@ import Lightbox from '../../components/Lightbox.astro';
               alt="Built-in shelving and desk area refinishing"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
-              data-lightbox-gallery="cabinet-services"
+              data-lightbox-gallery="services-gallery"
             />
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Built-In Shelving</p>
@@ -87,7 +101,7 @@ import Lightbox from '../../components/Lightbox.astro';
               alt="Bookcase and closet door refinishing"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
-              data-lightbox-gallery="cabinet-services"
+              data-lightbox-gallery="services-gallery"
             />
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Bookcases</p>
@@ -99,7 +113,7 @@ import Lightbox from '../../components/Lightbox.astro';
               alt="Entertainment center refinishing"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
-              data-lightbox-gallery="cabinet-services"
+              data-lightbox-gallery="services-gallery"
             />
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Entertainment Centers</p>
@@ -111,29 +125,50 @@ import Lightbox from '../../components/Lightbox.astro';
               alt="Hardware updates and replacement"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
-              data-lightbox-gallery="cabinet-services"
+              data-lightbox-gallery="services-gallery"
             />
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Hardware Updates</p>
             </div>
           </div>
         </div>
+
+        <!-- View Gallery CTA -->
+        <div class="text-center">
+          <a href="/our-work" class="inline-block px-8 py-3.5 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+            View Gallery
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- Full-Width Visual Break -->
-    <section class="relative h-96 overflow-hidden">
-      <img
-        src="/images/services-optimized/interior-painting/6t4a6783.webp"
-        alt="Open concept living space with beautifully refinished kitchen cabinets"
-        class="absolute inset-0 w-full h-full object-cover"
-        loading="lazy"
-      />
-    </section>
-
-    <!-- Feature Section -->
+    <!-- Clear Estimates & Beyond the Paint Combined Section -->
     <section class="py-16 bg-white">
       <div class="container-custom">
+        <!-- Clear Estimates -->
+        <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto mb-20">
+          <div>
+            <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
+              Clear Estimates and Flexible Planning
+            </h2>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+              Every project starts with a free estimate and a detailed proposal. For larger cabinet projects, we can phase the work to fit your budget and timeline, ensuring no surprises along the way.
+            </p>
+            <a href="/contact" class="inline-block px-8 py-3.5 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+              Get a Complimentary Proposal
+            </a>
+          </div>
+          <div>
+            <img
+              src="/images/services-optimized/interior-painting/6t4a6783.webp"
+              alt="Cabinet refinishing consultation"
+              class="rounded-lg shadow-2xl w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Beyond the Paint -->
         <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           <div class="order-2 lg:order-1">
             <img
@@ -141,152 +176,34 @@ import Lightbox from '../../components/Lightbox.astro';
               alt="Beautiful kitchen with professionally refinished white cabinets"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
-              data-lightbox-gallery="cabinet-gallery"
             />
           </div>
           <div class="order-1 lg:order-2">
             <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
-              Beyond Painting: Transforming Spaces
+              Beyond the Paint
             </h2>
-            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-              Cabinet refinishing is more than just a fresh coat of paint. It's about breathing new life into your kitchen or bathroom without the expense and disruption of full replacement.
+            <p class="text-xl font-bold text-sky-500 mb-4">
+              Cabinet refinishing is more than just a fresh coat.
             </p>
-            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-              Our skilled craftsmen bring precision and artistry to every cabinet we touch, ensuring a flawless finish that lasts for years to come.
+            <p class="text-lg text-gray-600 leading-relaxed">
+              Our skilled craftsmen bring precision and artistry to every cabinet we touch. We handle hardware updates, color consultation, and careful protection of your home throughout the process, ensuring a flawless finish that lasts for years to come.
             </p>
-            <a href="/contact" class="inline-block px-8 py-3.5 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
-              Get Free Estimate
-            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover; background-position: center;">
-      <div class="absolute inset-0 bg-[#144787]/90"></div>
-      <div class="container-custom relative z-10">
-        <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-white mb-12">
-          Our Cabinet Refinishing Process
-        </h2>
-        <div class="max-w-4xl mx-auto space-y-6">
-          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
-                1
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-[#144787] mb-2">
-                Protection First
-              </h3>
-              <p class="text-gray-600">
-                Complete masking and protection of flooring, fixtures, and contents
-              </p>
-            </div>
-          </div>
-          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
-                2
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-[#144787] mb-2">
-                Hardware Expertise
-              </h3>
-              <p class="text-gray-600">
-                Careful detachment and resetting of all hardware
-              </p>
-            </div>
-          </div>
-          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
-                3
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-[#144787] mb-2">
-                Surface Preparation
-              </h3>
-              <p class="text-gray-600">
-                Thorough sanding and de-glossing of all surfaces
-              </p>
-            </div>
-          </div>
-          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
-                4
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-[#144787] mb-2">
-                Primer Application
-              </h3>
-              <p class="text-gray-600">
-                Single coat of stain-blocking oil primer for superior adhesion
-              </p>
-            </div>
-          </div>
-          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
-                5
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-[#144787] mb-2">
-                Detail Work
-              </h3>
-              <p class="text-gray-600">
-                New caulking installation and hole filling for perfect finish
-              </p>
-            </div>
-          </div>
-          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
-                6
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-[#144787] mb-2">
-                Finish Coating
-              </h3>
-              <p class="text-gray-600">
-                Two coats of interior semi-gloss latex for lasting durability
-              </p>
-            </div>
-          </div>
-          <div class="bg-white rounded-lg p-6 shadow-lg flex gap-6">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 rounded-full bg-sky-400 text-white flex items-center justify-center text-xl font-bold">
-                7
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-[#144787] mb-2">
-                Quality Assurance
-              </h3>
-              <p class="text-gray-600">
-                Final walkthrough with warranty commitment and satisfaction guarantee
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Our Process Section - Horizontal Scroll Cards -->
+    <ProcessScrollCards steps={processSteps} />
 
     <!-- Gallery Section -->
-    <section class="py-16 bg-gray-50">
+    <section class="py-20 bg-gray-50">
       <div class="container-custom">
         <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-[#144787] mb-6">
           Our Cabinet Refinishing Projects
         </h2>
         <p class="text-lg text-gray-600 text-center mb-16 max-w-2xl mx-auto">
-          Explore our portfolio of completed cabinet refinishing projects showcasing our attention to detail and quality craftsmanship.
+          From start to finish, we stand behind our work with warranties and support you can trust.
         </p>
 
         <!-- Featured Large Image -->
@@ -359,12 +276,19 @@ import Lightbox from '../../components/Lightbox.astro';
             />
           </div>
         </div>
+
+        <!-- Gallery CTA -->
+        <div class="text-center mt-12">
+          <a href="/our-work" class="inline-block px-8 py-3.5 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+            View Full Gallery
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover; background-position: center;">
-      <div class="absolute inset-0 bg-[#144787]/90"></div>
+    <section class="py-16 relative bg-[#144787]">
+      <div class="absolute inset-0 opacity-20" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover;"></div>
       <div class="container-custom relative z-10">
         <div class="max-w-3xl mx-auto text-center">
           <h2 class="text-3xl lg:text-4xl font-display font-bold text-white mb-6">
@@ -375,9 +299,9 @@ import Lightbox from '../../components/Lightbox.astro';
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/contact" class="px-8 py-4 bg-sky-400 text-white font-bold text-lg rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
-              Get Free Estimate
+              Get a Complimentary Proposal
             </a>
-            <a href="tel:+12173307310" class="px-8 py-4 bg-white text-[#144787] font-bold text-lg rounded-lg hover:bg-gray-100 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+            <a href="tel:+12173307310" class="px-8 py-4 bg-white text-[#144787] font-bold text-lg rounded-lg hover:bg-gray-200 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
               Call (217) 330-7310
             </a>
           </div>

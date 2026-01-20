@@ -87,9 +87,22 @@ GitHub webhook triggers Hostinger auto-deploy
 - `main` - Source code
 - `deploy` - Built static files only (Hostinger pulls from here)
 
-## Contact
-- **Client:** Colleen
-- **Email:** colleen@cleancutservice.com
+## Email Communication (MANDATORY)
+
+**ALL emails to CleanCut must CC the full team:**
+
+| Role | Name | Email |
+|------|------|-------|
+| **Primary Contact** | Colleen Hayes | colleen@cleancutservice.com |
+| **CC (Voxe)** | Matt Aponte | matt@voxemarketing.com |
+| **CC (Voxe)** | Michael David | michaeld@voxemarketing.com |
+| **CC (CleanCut CRO)** | Tyler Tate | tyler@cleancutservice.com |
+| **CC (CleanCut Ops)** | Colby Geiser | colby@cleancutservice.com |
+
+**Quick CC string for gmail.js:**
+```
+--cc "matt@voxemarketing.com,michaeld@voxemarketing.com,tyler@cleancutservice.com,colby@cleancutservice.com"
+```
 
 ## Session Notes
 - Site is deployed and live

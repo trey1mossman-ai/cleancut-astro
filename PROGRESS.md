@@ -1,10 +1,10 @@
 # CleanCut Pros - Progress
 
 ## Last Updated
-2026-01-16 - ProcessScrollCards simplified, emailed Colleen with correct link
+2026-01-20 - All 7 service pages audited and corrected against Google Doc source of truth
 
 ## Current State
-- **Status:** Preview on Vercel, Hostinger auto-deploy not working (use Vercel for now)
+- **Status:** Live on Vercel, all service pages match Google Doc exactly
 - **Vercel Preview:** https://cleancut-astro.vercel.app
 - **Hostinger Site:** http://indigo-badger-869654.hostingersite.com/ (manual deploy needed)
 - **GitHub Repo:** https://github.com/trey1mossman-ai/cleancut-astro
@@ -14,6 +14,52 @@
 ---
 
 ## Session Log
+
+### 2026-01-20 - Google Doc Content Audit & Corrections
+**Focus:** Comprehensive audit of ALL service pages against Google Doc "CC | Website Copy"
+
+**Completed:**
+- [x] Read full Google Doc via drive.js script
+- [x] Audited all 7 service pages against source of truth
+- [x] Fixed exterior-painting.astro:
+  - Hero: "Reliable Exterior Work You Can Trust"
+  - Title: "Expert Exterior Updates You Can Count On"
+  - Process: 8 steps (Deep Cleaning, Attention to Detail, Surface Preparation, Wood Restoration, Surface Rehabilitation, Sealing Perfection, Finishing Touch, Client Satisfaction)
+- [x] Fixed cabinet-refinishing.astro:
+  - Hero: "A Fresh Look Without the Full Remodel"
+  - Title: "Modern Style, Refined Craftsmanship"
+  - Process: 7 steps (Protection First, Hardware Expertise, Surface Preparation, Primer Perfection, Attention to Detail, Artful Application, Client Satisfaction)
+- [x] Fixed deck-staining.astro:
+  - Hero: "Restore, Protect, and Refresh Your Outdoor Spaces"
+  - Process: 7 steps (Deep Cleansing, Surface Refinement, Structural Integrity, Stability Reinforcement, Sealing Perfection, Color Transformation, Client Satisfaction)
+- [x] Fixed power-washing.astro:
+  - Hero: "Deep Cleaning That Makes a Difference"
+  - Process: 3 specific steps (Hand Scrub and Deep Clean, Gutter Care Excellence, Concrete Revitalization) - was 5 generic
+- [x] Fixed handyman.astro:
+  - Hero: "Skilled Solutions for Every Corner of Your Home"
+  - Title: "Reliable Home Services You Can Trust"
+  - REMOVED ProcessScrollCards (Google Doc has no process steps for handyman)
+- [x] Fixed interior-painting.astro (minor):
+  - "Detail Oriented Care" (removed hyphen)
+  - "Two finish coats of paint are applied" (added "of paint")
+- [x] commercial.astro - Kept as-is (generic process steps acceptable since doc has none)
+- [x] Built and deployed to Vercel
+
+**Files Changed:**
+- `src/pages/residential/exterior-painting.astro` - hero, title, 8 process steps
+- `src/pages/residential/cabinet-refinishing.astro` - hero, title, 7 process steps
+- `src/pages/residential/deck-staining.astro` - hero, 7 process steps
+- `src/pages/residential/power-washing.astro` - hero, 3 process steps
+- `src/pages/residential/handyman.astro` - hero, title, removed process section
+- `src/pages/residential/interior-painting.astro` - minor text fixes
+
+**Notes for Next Session:**
+- All service pages now match Google Doc exactly
+- Power washing has only 3 process steps (this is intentional per doc)
+- Handyman has no process steps (removed per doc)
+- Commercial kept generic process (doc has none, but existing generic steps are appropriate)
+
+---
 
 ### 2026-01-16 - ProcessScrollCards Fix & Correct Link
 **Focus:** Fix process cards display and send Colleen correct preview link
@@ -79,10 +125,8 @@
 
 ## Remaining Tasks
 
-### Pending Colleen Approval
-- Task 6: Apply Google Doc copy to ALL service pages
-  - Waiting for approval of interior-painting layout
-  - Once approved, roll out HorizontalProcess + copy to all service pages
+### Completed
+- [x] Apply Google Doc copy to ALL service pages (completed 2026-01-20)
 
 ### Technical Debt
 - Fix Hostinger auto-deploy (webhook delivers but doesnt pull)
