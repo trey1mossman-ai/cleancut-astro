@@ -5,6 +5,34 @@ import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+const faqs = [
+  {
+    question: "How much does cabinet refinishing cost?",
+    answer: "Costs vary based on cabinet count, condition, and finish. We provide free detailed estimates after assessing your project."
+  },
+  {
+    question: "How long does cabinet refinishing take?",
+    answer: "Most kitchen cabinet projects take 3-5 days depending on size and complexity. We work efficiently while maintaining quality."
+  },
+  {
+    question: "Is refinishing or painting better for cabinets?",
+    answer: "We assess each project individually. Refinishing preserves wood grain while painting offers color flexibility. We'll recommend what's best for your cabinets."
+  },
+  {
+    question: "Do I need to empty my cabinets before refinishing?",
+    answer: "Yes, removing contents protects your items and allows full access to all surfaces for the best finish."
+  },
+  {
+    question: "Can you refinish laminate or thermofoil cabinets?",
+    answer: "Yes! With proper preparation and specialized primers, we can transform laminate and thermofoil cabinets beautifully."
+  },
+  {
+    question: "What finishes do you offer?",
+    answer: "We offer various sheens from matte to high-gloss, plus specialty finishes. We'll help you choose the right look and durability level."
+  }
+];
 
 const processSteps = [
   { number: 1, title: "Protection First", description: "We begin by meticulously masking and protecting all flooring, fixtures, and contents, ensuring a clean and damage-free environment." },
@@ -195,6 +223,9 @@ const processSteps = [
 
     <!-- Our Process Section - Horizontal Scroll Cards -->
     <ProcessScrollCards steps={processSteps} />
+
+    <!-- FAQ Section -->
+    <FAQAccordion faqs={faqs} title="Cabinet Refinishing FAQs" initialVisible={3} />
 
     <!-- Gallery Section -->
     <section class="py-20 bg-gray-50">

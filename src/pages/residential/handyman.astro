@@ -4,6 +4,30 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+const faqs = [
+  {
+    question: "What handyman services do you offer?",
+    answer: "We handle tile work, flooring, drywall repair, custom millwork, built-ins, bathroom renovations, and general home repairs."
+  },
+  {
+    question: "Do you do plumbing or electrical work?",
+    answer: "We handle basic fixture replacements. For major plumbing or electrical, we partner with licensed specialists and can coordinate for you."
+  },
+  {
+    question: "Can you help with home inspection repairs?",
+    answer: "We regularly help homeowners tackle inspection punch lists efficiently, getting your home ready for closing."
+  },
+  {
+    question: "How do you price handyman jobs?",
+    answer: "We provide detailed estimates based on scope. Small jobs may be hourly while larger projects get flat-rate quotes."
+  },
+  {
+    question: "Do you build custom shelving or built-ins?",
+    answer: "Yes! Custom built-ins, closet systems, and shelving are specialties. We design and build to fit your space perfectly."
+  }
+];
 ---
 
 <Layout
@@ -181,6 +205,9 @@ import Lightbox from '../../components/Lightbox.astro';
         </div>
       </div>
     </section>
+
+    <!-- FAQ Section -->
+    <FAQAccordion faqs={faqs} title="Handyman Services FAQs" initialVisible={3} />
 
     <!-- Gallery Section -->
     <section class="py-20 bg-gray-50">

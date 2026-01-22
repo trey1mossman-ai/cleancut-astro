@@ -5,6 +5,30 @@ import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
 import Lightbox from '../components/Lightbox.astro';
 import ProcessScrollCards from '../components/ProcessScrollCards.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const faqs = [
+  {
+    question: "Do you work around business hours?",
+    answer: "Absolutely! We offer flexible scheduling including evenings, weekends, and phased work to minimize disruption to your operations."
+  },
+  {
+    question: "What types of commercial properties do you paint?",
+    answer: "We handle offices, retail spaces, restaurants, warehouses, industrial facilities, and multi-unit buildings of all sizes."
+  },
+  {
+    question: "Are you licensed and insured?",
+    answer: "Yes, we're fully licensed and carry comprehensive liability insurance and workers' compensation for your protection."
+  },
+  {
+    question: "Can you match our brand colors?",
+    answer: "Yes! We use professional color matching to ensure your space reflects your brand identity perfectly."
+  },
+  {
+    question: "How do you minimize business disruption?",
+    answer: "We create detailed project plans, work in phases when needed, and maintain clean, safe work areas throughout the project."
+  }
+];
 
 const processSteps = [
   {
@@ -226,6 +250,9 @@ const processSteps = [
 
     <!-- Process Section - Standalone -->
     <ProcessScrollCards steps={processSteps} />
+
+    <!-- FAQ Section -->
+    <FAQAccordion faqs={faqs} title="Commercial Services FAQs" initialVisible={3} />
 
     <!-- Gallery Section -->
     <section class="py-20 bg-gray-50">

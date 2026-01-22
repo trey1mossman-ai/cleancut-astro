@@ -1,0 +1,173 @@
+---
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  faqs: FAQ[];
+  title?: string;
+  initialVisible?: number;
+}
+
+const { faqs, title = "Frequently Asked Questions", initialVisible = 3 } = Astro.props;
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="container-custom">
+    <div class="max-w-4xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-10">
+        <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-3">
+          {title}
+        </h2>
+        <p class="text-gray-600">
+          Get answers to common questions about our services
+        </p>
+      </div>
+
+      <!-- FAQ List -->
+      <div class="faq-container space-y-3" data-initial-visible={initialVisible}>
+        {faqs.map((faq, index) => (
+          <div 
+            class={`faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 ${index >= initialVisible ? 'hidden-faq hidden' : ''}`}
+            data-faq-index={index}
+          >
+            <button
+              class="faq-trigger w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors duration-200"
+              aria-expanded="false"
+            >
+              <span class="text-[#144787] font-semibold pr-4 leading-snug">
+                {faq.question}
+              </span>
+              <span class="faq-icon flex-shrink-0 w-6 h-6 rounded-full bg-sky-100 flex items-center justify-center transition-transform duration-300">
+                <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-content hidden px-6 pb-5">
+              <p class="text-gray-600 leading-relaxed">
+                {faq.answer}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Show More Button -->
+      {faqs.length > initialVisible && (
+        <div class="text-center mt-6">
+          <button
+            class="show-more-btn inline-flex items-center gap-2 px-6 py-3 text-[#144787] font-semibold border-2 border-[#144787] rounded-lg hover:bg-[#144787] hover:text-white transition-all duration-300"
+            data-total-faqs={faqs.length}
+            data-initial-visible={initialVisible}
+          >
+            <span class="btn-text">Show More Questions</span>
+            <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-item {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .faq-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .faq-trigger[aria-expanded="true"] .faq-icon {
+    transform: rotate(180deg);
+    background-color: #0ea5e9;
+  }
+
+  .faq-trigger[aria-expanded="true"] .faq-icon svg {
+    color: white;
+  }
+
+  .hidden-faq {
+    display: none;
+  }
+
+  .show-more-btn.expanded svg {
+    transform: rotate(180deg);
+  }
+</style>
+
+<script>
+  function initFAQAccordion() {
+    const containers = document.querySelectorAll('.faq-container');
+
+    containers.forEach(container => {
+      const triggers = container.querySelectorAll('.faq-trigger');
+      const showMoreBtn = container.parentElement?.querySelector('.show-more-btn') as HTMLButtonElement;
+      const hiddenFaqs = container.querySelectorAll('.hidden-faq');
+
+      // Accordion functionality
+      triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const content = trigger.nextElementSibling as HTMLElement;
+          const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+          // Close all other FAQs in this container
+          triggers.forEach(otherTrigger => {
+            if (otherTrigger !== trigger) {
+              otherTrigger.setAttribute('aria-expanded', 'false');
+              const otherContent = otherTrigger.nextElementSibling as HTMLElement;
+              if (otherContent) {
+                otherContent.classList.add('hidden');
+              }
+            }
+          });
+
+          // Toggle current FAQ
+          trigger.setAttribute('aria-expanded', (!isExpanded).toString());
+          if (content) {
+            content.classList.toggle('hidden', isExpanded);
+          }
+        });
+      });
+
+      // Show More functionality
+      if (showMoreBtn && hiddenFaqs.length > 0) {
+        let isExpanded = false;
+
+        showMoreBtn.addEventListener('click', () => {
+          isExpanded = !isExpanded;
+          const btnText = showMoreBtn.querySelector('.btn-text') as HTMLElement;
+
+          hiddenFaqs.forEach(faq => {
+            if (isExpanded) {
+              faq.classList.remove('hidden-faq', 'hidden');
+            } else {
+              faq.classList.add('hidden-faq', 'hidden');
+              // Close any open hidden FAQs
+              const trigger = faq.querySelector('.faq-trigger');
+              const content = faq.querySelector('.faq-content');
+              if (trigger) trigger.setAttribute('aria-expanded', 'false');
+              if (content) content.classList.add('hidden');
+            }
+          });
+
+          if (btnText) {
+            btnText.textContent = isExpanded ? 'Show Less' : 'Show More Questions';
+          }
+          showMoreBtn.classList.toggle('expanded', isExpanded);
+        });
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFAQAccordion);
+  } else {
+    initFAQAccordion();
+  }
+</script>

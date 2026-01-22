@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
 
 const processSteps = [
   { number: 1, title: "Deep Cleaning", description: "We begin with a thorough pressure wash, hand scrub, and rinse to remove all dirt, mildew, and surface contaminants, ensuring a clean canvas for your project." },
@@ -15,6 +16,33 @@ const processSteps = [
   { number: 6, title: "Sealing Perfection", description: "New caulking is applied to fill and seal all gaps and voids, providing an added layer of protection." },
   { number: 7, title: "Finishing Touch", description: "Two coats of exterior satin latex are skillfully applied, bringing your vision to life with lasting vibrancy." },
   { number: 8, title: "Client Satisfaction", description: "Your project is considered complete only when you are 100% satisfied with the results. We provide post-project assurance and back our work with warranty commitments, ensuring your ongoing satisfaction and peace of mind." }
+];
+
+const faqs = [
+  { 
+    question: "What makes your exterior house painting process different?", 
+    answer: "Our exterior house painting process emphasizes preparation first by addressing peeling paint, caulking failures, moisture issues, and surface integrity before applying coatings designed for Midwest weather." 
+  },
+  { 
+    question: "When is the best time to paint a house exterior in Central Illinois?", 
+    answer: "Late spring through early fall offers the best temperature and humidity conditions for exterior house painting in Central Illinois." 
+  },
+  { 
+    question: "How long should exterior house paint last in Illinois?", 
+    answer: "With proper preparation and quality materials, exterior house paint in Illinois should last many years. Longevity depends on exposure, surface condition, and maintenance." 
+  },
+  { 
+    question: "Do you repair wood rot or siding before exterior painting?", 
+    answer: "Yes. We do not paint over failing materials. Wood rot and damaged siding are repaired before exterior painting begins." 
+  },
+  { 
+    question: "Is pressure washing included with exterior painting?", 
+    answer: "Yes. Pressure washing is included when appropriate and is essential for proper adhesion and long-term durability." 
+  },
+  { 
+    question: "How much does exterior house painting cost in Decatur or Springfield Illinois?", 
+    answer: "Exterior house painting costs in Decatur, Springfield, and surrounding Central Illinois areas depend on home size, surface condition, preparation requirements, and materials. We provide a written estimate after evaluating the property." 
+  }
 ];
 ---
 
@@ -286,6 +314,9 @@ const processSteps = [
         </div>
       </div>
     </section>
+
+    <!-- FAQ Section -->
+    <FAQAccordion faqs={faqs} title="Exterior Painting FAQs" initialVisible={3} />
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

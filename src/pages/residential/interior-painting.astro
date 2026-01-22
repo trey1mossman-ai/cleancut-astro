@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
 
 const processSteps = [
   { number: 1, title: "Protection and Preparation", description: "We meticulously mask and safeguard all flooring, fixtures, and contents as required." },
@@ -12,6 +13,33 @@ const processSteps = [
   { number: 3, title: "Surface Perfection", description: "Our team expertly repairs surfaces, followed by thorough sanding and priming to prepare for a flawless finish." },
   { number: 4, title: "Precision Painting", description: "Two finish coats of paint are applied to all surfaces to ensure proper depth and coverage." },
   { number: 5, title: "The Clean Cut Commitment", description: "From start to finish, we stand behind our work with warranties and support you can trust." }
+];
+
+const faqs = [
+  { 
+    question: "How do you protect my home during interior house painting?", 
+    answer: "During interior house painting projects, floors, furniture, fixtures, and adjacent surfaces are fully protected. Hardware and outlet covers are removed and reinstalled. Cleanliness and respect for your home are non-negotiable." 
+  },
+  { 
+    question: "Do you repair drywall before interior painting?", 
+    answer: "Yes. Professional interior painting includes repairing nail pops, cracks, dents, seams, and minor drywall damage as part of proper preparation." 
+  },
+  { 
+    question: "How long does interior house painting usually take?", 
+    answer: "Most interior house painting projects take a few days to two weeks depending on home size, ceiling height, preparation needs, and scope. We provide a clear project timeline upfront." 
+  },
+  { 
+    question: "Do you help with paint color and finish selection?", 
+    answer: "Yes. We help clients choose paint colors and finishes based on durability, cleanability, lighting conditions, and how each space is used." 
+  },
+  { 
+    question: "Do you offer a warranty on interior painting?", 
+    answer: "All interior house painting is backed by a written workmanship warranty with coverage details clearly explained." 
+  },
+  { 
+    question: "How much does it cost to paint a house interior in Central Illinois?", 
+    answer: "Interior house painting costs in Central Illinois typically range from $2.75 to $5.50 per square foot for walls. Whole home projects commonly range from $4,500 to $12,000 or more. Final pricing depends on preparation, ceiling height, and finishes and is provided after an on-site evaluation." 
+  }
 ];
 ---
 
@@ -259,6 +287,9 @@ const processSteps = [
         </div>
       </div>
     </section>
+
+    <!-- FAQ Section -->
+    <FAQAccordion faqs={faqs} title="Interior Painting FAQs" initialVisible={3} />
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

@@ -5,6 +5,34 @@ import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+const faqs = [
+  {
+    question: "How long does deck staining last?",
+    answer: "With proper preparation and quality products, our deck staining typically lasts 3-5 years depending on sun exposure and foot traffic."
+  },
+  {
+    question: "Should I stain or seal my deck?",
+    answer: "Stains add color and UV protection while sealers are clear. We'll assess your deck's condition and recommend the best option for your needs."
+  },
+  {
+    question: "How do you prepare the deck before staining?",
+    answer: "We pressure wash, sand, repair damaged boards, and ensure the surface is clean and dry before applying any stain."
+  },
+  {
+    question: "What's the best time of year to stain a deck?",
+    answer: "Spring and fall are ideal when temperatures are moderate. We avoid extreme heat, cold, or rainy periods for best results."
+  },
+  {
+    question: "Can you stain a new deck?",
+    answer: "New pressure-treated wood needs to weather for several months. We'll assess your deck and advise on the right timing."
+  },
+  {
+    question: "Do you repair deck boards?",
+    answer: "Yes! We replace rotted or damaged boards as part of our restoration process to ensure a solid, safe deck."
+  }
+];
 
 const processSteps = [
   { number: 1, title: "Deep Cleansing", description: "We kick off the restoration journey with a thorough pressure wash, hand scrub, and rinse. This removes all dirt, mildew, and surface contaminants, preparing the surface for the revitalization process." },
@@ -195,6 +223,9 @@ const processSteps = [
 
     <!-- Our Process Section - Horizontal Scroll Cards -->
     <ProcessScrollCards steps={processSteps} />
+
+    <!-- FAQ Section -->
+    <FAQAccordion faqs={faqs} title="Deck Staining FAQs" initialVisible={3} />
 
     <!-- Gallery Section -->
     <section class="py-20 bg-gray-50">

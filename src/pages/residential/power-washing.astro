@@ -5,6 +5,34 @@ import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+const faqs = [
+  {
+    question: "How often should I power wash my home?",
+    answer: "Most homes benefit from annual power washing. Homes near trees or in humid areas may need more frequent cleaning."
+  },
+  {
+    question: "Can power washing damage my siding?",
+    answer: "When done correctly, no. We adjust pressure settings and techniques based on your siding material to clean safely."
+  },
+  {
+    question: "Do you clean gutters too?",
+    answer: "Yes! Our service includes debris removal and downspout flushing to ensure proper drainage and prevent water damage."
+  },
+  {
+    question: "What surfaces do you power wash?",
+    answer: "We clean siding, decks, patios, driveways, walkways, fences, and more. If you have a specific surface, just ask!"
+  },
+  {
+    question: "Is power washing safe for windows?",
+    answer: "We hand scrub windows and frames rather than using high pressure, ensuring a thorough clean without risk of damage."
+  },
+  {
+    question: "How long does a power washing job take?",
+    answer: "Most residential jobs take 2-4 hours depending on home size and surfaces cleaned. We'll give you a time estimate upfront."
+  }
+];
 
 const processSteps = [
   { number: 1, title: "Hand Scrub and Deep Clean", description: "We don't just power wash; we go the extra mile by hand scrubbing and deep cleaning all surfaces. This includes windows, light fixtures, and door and window frames. Every inch of your home receives the attention it needs to shine." },
@@ -191,6 +219,9 @@ const processSteps = [
 
     <!-- Our Process Section - Horizontal Scroll Cards -->
     <ProcessScrollCards steps={processSteps} />
+
+    <!-- FAQ Section -->
+    <FAQAccordion faqs={faqs} title="Power Washing FAQs" initialVisible={3} />
 
     <!-- Gallery Section -->
     <section class="py-20 bg-gray-50">

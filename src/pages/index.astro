@@ -15,6 +15,34 @@ import ServiceAreas from '../components/ServiceAreas.astro';
 import CareersCTA from '../components/CareersCTA.astro';
 import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const faqs = [
+  {
+    question: "Do you offer free estimates?",
+    answer: "Yes! We provide complimentary on-site estimates for all projects. Contact us to schedule yours today."
+  },
+  {
+    question: "What areas do you serve?",
+    answer: "We proudly serve Decatur, Springfield, and the surrounding Central Illinois communities within approximately 50 miles."
+  },
+  {
+    question: "How do I get a quote?",
+    answer: "Simply call us, fill out our contact form, or request an estimate online. We'll schedule a convenient time to assess your project."
+  },
+  {
+    question: "Are your painters insured?",
+    answer: "Yes, we're fully licensed and insured with comprehensive liability coverage and workers' compensation for your protection."
+  },
+  {
+    question: "How long does a typical project take?",
+    answer: "Project timelines vary based on scope. We provide detailed timelines in our proposals so you know what to expect."
+  },
+  {
+    question: "Do you guarantee your work?",
+    answer: "Absolutely! We stand behind our work with warranties and won't consider a job complete until you're 100% satisfied."
+  }
+];
 ---
 
 <Layout title="Clean Cut Painting & Handyman | Professional Services in Decatur & Springfield IL">
@@ -31,6 +59,7 @@ import FloatingCallButton from '../components/FloatingCallButton.astro';
     <GoogleReviews />
     <Gallery />
     <VideoTestimonials />
+    <FAQAccordion faqs={faqs} title="Frequently Asked Questions" initialVisible={3} />
     <ServiceAreas />
     <CareersCTA />
   </main>
