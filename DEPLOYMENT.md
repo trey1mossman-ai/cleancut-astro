@@ -1,42 +1,35 @@
 # CleanCut Deployment Setup
 
 ## Overview
-CleanCut Astro site is deployed via GitHub → Hostinger Git integration.
+CleanCut Astro site is deployed via Vercel.
 
 ## URLs
-- **Live Site:** https://indigo-badger-869654.hostingersite.com/
+- **Live Site:** https://cleancut-astro.vercel.app
 - **GitHub Repo:** https://github.com/trey1mossman-ai/cleancut-astro
 
 ## Branch Structure
-- `main` - Source code (Astro components, pages, assets)
-- `deploy` - Built static files only (what Hostinger serves)
-
-## Hostinger Configuration
-| Field | Value |
-|-------|-------|
-| Repository | `https://github.com/trey1mossman-ai/cleancut-astro.git` |
-| Branch | `deploy` |
-| Directory | *(blank - deploys to public_html)* |
+- `main` - Source code (Astro components, pages, assets) - Vercel auto-deploys from this branch
 
 ## Deployment Workflow
 
 ### To Deploy Updates:
 1. Make changes on `main` branch
-2. Build: `npm run build`
-3. Copy built files to hostinger-deployment folder (or use dist/)
-4. Push to deploy branch:
-   ```bash
-   cd /tmp
-   rm -rf cleancut-deploy
-   mkdir cleancut-deploy && cd cleancut-deploy
-   git init
-   git remote add origin https://github.com/trey1mossman-ai/cleancut-astro.git
-   cp -r /Users/treymossman/Projects/cleancut-static/cleancut-astro/hostinger-deployment/* .
-   git add -A
-   git commit -m "Deploy: [description]"
-   git push origin HEAD:deploy --force
-   ```
-5. Hostinger auto-pulls from deploy branch
+2. Commit and push to `main`
+3. Vercel automatically builds and deploys
+
+```bash
+cd /Users/treymossman/Projects/cleancut-static/cleancut-astro
+git add -A
+git commit -m "Update: [description]"
+git push origin main
+```
+
+Vercel handles the build (`npm run build`) and deployment automatically.
+
+### Manual Deploy (if needed):
+```bash
+npx vercel --prod
+```
 
 ## Video Compression
 Videos were compressed from 185-272MB to 9-14MB each using ffmpeg:
@@ -44,12 +37,9 @@ Videos were compressed from 185-272MB to 9-14MB each using ffmpeg:
 ffmpeg -i input.mp4 -c:v libx264 -crf 28 -preset medium -c:a aac -b:a 128k output.mp4
 ```
 
-Original videos backed up to: `/tmp/cleancut-video-originals/`
-
 ## Setup Date
 2026-01-13
 
 ## Notes
-- GitHub OAuth token lacks `workflow` scope, so GitHub Actions workflow couldn't be pushed
-- Using manual deploy branch push instead of automated CI/CD
+- Vercel auto-deploys from main branch on every push
 - All video files under 100MB (GitHub limit)

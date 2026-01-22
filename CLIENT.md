@@ -1,12 +1,12 @@
 # CleanCut Pros - Client Profile
 
-*Last updated: 2026-01-05*
+*Last updated: 2026-01-22*
 
 ## Company Overview
 - **Business:** Residential and commercial cleaning, painting, handyman services
 - **Brand:** CleanCut Pros
-- **Location:** Decatur, GA area
-- **Website:** cleancutservice.com (staging: indigo-badger-869654.hostingersite.com)
+- **Location:** Decatur, IL area
+- **Website:** https://cleancut-astro.vercel.app
 
 ## Key Stakeholders
 
@@ -39,11 +39,13 @@ Thanks, / Warm regards,
 - **Dec 28, 2025:** Shared Google Drive folder with images
 - **Dec 29, 2025:** Website review call at 11am. Implemented 8+ updates same day.
 - **Dec 29, 2025:** Interior Painting page updated with new copy, process cards, gallery CTAs
+- **Jan 16, 2026:** Interior painting page approved by Colleen
+- **Jan 20, 2026:** All 7 service pages audited and corrected against Google Doc
 
 ### Current Status
-- Site deployed to Hostinger (not Vercel)
-- Revision round in progress
-- Most feedback items complete
+- Site deployed to Vercel (auto-deploys from main)
+- All service pages match Google Doc exactly
+- Interior painting page approved
 
 ### Pending Items
 - Team page with headshots (Drive folder: https://drive.google.com/drive/folders/1rWSXfI9-m72y4xtn70dDMLTUeDgPL8pN)
@@ -64,5 +66,5 @@ Thanks, / Warm regards,
 - Simple stakeholder structure - just Colleen
 - Very collaborative and provides good feedback
 - Likes to see updates quickly implemented
-- Deployed to Hostinger (different from other projects which use Vercel)
+- Deployed to Vercel (auto-deploys from main branch)
 - Privacy note: De-identify specific addresses in project locations

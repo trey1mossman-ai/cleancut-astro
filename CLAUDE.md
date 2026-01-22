@@ -9,7 +9,7 @@ Marketing website for CleanCut Pros, a painting and handyman service company bas
 | **Client** | CleanCut Pros (Colleen) |
 | **Location** | Decatur, IL |
 | **Stack** | Astro 5 + Tailwind CSS 4 |
-| **Deployment** | Hostinger (NOT Vercel) |
+| **Deployment** | Vercel (auto-deploys from main) |
 | **Status** | Deployed |
 
 ## Tech Stack
@@ -33,12 +33,12 @@ src/
 │   └── residential/    # Service pages
 └── styles/         # Global styles
 public/             # Static assets
-dist/               # Build output (deploy this)
+dist/               # Build output
 ```
 
 ## Key Rules
 1. **All business data must come from SCHEMA-DATA.yaml** - never fabricate
-2. **Deploy to Hostinger** - NOT Vercel (client's hosting)
+2. **Deploy via Vercel** - push to main, auto-deploys
 3. **Images need EXIF/IPTC metadata** before going live (geo-tagged, keywords)
 4. **Follow SEO-CONFIG.yaml** for meta tags and keywords
 
@@ -49,43 +49,23 @@ dist/               # Build output (deploy this)
 - Pressure washing
 - Drywall repair
 
-## Deployment (IMPORTANT - READ THIS)
+## Deployment
 
-**DO NOT use GitHub Actions workflow for this project.** The gh CLI token doesn't have `workflow` scope.
+**Live Site:** https://cleancut-astro.vercel.app
 
-**Deploy via local build + push to deploy branch:**
-
+**To Deploy:**
 ```bash
-# 1. Build the site
-cd /Users/treymossman/Projects/cleancut-static/cleancut-astro
-npm run build
-
-# 2. Push dist/ to deploy branch (Hostinger pulls from this)
-cd dist
-rm -rf .git  # Clean any old git init
-git init
-git config user.email "trey@voxemarketing.com"
-git config user.name "Trey Mossman"
+# Automatic (preferred)
 git add -A
-git commit -m "Deploy: [description of changes]"
-git push --force https://github.com/trey1mossman-ai/cleancut-astro.git HEAD:deploy
-```
+git commit -m "Update: [description]"
+git push origin main
+# Vercel auto-builds and deploys
 
-**Architecture:**
+# Manual (if needed)
+npx vercel --prod
 ```
-Local build (npm run build)
-    ↓
-dist/ folder pushed to `deploy` branch
-    ↓
-GitHub webhook triggers Hostinger auto-deploy
-```
-
-**Webhook:** `https://webhooks.hostinger.com/deploy/23981a6fc840c374aee4eb316bed27ff` (configured on GitHub)
 
 **GitHub Repo:** `trey1mossman-ai/cleancut-astro` (public)
-**Branches:**
-- `main` - Source code
-- `deploy` - Built static files only (Hostinger pulls from here)
 
 ## Email Communication (MANDATORY)
 
@@ -105,5 +85,5 @@ GitHub webhook triggers Hostinger auto-deploy
 ```
 
 ## Session Notes
-- Site is deployed and live
+- Site is deployed and live on Vercel
 - Check PROJECT-STATUS.md for detailed checklist

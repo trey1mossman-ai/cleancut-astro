@@ -1,8 +1,8 @@
 # CleanCut Website Tasks - Detailed Implementation Guide
 
-**Last Updated:** 2026-01-13
+**Last Updated:** 2026-01-22
 **Source:** Colleen's email (Jan 12) + Google Doc
-**Status:** Ready for implementation
+**Status:** Most tasks complete
 
 ---
 
@@ -24,101 +24,43 @@ node ~/.claude/scripts/drive.js --read "1QZzrmitx3MAII4fjjycoJSQFGh3_1ZW9JNAJLJI
 
 ---
 
-## Task 1: Horizontal Process Component
+## Task 1: Horizontal Process Component ✅ COMPLETE
 
-**Status:** Not started
-**Priority:** High
-**Files to modify:** All service pages in `/src/pages/residential/` + `/src/pages/commercial.astro`
+**Status:** Complete
+**Files:** `/src/components/HorizontalProcess.astro`, `/src/components/ProcessScrollCards.astro`
 
-### What to do:
-Convert the current vertical card-based process section to a horizontal scrolling numbered step layout.
-
-### Current state:
-- Process uses 4 white cards in a grid (`grid-cols-1 md:grid-cols-2 lg:grid-cols-4`)
-- Each card has numbered circle, title, description
-- Located in navy pattern background section
-
-### Target state (per Colleen's screenshot):
-- Horizontal line of numbered circles (1, 2, 3, 4)
-- Steps connected visually in a row
-- Scrollable horizontally on mobile (overflow-x-auto)
-- Horizontal on desktop
-
-### Copy to keep (DO NOT CHANGE - per Colby):
-Pull existing process wording from each service page. Example from interior-painting:
-1. **Protect** - Protect furniture, floors, and fixtures
-2. **Prep** - Prep surfaces with sanding, priming, and repairs
-3. **Apply** - Apply expert finish coats for lasting results
-4. **Inspect** - Inspect and finalize with your approval
-
-### Implementation approach:
-1. Create reusable component: `/src/components/HorizontalProcess.astro`
-2. Props: `steps` array with `{number, title, description}`
-3. Use `flex` with `overflow-x-auto` and `snap-x` for mobile scroll
-4. Numbered circles connected by line/border
+Created reusable horizontal process component. Applied to all service pages.
 
 ---
 
-## Task 2: Reduce Hero Height
+## Task 2: Reduce Hero Height ✅ COMPLETE
 
-**Status:** Not started
-**Priority:** High
-**Files to modify:** All service pages
+**Status:** Complete
+**Files:** All service pages
 
-### What to do:
-Make hero sections smaller (less dominant) on service pages.
-
-### Current state:
-- `min-h-[500px]` on interior-painting
-- Other pages may vary
-
-### Target state:
-- Reduce to approximately `min-h-[400px]` or `h-[50vh]` max
-- Keep centered text layout
-- Maintain gradient overlay and image
-
-### Files to check/update:
-- `/src/pages/residential/interior-painting.astro`
-- `/src/pages/residential/exterior-painting.astro`
-- `/src/pages/residential/cabinet-refinishing.astro`
-- `/src/pages/residential/power-washing.astro` (or similar name)
-- `/src/pages/residential/drywall-services.astro` (or similar name)
-- `/src/pages/residential/handyman-services.astro` (or similar name)
-- `/src/pages/commercial.astro`
+Reduced hero sections to `min-h-[350px]` on all service pages.
 
 ---
 
-## Task 3: Alternating Section Backgrounds
+## Task 3: Alternating Section Backgrounds ✅ COMPLETE
 
-**Status:** Not started
-**Priority:** Medium
-**Files to modify:** All service pages
+**Status:** Complete
 
-### What to do:
-Ensure sections alternate between `bg-white` and `bg-gray-50` for visual separation.
-
-### Pattern to follow:
+Pattern applied:
 ```
 Hero (has image/overlay - no change)
 Section 1: bg-white
-Section 2: bg-gray-50
+Section 2: bg-gray-50 or bg-gray-200
 Section 3: bg-white
-Section 4: bg-gray-50
-Process: navy pattern (no change)
-Gallery/CTA: bg-gray-50
-Final CTA: navy pattern (no change)
+...
 ```
-
-### Already using:
-- `bg-gray-50` is already in the codebase
-- Just ensure consistent alternation
 
 ---
 
 ## Task 4: Update Who We Are Page
 
 **Status:** Not started
-**Priority:** High
+**Priority:** Medium
 **File:** `/src/pages/who-we-are.astro`
 
 ### Team members (from Google Doc):
@@ -134,20 +76,6 @@ Final CTA: navy pattern (no change)
 | Heath Kavanaugh | Project Manager | `heath-kavanaugh.webp` |
 
 **Note:** Colleen (Marketing Director) requested to be left off for now - no headshot yet.
-
-### Section copy (from Google Doc):
-**Header:** "Meet the Clean Cut Team"
-**Subhead:** "Craftsmanship, Collaboration, and Commitment"
-
-**Intro paragraph:**
-"At Clean Cut Painting & Handyman, our team is at the heart of everything we do. From our founders to our skilled applicators and installers, every member plays a key role in turning your vision into reality. Together, we bring decades of combined experience, a dedication to quality, and a personal touch to every project."
-
-**Extended team note:**
-"Beyond leadership, Clean Cut is proud to have 50+ in-house skilled applicators and installers who bring expertise, dedication, and passion to every project."
-
-### Layout:
-- Grid of team member cards with headshot, name, title
-- No individual bios needed (not provided)
 
 ---
 
@@ -169,50 +97,26 @@ Final CTA: navy pattern (no change)
 - Email: info@cleancutservice.com
 - Address: 631 E Princeton Ave, Unit D, Springfield, IL, USA
 
-### Implementation:
-- Add second location card matching Decatur styling
-- Both should have same visual weight
-
 ---
 
-## Task 6: Apply Google Doc Copy to Service Pages
+## Task 6: Apply Google Doc Copy to Service Pages ✅ COMPLETE
 
-**Status:** Not started
-**Priority:** Medium
-**Files:** All service pages
+**Status:** Complete (2026-01-20)
 
-### IMPORTANT RULE:
-- **DO NOT** change process section wording (keep existing)
-- **DO** update: hero text, intro paragraphs, section descriptions
-- Pull from Google Doc for each service
-
-### Services to update:
-1. Interior Painting - DONE (Dec 29)
-2. Exterior Painting - needs update
-3. Cabinet Refinishing - needs update
-4. Power Washing - needs update
-5. Drywall Services - needs update
-6. Handyman Services - needs update
-7. Commercial - needs update
-
-### How to get copy:
-```bash
-node ~/.claude/scripts/drive.js --read "1QZzrmitx3MAII4fjjycoJSQFGh3_1ZW9JNAJLJIcIbg" | grep -A 50 "Exterior Painting"
-```
-
-Replace "Exterior Painting" with each service name.
-
-### Fallback:
-If Google Doc is missing content, pull from live site:
-- https://cleancutservice.com/residential/exterior-painting
-- (adjust URL for each service)
+All 7 service pages audited and corrected against Google Doc:
+- [x] Interior Painting
+- [x] Exterior Painting
+- [x] Cabinet Refinishing
+- [x] Deck Staining
+- [x] Power Washing
+- [x] Handyman
+- [x] Commercial
 
 ---
 
 ## Task 7: Build and Deploy
 
-**Status:** Not started
-**Priority:** Final step
+**Status:** Ongoing
 
 ### Commands:
 ```bash
@@ -224,20 +128,17 @@ npm run build
 # Test locally (optional)
 npm run preview
 
-# Deploy to Hostinger
-cd /tmp
-rm -rf cleancut-deploy
-mkdir cleancut-deploy && cd cleancut-deploy
-git init
-git remote add origin https://github.com/trey1mossman-ai/cleancut-astro.git
-cp -r /Users/treymossman/Projects/cleancut-static/cleancut-astro/dist/* .
+# Deploy to Vercel (automatic)
 git add -A
-git commit -m "Deploy: [description of changes]"
-git push origin HEAD:deploy --force
+git commit -m "Update: [description]"
+git push origin main
+
+# Manual deploy (if needed)
+npx vercel --prod
 ```
 
 ### Verify at:
-https://indigo-badger-869654.hostingersite.com/
+https://cleancut-astro.vercel.app
 
 ---
 
@@ -255,8 +156,8 @@ https://indigo-badger-869654.hostingersite.com/
     ├── exterior-painting.astro
     ├── cabinet-refinishing.astro
     ├── deck-staining.astro
-    ├── power-washing.astro (check exact name)
-    └── handyman-services.astro (check exact name)
+    ├── power-washing.astro
+    └── handyman.astro
 ```
 
 ### Team headshots location:
@@ -278,5 +179,5 @@ https://indigo-badger-869654.hostingersite.com/
 1. Read this file first
 2. Check current task status
 3. View Colleen's mockup: `open ~/Desktop/colleen-edits.png`
-4. Start with Task 1 (horizontal process) as it's used across all service pages
-5. Build and test after each major change
+4. Build and test after each major change
+5. Push to main to deploy (Vercel auto-deploys)

@@ -134,11 +134,15 @@ cleancut-astro/
 
 ## Deployment Notes
 
-**Target Host:** Hostinger
+**Host:** Vercel (auto-deploys from main branch)
 
-**Deployment Options:**
-1. **Static Export** - Run `npm run build`, upload `dist/` folder via FTP or file manager
-2. **Git Deployment** - Connect GitHub repo for auto-deploy on push
+**Live Site:** https://cleancut-astro.vercel.app
+
+**Deployment:**
+1. Push to `main` branch
+2. Vercel automatically builds and deploys
+
+**Manual Deploy:** `npx vercel --prod`
 
 **Build Command:** `npm run build`
 **Output Directory:** `dist/`
@@ -156,6 +160,10 @@ npm run build      # Build static site to dist/
 
 # Preview Production Build
 npm run preview    # Preview built site locally
+
+# Deploy
+git push origin main   # Vercel auto-deploys
+npx vercel --prod      # Manual deploy
 ```
 
 ---
@@ -169,4 +177,4 @@ npm run preview    # Preview built site locally
 
 ---
 
-*Last Updated: December 13, 2025*
+*Last Updated: January 22, 2026*

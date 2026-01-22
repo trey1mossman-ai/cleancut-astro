@@ -12,7 +12,7 @@ nohup npm run dev > /tmp/cleancut-dev.log 2>&1 &
 ## Verify It's Running
 
 ```bash
-curl -s http://localhost:3000 > /dev/null && echo "✅ Running" || echo "❌ Down"
+curl -s http://localhost:4321 > /dev/null && echo "✅ Running" || echo "❌ Down"
 ```
 
 ## Check Logs
@@ -26,14 +26,14 @@ tail -f /tmp/cleancut-dev.log
 ```bash
 pkill -9 -f "astro"
 # or
-lsof -ti:3000 | xargs kill -9
+lsof -ti:4321 | xargs kill -9
 ```
 
 ## Full Reset (Nuclear Option)
 
 ```bash
 pkill -9 -f "astro"; pkill -9 -f "vite"; pkill -9 -f "node.*dev"
-lsof -ti:3000,3001,3002,3003,3004,3005 | xargs kill -9 2>/dev/null
+lsof -ti:4321,4322,4323,4324,4325 | xargs kill -9 2>/dev/null
 sleep 2
 cd /Users/treymossman/Projects/cleancut-static/cleancut-astro
 nohup npm run dev > /tmp/cleancut-dev.log 2>&1 &
@@ -48,21 +48,23 @@ nohup npm run dev > /tmp/cleancut-dev.log 2>&1 &
 
 ## Port Convention
 
-- Always use **port 3000** for CleanCut
-- If 3000 is in use, kill whatever's on it first rather than using a different port
+- Astro default is **port 4321** for CleanCut
+- If 4321 is in use, kill whatever's on it first rather than using a different port
 
-## Hostinger Deployment
+## Deployment
 
-**Deployment folder:** `/Users/treymossman/Projects/cleancut-static/cleancut-astro/hostinger-deployment/`
-
-To build and prepare for Hostinger:
+**Vercel (auto-deploy):**
 ```bash
-cd /Users/treymossman/Projects/cleancut-static/cleancut-astro
-npm run build
-rm -rf hostinger-deployment/*
-cp -r dist/* hostinger-deployment/
+git add -A
+git commit -m "Update: [description]"
+git push origin main
 ```
 
-Then upload the contents of `hostinger-deployment/` to Hostinger's public_html.
+Vercel automatically builds and deploys when you push to main.
 
-**IMPORTANT:** There is only ONE deployment folder. It lives inside the `cleancut-astro` project directory, not in the parent `cleancut-static` folder.
+**Manual deploy (if needed):**
+```bash
+npx vercel --prod
+```
+
+**Live Site:** https://cleancut-astro.vercel.app

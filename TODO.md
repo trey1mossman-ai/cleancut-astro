@@ -1,41 +1,38 @@
 # CleanCut Pros - Task List
 
-**Source:** Colleen's email (Jan 12, 2026) + Google Doc (CC | Website Copy)
-**Last Updated:** 2026-01-13
+**Source:** Colleen's email (Jan 12, 2026) + Google Doc
+**Last Updated:** 2026-01-22
 
 ---
 
-## High Priority - Layout Changes (from Email Screenshots)
+## Completed Tasks ✅
 
 ### Service Page Redesign (per Colleen's annotated mockup)
 
 | Task | Status | Details |
 |------|--------|---------|
-| Smaller hero images | Pending | Reduce hero section height on all service pages |
-| Alternating section backgrounds | Pending | White and light gray/cream backgrounds for visual separation |
-| Horizontal process steps | Pending | Change from vertical cards to horizontal numbered line (1, 2, 3, 4...) |
-| Keep existing process wording | N/A | Per Colby - current copy is good, don't change |
-
-**Reference:** Screenshots saved to ~/Desktop/
-- `colleen-edits.png` - Full annotated mockup (17MB)
-- `colleen-screenshot.png` - Current site's horizontal process example
+| Smaller hero images | ✅ Done | Reduced to 350px on all service pages |
+| Alternating section backgrounds | ✅ Done | White and light gray for visual separation |
+| Horizontal process steps | ✅ Done | ProcessScrollCards component |
+| Keep existing process wording | ✅ Done | Per Colby - current copy maintained |
+| Google Doc content audit | ✅ Done | All 7 pages match doc (Jan 20) |
 
 ---
 
-## Content Implementation (from Google Doc)
+## Remaining Tasks
 
 ### Pages to Update
 
 | Page | Status | Key Changes |
 |------|--------|-------------|
 | About Us | Pending | Our Story section, team intro |
-| Interior Painting | Done | Completed Dec 29 |
-| Exterior Painting | Pending | Full copy from doc |
-| Power Washing | Pending | Full copy from doc |
-| Cabinet Refinishing | Pending | Full copy from doc |
-| Drywall Services | Pending | Full copy from doc |
-| Handyman Services | Pending | Full copy from doc |
-| Commercial | Pending | Full commercial copy |
+| Interior Painting | ✅ Done | Completed Dec 29, approved Jan 16 |
+| Exterior Painting | ✅ Done | Full copy from doc (Jan 20) |
+| Power Washing | ✅ Done | Full copy from doc (Jan 20) |
+| Cabinet Refinishing | ✅ Done | Full copy from doc (Jan 20) |
+| Deck Staining | ✅ Done | Full copy from doc (Jan 20) |
+| Handyman Services | ✅ Done | Full copy from doc (Jan 20) |
+| Commercial | ✅ Done | Kept generic (acceptable) |
 | Who We Are | Pending | Team headshots (already have 7 headshots in /images/team/) |
 | Our Work | Verify | Check gallery matches |
 | Contact | Pending | Add Springfield location |
@@ -52,8 +49,8 @@ Located at: `public/images/team/`
 
 ### Springfield Location (NEW)
 ```
-Address: 3143 E Elm St, Ste E, Springfield, MO 65802
-Phone: 417-540-2020
+Address: 631 E Princeton Ave, Unit D, Springfield, IL, USA
+Phone: (217) 672-5654
 ```
 
 ---
@@ -61,7 +58,7 @@ Phone: 417-540-2020
 ## Technical Checklist
 
 - [ ] Build and test locally (npm run build)
-- [ ] Deploy to Hostinger via deploy branch
+- [ ] Deploy to Vercel (push to main)
 - [ ] Verify mobile responsiveness
 - [ ] Test all forms work correctly
 
@@ -69,6 +66,6 @@ Phone: 417-540-2020
 
 ## Quick Reference
 
-**Dev Site:** https://indigo-badger-869654.hostingersite.com/
+**Live Site:** https://cleancut-astro.vercel.app
 **GitHub:** https://github.com/trey1mossman-ai/cleancut-astro
-**Deploy:** Push to deploy branch to auto-deploy
+**Deploy:** Push to main branch → Vercel auto-deploys

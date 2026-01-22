@@ -1,19 +1,26 @@
 # CleanCut Pros - Progress
 
 ## Last Updated
-2026-01-20 - All 7 service pages audited and corrected against Google Doc source of truth
+2026-01-22 - Updated deployment to Vercel only (removed Hostinger references)
 
 ## Current State
 - **Status:** Live on Vercel, all service pages match Google Doc exactly
-- **Vercel Preview:** https://cleancut-astro.vercel.app
-- **Hostinger Site:** http://indigo-badger-869654.hostingersite.com/ (manual deploy needed)
+- **Live Site:** https://cleancut-astro.vercel.app
 - **GitHub Repo:** https://github.com/trey1mossman-ai/cleancut-astro
-- **Source Branch:** main
-- **Deploy Branch:** deploy
+- **Source Branch:** main (Vercel auto-deploys)
 
 ---
 
 ## Session Log
+
+### 2026-01-22 - Documentation Cleanup
+**Focus:** Remove all Hostinger references, standardize on Vercel deployment
+
+**Completed:**
+- [x] Updated all project docs to reflect Vercel-only deployment
+- [x] Removed deploy branch workflow (Vercel deploys from main)
+
+---
 
 ### 2026-01-20 - Google Doc Content Audit & Corrections
 **Focus:** Comprehensive audit of ALL service pages against Google Doc "CC | Website Copy"
@@ -67,7 +74,7 @@
 **Completed:**
 - [x] Simplified ProcessScrollCards component - removed "Step X of X" counters
 - [x] Added "See Step 5" button for cleaner UX
-- [x] Deployed to Vercel (live at cleancut-astro.vercel.app)
+- [x] Deployed to Vercel
 - [x] Emailed Colleen with CORRECT link (interior-painting, not services/interior-painting)
 - [x] Offered to hop on a call to expedite approval
 
@@ -106,19 +113,16 @@
 - [x] Fixed alternating section backgrounds (bg-gray-200 for visibility)
 - [x] Fixed About page alternating backgrounds
 - [x] Fixed CTA pattern visibility (opacity-20 like CareersCTA)
-- [x] Updated GitHub Actions workflow to match Kinship Landing pattern
-- [x] Set up Vercel deployment as reliable preview alternative
+- [x] Set up Vercel deployment as primary
 - [x] Emailed Colleen with preview link and changes summary
 
 **Files Changed:**
 - src/components/HorizontalProcess.astro - NEW: horizontal process steps component
 - src/pages/residential/interior-painting.astro - hero height, bg-gray-200, CTA pattern fix
 - src/pages/about.astro - bg-gray-200 for alternating sections
-- .github/workflows/deploy.yml - updated to match Kinship pattern
 
 **Technical Notes:**
 - Tailwind v4 bg-gray-50 and bg-gray-100 are too light - use bg-gray-200 for visible gray
-- Hostinger webhook delivering 200 OK but not pulling changes - needs investigation
 - Vercel auto-deploys from main branch reliably
 
 ---
@@ -129,12 +133,11 @@
 - [x] Apply Google Doc copy to ALL service pages (completed 2026-01-20)
 
 ### Technical Debt
-- Fix Hostinger auto-deploy (webhook delivers but doesnt pull)
-- Investigate why GitHub Actions deploy branch not syncing to Hostinger
+- None currently
 
 ---
 
 ## Resources
-- **Vercel Preview:** https://cleancut-astro.vercel.app
+- **Live Site:** https://cleancut-astro.vercel.app
 - **Google Drive:** https://drive.google.com/drive/folders/1nrfGrFZlKPSGkbGxVrnqdEPVA_9dpDq3
 - **Website Copy Doc:** 1QZzrmitx3MAII4fjjycoJSQFGh3_1ZW9JNAJLJIcIbg

@@ -9,7 +9,7 @@ Marketing website for CleanCut Pros, a painting and handyman service company bas
 | **Client** | CleanCut Pros (Colleen) |
 | **Location** | Decatur, IL |
 | **Stack** | Astro 5 + Tailwind CSS 4 |
-| **Deployment** | Hostinger (NOT Vercel) |
+| **Deployment** | Vercel (auto-deploys from main) |
 | **Status** | Deployed |
 
 ## Tech Stack
@@ -33,12 +33,12 @@ src/
 │   └── residential/    # Service pages
 └── styles/         # Global styles
 public/             # Static assets
-dist/               # Build output (deploy this)
+dist/               # Build output
 ```
 
 ## Key Rules
 1. **All business data must come from SCHEMA-DATA.yaml** - never fabricate
-2. **Deploy to Hostinger** - NOT Vercel (client's hosting)
+2. **Deploy via Vercel** - push to main, auto-deploys
 3. **Images need EXIF/IPTC metadata** before going live (geo-tagged, keywords)
 4. **Follow SEO-CONFIG.yaml** for meta tags and keywords
 
@@ -50,15 +50,23 @@ dist/               # Build output (deploy this)
 - Drywall repair
 
 ## Deployment
+
+**Live Site:** https://cleancut-astro.vercel.app
+
+**To Deploy:**
 ```bash
-npm run build        # Build to dist/
-# Upload dist/ contents to Hostinger via FTP or file manager
+# Automatic (preferred)
+git add -A
+git commit -m "Update: [description]"
+git push origin main
+# Vercel auto-builds and deploys
+
+# Manual (if needed)
+npx vercel --prod
 ```
 
-## Contact
-- **Client:** Colleen
-- **Email:** colleen@cleancutservice.com
+**GitHub Repo:** `trey1mossman-ai/cleancut-astro` (public)
 
 ## Session Notes
-- Site is deployed and live
+- Site is deployed and live on Vercel
 - Check PROJECT-STATUS.md for detailed checklist
