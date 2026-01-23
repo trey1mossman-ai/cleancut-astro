@@ -6,6 +6,7 @@ import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
+import FAQSchema from '../../components/schema/FAQSchema.astro';
 
 const faqs = [
   {
@@ -56,7 +57,7 @@ const processSteps = [
     <section class="relative min-h-[350px] flex items-center overflow-hidden">
       <img
         src="/images/Home Page/Residential Services/CC _ Home Page Photos_Cabinet Refinishing.webp"
-        alt="Professional cabinet refinishing services"
+        alt="Professional cabinet refinishing services in Decatur IL"
         class="absolute inset-0 w-full h-full object-cover"
       >
       <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
@@ -90,7 +91,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/cabinet-refinishing/copy-of-2.webp"
-              alt="Kitchen cabinet refinishing"
+              alt="Kitchen cabinet refinishing in Springfield Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -102,7 +103,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/Home Page/Residential Services/CC _ Home Page Photos_Interior Painting.webp"
-              alt="Bathroom vanity refinishing"
+              alt="Bathroom vanity refinishing in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -114,7 +115,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/interior-painting/542207858_622811790903167_5174595472123875714_n.webp"
-              alt="Built-in shelving and desk area refinishing"
+              alt="Built-in shelving refinishing in Macon County IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -126,7 +127,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/interior-painting/6t4a6822-2.webp"
-              alt="Bookcase and closet door refinishing"
+              alt="Bookcase and closet door refinishing in Decatur Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -138,7 +139,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/interior-painting/4.webp"
-              alt="Entertainment center refinishing"
+              alt="Entertainment center refinishing in Springfield IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -150,7 +151,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/interior-painting/march-26.webp"
-              alt="Hardware updates and replacement"
+              alt="Cabinet hardware updates and replacement in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -189,7 +190,7 @@ const processSteps = [
           <div>
             <img
               src="/images/services-optimized/interior-painting/6t4a6783.webp"
-              alt="Cabinet refinishing consultation"
+              alt="Cabinet refinishing consultation with Clean Cut in Decatur IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
             />
@@ -201,7 +202,7 @@ const processSteps = [
           <div class="order-2 lg:order-1">
             <img
               src="/images/services-optimized/interior-painting/2.webp"
-              alt="Beautiful kitchen with professionally refinished white cabinets"
+              alt="Kitchen with professionally refinished white cabinets in Springfield IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
             />
@@ -226,6 +227,7 @@ const processSteps = [
 
     <!-- FAQ Section -->
     <FAQAccordion faqs={faqs} title="Cabinet Refinishing FAQs" initialVisible={3} />
+    <FAQSchema faqs={faqs} />
 
     <!-- Gallery Section -->
     <section class="py-20 bg-gray-50">
@@ -242,7 +244,7 @@ const processSteps = [
           <div class="relative overflow-hidden rounded-lg shadow-2xl group h-96">
             <img
               src="/images/Home Page/Residential Services/CC _ Home Page Photos_Cabinet Refinishing.webp"
-              alt="Featured cabinet refinishing transformation"
+              alt="Featured cabinet refinishing transformation in Decatur Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
               data-lightbox-gallery="cabinet-gallery"
@@ -255,7 +257,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/interior-painting/540103861_622811744236505_5519604479028921858_n.webp"
-              alt="Professional cabinet refinishing - white and navy kitchen cabinets"
+              alt="White and navy kitchen cabinet refinishing in Sangamon County"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="cabinet-gallery"
@@ -264,7 +266,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/interior-painting/6t4a6843.webp"
-              alt="Cabinet refinishing project - beautifully painted bedroom furniture"
+              alt="Painted bedroom furniture refinishing in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="cabinet-gallery"
@@ -273,7 +275,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/interior-painting/542207858_622811790903167_5174595472123875714_n.webp"
-              alt="Clean Cut cabinet refinishing - open living space with built-in shelving"
+              alt="Built-in shelving refinishing by Clean Cut in Decatur IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="cabinet-gallery"
@@ -282,7 +284,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/interior-painting/6t4a6783.webp"
-              alt="Professional cabinet painting - open concept kitchen and living area"
+              alt="Open concept kitchen cabinet painting in Springfield Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="cabinet-gallery"
@@ -291,7 +293,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Garage Repaint-13.webp"
-              alt="Cabinet refinishing - custom wood panel and fireplace surround"
+              alt="Custom wood panel and fireplace surround refinishing in Decatur IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="cabinet-gallery"
@@ -300,7 +302,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/interior-painting/2.webp"
-              alt="Clean Cut cabinet refinishing - modern white kitchen transformation"
+              alt="Modern white kitchen cabinet transformation in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="cabinet-gallery"

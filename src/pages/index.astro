@@ -16,6 +16,7 @@ import CareersCTA from '../components/CareersCTA.astro';
 import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
+import FAQSchema from '../components/schema/FAQSchema.astro';
 
 const faqs = [
   {
@@ -60,6 +61,7 @@ const faqs = [
     <Gallery />
     <VideoTestimonials />
     <FAQAccordion faqs={faqs} title="Frequently Asked Questions" initialVisible={3} />
+    <FAQSchema faqs={faqs} />
     <ServiceAreas />
     <CareersCTA />
   </main>

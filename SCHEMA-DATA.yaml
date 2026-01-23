@@ -1,17 +1,17 @@
 # CleanCut Pros - Business Schema Data
-# ✅ VERIFIED from website Footer.astro
-# Last verified: 2025-12-23
+# ✅ VERIFIED from public sources (BBB, US Census Geocoder, cleancutservice.com)
+# Last verified: 2026-01-22
 
 # =============================================================================
 # BUSINESS IDENTITY
 # =============================================================================
 business:
   name: "Clean Cut Painting & Handyman"
-  legal_name: "Clean Cut Painting & Handyman"
+  legal_name: "Clean Cut Painting & Handyman Services LLC"
   tagline: "Professional Painting & Handyman Services"
   description: "Clean Cut Painting & Handyman provides professional painting and handyman services to residential and commercial customers in Central Illinois."
-  year_established: null  # VERIFY with client
-  
+  year_established: 2016
+
 # =============================================================================
 # CONTACT INFORMATION (NAP - Must be consistent everywhere)
 # =============================================================================
@@ -19,8 +19,11 @@ contact:
   phone: "(217) 330-7310"
   phone_raw: "+12173307310"
   email: "info@cleancutservice.com"
-  website: "https://cleancutservice.com"  # VERIFY exact domain
-  
+  website: "https://cleancutservice.com"
+
+# =============================================================================
+# LOCATIONS
+# =============================================================================
 address:
   street: "1004 E Eldorado St"
   city: "Decatur"
@@ -28,7 +31,32 @@ address:
   zip: "62521"
   country: "USA"
   full: "1004 E Eldorado St, Decatur, IL 62521"
-  
+  latitude: 39.846140
+  longitude: -88.943339
+
+locations:
+  - name: "Decatur Office"
+    street: "1004 E Eldorado St"
+    city: "Decatur"
+    state: "IL"
+    zip: "62521"
+    country: "USA"
+    phone: "(217) 330-7310"
+    phone_raw: "+12173307310"
+    latitude: 39.846140
+    longitude: -88.943339
+    
+  - name: "Springfield Office"
+    street: "631 E Princeton Ave, Unit D"
+    city: "Springfield"
+    state: "IL"
+    zip: "62703"
+    country: "USA"
+    phone: "(217) 672-5654"
+    phone_raw: "+12176725654"
+    latitude: 39.774706
+    longitude: -89.648175
+
 # =============================================================================
 # SERVICE AREAS
 # =============================================================================
@@ -36,7 +64,10 @@ service_areas:
   primary:
     - name: "Decatur"
       state: "IL"
+    - name: "Springfield"
+      state: "IL"
   region: "Central Illinois"
+  radius: "60 miles"
 
 # =============================================================================
 # SERVICES OFFERED
@@ -61,15 +92,15 @@ services:
     slug: "handyman"
 
 # =============================================================================
-# BUSINESS HOURS
+# BUSINESS HOURS (from cleancutservice.com - verified 2026-01-22)
 # =============================================================================
 hours:
-  monday: "8AM - 6PM"
-  tuesday: "8AM - 6PM"
-  wednesday: "8AM - 6PM"
-  thursday: "8AM - 6PM"
-  friday: "8AM - 6PM"
-  saturday: "9AM - 4PM"
+  monday: "7:30AM - 4:30PM"
+  tuesday: "7:30AM - 4:30PM"
+  wednesday: "7:30AM - 4:30PM"
+  thursday: "7:30AM - 4:30PM"
+  friday: "7:30AM - 4:30PM"
+  saturday: "8AM - 1PM"
   sunday: "Closed"
 
 # =============================================================================
@@ -80,7 +111,7 @@ social:
   instagram: "https://www.instagram.com/cleancutdecatur"
   yelp: "https://www.yelp.com/biz/clean-cut-painting-and-handyman-services-decatur"
   google_business: "https://www.google.com/search?q=clean+cut+painting+and+handyman+decatur+il"
-  
+
 # =============================================================================
 # SCHEMA.ORG DATA
 # =============================================================================
@@ -91,13 +122,16 @@ schema:
     - "HousePainter"
     - "HandymanService"
   price_range: "$$"
-  
+
 # =============================================================================
 # VERIFICATION LOG
 # =============================================================================
 verification:
-  last_verified: "2025-12-23"
-  verified_by: "Pillar 3 (from Footer.astro)"
-  source: "src/components/Footer.astro"
-  client_approved: false  # Needs Colleen to confirm
-  notes: "Data extracted from live website footer"
+  last_verified: "2026-01-22"
+  verified_by: "Claude (public sources research)"
+  sources:
+    - "BBB Profile: https://www.bbb.org/us/il/decatur/profile/commercial-painter/clean-cut-painting-handyman-services-llc-0724-90028925"
+    - "US Census Geocoder (coordinates)"
+    - "cleancutservice.com (hours, contact info)"
+  client_approved: false
+  notes: "Year established 2016 per BBB. Coordinates from US Census Geocoder. Hours updated to match live website."

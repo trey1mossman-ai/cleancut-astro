@@ -6,6 +6,7 @@ import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
+import FAQSchema from '../../components/schema/FAQSchema.astro';
 
 const processSteps = [
   { number: 1, title: "Protection and Preparation", description: "We meticulously mask and safeguard all flooring, fixtures, and contents as required." },
@@ -54,7 +55,7 @@ const faqs = [
     <section class="relative min-h-[350px] flex items-center overflow-hidden">
       <img
         src="/images/Home Page/Residential Services/CC _ Home Page Photos_Interior Painting.webp"
-        alt="Professional interior painting services"
+        alt="Professional interior painting services in Decatur IL and Central Illinois"
         class="absolute inset-0 w-full h-full object-cover"
       >
       <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
@@ -88,7 +89,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/interior-painting/6t4a6783.webp"
-              alt="Professional wall painting"
+              alt="Professional wall painting by Clean Cut Painting in Decatur Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -100,7 +101,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/interior-painting/6t4a6843.webp"
-              alt="Ceiling painting"
+              alt="Ceiling painting services in Springfield IL homes"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -112,7 +113,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/interior-painting/6t4a6822-2.webp"
-              alt="Trim painting"
+              alt="Trim and baseboard painting in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -124,7 +125,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/interior-painting/6t4a6873.webp"
-              alt="Door painting"
+              alt="Interior door painting by Decatur IL painters"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -163,7 +164,7 @@ const faqs = [
           <div>
             <img
               src="/images/services-optimized/interior-painting/4.webp"
-              alt="Interior painting consultation"
+              alt="Interior painting consultation with Clean Cut in Macon County"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
             />
@@ -175,7 +176,7 @@ const faqs = [
           <div class="order-2 lg:order-1">
             <img
               src="/images/services-optimized/interior-painting/2.webp"
-              alt="Professional interior painting results"
+              alt="Professional interior painting results in Springfield Illinois"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
             />
@@ -213,7 +214,7 @@ const faqs = [
           <div class="relative overflow-hidden rounded-lg shadow-2xl group h-96">
             <img
               src="/images/Home Page/Residential Services/CC _ Home Page Photos_Interior Painting.webp"
-              alt="Featured interior painting transformation"
+              alt="Featured interior painting transformation in Decatur IL home"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
               data-lightbox-gallery="interior-gallery"
@@ -226,7 +227,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/interior-painting/6t4a6783.webp"
-              alt="Professional interior painting - wall and ceiling work"
+              alt="Professional interior wall and ceiling painting in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="interior-gallery"
@@ -235,7 +236,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/interior-painting/6t4a6843.webp"
-              alt="Interior painting project - finished home interior"
+              alt="Finished interior painting project in Springfield IL residence"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="interior-gallery"
@@ -244,7 +245,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/interior-painting/6t4a6822-2.webp"
-              alt="Clean Cut Painting - custom interior color selection"
+              alt="Custom interior color selection by Clean Cut Painting in Decatur"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="interior-gallery"
@@ -253,7 +254,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/interior-painting/2.webp"
-              alt="Professional interior painting - kitchen with white painted cabinets"
+              alt="Kitchen interior painting with white cabinets in Macon County IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="interior-gallery"
@@ -262,7 +263,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/interior-painting/542207858_622811790903167_5174595472123875714_n.webp"
-              alt="Interior painting - quality craftsmanship showcase"
+              alt="Quality interior painting craftsmanship in Decatur Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="interior-gallery"
@@ -271,7 +272,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/interior-painting/march-26.webp"
-              alt="Clean Cut Painting interior project - freshly painted walls"
+              alt="Clean Cut interior painting project in Central Illinois home"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="interior-gallery"
@@ -290,6 +291,7 @@ const faqs = [
 
     <!-- FAQ Section -->
     <FAQAccordion faqs={faqs} title="Interior Painting FAQs" initialVisible={3} />
+    <FAQSchema faqs={faqs} />
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

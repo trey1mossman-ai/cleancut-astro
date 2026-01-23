@@ -1,27 +1,261 @@
 # CleanCut Pros - SEO Configuration
 # Keywords, meta templates, and image naming conventions
+# Last Updated: January 2026
 
 # =============================================================================
-# PRIMARY KEYWORDS
+# PRIMARY KEYWORDS (High Intent - Ready to Buy)
 # =============================================================================
 keywords:
   primary:
-    - "painting contractor Decatur IL"
-    - "handyman services Decatur"
+    # Core Brand
     - "CleanCut Pros"
+    - "Clean Cut painting"
+    
+    # Decatur (Home Base)
+    - "painter Decatur IL"
+    - "painting contractor Decatur Illinois"
+    - "handyman Decatur IL"
+    - "handyman services Decatur"
+    - "power washing Decatur IL"
+    - "pressure washing Decatur"
+    
+    # Near Me (High Intent)
+    - "house painter near me"
+    - "painting contractor near me"
+    - "handyman near me"
+    - "power washing near me"
     
   secondary:
-    - "house painting Decatur Illinois"
-    - "commercial painting Central Illinois"
-    - "pressure washing Decatur"
+    # Service + Location
+    - "interior painting Decatur IL"
+    - "exterior painting Decatur Illinois"
+    - "cabinet painting Decatur"
+    - "deck staining Decatur IL"
+    - "commercial painting Decatur"
     - "drywall repair Decatur IL"
-    - "residential painting services"
+    
+    # Regional
+    - "painter Central Illinois"
+    - "painting contractor Central Illinois"
+    - "handyman Central Illinois"
+    - "house painting Springfield IL"
+    - "painter Champaign Illinois"
     
   long_tail:
-    - "professional painters near me Decatur"
-    - "affordable handyman Decatur IL"
-    - "interior painting services Decatur Illinois"
-    - "exterior house painting Central IL"
+    # Interior Painting
+    - "professional interior painter Decatur"
+    - "residential interior painting services"
+    - "whole house interior painting"
+    - "bedroom painting services Decatur"
+    - "living room painter near me"
+    
+    # Exterior Painting
+    - "professional exterior house painter"
+    - "vinyl siding painting Decatur"
+    - "trim painting exterior"
+    - "fascia and soffit painting"
+    
+    # Cabinet Refinishing
+    - "kitchen cabinet refinishing Decatur"
+    - "cabinet painter Central Illinois"
+    - "oak cabinet refinishing"
+    - "white cabinet painting services"
+    
+    # Deck Staining
+    - "wood deck restoration Decatur"
+    - "deck cleaning and staining"
+    - "cedar deck staining"
+    - "deck sealing services"
+    
+    # Power Washing
+    - "house washing Decatur IL"
+    - "driveway pressure washing"
+    - "concrete cleaning services"
+    - "deck power washing"
+    
+    # Handyman
+    - "drywall patching services"
+    - "tile repair handyman"
+    - "door installation Decatur"
+    - "trim installation services"
+    - "small home repairs"
+    
+    # Commercial
+    - "office painting Decatur IL"
+    - "commercial painting contractor"
+    - "retail store painting"
+    - "warehouse painting services"
+
+# =============================================================================
+# SERVICE-SPECIFIC KEYWORDS
+# =============================================================================
+service_keywords:
+  interior_painting:
+    primary:
+      - "interior painting Decatur IL"
+      - "interior painter near me"
+      - "house interior painting"
+    secondary:
+      - "bedroom painting"
+      - "living room painting"
+      - "ceiling painting"
+      - "trim and baseboard painting"
+      - "accent wall painting"
+    problems:
+      - "wall damage repair painting"
+      - "ceiling stain cover"
+      - "smoke damage painting"
+      - "nicotine stained walls"
+      
+  exterior_painting:
+    primary:
+      - "exterior painting Decatur IL"
+      - "exterior house painter near me"
+      - "house painting contractor"
+    secondary:
+      - "siding painting"
+      - "trim painting exterior"
+      - "porch painting"
+      - "garage door painting"
+      - "front door painting"
+    problems:
+      - "peeling paint repair"
+      - "fading paint fix"
+      - "chalking paint exterior"
+      - "weather damaged paint"
+      
+  cabinet_refinishing:
+    primary:
+      - "cabinet painting Decatur IL"
+      - "kitchen cabinet refinishing"
+      - "cabinet refinishing near me"
+    secondary:
+      - "bathroom vanity refinishing"
+      - "cabinet refacing"
+      - "painted kitchen cabinets"
+      - "cabinet door painting"
+    problems:
+      - "outdated oak cabinets"
+      - "worn cabinet finish"
+      
+  deck_staining:
+    primary:
+      - "deck staining Decatur IL"
+      - "deck staining near me"
+      - "wood deck staining"
+    secondary:
+      - "deck refinishing"
+      - "deck sealing"
+      - "deck restoration"
+      - "deck weatherproofing"
+    problems:
+      - "weathered deck restoration"
+      - "gray deck wood"
+      - "mold on deck"
+      - "slippery deck"
+      
+  power_washing:
+    primary:
+      - "power washing Decatur IL"
+      - "pressure washing near me"
+      - "house washing"
+    secondary:
+      - "driveway cleaning"
+      - "sidewalk pressure washing"
+      - "patio cleaning"
+      - "fence power washing"
+    problems:
+      - "dirty siding cleaning"
+      - "algae removal"
+      - "mold removal exterior"
+      
+  handyman:
+    primary:
+      - "handyman Decatur IL"
+      - "handyman services near me"
+      - "home repair services"
+    secondary:
+      - "drywall repair"
+      - "tile repair"
+      - "door installation"
+      - "trim installation"
+      - "caulking services"
+    problems:
+      - "hole in drywall"
+      - "cracked drywall"
+      - "loose tile"
+      - "sticking door"
+      
+  commercial:
+    primary:
+      - "commercial painting Decatur IL"
+      - "commercial painter near me"
+      - "office painting"
+    secondary:
+      - "retail store painting"
+      - "restaurant painting"
+      - "warehouse painting"
+      - "industrial painting"
+
+# =============================================================================
+# LOCAL SEO - SERVICE AREAS
+# =============================================================================
+local:
+  primary_city: "Decatur"
+  primary_state: "IL"
+  primary_county: "Macon County"
+  
+  geo_coordinates:
+    latitude: 39.8403
+    longitude: -88.9548
+    
+  geo_region: "US-IL"
+  geo_placename: "Decatur, Illinois"
+  
+  service_areas:
+    macon_county:
+      - "Decatur"
+      - "Mount Zion"
+      - "Forsyth"
+      - "Maroa"
+      - "Argenta"
+      - "Niantic"
+      - "Blue Mound"
+      - "Harristown"
+      - "Long Creek"
+      - "Macon"
+      - "Oakley"
+      - "Oreana"
+      - "Warrensburg"
+      
+    sangamon_county:
+      - "Springfield"
+      - "Chatham"
+      - "Auburn"
+      - "Riverton"
+      - "Rochester"
+      - "Sherman"
+      - "Williamsville"
+      
+    champaign_county:
+      - "Champaign"
+      - "Urbana"
+      - "Rantoul"
+      - "Mahomet"
+      - "Savoy"
+      - "St. Joseph"
+      
+    nearby:
+      - "Taylorville"
+      - "Lincoln"
+      - "Mattoon"
+      - "Bloomington"
+      - "Normal"
+      
+  structured_data:
+    - LocalBusiness
+    - Service
+    - FAQPage
 
 # =============================================================================
 # META TEMPLATES
@@ -34,7 +268,7 @@ meta:
   description_max_length: 160
   
   default_title: "CleanCut Pros | Professional Painting & Handyman Services in Decatur, IL"
-  default_description: "CleanCut Pros provides professional painting and handyman services to residential and commercial customers in Decatur, Illinois. Free estimates!"
+  default_description: "CleanCut Pros provides professional painting and handyman services to residential and commercial customers in Decatur, Illinois and Central IL. Free estimates!"
 
 # =============================================================================
 # PAGE-SPECIFIC SEO
@@ -42,57 +276,116 @@ meta:
 pages:
   home:
     title: "CleanCut Pros | Professional Painting & Handyman Services in Decatur, IL"
-    description: "CleanCut Pros provides professional painting and handyman services in Decatur, IL. Residential & commercial. Free estimates!"
+    description: "CleanCut Pros provides professional painting, deck staining, power washing and handyman services in Decatur, IL and Central Illinois. Free estimates!"
     h1: "Professional Painting & Handyman Services in Decatur, IL"
+    keywords:
+      - "painter Decatur IL"
+      - "handyman Decatur IL"
+      - "painting contractor Central Illinois"
     
   about:
-    title: "About Us | CleanCut Pros - Decatur, IL"
-    description: "Learn about CleanCut Pros, your trusted painting and handyman service provider in Decatur, Illinois."
+    title: "About Us | CleanCut Pros - Decatur, IL Painters"
+    description: "Learn about CleanCut Pros, your trusted painting and handyman service provider in Decatur, Illinois and Central IL since [year]."
+    keywords:
+      - "painting company Decatur"
+      - "local painters Central Illinois"
     
   contact:
-    title: "Contact Us | CleanCut Pros - Decatur, IL"
-    description: "Contact CleanCut Pros for a free estimate on painting and handyman services in Decatur, IL."
+    title: "Contact Us | Free Painting Estimates - CleanCut Pros Decatur, IL"
+    description: "Contact CleanCut Pros for a free estimate on painting, deck staining, power washing and handyman services in Decatur, IL. Call today!"
+    keywords:
+      - "free painting estimate Decatur"
+      - "painting quote Central Illinois"
     
-  services:
-    residential:
-      title: "Residential Painting Services | CleanCut Pros - Decatur, IL"
-      description: "Professional residential painting services in Decatur, IL. Interior and exterior painting. Free estimates!"
+  residential:
+    interior_painting:
+      title: "Interior Painting Services | CleanCut Pros - Decatur, IL"
+      description: "Professional interior painting services in Decatur, IL. Bedrooms, living rooms, kitchens, trim & more. Quality work, clean results. Free estimates!"
+      h1: "Interior Painting Services in Decatur, IL"
+      keywords:
+        - "interior painting Decatur IL"
+        - "interior painter near me"
+        - "house interior painting"
+        - "bedroom painting Decatur"
+        
+    exterior_painting:
+      title: "Exterior House Painting | CleanCut Pros - Decatur, IL"
+      description: "Professional exterior house painting in Decatur, IL. Siding, trim, porches & more. Weather-resistant finishes. Free estimates!"
+      h1: "Exterior House Painting in Decatur, IL"
+      keywords:
+        - "exterior painting Decatur IL"
+        - "house painter Decatur"
+        - "exterior house painting"
+        
+    cabinet_refinishing:
+      title: "Cabinet Painting & Refinishing | CleanCut Pros - Decatur, IL"
+      description: "Transform your kitchen with professional cabinet painting in Decatur, IL. Refinishing services for a fraction of replacement cost. Free estimates!"
+      h1: "Cabinet Painting & Refinishing in Decatur, IL"
+      keywords:
+        - "cabinet painting Decatur IL"
+        - "kitchen cabinet refinishing"
+        - "cabinet refinishing near me"
+        
+    deck_staining:
+      title: "Deck Staining & Restoration | CleanCut Pros - Decatur, IL"
+      description: "Professional deck staining and restoration in Decatur, IL. Protect and beautify your deck. Cleaning, staining & sealing. Free estimates!"
+      h1: "Deck Staining & Restoration in Decatur, IL"
+      keywords:
+        - "deck staining Decatur IL"
+        - "deck restoration near me"
+        - "wood deck staining"
+        
+    power_washing:
+      title: "Power Washing Services | CleanCut Pros - Decatur, IL"
+      description: "Professional power washing in Decatur, IL. Houses, driveways, patios, decks & more. Restore your property's appearance. Free estimates!"
+      h1: "Power Washing Services in Decatur, IL"
+      keywords:
+        - "power washing Decatur IL"
+        - "pressure washing near me"
+        - "house washing Decatur"
+        
+    handyman:
+      title: "Handyman Services | CleanCut Pros - Decatur, IL"
+      description: "Professional handyman services in Decatur, IL. Drywall repair, tile work, door installation, trim & more. No job too small. Free estimates!"
+      h1: "Handyman Services in Decatur, IL"
+      keywords:
+        - "handyman Decatur IL"
+        - "handyman services near me"
+        - "drywall repair Decatur"
       
-    commercial:
-      title: "Commercial Painting Services | CleanCut Pros - Decatur, IL"
-      description: "Commercial painting services for businesses in Decatur and Central Illinois. Professional results guaranteed."
+  commercial:
+    title: "Commercial Painting Services | CleanCut Pros - Decatur, IL"
+    description: "Commercial painting services for businesses in Decatur and Central Illinois. Offices, retail, warehouses & more. Minimize downtime. Free estimates!"
+    h1: "Commercial Painting Services in Decatur, IL"
+    keywords:
+      - "commercial painting Decatur IL"
+      - "office painting Central Illinois"
+      - "commercial painter near me"
 
 # =============================================================================
-# IMAGE NAMING CONVENTIONS
+# IMAGE NAMING & ALT TEXT
 # =============================================================================
 images:
-  naming_pattern: "{keyword}-{location}-{descriptor}.{ext}"
+  naming_pattern: "{service}-{location}-{descriptor}.{ext}"
+  
   examples:
-    - "residential-painting-decatur-il-exterior.jpg"
-    - "handyman-services-decatur-illinois-drywall.jpg"
-    - "cleancut-pros-team-decatur.jpg"
+    - "interior-painting-decatur-il-living-room.jpg"
+    - "exterior-painting-decatur-illinois-two-story.jpg"
+    - "cabinet-refinishing-central-il-kitchen.jpg"
+    - "deck-staining-decatur-cedar.jpg"
+    - "power-washing-decatur-driveway.jpg"
+    - "handyman-services-decatur-drywall-repair.jpg"
+    
+  alt_text_guidelines:
+    - "Be descriptive: 80-140 characters"
+    - "Include 1-2 keywords naturally"
+    - "Do not start with Image of or Picture of"
+    - "Describe the action/scene"
+    - "Include location when natural"
     
   required_metadata:
     title: "Primary keyword"
     alt: "Descriptive alt text with keyword"
-    iptc_keywords: "Up to 10 relevant keywords"
-    gps: "Business location coordinates"
-
-# =============================================================================
-# LOCAL SEO
-# =============================================================================
-local:
-  geo_coordinates:
-    latitude: null   # VERIFY
-    longitude: null  # VERIFY
-    
-  geo_region: "US-IL"
-  geo_placename: "Decatur, Illinois"
-  
-  structured_data:
-    - LocalBusiness
-    - Service
-    - FAQPage (if FAQ exists)
 
 # =============================================================================
 # TECHNICAL SEO
@@ -100,9 +393,36 @@ local:
 technical:
   sitemap: "/sitemap.xml"
   robots: "/robots.txt"
-  canonical_domain: null  # VERIFY - "https://..."
+  canonical_domain: "https://cleancut-astro.vercel.app"
   
   required_pages:
     - sitemap.xml
     - robots.txt
     - 404.html
+
+# =============================================================================
+# NEGATIVE KEYWORDS (For Future PPC)
+# =============================================================================
+negative_keywords:
+  diy_terms:
+    - "DIY painting"
+    - "how to paint yourself"
+    - "painting tutorial"
+    
+  product_terms:
+    - "buy paint"
+    - "paint store"
+    - "Sherwin Williams"
+    - "Benjamin Moore"
+    - "Home Depot paint"
+    
+  job_terms:
+    - "painter jobs"
+    - "painting careers"
+    - "hiring painters"
+    
+  art_terms:
+    - "art painting"
+    - "canvas painting"
+    - "watercolor"
+    - "oil painting"

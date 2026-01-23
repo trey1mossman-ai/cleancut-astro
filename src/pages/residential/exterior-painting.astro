@@ -6,6 +6,7 @@ import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
+import FAQSchema from '../../components/schema/FAQSchema.astro';
 
 const processSteps = [
   { number: 1, title: "Deep Cleaning", description: "We begin with a thorough pressure wash, hand scrub, and rinse to remove all dirt, mildew, and surface contaminants, ensuring a clean canvas for your project." },
@@ -57,7 +58,7 @@ const faqs = [
     <section class="relative min-h-[350px] flex items-center overflow-hidden">
       <img
         src="/images/Home Page/Residential Services/CC _ Home Page Photos_Exterior Painting.webp"
-        alt="Professional exterior painting services"
+        alt="Professional exterior painting services in Decatur IL"
         class="absolute inset-0 w-full h-full object-cover"
       >
       <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
@@ -91,7 +92,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/exterior-painting/1-1.webp"
-              alt="Siding and brick painting"
+              alt="Siding and brick painting services in Springfield Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -103,7 +104,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/exterior-painting/2-2.webp"
-              alt="Soffits and fascia painting"
+              alt="Soffits and fascia painting in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -115,7 +116,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/exterior-painting/3-3.webp"
-              alt="Gutters and downspouts painting"
+              alt="Gutters and downspouts painting in Macon County"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -127,7 +128,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/exterior-painting/4-1.webp"
-              alt="Windows and doors painting"
+              alt="Windows and doors painting in Decatur Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -139,7 +140,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/exterior-painting/487402286_505828639268150_4215644748292993585_n.webp"
-              alt="Porch posts and railings painting"
+              alt="Porch posts and railings painting in Springfield IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -151,7 +152,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/exterior-painting/552527896_18029634068725762_4311999433661823934_n.webp"
-              alt="All exterior surfaces painting"
+              alt="All exterior surfaces painting in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
@@ -190,7 +191,7 @@ const faqs = [
           <div>
             <img
               src="/images/services-optimized/exterior-painting/2-4.webp"
-              alt="Beautiful exterior painting consultation"
+              alt="Exterior painting consultation with Clean Cut in Decatur IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
             />
@@ -202,7 +203,7 @@ const faqs = [
           <div class="order-2 lg:order-1">
             <img
               src="/images/services-optimized/exterior-painting/1.webp"
-              alt="Clean Cut Painting crew actively working on exterior painting project"
+              alt="Clean Cut crew working on exterior painting project in Springfield IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
             />
@@ -240,7 +241,7 @@ const faqs = [
           <div class="relative overflow-hidden rounded-lg shadow-2xl group h-96">
             <img
               src="/images/services-optimized/exterior-painting/519661187_18021421895725762_3375230967664930050_n.webp"
-              alt="Featured exterior painting transformation"
+              alt="Featured exterior painting transformation in Decatur Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
               data-lightbox-gallery="exterior-gallery"
@@ -253,7 +254,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/exterior-painting/552533568_18029634086725762_2275584699687083915_n.webp"
-              alt="Professional exterior painting - siding and trim work"
+              alt="Professional exterior siding and trim painting in Sangamon County"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="exterior-gallery"
@@ -262,7 +263,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/exterior-painting/march-25.webp"
-              alt="Exterior painting project - finished home exterior"
+              alt="Finished home exterior painting project in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="exterior-gallery"
@@ -271,7 +272,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/exterior-painting/500393461_546646668519680_4024686709663572418_n.webp"
-              alt="Clean Cut Painting - custom exterior color selection"
+              alt="Custom exterior color selection by Clean Cut in Decatur IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="exterior-gallery"
@@ -280,7 +281,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/exterior-painting/500888133_546646671853013_7280622945184023242_n.webp"
-              alt="Professional exterior painting - house with fresh paint"
+              alt="House with fresh exterior paint in Springfield Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="exterior-gallery"
@@ -289,7 +290,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/exterior-painting/515325683_18019944374725762_2104403430114134139_n.webp"
-              alt="Exterior painting - quality craftsmanship showcase"
+              alt="Quality exterior painting craftsmanship in Decatur IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="exterior-gallery"
@@ -298,7 +299,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/exterior-painting/575511257_18035041877725762_8577609490548752017_n.webp"
-              alt="Clean Cut Painting exterior project - freshly painted home"
+              alt="Freshly painted home exterior by Clean Cut in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="exterior-gallery"
@@ -317,6 +318,7 @@ const faqs = [
 
     <!-- FAQ Section -->
     <FAQAccordion faqs={faqs} title="Exterior Painting FAQs" initialVisible={3} />
+    <FAQSchema faqs={faqs} />
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

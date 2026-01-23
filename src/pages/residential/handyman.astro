@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
+import FAQSchema from '../../components/schema/FAQSchema.astro';
 
 const faqs = [
   {
@@ -41,7 +42,7 @@ const faqs = [
     <section class="relative min-h-[350px] flex items-center overflow-hidden">
       <img
         src="/images/Home Page/Residential Services/CC _ Home Page Photos_Handyman Services.webp"
-        alt="Professional handyman services"
+        alt="Professional handyman services in Decatur IL"
         class="absolute inset-0 w-full h-full object-cover"
       >
       <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
@@ -75,7 +76,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/handyman-services/IMG_6904.webp"
-              alt="Custom tile shower installation with gold fixtures"
+              alt="Custom tile shower installation in Springfield Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="handyman-services"
@@ -87,7 +88,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/handyman-services/CLEAN-CUT-19-scaled-1.webp"
-              alt="Custom bathroom vanity with stone accent wall"
+              alt="Custom bathroom vanity installation in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="handyman-services"
@@ -99,7 +100,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/handyman-services/545268678_18028087646725762_7333235915722150678_n.webp"
-              alt="Flooring repair and installation"
+              alt="Flooring repair and installation in Macon County"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="handyman-services"
@@ -111,7 +112,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/handyman-services/543745778_18027872903725762_2813762595052589321_n.webp"
-              alt="Board and batten wainscoting"
+              alt="Board and batten wainscoting in Decatur Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="handyman-services"
@@ -123,7 +124,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/handyman-services/546236755_18028087628725762_8575736534731332789_n.webp"
-              alt="Custom built-ins and closet systems"
+              alt="Custom built-ins and closet systems in Springfield IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="handyman-services"
@@ -135,7 +136,7 @@ const faqs = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/handyman-services/CLEAN-CUT-9-scaled-1.webp"
-              alt="Custom kitchen renovation with black cabinets and island"
+              alt="Custom kitchen renovation in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="handyman-services"
@@ -174,7 +175,7 @@ const faqs = [
           <div>
             <img
               src="/images/services-optimized/handyman-services/CLEAN-CUT-9-scaled-1.webp"
-              alt="Beautiful custom kitchen renovation project"
+              alt="Beautiful kitchen renovation by Clean Cut in Decatur IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
             />
@@ -186,7 +187,7 @@ const faqs = [
           <div class="order-2 lg:order-1">
             <img
               src="/images/services-optimized/handyman-services/Elevate-Your-Home-with-Clean-Cut-Residential-Handyman-Services.webp"
-              alt="Clean Cut handyman professional at work"
+              alt="Clean Cut handyman professional at work in Springfield IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
             />
@@ -208,6 +209,7 @@ const faqs = [
 
     <!-- FAQ Section -->
     <FAQAccordion faqs={faqs} title="Handyman Services FAQs" initialVisible={3} />
+    <FAQSchema faqs={faqs} />
 
     <!-- Gallery Section -->
     <section class="py-20 bg-gray-50">
@@ -224,7 +226,7 @@ const faqs = [
           <div class="relative overflow-hidden rounded-lg shadow-2xl group h-96">
             <img
               src="/images/services-optimized/handyman-services/IMG_6904.webp"
-              alt="Stunning custom tile shower with gold fixtures"
+              alt="Custom tile shower installation in Decatur Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
               data-lightbox-gallery="handyman-gallery"
@@ -237,7 +239,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/handyman-services/CLEAN-CUT-19-scaled-1.webp"
-              alt="Custom bathroom vanity with stone accent wall"
+              alt="Custom bathroom vanity installation in Sangamon County"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="handyman-gallery"
@@ -246,7 +248,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/handyman-services/123_1.webp"
-              alt="Pool tile repair and restoration"
+              alt="Pool tile repair and restoration in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="handyman-gallery"
@@ -255,7 +257,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/handyman-services/545268678_18028087646725762_7333235915722150678_n.webp"
-              alt="Quality flooring installation project"
+              alt="Quality flooring installation in Decatur IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="handyman-gallery"
@@ -264,7 +266,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/handyman-services/543745778_18027872903725762_2813762595052589321_n.webp"
-              alt="Board and batten wainscoting installation"
+              alt="Board and batten wainscoting installation in Springfield Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="handyman-gallery"
@@ -273,7 +275,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/handyman-services/546236755_18028087628725762_8575736534731332789_n.webp"
-              alt="Custom built-ins and closet systems"
+              alt="Custom built-ins and closet systems in Decatur IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="handyman-gallery"
@@ -282,7 +284,7 @@ const faqs = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/handyman-services/559111309_18031886504725762_7943760075710809760_n.webp"
-              alt="Clean Cut handyman project - finished result"
+              alt="Handyman project finished result in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="handyman-gallery"

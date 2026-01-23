@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css'
+import LocalBusinessSchema from '../components/schema/LocalBusinessSchema.astro';
+import { schemaData, getOpeningHoursSpecification, getSameAsLinks } from '../data/schema';
 
 interface Props {
   title: string;
@@ -10,6 +12,30 @@ const {
   title,
   description = "Transform your space with Clean Cut's professional painting and handyman services in Decatur and Springfield IL. Interior & exterior painting, cabinet refinishing, deck staining. Free estimates!"
 } = Astro.props;
+
+// Prepare schema data for LocalBusinessSchema component
+const businessSchemaProps = {
+  businessName: schemaData.business.name,
+  description: schemaData.business.description,
+  url: schemaData.contact.website,
+  logo: `${schemaData.contact.website}/logo.webp`,
+  image: `${schemaData.contact.website}/images/hero.webp`,
+  priceRange: schemaData.schema.price_range,
+  locations: schemaData.locations.map(loc => ({
+    name: loc.name,
+    streetAddress: loc.streetAddress,
+    city: loc.city,
+    state: loc.state,
+    postalCode: loc.postalCode,
+    country: loc.country,
+    telephone: loc.telephone,
+    latitude: loc.latitude,
+    longitude: loc.longitude
+  })),
+  openingHours: getOpeningHoursSpecification(schemaData.hours),
+  sameAs: getSameAsLinks(schemaData.social),
+  areaServed: schemaData.service_areas.primary.map(area => `${area.name}, ${area.state}`)
+};
 ---
 
 <!DOCTYPE html>
@@ -20,9 +46,13 @@ const {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={`${schemaData.contact.website}${Astro.url.pathname}`} />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Structured Data: LocalBusiness -->
+  <LocalBusinessSchema {...businessSchemaProps} />
 </head>
 <body>
   <div class="min-h-screen bg-white">

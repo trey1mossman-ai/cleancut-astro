@@ -1,0 +1,8 @@
+# Clean Cut Painting & Handyman - robots.txt
+# https://cleancutservice.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://cleancutservice.com/sitemap-index.xml

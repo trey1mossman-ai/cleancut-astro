@@ -6,6 +6,7 @@ import FloatingCallButton from '../components/FloatingCallButton.astro';
 import Lightbox from '../components/Lightbox.astro';
 import ProcessScrollCards from '../components/ProcessScrollCards.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
+import FAQSchema from '../components/schema/FAQSchema.astro';
 
 const faqs = [
   {
@@ -70,7 +71,7 @@ const processSteps = [
     <section class="relative min-h-[350px] flex items-center overflow-hidden">
       <img
         src="/images/Home Page/Commerical Services/CC _ Home Page Photos_Commercial Painting Services.webp"
-        alt="Professional commercial painting services"
+        alt="Professional commercial painting services in Decatur IL and Central Illinois"
         class="absolute inset-0 w-full h-full object-cover"
       >
       <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
@@ -101,7 +102,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/commercial-projects/commercial-service-img-min.webp"
-              alt="Commercial restaurant exterior painting - Subway storefront"
+              alt="Commercial restaurant exterior painting in Decatur Illinois - Subway storefront"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="commercial-services"
@@ -113,7 +114,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/commercial-projects/Extensive-Commercial-min.webp"
-              alt="Commercial storefront painting - Nails Escape modern exterior"
+              alt="Commercial storefront painting in Springfield IL - Nails Escape exterior"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="commercial-services"
@@ -125,7 +126,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/commercial-projects/warehouse-paint-min.webp"
-              alt="Industrial warehouse painting - blue and white exterior"
+              alt="Industrial warehouse painting in Central Illinois - blue and white exterior"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="commercial-services"
@@ -137,7 +138,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/commercial-projects/Commercial-Services-3-min.webp"
-              alt="Commercial industrial building painting - Decatur Bolt"
+              alt="Commercial industrial building painting in Decatur IL - Decatur Bolt"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="commercial-services"
@@ -149,7 +150,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/commercial-projects/553681598_18030208775725762_3952859797050168874_n.webp"
-              alt="Commercial office interior painting"
+              alt="Commercial office interior painting in Springfield Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="commercial-services"
@@ -161,7 +162,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/commercial-projects/april-10.webp"
-              alt="Commercial building renovation project"
+              alt="Commercial building renovation project in Macon County IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="commercial-services"
@@ -185,7 +186,7 @@ const processSteps = [
     <section class="relative h-96 overflow-hidden">
       <img
         src="/images/services-optimized/commercial-projects/Extensive-Commercial-min.webp"
-        alt="Commercial storefront painting - modern retail exterior"
+        alt="Commercial storefront painting in Decatur - modern retail exterior"
         class="absolute inset-0 w-full h-full object-cover"
         loading="lazy"
       />
@@ -198,7 +199,7 @@ const processSteps = [
           <div class="order-2 lg:order-1">
             <img
               src="/images/services-optimized/commercial-projects/warehouse-paint-min.webp"
-              alt="Industrial warehouse painting - professional commercial services"
+              alt="Industrial warehouse painting by professional commercial painters in Central IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
               data-lightbox-gallery="commercial-gallery"
@@ -238,7 +239,7 @@ const processSteps = [
           <div>
             <img
               src="/images/services-optimized/commercial-projects/Commercial-Services-3-min.webp"
-              alt="Commercial industrial building - Decatur Bolt exterior"
+              alt="Commercial industrial building exterior in Decatur IL - Decatur Bolt"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
               data-lightbox-gallery="commercial-gallery"
@@ -253,6 +254,7 @@ const processSteps = [
 
     <!-- FAQ Section -->
     <FAQAccordion faqs={faqs} title="Commercial Services FAQs" initialVisible={3} />
+    <FAQSchema faqs={faqs} />
 
     <!-- Gallery Section -->
     <section class="py-20 bg-gray-50">
@@ -269,7 +271,7 @@ const processSteps = [
           <div class="relative overflow-hidden rounded-lg shadow-2xl group h-96">
             <img
               src="/images/services-optimized/commercial-projects/Commercial-Services-3-min.webp"
-              alt="Decatur Bolt industrial building - professional commercial painting"
+              alt="Decatur Bolt industrial building - commercial painting in Decatur Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
               data-lightbox-gallery="commercial-gallery"
@@ -282,7 +284,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/commercial-projects/commercial-service-img-min.webp"
-              alt="Commercial restaurant exterior - Subway storefront painting"
+              alt="Commercial restaurant painting in Springfield IL - Subway storefront"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="commercial-gallery"
@@ -291,7 +293,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/commercial-projects/2-3.webp"
-              alt="Industrial storage tanks painting project"
+              alt="Industrial storage tanks painting project in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="commercial-gallery"
@@ -300,7 +302,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Commerical Exterior.webp"
-              alt="Commercial exterior painting transformation"
+              alt="Commercial exterior painting transformation in Sangamon County IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="commercial-gallery"

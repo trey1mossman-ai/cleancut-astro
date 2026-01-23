@@ -6,6 +6,7 @@ import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
+import FAQSchema from '../../components/schema/FAQSchema.astro';
 
 const faqs = [
   {
@@ -52,7 +53,7 @@ const processSteps = [
     <section class="relative min-h-[350px] flex items-center overflow-hidden">
       <img
         src="/images/Home Page/Residential Services/CC _ Home Page Photos_Power Washing.webp"
-        alt="Professional power washing services"
+        alt="Professional power washing services in Decatur IL"
         class="absolute inset-0 w-full h-full object-cover"
       >
       <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
@@ -86,7 +87,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/exterior-painting/1.webp"
-              alt="Professional home exterior power washing"
+              alt="Home exterior power washing in Springfield Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="power-washing-services"
@@ -98,7 +99,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/exterior-painting/1-1.webp"
-              alt="Driveway and walkway power washing"
+              alt="Driveway and walkway power washing in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="power-washing-services"
@@ -110,7 +111,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/exterior-painting/2-2.webp"
-              alt="Deck and patio power washing"
+              alt="Deck and patio power washing in Macon County"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="power-washing-services"
@@ -122,7 +123,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/exterior-painting/2-4.webp"
-              alt="Fence power washing services"
+              alt="Fence power washing services in Decatur Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="power-washing-services"
@@ -134,7 +135,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/exterior-painting/3-3.webp"
-              alt="Gutter cleaning and maintenance"
+              alt="Gutter cleaning and maintenance in Springfield IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="power-washing-services"
@@ -146,7 +147,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/exterior-painting/4-1.webp"
-              alt="Window and frame power washing"
+              alt="Window and frame power washing in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="power-washing-services"
@@ -185,7 +186,7 @@ const processSteps = [
           <div>
             <img
               src="/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Pool Repair & Repaint.webp"
-              alt="Power washing project transformation"
+              alt="Power washing transformation by Clean Cut in Decatur IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
             />
@@ -197,7 +198,7 @@ const processSteps = [
           <div class="order-2 lg:order-1">
             <img
               src="/images/services-optimized/exterior-painting/march-25.webp"
-              alt="Detailed hand scrubbing and power washing services"
+              alt="Hand scrubbing and power washing in Springfield Illinois"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
             />
@@ -222,6 +223,7 @@ const processSteps = [
 
     <!-- FAQ Section -->
     <FAQAccordion faqs={faqs} title="Power Washing FAQs" initialVisible={3} />
+    <FAQSchema faqs={faqs} />
 
     <!-- Gallery Section -->
     <section class="py-20 bg-gray-50">
@@ -238,7 +240,7 @@ const processSteps = [
           <div class="relative overflow-hidden rounded-lg shadow-2xl group h-96">
             <img
               src="/images/services-optimized/exterior-painting/1.webp"
-              alt="Featured power washing transformation"
+              alt="Featured power washing transformation in Decatur IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
               data-lightbox-gallery="power-washing-gallery"
@@ -251,7 +253,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/exterior-painting/519661187_18021421895725762_3375230967664930050_n.webp"
-              alt="Professional power washing - home exterior"
+              alt="Professional home exterior power washing in Sangamon County"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="power-washing-gallery"
@@ -260,7 +262,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/exterior-painting/552533568_18029634086725762_2275584699687083915_n.webp"
-              alt="Power washing project - driveway and walkway"
+              alt="Driveway and walkway cleaning in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="power-washing-gallery"
@@ -269,7 +271,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/exterior-painting/552527896_18029634068725762_4311999433661823934_n.webp"
-              alt="Clean Cut Power Washing - deck and patio cleaning"
+              alt="Deck and patio cleaning by Clean Cut in Decatur Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="power-washing-gallery"
@@ -278,7 +280,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/exterior-painting/539876508_18026133380725762_7240269548733735434_n.webp"
-              alt="Professional power washing - fence cleaning"
+              alt="Professional fence power washing in Springfield IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="power-washing-gallery"
@@ -287,7 +289,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/exterior-painting/539451089_18026133398725762_4830453403844705301_n.webp"
-              alt="Power washing - quality exterior cleaning"
+              alt="Quality exterior power washing in Decatur IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="power-washing-gallery"
@@ -296,7 +298,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/exterior-painting/515325683_18019944374725762_2104403430114134139_n.webp"
-              alt="Clean Cut power washing project - complete exterior"
+              alt="Complete exterior power washing in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="power-washing-gallery"

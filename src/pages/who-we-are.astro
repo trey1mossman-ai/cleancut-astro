@@ -5,13 +5,13 @@ import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
 
 const leadershipTeam = [
-  { name: 'Dara Geiser', title: 'Owner & President', image: '/images/team/dara-geiser.webp' },
-  { name: 'Colby Geiser', title: 'Operations Manager', image: '/images/team/colby-geiser.webp' },
-  { name: 'Jack Geiser', title: 'Operations Manager', image: '/images/team/jack-geiser.webp' },
-  { name: 'Tyler Tate', title: 'Chief Revenue Officer', image: '/images/team/tyler-tate.webp' },
-  { name: 'Alyssa Stanford', title: 'Administrative Assistant', image: '/images/team/alyssa-stanford.webp' },
-  { name: 'Sergio Sanchez', title: 'Project Manager', image: '/images/team/sergio-sanchez.webp' },
-  { name: 'Heath Kavanaugh', title: 'Project Manager', image: '/images/team/heath-kavanaugh.webp' },
+  { name: 'Dara Geiser', title: 'Owner & President', image: '/images/team/dara-geiser.webp', alt: 'Dara Geiser, Owner and President of Clean Cut Painting & Handyman in Decatur IL' },
+  { name: 'Colby Geiser', title: 'Operations Manager', image: '/images/team/colby-geiser.webp', alt: 'Colby Geiser, Operations Manager at Clean Cut Painting in Central Illinois' },
+  { name: 'Jack Geiser', title: 'Operations Manager', image: '/images/team/jack-geiser.webp', alt: 'Jack Geiser, Operations Manager at Clean Cut Painting & Handyman Springfield IL' },
+  { name: 'Tyler Tate', title: 'Chief Revenue Officer', image: '/images/team/tyler-tate.webp', alt: 'Tyler Tate, Chief Revenue Officer at Clean Cut Painting Decatur Illinois' },
+  { name: 'Alyssa Stanford', title: 'Administrative Assistant', image: '/images/team/alyssa-stanford.webp', alt: 'Alyssa Stanford, Administrative Assistant at Clean Cut Painting Central Illinois' },
+  { name: 'Sergio Sanchez', title: 'Project Manager', image: '/images/team/sergio-sanchez.webp', alt: 'Sergio Sanchez, Project Manager at Clean Cut Painting & Handyman Macon County' },
+  { name: 'Heath Kavanaugh', title: 'Project Manager', image: '/images/team/heath-kavanaugh.webp', alt: 'Heath Kavanaugh, Project Manager at Clean Cut Painting Springfield Illinois' },
 ];
 ---
 
@@ -61,7 +61,7 @@ const leadershipTeam = [
               <div class="aspect-square bg-gray-200 relative overflow-hidden">
                 <img 
                   src={member.image} 
-                  alt={member.name}
+                  alt={member.alt}
                   class="absolute inset-0 w-full h-full object-cover object-top"
                   loading="lazy"
                 />

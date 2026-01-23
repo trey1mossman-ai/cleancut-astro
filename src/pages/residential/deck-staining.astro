@@ -6,6 +6,7 @@ import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
+import FAQSchema from '../../components/schema/FAQSchema.astro';
 
 const faqs = [
   {
@@ -56,7 +57,7 @@ const processSteps = [
     <section class="relative min-h-[350px] flex items-center overflow-hidden">
       <img
         src="/images/Home Page/Residential Services/CC _ Home Page Photos_Deck Staining.webp"
-        alt="Professional deck staining services"
+        alt="Professional deck staining services in Decatur IL"
         class="absolute inset-0 w-full h-full object-cover"
       >
       <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
@@ -90,7 +91,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/deck-staining/2.webp"
-              alt="Deck surface staining"
+              alt="Deck surface staining in Springfield Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="deck-services"
@@ -102,7 +103,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/deck-staining/april-6.webp"
-              alt="Steps and stairs staining"
+              alt="Steps and stairs staining in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="deck-services"
@@ -114,7 +115,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/deck-staining/april-7.webp"
-              alt="Railing restoration"
+              alt="Deck railing restoration in Macon County"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="deck-services"
@@ -126,7 +127,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/deck-staining/496040817_18013439825725762_70949091219564810_n.webp"
-              alt="Lattice work staining"
+              alt="Lattice work staining in Decatur Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="deck-services"
@@ -138,7 +139,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/deck-staining/496713539_18013439834725762_402022853171685264_n.webp"
-              alt="Pergola staining"
+              alt="Pergola staining services in Springfield IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="deck-services"
@@ -150,7 +151,7 @@ const processSteps = [
           <div class="relative h-64 overflow-hidden rounded-lg shadow-lg group">
             <img
               src="/images/services-optimized/deck-staining/520293447_18021643091725762_6919768983089654575_n.webp"
-              alt="Outdoor structure staining"
+              alt="Outdoor structure staining in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="deck-services"
@@ -189,7 +190,7 @@ const processSteps = [
           <div>
             <img
               src="/images/services-optimized/deck-staining/june-26.webp"
-              alt="Beautifully restored deck"
+              alt="Beautifully restored deck by Clean Cut in Decatur IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
             />
@@ -201,7 +202,7 @@ const processSteps = [
           <div class="order-2 lg:order-1">
             <img
               src="/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Deck & Boat House Rebuild.webp"
-              alt="Complete deck restoration and rebuild project"
+              alt="Complete deck restoration and rebuild in Springfield Illinois"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
             />
@@ -226,6 +227,7 @@ const processSteps = [
 
     <!-- FAQ Section -->
     <FAQAccordion faqs={faqs} title="Deck Staining FAQs" initialVisible={3} />
+    <FAQSchema faqs={faqs} />
 
     <!-- Gallery Section -->
     <section class="py-20 bg-gray-50">
@@ -242,7 +244,7 @@ const processSteps = [
           <div class="relative overflow-hidden rounded-lg shadow-2xl group h-96">
             <img
               src="/images/services-optimized/deck-staining/543742067_18027770942725762_6809030153408573163_n.webp"
-              alt="Featured deck staining project"
+              alt="Featured deck staining project in Decatur IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
               data-lightbox-gallery="deck-gallery"
@@ -255,7 +257,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/deck-staining/496040817_18013439825725762_70949091219564810_n.webp"
-              alt="Professional deck staining - completed project"
+              alt="Completed professional deck staining in Sangamon County"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="deck-gallery"
@@ -264,7 +266,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/deck-staining/496713539_18013439834725762_402022853171685264_n.webp"
-              alt="Deck staining project - quality craftsmanship"
+              alt="Quality deck staining craftsmanship in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="deck-gallery"
@@ -273,7 +275,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/deck-staining/520293447_18021643091725762_6919768983089654575_n.webp"
-              alt="Clean Cut Painting deck restoration"
+              alt="Deck restoration by Clean Cut in Decatur Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="deck-gallery"
@@ -282,7 +284,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/deck-staining/520940369_18021643070725762_272670694070179050_n.webp"
-              alt="Deck staining - transformation"
+              alt="Deck staining transformation in Springfield IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="deck-gallery"
@@ -291,7 +293,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/deck-staining/522093810_18022111262725762_1937926814355583042_n.webp"
-              alt="Professional deck refinishing services"
+              alt="Professional deck refinishing services in Decatur IL"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="deck-gallery"
@@ -300,7 +302,7 @@ const processSteps = [
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
               src="/images/services-optimized/deck-staining/543046979_18027770933725762_2680363837880653339_n.webp"
-              alt="Deck restoration - finished outdoor space"
+              alt="Finished outdoor deck space in Central Illinois"
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="deck-gallery"

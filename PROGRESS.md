@@ -1,10 +1,10 @@
 # CleanCut Pros - Progress
 
 ## Last Updated
-2026-01-22 - Updated deployment to Vercel only (removed Hostinger references)
+2026-01-22 - SEO image optimization complete, gallery filters and video redesign deployed
 
 ## Current State
-- **Status:** Live on Vercel, all service pages match Google Doc exactly
+- **Status:** Live on Vercel, comprehensive SEO optimization complete
 - **Live Site:** https://cleancut-astro.vercel.app
 - **GitHub Repo:** https://github.com/trey1mossman-ai/cleancut-astro
 - **Source Branch:** main (Vercel auto-deploys)
@@ -12,6 +12,56 @@
 ---
 
 ## Session Log
+
+### 2026-01-22 - Gallery UX Improvements
+**Focus:** Add filters to gallery page, redesign video gallery
+
+**Completed:**
+- [x] Added filter system to Our Work gallery page
+  - 7 category filters: All, Interior, Exterior, Cabinets, Deck, Commercial, Other
+  - Pill-style buttons matching site design (sky-400 active, white inactive)
+  - Image count badges on each filter
+  - Smooth CSS transitions and animations
+  - Keyboard navigation support (arrow keys, Home/End)
+  - Accessibility: ARIA roles and labels
+- [x] Redesigned video gallery section
+  - Replaced black video screens with click-to-play thumbnails
+  - Used existing gallery images as video thumbnails (8 videos)
+  - Added category badges (Interior, Exterior, Deck, Cabinets, Commercial)
+  - Large play button with hover effects (white → sky-400)
+  - Smooth transitions: thumbnail zoom, fade to video, auto-reset on end
+  - Loading spinner during video load
+- [x] Removed sticky filter behavior (per user request)
+- [x] Deployed all changes to Vercel production
+
+**Files Changed:**
+- `src/pages/our-work.astro` - Complete gallery overhaul:
+  - Added `videos` data array with thumbnails/titles
+  - Filter bar with pill buttons
+  - Video cards with click-to-play JS
+  - CSS transitions for all animations
+
+---
+
+### 2026-01-22 - SEO Image Optimization (Earlier Session)
+**Focus:** Comprehensive image SEO with keyword strategy
+
+**Completed:**
+- [x] Created keyword research document (500+ keywords)
+- [x] Created SEO image strategy document with location distribution
+- [x] Optimized 89 image alt texts with location keywords
+  - 35% Decatur, 25% Springfield, 20% Central IL, etc.
+- [x] Added EXIF/GPS metadata to 117 images
+  - GPS: 39.846140, -88.943339
+  - Copyright: © 2026 Clean Cut Painting & Handyman
+- [x] Built FAQ accordion component
+- [x] Added LocalBusinessSchema, FAQSchema, BreadcrumbSchema to all pages
+
+**Files Created:**
+- `/docs/SEO-IMAGE-STRATEGY.md` - Full strategy document
+- `/docs/KEYWORD-RESEARCH.md` - 500+ keyword database
+
+---
 
 ### 2026-01-22 - Documentation Cleanup
 **Focus:** Remove all Hostinger references, standardize on Vercel deployment
@@ -28,29 +78,8 @@
 **Completed:**
 - [x] Read full Google Doc via drive.js script
 - [x] Audited all 7 service pages against source of truth
-- [x] Fixed exterior-painting.astro:
-  - Hero: "Reliable Exterior Work You Can Trust"
-  - Title: "Expert Exterior Updates You Can Count On"
-  - Process: 8 steps (Deep Cleaning, Attention to Detail, Surface Preparation, Wood Restoration, Surface Rehabilitation, Sealing Perfection, Finishing Touch, Client Satisfaction)
-- [x] Fixed cabinet-refinishing.astro:
-  - Hero: "A Fresh Look Without the Full Remodel"
-  - Title: "Modern Style, Refined Craftsmanship"
-  - Process: 7 steps (Protection First, Hardware Expertise, Surface Preparation, Primer Perfection, Attention to Detail, Artful Application, Client Satisfaction)
-- [x] Fixed deck-staining.astro:
-  - Hero: "Restore, Protect, and Refresh Your Outdoor Spaces"
-  - Process: 7 steps (Deep Cleansing, Surface Refinement, Structural Integrity, Stability Reinforcement, Sealing Perfection, Color Transformation, Client Satisfaction)
-- [x] Fixed power-washing.astro:
-  - Hero: "Deep Cleaning That Makes a Difference"
-  - Process: 3 specific steps (Hand Scrub and Deep Clean, Gutter Care Excellence, Concrete Revitalization) - was 5 generic
-- [x] Fixed handyman.astro:
-  - Hero: "Skilled Solutions for Every Corner of Your Home"
-  - Title: "Reliable Home Services You Can Trust"
-  - REMOVED ProcessScrollCards (Google Doc has no process steps for handyman)
-- [x] Fixed interior-painting.astro (minor):
-  - "Detail Oriented Care" (removed hyphen)
-  - "Two finish coats of paint are applied" (added "of paint")
-- [x] commercial.astro - Kept as-is (generic process steps acceptable since doc has none)
-- [x] Built and deployed to Vercel
+- [x] Fixed exterior-painting.astro, cabinet-refinishing.astro, deck-staining.astro, power-washing.astro, handyman.astro, interior-painting.astro
+- [x] All service pages now match Google Doc exactly
 
 **Files Changed:**
 - `src/pages/residential/exterior-painting.astro` - hero, title, 8 process steps
@@ -59,12 +88,6 @@
 - `src/pages/residential/power-washing.astro` - hero, 3 process steps
 - `src/pages/residential/handyman.astro` - hero, title, removed process section
 - `src/pages/residential/interior-painting.astro` - minor text fixes
-
-**Notes for Next Session:**
-- All service pages now match Google Doc exactly
-- Power washing has only 3 process steps (this is intentional per doc)
-- Handyman has no process steps (removed per doc)
-- Commercial kept generic process (doc has none, but existing generic steps are appropriate)
 
 ---
 
@@ -76,54 +99,6 @@
 - [x] Added "See Step 5" button for cleaner UX
 - [x] Deployed to Vercel
 - [x] Emailed Colleen with CORRECT link (interior-painting, not services/interior-painting)
-- [x] Offered to hop on a call to expedite approval
-
-**Files Changed:**
-- src/components/ProcessScrollCards.astro - simplified layout, removed step counters
-
-**Waiting On:**
-- Colleen: Final approval of interior-painting page layout
-
----
-
-### 2026-01-14 - Interior Painting Page Refinements
-**Focus:** Implement Colleen's feedback from Jan 13 email
-
-**Completed:**
-- [x] Changed gray backgrounds to lighter #eaeaea
-- [x] Updated process steps copy to match Google Doc exactly (Protection and Preparation, Detail Oriented Care, Surface Perfection, Precision Painting)
-- [x] Updated CTA buttons to "Get a Complimentary Proposal"
-- [x] Combined "Clear Estimates" and "Beyond the Paint" into one continuous gray section
-- [x] Added photo to "Beyond the Paint" section (alternating layout)
-- [x] Updated "The Clean Cut Commitment" text under gallery
-- [x] Emailed Colleen with Vercel link, requested FAQs and approval ASAP
-
-**Files Changed:**
-- src/pages/residential/interior-painting.astro - all copy updates, section merge, photo added
-
----
-
-### 2026-01-13 - Colleen Feedback Implementation
-**Focus:** Implement all feedback from Colleen's Jan 12 email
-
-**Completed:**
-- [x] Created HorizontalProcess.astro component (1-2-3-4 horizontal layout)
-- [x] Applied to interior-painting.astro for approval before rollout
-- [x] Reduced hero height on service pages (500px to 350px)
-- [x] Fixed alternating section backgrounds (bg-gray-200 for visibility)
-- [x] Fixed About page alternating backgrounds
-- [x] Fixed CTA pattern visibility (opacity-20 like CareersCTA)
-- [x] Set up Vercel deployment as primary
-- [x] Emailed Colleen with preview link and changes summary
-
-**Files Changed:**
-- src/components/HorizontalProcess.astro - NEW: horizontal process steps component
-- src/pages/residential/interior-painting.astro - hero height, bg-gray-200, CTA pattern fix
-- src/pages/about.astro - bg-gray-200 for alternating sections
-
-**Technical Notes:**
-- Tailwind v4 bg-gray-50 and bg-gray-100 are too light - use bg-gray-200 for visible gray
-- Vercel auto-deploys from main branch reliably
 
 ---
 
@@ -131,9 +106,13 @@
 
 ### Completed
 - [x] Apply Google Doc copy to ALL service pages (completed 2026-01-20)
+- [x] SEO image optimization (completed 2026-01-22)
+- [x] Gallery filters and video redesign (completed 2026-01-22)
 
-### Technical Debt
-- None currently
+### Potential Future Work
+- Submit sitemap to Google Search Console
+- Test pages in Google Rich Results Test
+- Monitor Search Console for indexing
 
 ---
 

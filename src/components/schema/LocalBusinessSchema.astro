@@ -1,0 +1,83 @@
+---
+/**
+ * LocalBusinessSchema.astro
+ * Generates JSON-LD structured data for LocalBusiness schema
+ * ALL data comes from props - NO hardcoded business values
+ */
+
+interface Location {
+  name?: string;
+  streetAddress: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  country?: string;
+  telephone: string;
+  latitude?: number;
+  longitude?: number;
+}
+
+interface Props {
+  businessName: string;
+  description: string;
+  url: string;
+  logo?: string;
+  image?: string;
+  priceRange?: string;
+  locations: Location[];
+  openingHours?: string[];
+  sameAs?: string[];
+  areaServed?: string[];
+}
+
+const {
+  businessName,
+  description,
+  url,
+  logo,
+  image,
+  priceRange = '$$',
+  locations,
+  openingHours,
+  sameAs,
+  areaServed
+} = Astro.props;
+
+// Generate schema for primary location (first in array)
+const primaryLocation = locations[0];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
+  '@id': `${url}#business`,
+  name: businessName,
+  description: description,
+  url: url,
+  ...(logo && { logo: logo }),
+  ...(image && { image: image }),
+  priceRange: priceRange,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: primaryLocation.streetAddress,
+    addressLocality: primaryLocation.city,
+    addressRegion: primaryLocation.state,
+    postalCode: primaryLocation.postalCode,
+    addressCountry: primaryLocation.country || 'US'
+  },
+  telephone: primaryLocation.telephone,
+  ...(primaryLocation.latitude && primaryLocation.longitude && {
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: primaryLocation.latitude,
+      longitude: primaryLocation.longitude
+    }
+  }),
+  ...(openingHours && openingHours.length > 0 && {
+    openingHoursSpecification: openingHours
+  }),
+  ...(sameAs && sameAs.length > 0 && { sameAs: sameAs }),
+  ...(areaServed && areaServed.length > 0 && { areaServed: areaServed })
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema, null, 2)} />
