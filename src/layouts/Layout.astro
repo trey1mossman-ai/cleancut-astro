@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'
+import EstimateModal from '../components/EstimateModal.astro';
 import LocalBusinessSchema from '../components/schema/LocalBusinessSchema.astro';
 import { schemaData, getOpeningHoursSpecification, getSameAsLinks } from '../data/schema';
 
@@ -58,5 +59,6 @@ const businessSchemaProps = {
   <div class="min-h-screen bg-white">
     <slot />
   </div>
+  <EstimateModal />
 </body>
 </html>

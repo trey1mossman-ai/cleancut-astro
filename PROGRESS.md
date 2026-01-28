@@ -1,122 +1,64 @@
-# CleanCut Pros - Progress
+# CleanCut Pros Progress
 
 ## Last Updated
-2026-01-22 - SEO image optimization complete, gallery filters and video redesign deployed
+2026-01-26 - Created comprehensive implementation plan from Colleen feedback call
 
 ## Current State
-- **Status:** Live on Vercel, comprehensive SEO optimization complete
-- **Live Site:** https://cleancut-astro.vercel.app
-- **GitHub Repo:** https://github.com/trey1mossman-ai/cleancut-astro
-- **Source Branch:** main (Vercel auto-deploys)
-
----
+- Preview site live: https://cleancut-astro.vercel.app
+- Production domain: cleancutservice.com (not yet pointed)
+- Implementation plan at: https://cleancut-astro.vercel.app/plan/
+- Launch target: January 30, 2026
 
 ## Session Log
 
-### 2026-01-22 - Gallery UX Improvements
-**Focus:** Add filters to gallery page, redesign video gallery
+### 2026-01-26
+**Focus:** Colleen feedback call follow-up and implementation planning
 
 **Completed:**
-- [x] Added filter system to Our Work gallery page
-  - 7 category filters: All, Interior, Exterior, Cabinets, Deck, Commercial, Other
-  - Pill-style buttons matching site design (sky-400 active, white inactive)
-  - Image count badges on each filter
-  - Smooth CSS transitions and animations
-  - Keyboard navigation support (arrow keys, Home/End)
-  - Accessibility: ARIA roles and labels
-- [x] Redesigned video gallery section
-  - Replaced black video screens with click-to-play thumbnails
-  - Used existing gallery images as video thumbnails (8 videos)
-  - Added category badges (Interior, Exterior, Deck, Cabinets, Commercial)
-  - Large play button with hover effects (white → sky-400)
-  - Smooth transitions: thumbnail zoom, fade to video, auto-reset on end
-  - Loading spinner during video load
-- [x] Removed sticky filter behavior (per user request)
-- [x] Deployed all changes to Vercel production
+- Had call with Colleen reviewing entire site
+- Created meeting recap email (sent)
+- Scheduled follow-up call: Wednesday Jan 28 at 1:30pm MST (2:30pm CST)
+- Fixed `~/.claude/scripts/drive.js` to extract colors and links from Google Docs
+- Added `documents.readonly` scope to google-auth.js
+- Created comprehensive implementation plan document with:
+  - Technical specs for every change
+  - File paths and line numbers
+  - Code snippets and Tailwind classes
+  - Implementation order recommendation
+  - New EstimateModal component full spec
 
 **Files Changed:**
-- `src/pages/our-work.astro` - Complete gallery overhaul:
-  - Added `videos` data array with thumbnails/titles
-  - Filter bar with pill buttons
-  - Video cards with click-to-play JS
-  - CSS transitions for all animations
+- `/public/plan/index.html` - Created detailed implementation plan (1000+ lines)
+- `~/.claude/scripts/drive.js` - Added `--read-rich` command for color/link extraction
+- `~/.claude/scripts/google-auth.js` - Added documents.readonly scope
 
----
+**Key Decisions from Colleen:**
+- Interior Painting page is perfect - use as reference for mirrored sections
+- "Mirrored sections" = alternating staggered layout (image left/text right, then flipped)
+- Power Washing is minor service - simplified page
+- NOT doing: Highlighted service areas on map
+- NOT doing: 4 cards in a row (doesn't make sense)
+- CTAs should open popup form, not navigate to contact page
+- Contact page: right side info must align EXACTLY with form height
 
-### 2026-01-22 - SEO Image Optimization (Earlier Session)
-**Focus:** Comprehensive image SEO with keyword strategy
+**Notes for Next Session:**
+- Plan is ready for review with Trey
+- Once plan approved, start with EstimateModal component
+- Then Homepage changes, then service pages in order of complexity
+- All images need to be downloaded from linked Drive folders
+- Meet link for Wednesday call: https://meet.google.com/xzk-xvrm-kyw (LOCKED)
 
-**Completed:**
-- [x] Created keyword research document (500+ keywords)
-- [x] Created SEO image strategy document with location distribution
-- [x] Optimized 89 image alt texts with location keywords
-  - 35% Decatur, 25% Springfield, 20% Central IL, etc.
-- [x] Added EXIF/GPS metadata to 117 images
-  - GPS: 39.846140, -88.943339
-  - Copyright: © 2026 Clean Cut Painting & Handyman
-- [x] Built FAQ accordion component
-- [x] Added LocalBusinessSchema, FAQSchema, BreadcrumbSchema to all pages
+## Waiting On
+- Colleen Hayes - Review site preview and confirm any adjustments needed before Jan 30 launch
 
-**Files Created:**
-- `/docs/SEO-IMAGE-STRATEGY.md` - Full strategy document
-- `/docs/KEYWORD-RESEARCH.md` - 500+ keyword database
+## Next Steps
+1. Review plan with Trey and finalize what to implement
+2. Create EstimateModal component (popup form)
+3. Homepage: Move service area above FAQs with blue background
+4. Homepage: Wire up CTA buttons to popup form
+5. Work through service pages per implementation order in plan
 
----
-
-### 2026-01-22 - Documentation Cleanup
-**Focus:** Remove all Hostinger references, standardize on Vercel deployment
-
-**Completed:**
-- [x] Updated all project docs to reflect Vercel-only deployment
-- [x] Removed deploy branch workflow (Vercel deploys from main)
-
----
-
-### 2026-01-20 - Google Doc Content Audit & Corrections
-**Focus:** Comprehensive audit of ALL service pages against Google Doc "CC | Website Copy"
-
-**Completed:**
-- [x] Read full Google Doc via drive.js script
-- [x] Audited all 7 service pages against source of truth
-- [x] Fixed exterior-painting.astro, cabinet-refinishing.astro, deck-staining.astro, power-washing.astro, handyman.astro, interior-painting.astro
-- [x] All service pages now match Google Doc exactly
-
-**Files Changed:**
-- `src/pages/residential/exterior-painting.astro` - hero, title, 8 process steps
-- `src/pages/residential/cabinet-refinishing.astro` - hero, title, 7 process steps
-- `src/pages/residential/deck-staining.astro` - hero, 7 process steps
-- `src/pages/residential/power-washing.astro` - hero, 3 process steps
-- `src/pages/residential/handyman.astro` - hero, title, removed process section
-- `src/pages/residential/interior-painting.astro` - minor text fixes
-
----
-
-### 2026-01-16 - ProcessScrollCards Fix & Correct Link
-**Focus:** Fix process cards display and send Colleen correct preview link
-
-**Completed:**
-- [x] Simplified ProcessScrollCards component - removed "Step X of X" counters
-- [x] Added "See Step 5" button for cleaner UX
-- [x] Deployed to Vercel
-- [x] Emailed Colleen with CORRECT link (interior-painting, not services/interior-painting)
-
----
-
-## Remaining Tasks
-
-### Completed
-- [x] Apply Google Doc copy to ALL service pages (completed 2026-01-20)
-- [x] SEO image optimization (completed 2026-01-22)
-- [x] Gallery filters and video redesign (completed 2026-01-22)
-
-### Potential Future Work
-- Submit sitemap to Google Search Console
-- Test pages in Google Rich Results Test
-- Monitor Search Console for indexing
-
----
-
-## Resources
-- **Live Site:** https://cleancut-astro.vercel.app
-- **Google Drive:** https://drive.google.com/drive/folders/1nrfGrFZlKPSGkbGxVrnqdEPVA_9dpDq3
-- **Website Copy Doc:** 1QZzrmitx3MAII4fjjycoJSQFGh3_1ZW9JNAJLJIcIbg
+## Key Resources
+- Colleen's feedback doc: https://docs.google.com/document/d/1GOkWl35AYPddEpHo1fyNRjELBNPoOZtQROeZOn3vj04/edit
+- Master copy doc: https://docs.google.com/document/d/1QZzrmitx3MAII4fjjycoJSQFGh3_1ZW9JNAJLJIcIbg/edit
+- All photos folder: https://drive.google.com/drive/folders/1MLch6y_u4DHMS0qyOdaDXmk-3oMYsDkE

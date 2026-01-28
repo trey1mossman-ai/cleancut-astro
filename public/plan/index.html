@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CleanCut Website Edits - Implementation Plan</title>
+  <style>
+    :root {
+      --sky-500: #0ea5e9;
+      --sky-600: #0284c7;
+      --sky-100: #e0f2fe;
+      --red-500: #ef4444;
+      --red-100: #fee2e2;
+      --green-500: #22c55e;
+      --green-100: #dcfce7;
+      --yellow-500: #f59e0b;
+      --yellow-100: #fef3c7;
+      --purple-500: #8b5cf6;
+      --purple-100: #ede9fe;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      line-height: 1.6;
+    }
+    .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+    
+    header {
+      background: linear-gradient(135deg, var(--gray-900), var(--gray-800));
+      color: white;
+      padding: 40px 20px;
+      margin-bottom: 30px;
+    }
+    header h1 { font-size: 2rem; margin-bottom: 10px; }
+    header p { opacity: 0.8; }
+    
+    .meta-bar {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .meta-item {
+      background: rgba(255,255,255,0.1);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .meta-item a { color: var(--sky-100); }
+    
+    .legend {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      padding: 15px 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .legend-dot.copy { background: var(--red-500); }
+    .legend-dot.note { background: var(--sky-500); }
+    .legend-dot.layout { background: var(--green-500); }
+    .legend-dot.tech { background: var(--purple-500); }
+    
+    .callout {
+      padding: 15px 20px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+    .callout.yellow { background: #fef3c7; border-left: 4px solid #f59e0b; color: #92400e; }
+    .callout.green { background: #dcfce7; border-left: 4px solid #22c55e; color: #166534; }
+    .callout.red { background: #fee2e2; border-left: 4px solid #ef4444; color: #991b1b; }
+    .callout.purple { background: #ede9fe; border-left: 4px solid #8b5cf6; color: #5b21b6; }
+    
+    .nav-links {
+      background: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .nav-links h3 { margin-bottom: 10px; font-size: 14px; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.5px; }
+    .nav-links ul { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
+    .nav-links a {
+      display: block;
+      padding: 8px 16px;
+      background: var(--gray-100);
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--gray-800);
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--sky-100); color: var(--sky-600); }
+    
+    .page-section {
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .page-header {
+      background: var(--gray-900);
+      color: white;
+      padding: 20px 25px;
+    }
+    .page-header h2 { font-size: 1.5rem; }
+    .page-header .page-path { opacity: 0.6; font-size: 14px; margin-top: 5px; font-family: monospace; }
+    
+    .page-content { padding: 25px; }
+    
+    .change-group {
+      margin-bottom: 25px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .change-group:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    
+    .change-group h3 {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .change-group h3 .tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    .tag.copy { background: var(--red-100); color: var(--red-500); }
+    .tag.note { background: var(--sky-100); color: var(--sky-600); }
+    .tag.layout { background: var(--green-100); color: var(--green-500); }
+    .tag.tech { background: var(--purple-100); color: var(--purple-500); }
+    
+    .copy-block {
+      background: var(--red-100);
+      border-left: 4px solid var(--red-500);
+      padding: 15px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+    .copy-block.current {
+      background: var(--gray-100);
+      border-left-color: var(--gray-400);
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+    
+    .note-block {
+      background: var(--sky-100);
+      border-left: 4px solid var(--sky-500);
+      padding: 15px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+    
+    .layout-block {
+      background: var(--green-100);
+      border-left: 4px solid var(--green-500);
+      padding: 15px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .tech-block {
+      background: var(--purple-100);
+      border-left: 4px solid var(--purple-500);
+      padding: 15px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-family: 'SF Mono', Consolas, monospace;
+    }
+    .tech-block code {
+      background: rgba(0,0,0,0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .image-card {
+      background: var(--gray-100);
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+    }
+    .image-card .label {
+      font-size: 13px;
+      color: var(--gray-600);
+      margin-bottom: 10px;
+    }
+    .image-card a {
+      display: inline-block;
+      padding: 8px 16px;
+      background: var(--sky-500);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+    .image-card a:hover { background: var(--sky-600); }
+    
+    .checklist {
+      list-style: none;
+    }
+    .checklist li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist .checkbox {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--gray-300);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    
+    .global-changes {
+      background: linear-gradient(135deg, var(--sky-600), var(--sky-500));
+      color: white;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+    .global-changes h2 { margin-bottom: 15px; }
+    .global-changes ul { margin-left: 20px; }
+    .global-changes li { margin-bottom: 8px; }
+
+    .resources {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .resources h2 { margin-bottom: 15px; }
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 15px;
+    }
+    .resource-card {
+      background: var(--gray-100);
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .resource-card h4 { font-size: 14px; margin-bottom: 8px; }
+    .resource-card a {
+      color: var(--sky-600);
+      font-size: 13px;
+      word-break: break-all;
+    }
+
+    .impl-steps {
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+    .impl-steps h4 {
+      font-size: 13px;
+      color: #166534;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .impl-steps ol {
+      margin-left: 20px;
+      font-size: 14px;
+    }
+    .impl-steps li {
+      margin-bottom: 8px;
+    }
+    .impl-steps code {
+      background: rgba(0,0,0,0.1);
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+
+    .file-ref {
+      display: inline-block;
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'SF Mono', Consolas, monospace;
+      font-size: 12px;
+      margin: 2px 0;
+    }
+
+    .priority-high {
+      border-left: 4px solid #ef4444 !important;
+    }
+    .priority-med {
+      border-left: 4px solid #f59e0b !important;
+    }
+
+    details {
+      margin-top: 10px;
+    }
+    details summary {
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--sky-600);
+      font-weight: 500;
+    }
+    details[open] summary {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 15px; }
+      header { padding: 30px 15px; }
+      header h1 { font-size: 1.5rem; }
+      .page-content { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>CleanCut Website Implementation Plan</h1>
+      <p>Detailed technical specifications for all changes - January 26, 2026</p>
+      <div class="meta-bar">
+        <div class="meta-item">
+          <strong>Source:</strong> <a href="https://docs.google.com/document/d/1GOkWl35AYPddEpHo1fyNRjELBNPoOZtQROeZOn3vj04/edit" target="_blank">Colleen's Feedback Doc</a>
+        </div>
+        <div class="meta-item">
+          <strong>Copy Doc:</strong> <a href="https://docs.google.com/document/d/1QZzrmitx3MAII4fjjycoJSQFGh3_1ZW9JNAJLJIcIbg/edit" target="_blank">CC | Website Copy</a>
+        </div>
+        <div class="meta-item">
+          <strong>All Photos:</strong> <a href="https://drive.google.com/drive/folders/1MLch6y_u4DHMS0qyOdaDXmk-3oMYsDkE" target="_blank">Google Drive Folder</a>
+        </div>
+        <div class="meta-item">
+          <strong>Launch Target:</strong> January 30, 2026
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot copy"></div> Copy Change</div>
+      <div class="legend-item"><div class="legend-dot note"></div> Note/Instruction</div>
+      <div class="legend-item"><div class="legend-dot layout"></div> Layout Change</div>
+      <div class="legend-item"><div class="legend-dot tech"></div> Technical Detail</div>
+    </div>
+
+    <div class="callout yellow">
+      <strong>📝 Terminology:</strong> "Mirrored sections" = alternating staggered layout like Interior Painting — <em>Row 1: image left + text right</em>, then <em>Row 2: text left + image right</em> (using <code>order-1/order-2</code> classes).
+    </div>
+
+    <div class="callout purple">
+      <strong>🔧 Tech Stack:</strong> Astro 5.16.5 • Tailwind CSS 4.1.18 • Brand blue: <code>#144787</code> • Action color: <code>sky-400</code> (#38bdf8) • Body font: Inter • Display font: PT Sans
+    </div>
+
+    <nav class="nav-links">
+      <h3>Jump to Page</h3>
+      <ul>
+        <li><a href="#new-component">🆕 New: Popup Form</a></li>
+        <li><a href="#home">Home Page</a></li>
+        <li><a href="#interior">Interior (Reference)</a></li>
+        <li><a href="#exterior">Exterior Painting</a></li>
+        <li><a href="#cabinet">Cabinet Refinishing</a></li>
+        <li><a href="#deck">Deck Staining</a></li>
+        <li><a href="#power">Power Washing</a></li>
+        <li><a href="#handyman">Handyman Services</a></li>
+        <li><a href="#commercial">Commercial Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#team">Who We Are</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="global-changes">
+      <h2>Global Changes (All Service Pages)</h2>
+      <ul>
+        <li><strong>FAQ Placement:</strong> Move FAQ section under the gallery/image section (reference: Interior + Exterior pages already have this)</li>
+        <li><strong>Client Satisfaction Copy:</strong> Update to: "We're not finished until you're 100% satisfied. Our work is backed by post-project support and warranty protection."</li>
+        <li><strong>View Gallery Button:</strong> Make consistent style across all service pages - use sky-400 button style</li>
+      </ul>
+    </div>
+
+    <!-- NEW COMPONENT: POPUP ESTIMATE FORM -->
+    <section class="page-section priority-high" id="new-component">
+      <div class="page-header">
+        <h2>🆕 New Component: Popup Estimate Form</h2>
+        <div class="page-path">/src/components/EstimateModal.astro (CREATE NEW)</div>
+      </div>
+      <div class="page-content">
+        <div class="change-group">
+          <h3><span class="tag tech">Tech</span> Component Overview</h3>
+          <div class="tech-block">
+            <strong>Purpose:</strong> Reusable modal form that opens when clicking "Get Free Estimate" buttons<br><br>
+            <strong>Trigger points:</strong><br>
+            • Header nav button (desktop + mobile)<br>
+            • Hero CTA button on homepage<br>
+            • Any future "Get Estimate" buttons<br><br>
+            <strong>Reference:</strong> Use <code>/src/components/Promo.astro</code> modal pattern (lines 150-260)
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag tech">Tech</span> Modal Structure</h3>
+          <div class="tech-block">
+<pre style="margin: 0; white-space: pre-wrap;">
+&lt;!-- EstimateModal.astro --&gt;
+
+&lt;!-- Modal Container - hidden by default --&gt;
+&lt;div id="estimate-modal" class="fixed inset-0 z-50 hidden"&gt;
+  &lt;!-- Backdrop with blur --&gt;
+  &lt;div id="estimate-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"&gt;&lt;/div&gt;
+  
+  &lt;!-- Centered content --&gt;
+  &lt;div class="absolute inset-0 flex items-center justify-center p-4"&gt;
+    &lt;div id="estimate-form-container" class="relative bg-white rounded-2xl shadow-2xl w-full max-w-md transform transition-all duration-300 scale-95 opacity-0"&gt;
+      
+      &lt;!-- Header (dark blue) --&gt;
+      &lt;div class="bg-[#144787] px-6 py-5 rounded-t-2xl"&gt;
+        &lt;h3 class="text-xl font-bold text-white"&gt;Get Your Free Estimate&lt;/h3&gt;
+        &lt;p class="text-white/80 text-sm mt-1"&gt;We'll get back to you within 24 hours&lt;/p&gt;
+        &lt;!-- Close button --&gt;
+        &lt;button id="close-estimate-modal" class="absolute top-4 right-4 text-white/80 hover:text-white"&gt;
+          &lt;svg class="w-6 h-6"...&gt;&lt;/svg&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      
+      &lt;!-- Form body --&gt;
+      &lt;form id="estimate-form" class="p-6 space-y-4"&gt;
+        &lt;input type="text" name="name" placeholder="Full Name *" required 
+          class="w-full h-11 px-4 bg-white border border-gray-200 rounded-lg focus:border-sky-400 focus:ring-2 focus:ring-sky-400/10 focus:outline-none text-sm"&gt;
+        
+        &lt;input type="email" name="email" placeholder="Email Address *" required 
+          class="w-full h-11 px-4 bg-white border border-gray-200 rounded-lg focus:border-sky-400 focus:ring-2 focus:ring-sky-400/10 focus:outline-none text-sm"&gt;
+        
+        &lt;input type="tel" name="phone" placeholder="Phone Number" 
+          class="w-full h-11 px-4 bg-white border border-gray-200 rounded-lg focus:border-sky-400 focus:ring-2 focus:ring-sky-400/10 focus:outline-none text-sm"&gt;
+        
+        &lt;select name="service" 
+          class="w-full h-11 px-4 bg-white border border-gray-200 rounded-lg focus:border-sky-400 focus:ring-2 focus:ring-sky-400/10 focus:outline-none text-sm text-gray-600"&gt;
+          &lt;option value=""&gt;Select a Service&lt;/option&gt;
+          &lt;option value="interior"&gt;Interior Painting&lt;/option&gt;
+          &lt;option value="exterior"&gt;Exterior Painting&lt;/option&gt;
+          &lt;option value="cabinet"&gt;Cabinet Refinishing&lt;/option&gt;
+          &lt;option value="deck"&gt;Deck Staining&lt;/option&gt;
+          &lt;option value="power"&gt;Power Washing&lt;/option&gt;
+          &lt;option value="handyman"&gt;Handyman Services&lt;/option&gt;
+          &lt;option value="commercial"&gt;Commercial Painting&lt;/option&gt;
+          &lt;option value="multiple"&gt;Multiple Services&lt;/option&gt;
+        &lt;/select&gt;
+        
+        &lt;button type="submit" 
+          class="w-full h-12 bg-sky-400 hover:bg-sky-500 text-white font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"&gt;
+          Get My Free Estimate
+        &lt;/button&gt;
+      &lt;/form&gt;
+      
+      &lt;!-- Success state (hidden by default) --&gt;
+      &lt;div id="estimate-success" class="hidden p-8 text-center"&gt;
+        &lt;div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"&gt;
+          &lt;svg class="w-8 h-8 text-green-500"...checkmark&gt;&lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;h4 class="text-xl font-bold text-gray-900 mb-2"&gt;Thank You!&lt;/h4&gt;
+        &lt;p class="text-gray-600"&gt;We'll contact you within 24 hours.&lt;/p&gt;
+      &lt;/div&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag tech">Tech</span> JavaScript Behavior</h3>
+          <div class="tech-block">
+<pre style="margin: 0; white-space: pre-wrap;">
+&lt;script&gt;
+  // Get elements
+  const modal = document.getElementById('estimate-modal');
+  const backdrop = document.getElementById('estimate-backdrop');
+  const formContainer = document.getElementById('estimate-form-container');
+  const closeBtn = document.getElementById('close-estimate-modal');
+  const form = document.getElementById('estimate-form');
+  const successState = document.getElementById('estimate-success');
+  
+  // Open triggers - ALL elements with data-open-estimate attribute
+  const openTriggers = document.querySelectorAll('[data-open-estimate]');
+  
+  function openModal() {
+    modal.classList.remove('hidden');
+    // Animate in
+    setTimeout(() => {
+      formContainer.classList.remove('scale-95', 'opacity-0');
+      formContainer.classList.add('scale-100', 'opacity-100');
+    }, 10);
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeModal() {
+    formContainer.classList.remove('scale-100', 'opacity-100');
+    formContainer.classList.add('scale-95', 'opacity-0');
+    setTimeout(() => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+      // Reset form after close
+      form.reset();
+      form.classList.remove('hidden');
+      successState.classList.add('hidden');
+    }, 300);
+  }
+  
+  // Attach open triggers
+  openTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+  
+  // Close handlers
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+  
+  // Form submit
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    // TODO: Add actual form submission logic
+    // For now, show success state
+    form.classList.add('hidden');
+    successState.classList.remove('hidden');
+    
+    // Auto-close after 3 seconds
+    setTimeout(closeModal, 3000);
+  });
+&lt;/script&gt;
+</pre>
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag tech">Tech</span> Integration Points</h3>
+          <div class="impl-steps">
+            <h4>Implementation Steps</h4>
+            <ol>
+              <li>Create <code>/src/components/EstimateModal.astro</code> with above code</li>
+              <li>Add <code>&lt;EstimateModal /&gt;</code> to <code>/src/layouts/Layout.astro</code> before closing <code>&lt;/body&gt;</code></li>
+              <li>In <code>/src/components/Header.astro</code>: Change the "Get Free Estimate" button from <code>&lt;a href="/contact"&gt;</code> to <code>&lt;button data-open-estimate&gt;</code></li>
+              <li>In <code>/src/components/Hero.astro</code>: Change the hero CTA from <code>&lt;a href="/contact"&gt;</code> to <code>&lt;button data-open-estimate&gt;</code></li>
+              <li>Keep same button styling classes, just change element type and add trigger attribute</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOME PAGE -->
+    <section class="page-section priority-high" id="home">
+      <div class="page-header">
+        <h2>Home Page</h2>
+        <div class="page-path">/src/pages/index.astro</div>
+      </div>
+      <div class="page-content">
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> Section Reordering</h3>
+          <div class="layout-block">
+            <strong>Current order in index.astro (lines ~20-40):</strong><br>
+            ... → FAQAccordion → FAQSchema → ServiceAreas → CareersCTA → Footer<br><br>
+            <strong>New order:</strong><br>
+            ... → ServiceAreas (with blue bg) → FAQAccordion → FAQSchema → CareersCTA → Footer
+          </div>
+          <div class="tech-block">
+            <strong>File:</strong> <code>/src/pages/index.astro</code><br><br>
+            <strong>Changes needed:</strong><br>
+            1. Move <code>&lt;ServiceAreas /&gt;</code> ABOVE <code>&lt;FAQAccordion&gt;</code><br>
+            2. Wrap ServiceAreas in a blue background container
+          </div>
+          <div class="impl-steps">
+            <h4>Implementation Steps</h4>
+            <ol>
+              <li>Open <code>/src/pages/index.astro</code></li>
+              <li>Find <code>&lt;ServiceAreas /&gt;</code> (around line 35)</li>
+              <li>Cut that line and move it ABOVE <code>&lt;FAQAccordion&gt;</code></li>
+              <li>Wrap it in: <code>&lt;section class="bg-sky-50 py-16"&gt;&lt;ServiceAreas /&gt;&lt;/section&gt;</code></li>
+              <li>Alternative blue: <code>bg-[#144787]/5</code> for very light brand blue tint</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> CTA Buttons → Popup Form</h3>
+          <div class="layout-block">
+            <ul class="checklist">
+              <li><span class="checkbox"></span> Keep "Get Free Estimate" button in nav - change to open popup form</li>
+              <li><span class="checkbox"></span> Hero CTA button - change to open popup form</li>
+            </ul>
+          </div>
+          <div class="tech-block">
+            <strong>Header button location:</strong> <code>/src/components/Header.astro</code> line ~28-29<br><br>
+            <strong>Current code:</strong><br>
+            <code>&lt;a href="/contact" class="px-5 xl:px-6 py-2.5 bg-sky-400..."&gt;Get Free Estimate&lt;/a&gt;</code><br><br>
+            <strong>Change to:</strong><br>
+            <code>&lt;button data-open-estimate class="px-5 xl:px-6 py-2.5 bg-sky-400..."&gt;Get Free Estimate&lt;/button&gt;</code>
+          </div>
+          <div class="tech-block">
+            <strong>Hero button location:</strong> <code>/src/components/Hero.astro</code> line ~30-35<br><br>
+            <strong>Current:</strong> Link to <code>/contact</code><br>
+            <strong>Change to:</strong> <code>&lt;button data-open-estimate&gt;</code> with same styling
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag note">Note</span> Get Your Free Estimate Strip - New Background</h3>
+          <div class="note-block">
+            Use new background image with black overlay (like page headers)
+          </div>
+          <div class="tech-block">
+            <strong>Location:</strong> Find the CTA strip section in homepage (likely in a component or inline)<br><br>
+            <strong>Pattern to use:</strong> Same as page headers - image with <code>bg-black/70</code> or <code>bg-[#144787]/85</code> overlay
+          </div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">New CTA Strip Background</div>
+              <a href="https://drive.google.com/file/d/1Y4mplLb0PyjaIoInZJn7uDH31duhv6p1/view" target="_blank">View Image</a>
+            </div>
+          </div>
+          <div class="impl-steps">
+            <h4>Implementation Steps</h4>
+            <ol>
+              <li>Download image from Drive link</li>
+              <li>Save to <code>/public/images/</code> as <code>cta-strip-bg.jpg</code></li>
+              <li>Apply as background-image with dark overlay</li>
+              <li>Style: <code>background-image: url('/images/cta-strip-bg.jpg'); background-size: cover;</code></li>
+              <li>Add overlay div: <code>class="absolute inset-0 bg-black/60"</code></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag note">Note</span> Client Stories Section - Pattern Background</h3>
+          <div class="note-block">
+            Change background to pattern texture
+          </div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Pattern Background</div>
+              <a href="https://drive.google.com/file/d/1ZF7xTPBuxzsGg3k0TluNw86UHjmqAFAD/view" target="_blank">View Image</a>
+            </div>
+          </div>
+          <div class="impl-steps">
+            <h4>Implementation Steps</h4>
+            <ol>
+              <li>Download pattern image from Drive</li>
+              <li>Save to <code>/public/images/</code> as <code>pattern-bg.png</code></li>
+              <li>Find Client Stories/Testimonials section</li>
+              <li>Apply as repeating background: <code>background-image: url('/images/pattern-bg.png'); background-repeat: repeat;</code></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERIOR PAINTING (REFERENCE) -->
+    <section class="page-section" id="interior">
+      <div class="page-header">
+        <h2>Interior Painting Page (REFERENCE)</h2>
+        <div class="page-path">/src/pages/residential/interior-painting.astro</div>
+      </div>
+      <div class="page-content">
+        <div class="change-group">
+          <h3><span class="tag note">Note</span> Status</h3>
+          <div class="callout green">
+            ✅ <strong>This page is complete</strong> - no changes needed. Use as the reference template for:
+          </div>
+          <div class="tech-block">
+            <strong>Mirrored sections pattern (lines 174-232):</strong><br><br>
+            
+            <strong>Section A - Text Left, Image Right:</strong><br>
+            <code>&lt;div class="grid lg:grid-cols-2 gap-16 items-center"&gt;</code><br>
+            <code>  &lt;div&gt;...text content...&lt;/div&gt;</code><br>
+            <code>  &lt;div&gt;...image...&lt;/div&gt;</code><br>
+            <code>&lt;/div&gt;</code><br><br>
+            
+            <strong>Section B - Image Left, Text Right (FLIPPED):</strong><br>
+            <code>&lt;div class="grid lg:grid-cols-2 gap-16 items-center"&gt;</code><br>
+            <code>  &lt;div class="order-2 lg:order-1"&gt;...image...&lt;/div&gt;</code><br>
+            <code>  &lt;div class="order-1 lg:order-2"&gt;...text content...&lt;/div&gt;</code><br>
+            <code>&lt;/div&gt;</code><br><br>
+            
+            <strong>Key classes:</strong> <code>order-1</code>, <code>order-2</code>, <code>lg:order-1</code>, <code>lg:order-2</code>
+          </div>
+          <div class="tech-block">
+            <strong>4-column service cards (lines 101-160):</strong><br><br>
+            <code>&lt;div class="grid grid-cols-2 md:grid-cols-4 gap-4"&gt;</code><br>
+            Each card: image with overlay + text label at bottom<br>
+            Image height: <code>h-64</code><br>
+            Hover: <code>group-hover:scale-105</code>
+          </div>
+          <div class="tech-block">
+            <strong>Gallery section (lines 236-330):</strong><br><br>
+            • Featured image: <code>h-96</code> full width<br>
+            • Grid: <code>grid-cols-2 lg:grid-cols-3 gap-4</code><br>
+            • Each image: <code>h-72</code><br>
+            • Lightbox: <code>data-lightbox-gallery="interior-gallery"</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXTERIOR PAINTING -->
+    <section class="page-section" id="exterior">
+      <div class="page-header">
+        <h2>Exterior Painting Page</h2>
+        <div class="page-path">/src/pages/residential/exterior-painting.astro</div>
+      </div>
+      <div class="page-content">
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Hero Section</h3>
+          <div class="copy-block current">Current: (check file for existing copy)</div>
+          <div class="copy-block">
+            <strong>New Hero Title:</strong> Expert Exterior Updates You Can Count On<br><br>
+            <strong>New Hero Body:</strong> Helping homeowners protect and enhance their homes with professional exterior painting and repair services. Our team combines proper preparation, high-quality materials, and expert application to deliver finishes that look impressive and stand the test of time.
+          </div>
+          <div class="tech-block">
+            <strong>Location:</strong> Lines ~64-83 (hero section)<br>
+            Find the <code>&lt;h1&gt;</code> and <code>&lt;p&gt;</code> tags and replace text content
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Service Cards (4 cards)</h3>
+          <div class="copy-block">
+            <ul>
+              <li><strong>Siding and Brick</strong></li>
+              <li><strong>Gutters, Soffits and Fascia</strong></li>
+              <li><strong>Porch Post and Railings</strong></li>
+              <li><strong>Garage Doors</strong></li>
+            </ul>
+          </div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Siding and Brick</div>
+              <a href="https://drive.google.com/file/d/1nVV3eGE19xhc47SRge1cs9Bm7hWbk1sv/view" target="_blank">View Image</a>
+            </div>
+            <div class="image-card">
+              <div class="label">Gutters, Soffits and Fascia</div>
+              <a href="https://drive.google.com/file/d/1qldVll-OCBUnzaO3-y5wW6HAJF2hHigC/view" target="_blank">View Image</a>
+            </div>
+            <div class="image-card">
+              <div class="label">Porch Post and Railings</div>
+              <a href="https://drive.google.com/file/d/1hSfp_km8YfMY6X4rCOgtTVCMD6SCU77P/view" target="_blank">View Image</a>
+            </div>
+            <div class="image-card">
+              <div class="label">Garage Doors</div>
+              <a href="https://drive.google.com/file/d/1lUpoNxDCvpA_CWV3gEOiyNRpJ2lev6-Y/view" target="_blank">View Image</a>
+            </div>
+          </div>
+          <div class="impl-steps">
+            <h4>Implementation Steps</h4>
+            <ol>
+              <li>Download all 4 images from Drive links above</li>
+              <li>Save to <code>/public/images/exterior/</code> with descriptive names</li>
+              <li>Find service cards grid (around lines 100-160)</li>
+              <li>Update card titles and image src paths</li>
+              <li>Ensure grid is <code>md:grid-cols-4</code> for 4 columns</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Section Headers (differentiate from Interior)</h3>
+          <div class="copy-block current">Current: "Clear Estimates and Flexible Planning"</div>
+          <div class="copy-block"><strong>New:</strong> Transparent Pricing, Thoughtful Planning</div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Section Photo</div>
+              <a href="https://drive.google.com/file/d/16c4zkQzikrNDoC-daAllnCC1UddfiIcp/view" target="_blank">View Image</a>
+            </div>
+          </div>
+          <div class="tech-block">
+            Search for "Clear Estimates" in the file and replace with new title
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Beyond the Paint Section</h3>
+          <div class="copy-block current">Current: "Beyond the Paint" / "A great exterior job is more than just color."</div>
+          <div class="copy-block">
+            <strong>New Title:</strong> Complete Exterior Solutions<br>
+            <strong>New Subtitle:</strong> True curb appeal takes more than just paint.
+          </div>
+          <div class="tech-block">
+            Search for "Beyond the Paint" in the file and replace both title and subtitle
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag note">Note</span> Gallery Photos</h3>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Exterior Gallery Folder</div>
+              <a href="https://drive.google.com/drive/folders/1UQGXFjFIrysFzuPtIf9dVy7P-kXX8ai_" target="_blank">Open Folder</a>
+            </div>
+          </div>
+          <div class="impl-steps">
+            <h4>Implementation Steps</h4>
+            <ol>
+              <li>Open folder and download all gallery images</li>
+              <li>Save to <code>/public/images/gallery/exterior/</code></li>
+              <li>Update gallery section image paths</li>
+              <li>Ensure images have <code>data-lightbox-gallery="exterior-gallery"</code></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CABINET REFINISHING -->
+    <section class="page-section" id="cabinet">
+      <div class="page-header">
+        <h2>Cabinet Refinishing Page</h2>
+        <div class="page-path">/src/pages/residential/cabinet-refinishing.astro</div>
+      </div>
+      <div class="page-content">
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Hero Section</h3>
+          <div class="copy-block">
+            <strong>Title:</strong> Modern Style, Refined Craftsmanship<br><br>
+            <strong>Body:</strong> Refreshing your cabinets is one of the most cost-effective ways to transform your home, and Clean Cut Painting and Handyman makes the process simple and stress-free. We carefully restore and modernize cabinetry, and can even update hardware for a completely new, polished appearance. Every detail is handled thoughtfully to ensure a smooth, long-lasting finish.
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Service Cards (4 cards)</h3>
+          <div class="copy-block">
+            <ul>
+              <li><strong>Kitchen Cabinets</strong></li>
+              <li><strong>Bathroom Vanities</strong></li>
+              <li><strong>Built-in Shelving</strong></li>
+              <li><strong>Bookcases</strong></li>
+            </ul>
+          </div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Built-in Shelving</div>
+              <a href="https://drive.google.com/file/d/1VvJRv501dx548zrdSevJa_RnNtOT20Rl/view" target="_blank">View Image</a>
+            </div>
+            <div class="image-card">
+              <div class="label">Bookcases</div>
+              <a href="https://drive.google.com/file/d/18jc8ADn_iSjKWDr26m7HWmRu470evDyx/view" target="_blank">View Image</a>
+            </div>
+          </div>
+          <div class="note-block">
+            <strong>Note:</strong> Only 2 new images provided. Kitchen Cabinets and Bathroom Vanities may need existing images or images from main photos folder.
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Transforming Spaces Section</h3>
+          <div class="copy-block">
+            <strong>Title:</strong> Transforming Spaces<br><br>
+            <strong>Body:</strong> Cabinet refinishing at Clean Cut is about more than aesthetics. It is about enhancing your home and creating spaces you will love. Our team combines craftsmanship, meticulous attention, and a commitment to client satisfaction in every project.<br><br>
+            <strong>CTA Button:</strong> Revamp Your Cabinets
+          </div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Section Photo</div>
+              <a href="https://drive.google.com/file/d/1dBX9JXXJ6Qrdu3zysQqHCQODJBe5GKpF/view" target="_blank">View Image</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> Structural Changes</h3>
+          <div class="layout-block">
+            <ul class="checklist">
+              <li><span class="checkbox"></span> Cut one of the mirrored image/copy sections (either one) - extend remaining image to fit full copy length</li>
+              <li><span class="checkbox"></span> For gallery: cut to 3 images only (one row) since we don't have many cabinet photos</li>
+              <li><span class="checkbox"></span> Move FAQ under gallery section</li>
+            </ul>
+          </div>
+          <div class="tech-block">
+            <strong>To remove a mirrored section:</strong><br>
+            1. Find the two <code>&lt;div class="grid lg:grid-cols-2..."&gt;</code> sections<br>
+            2. Delete one entirely<br>
+            3. For remaining section, can make image taller if needed: change <code>h-80</code> to <code>h-96</code> or <code>h-[500px]</code>
+          </div>
+          <div class="tech-block">
+            <strong>To reduce gallery to 3 images:</strong><br>
+            1. Find gallery grid<br>
+            2. Keep only 3 image items<br>
+            3. Change grid to <code>grid-cols-3</code> (no responsive needed for single row)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DECK STAINING -->
+    <section class="page-section" id="deck">
+      <div class="page-header">
+        <h2>Deck Staining Page</h2>
+        <div class="page-path">/src/pages/residential/deck-staining.astro</div>
+      </div>
+      <div class="page-content">
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> Header Text</h3>
+          <div class="layout-block">Cut the word "Residential" from page header</div>
+          <div class="tech-block">
+            Find the hero <code>&lt;h1&gt;</code> tag, likely says "Residential Deck Staining"<br>
+            Change to just: "Deck Staining" or per new title below
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Hero Section</h3>
+          <div class="copy-block">
+            <strong>Title:</strong> Complete Deck Restoration Services<br><br>
+            <strong>Body:</strong> Your deck is more than just an outdoor platform, it is a space for gathering, relaxing, and making memories. Clean Cut Painting and Handyman specializes in deck repair, restoration, and staining to bring back its beauty and extend its life. We make the process straightforward and stress-free, so your outdoor space can shine again without the hassle of a full replacement.
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Service Cards (3 cards)</h3>
+          <div class="copy-block">
+            <ul>
+              <li><strong>Rebuild</strong></li>
+              <li><strong>Restoration</strong></li>
+              <li><strong>Restaining</strong></li>
+            </ul>
+          </div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Rebuild</div>
+              <a href="https://drive.google.com/file/d/1nFk2tU9aXx25HtaJy_3OB-3vw7DfVGtH/view" target="_blank">View Image</a>
+            </div>
+            <div class="image-card">
+              <div class="label">Restoration</div>
+              <a href="https://drive.google.com/file/d/1doEIgbeJzqJDnaokYSfHDvNKQDwyhy21/view" target="_blank">View Image</a>
+            </div>
+            <div class="image-card">
+              <div class="label">Restaining</div>
+              <a href="https://drive.google.com/file/d/1ct7OPel4IqYUJQSp_rMCQV0VKgrk7viJ/view" target="_blank">View Image</a>
+            </div>
+          </div>
+          <div class="tech-block">
+            <strong>Note:</strong> Only 3 cards, so grid should be <code>md:grid-cols-3</code> instead of 4
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Mirrored Section 1: Transforming Outdoor Spaces</h3>
+          <div class="copy-block">
+            <strong>Title:</strong> Transforming Outdoor Spaces<br><br>
+            <strong>Body:</strong> Deck services at Clean Cut are about more than maintenance, they are about creating a space you and your family can enjoy for years. Our team combines skill, attention to detail, and a dedication to client satisfaction in every project.<br><br>
+            <strong>CTA:</strong> Book Your Proposal
+          </div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Section Photo</div>
+              <a href="https://drive.google.com/file/d/1yjwYCkY1xrr1ch-C59Mk9Kp7D4kUJZNT/view" target="_blank">View Image</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Mirrored Section 2: Durability and Beauty</h3>
+          <div class="copy-block">
+            <strong>Title:</strong> Durability and Beauty<br>
+            <strong>Subheader (bolded, sky-500 color):</strong> We go beyond surface work.<br><br>
+            <strong>Body:</strong> From repairing steps, railings, and lattice to applying high quality stains, we ensure your deck is both visually stunning and built to last. Every project is approached thoughtfully to protect the wood and enhance the outdoor living experience.
+          </div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Section Photo</div>
+              <a href="https://drive.google.com/file/d/1IoCfrj57S556pbg6d1do_nBrJz6SXkFX/view" target="_blank">View Image</a>
+            </div>
+          </div>
+          <div class="tech-block">
+            <strong>For the bolded blue subheader:</strong><br>
+            <code>&lt;p class="text-sky-500 font-bold mb-4"&gt;We go beyond surface work.&lt;/p&gt;</code>
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Process Tiles (longer descriptions)</h3>
+          <div class="copy-block">
+            <strong>Structural Integrity:</strong> Rotted or irreparable boards are promptly removed and replaced to restore the strength, safety, and long-term structural integrity of your deck.<br><br>
+            <strong>Stability Reinforcement:</strong> Loose or shifting boards are carefully repaired and re-secured to improve overall stability, reduce movement, and create a safer, more solid surface.<br><br>
+            <strong>Sealing Perfection:</strong> New caulking is professionally applied to fill and seal gaps, joints, and voids, helping prevent moisture intrusion and providing added protection against the elements.
+          </div>
+          <div class="tech-block">
+            Update the <code>processSteps</code> array in the frontmatter with these longer descriptions
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POWER WASHING -->
+    <section class="page-section" id="power">
+      <div class="page-header">
+        <h2>Power Washing Page</h2>
+        <div class="page-path">/src/pages/residential/power-washing.astro</div>
+      </div>
+      <div class="callout yellow" style="margin: 0; border-radius: 0;">
+        ⚠️ <strong>Minor service</strong> - simplified page with less content than main services
+      </div>
+      <div class="page-content">
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> Header Text</h3>
+          <div class="layout-block">Cut the words "Clean Cut" from page header if present</div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> Major Page Restructure</h3>
+          <div class="layout-block">
+            <ul class="checklist">
+              <li><span class="checkbox"></span> Remove centered copy/tiles section</li>
+              <li><span class="checkbox"></span> Use mirrored layout instead (text left/image right, then flipped)</li>
+              <li><span class="checkbox"></span> Process tiles: either center align or make wider</li>
+              <li><span class="checkbox"></span> Cut gallery entirely - replace with single wide image strip</li>
+            </ul>
+          </div>
+          <div class="tech-block">
+            <strong>This is a significant restructure.</strong> Recommend:<br>
+            1. Copy Interior Painting page structure as base<br>
+            2. Remove the 4-column service cards section<br>
+            3. Keep just 2 mirrored sections + process tiles<br>
+            4. Replace gallery with single full-width image
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Hero Section</h3>
+          <div class="copy-block">
+            <strong>Title:</strong> Comprehensive Power Washing Services<br><br>
+            <strong>Body:</strong> Restore and refresh your home with Clean Cut Painting and Handyman professional residential power washing services. We go beyond the basics, delivering a thorough clean that leaves every surface looking renewed and well-maintained.<br><br>
+            <strong>CTA:</strong> Book Your Proposal
+          </div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Hero Photo</div>
+              <a href="https://drive.google.com/file/d/1lxRnKbmsp_XGnbv7uWTTiigb9LR0JbIA/view" target="_blank">View Image</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Why Choose Clean Cut Section (mirrored)</h3>
+          <div class="copy-block">
+            <strong>Why Choose Clean Cut</strong><br>
+            <ul>
+              <li><strong>Thorough Cleaning:</strong> Hand scrubbing and deep cleaning for spotless results</li>
+              <li><strong>Gutter Care:</strong> Complete debris removal and downspout flushing to protect your home</li>
+              <li><strong>Concrete Cleaning:</strong> Effective degreasing for driveways, patios, and walkways</li>
+              <li><strong>Transformative Results:</strong> Improve your home appearance and curb appeal</li>
+            </ul>
+          </div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Section Photo</div>
+              <a href="https://drive.google.com/file/d/1p0hLcWhk4QkswC2_1qbzpdCRVDR06BOh/view" target="_blank">View Image</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag note">Note</span> Image Strip (replaces gallery)</h3>
+          <div class="note-block">Single wide image instead of gallery grid</div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Wide Image Strip</div>
+              <a href="https://drive.google.com/file/d/1hcWGU1NoCvi2XU_gkaVqWTTNYUnCpG5M/view" target="_blank">View Image</a>
+            </div>
+          </div>
+          <div class="tech-block">
+            <strong>Implementation:</strong><br>
+            <code>&lt;div class="w-full h-64 md:h-80 lg:h-96"&gt;</code><br>
+            <code>  &lt;img src="..." class="w-full h-full object-cover" alt="..."&gt;</code><br>
+            <code>&lt;/div&gt;</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HANDYMAN SERVICES -->
+    <section class="page-section" id="handyman">
+      <div class="page-header">
+        <h2>Handyman Services Page</h2>
+        <div class="page-path">/src/pages/residential/handyman.astro</div>
+      </div>
+      <div class="page-content">
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> Header Text</h3>
+          <div class="layout-block">Cut the word "Residential" from page header</div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> Page Structure</h3>
+          <div class="layout-block">
+            <ul class="checklist">
+              <li><span class="checkbox"></span> Remove centered copy/tiles section</li>
+              <li><span class="checkbox"></span> Use mirrored layout instead</li>
+              <li><span class="checkbox"></span> Cut gallery - replace with single wide image strip</li>
+            </ul>
+          </div>
+          <div class="tech-block">
+            Similar restructure to Power Washing - simplify the layout using mirrored sections
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Hero Section</h3>
+          <div class="copy-block">
+            <strong>Title:</strong> Reliable Home Services You Can Trust<br><br>
+            <strong>Body:</strong> Clean Cut Painting and Handyman offers a full range of residential handyman services designed to enhance both the functionality and beauty of your home. Our experienced team handles projects large and small, delivering craftsmanship, reliability, and attention to detail at every step.<br><br>
+            <strong>CTA:</strong> Start Your Project
+          </div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Hero Photo</div>
+              <a href="https://drive.google.com/file/d/1GGqt4kI72A2XEMP0IH5W-k_m5qUELn0D/view" target="_blank">View Image</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Our Services Include (mirrored section)</h3>
+          <div class="copy-block">
+            <ul>
+              <li><strong>Tile Projects:</strong> Install or repair bathroom and kitchen tile with seamless results</li>
+              <li><strong>Backsplashes:</strong> Add style and functionality with expertly crafted backsplashes</li>
+              <li><strong>Flooring Repair and Installation:</strong> Repair damaged floors or install new ones for a refreshed look</li>
+              <li><strong>Home Projects:</strong> From board and batten to wainscoting, enhance your home with timeless craftsmanship</li>
+              <li><strong>Custom Built-Ins and Closet Systems:</strong> Maximize your space with tailored solutions that combine style and practicality</li>
+              <li><strong>Custom Millwork:</strong> Elevate your home character with handcrafted pieces built to last</li>
+              <li><strong>Home Inspection Reports:</strong> Stay ahead of repairs with detailed assessments and maintenance guidance</li>
+              <li><strong>Furniture Assembly:</strong> Save time and stress with professional assembly of furniture and fixtures</li>
+              <li><strong>General Maintenance:</strong> From small repairs to routine upkeep, keep your home in top condition</li>
+            </ul>
+          </div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Services Photo</div>
+              <a href="https://drive.google.com/file/d/1Cz_FKj8l1KreR4OXNyfkYWxAkBrXDHXQ/view" target="_blank">View Image</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag note">Note</span> Image Strip (replaces gallery)</h3>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Wide Image Strip</div>
+              <a href="https://drive.google.com/file/d/1kJYBuebnp-Kp1v7JvqMDamNMPuEQwzZM/view" target="_blank">View Image</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMERCIAL SERVICES -->
+    <section class="page-section" id="commercial">
+      <div class="page-header">
+        <h2>Commercial Services Page</h2>
+        <div class="page-path">/src/pages/commercial.astro</div>
+      </div>
+      <div class="page-content">
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> Header Changes</h3>
+          <div class="layout-block">
+            <ul class="checklist">
+              <li><span class="checkbox"></span> Cut the word "Painting" from header (if says "Commercial Painting")</li>
+              <li><span class="checkbox"></span> Change subheader to: "Elevate Your Business Environment"</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Intro Section</h3>
+          <div class="copy-block">
+            <strong>Title:</strong> Spaces Reflect Your Brand And Business<br><br>
+            <strong>Body:</strong> Our team collaborates with you to develop a comprehensive plan that aligns with your business goals while minimizing disruption to daily operations. From after-hours projects to weekend services, we deliver professional, efficient, and seamless results.
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Why Choose Clean Cut</h3>
+          <div class="note-block">Use the ProcessScrollCards component pattern but with sky-400/white color scheme instead of dark</div>
+          <div class="copy-block">
+            <ul>
+              <li><strong>Business-Focused Solutions:</strong> We translate your objectives into tangible results that enhance your space</li>
+              <li><strong>Flexible Scheduling:</strong> Our team works around your hours to ensure projects are completed without interrupting operations</li>
+              <li><strong>Content and Wall Management:</strong> Decor and wall elements are carefully handled and reset for a polished, professional environment</li>
+              <li><strong>Safety First:</strong> Our fully trained and insured staff prioritizes safety for your employees, clients, and property</li>
+            </ul>
+          </div>
+          <div class="tech-block">
+            <strong>Styling for "blue tiles on white background":</strong><br>
+            Cards: <code>bg-sky-50 border border-sky-200</code> or <code>bg-white border-2 border-sky-400</code><br>
+            Container: <code>bg-white</code> or <code>bg-gray-50</code>
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Transform Your Space (mirrored section)</h3>
+          <div class="copy-block">
+            <strong>Title:</strong> Transform Your Space<br><br>
+            <strong>Body:</strong> At Clean Cut, we exceed expectations with every project, turning your business environment into a professional, welcoming space. Schedule a consultation today and experience the Clean Cut difference in commercial services.<br><br>
+            <strong>CTA:</strong> Upgrade Your Space
+          </div>
+          <div class="note-block">
+            Check <code>/public/images/</code> or the main photos folder for commercial images to use with this section
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Commercial Services We Offer</h3>
+          <div class="copy-block">
+            <ul>
+              <li><strong>Property Management Services:</strong> Tailored solutions for investment properties and portfolios</li>
+              <li><strong>Drop Ceiling Repair and Installation:</strong> Improve both functionality and aesthetics</li>
+              <li><strong>Flooring Repair and Installation:</strong> Precision work for lasting results</li>
+              <li><strong>And Much More:</strong> A wide range of commercial projects handled with expertise</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section class="page-section" id="about">
+      <div class="page-header">
+        <h2>About Us Page</h2>
+        <div class="page-path">/src/pages/about.astro</div>
+      </div>
+      <div class="page-content">
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> Page Structure</h3>
+          <div class="layout-block">Center the copy so there is equal padding on top and bottom</div>
+          <div class="tech-block">
+            Add <code>py-16</code> or <code>py-20</code> to the main content container for balanced vertical spacing
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> Full Page Copy</h3>
+          <div class="copy-block">
+            <strong>Page Header:</strong> About Us<br>
+            <strong>Subheader:</strong> Quality Craftsmanship. Family Values. Lasting Results.<br><br>
+
+            <strong>At Clean Cut Painting and Handyman</strong><br>
+            Great work starts with care, pride, and attention to detail. What began as a family-driven business has grown into a trusted name across Central Illinois. We are built on craftsmanship, integrity, and long-lasting relationships with our clients.<br><br>
+
+            <strong>Our Roots</strong><br>
+            Clean Cut is proudly rooted in Decatur, Illinois, serving homes and businesses throughout Central Illinois. Dara and Colby Geiser founded Clean Cut Painting and Handyman in 2018 with over 30 years of combined experience. Our goal was simple: deliver reliable, high-quality work that clients could trust.<br><br>
+
+            <strong>Family Driven Excellence</strong><br>
+            As a woman-owned and family operated business, family values guide everything we do. Dara and Colby work alongside a team of skilled professionals, many who have been with us since the beginning. That consistency shows in our work, communication, and pride in every project.<br><br>
+
+            <strong>Looking to the Future</strong><br>
+            In 2024, we welcomed our son, Jack, into the business. With his involvement, we are expanding to a new Springfield location, allowing us to serve more homeowners while maintaining the same personal approach and quality work our clients expect.<br><br>
+
+            <strong>Our Core Values</strong><br>
+            <ul>
+              <li><strong>Deliver an Amazing Client Experience:</strong> Every project is easy, rewarding, and enjoyable, with results that delight our clients.</li>
+              <li><strong>Everyone Wins:</strong> Our team enjoys secure and fulfilling work, the business remains strong, and our clients receive first-class service.</li>
+              <li><strong>Vision Focused:</strong> Every project is guided by solutions and a clear vision for the future of the company.</li>
+              <li><strong>Be Accountable:</strong> We take responsibility for our work. Warranty commitments and transparent communication ensure satisfaction.</li>
+              <li><strong>Be Intense:</strong> We bring focus, energy, and dedication to every project, striving for excellence in every detail.</li>
+            </ul><br>
+
+            <strong>Our Commitment to You</strong><br>
+            We do more than paint or complete repairs. We build trust. From your first call to the final walkthrough, we focus on clear communication, honest timelines, and dependable service. Clean Cut Painting and Handyman is fully insured, and certificates are available on request. Safety and professionalism are at the core of everything we do.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE ARE -->
+    <section class="page-section" id="team">
+      <div class="page-header">
+        <h2>Who We Are Page</h2>
+        <div class="page-path">/src/pages/who-we-are.astro</div>
+      </div>
+      <div class="page-content">
+        <div class="change-group">
+          <h3><span class="tag note">Note</span> Hero Image</h3>
+          <div class="note-block">Add image to header/hero section background</div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Hero Image</div>
+              <a href="https://drive.google.com/file/d/17SZ8G-FNRJi9AFVdEEN4XtObubDdojTx/view" target="_blank">View Image</a>
+            </div>
+          </div>
+          <div class="tech-block">
+            Use same hero pattern as service pages - image with <code>bg-[#144787]/85</code> overlay
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> First Paragraph</h3>
+          <div class="layout-block">Change to left aligned text with image on the right (mirrored style row 1)</div>
+          <div class="tech-block">
+            <code>&lt;div class="grid lg:grid-cols-2 gap-16 items-center"&gt;</code><br>
+            Text div first, image div second
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> Additional Mirrored Sections</h3>
+          <div class="layout-block">Use mirrored section style for "Our Extended Team" and "Our Approach" copy blocks</div>
+          <div class="image-grid">
+            <div class="image-card">
+              <div class="label">Our Extended Team</div>
+              <a href="https://drive.google.com/file/d/1rDLzT0MYp_EstpwyygUTyha80znZTWad/view" target="_blank">View Image</a>
+            </div>
+            <div class="image-card">
+              <div class="label">Our Approach</div>
+              <a href="https://drive.google.com/file/d/1nNZeyqz5IbVf39k-_FGu9SZQcIkk2ZtZ/view" target="_blank">View Image</a>
+            </div>
+          </div>
+          <div class="tech-block">
+            Section 1: Text left, image right<br>
+            Section 2: Image left (with order classes), text right<br>
+            See Interior Painting reference for exact code pattern
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR WORK -->
+    <section class="page-section" id="work">
+      <div class="page-header">
+        <h2>Our Work Page</h2>
+        <div class="page-path">/src/pages/our-work.astro</div>
+      </div>
+      <div class="page-content">
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> Header and Intro</h3>
+          <div class="layout-block">
+            <ul class="checklist">
+              <li><span class="checkbox"></span> Fix header to match size/style of other pages</li>
+              <li><span class="checkbox"></span> Change subheader to just: "Quality craftsmanship in every detail."</li>
+              <li><span class="checkbox"></span> Remove intro text "Project Gallery Explore our comprehensive portfolio..." - go straight into images</li>
+              <li><span class="checkbox"></span> Remove numbers by each section header (e.g., "(1)")  </li>
+              <li><span class="checkbox"></span> Remove "showing 28 projects" or similar count text</li>
+            </ul>
+          </div>
+          <div class="tech-block">
+            Look for any <code>span</code> or <code>small</code> tags with numbers/counts and remove them.<br>
+            The page should feel cleaner - just section headers + image grids.
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag note">Note</span> Image Lightbox Enhancement</h3>
+          <div class="note-block">Add ability to click images and see them larger in a proper lightbox modal, not just browser zoom</div>
+          <div class="tech-block">
+            <strong>The Lightbox component already exists!</strong> <code>/src/components/Lightbox.astro</code><br><br>
+            <strong>To enable:</strong><br>
+            1. Ensure Lightbox component is imported in the page or Layout<br>
+            2. Add <code>data-lightbox-gallery="our-work"</code> attribute to each gallery image<br>
+            3. Images will automatically be clickable with prev/next navigation
+          </div>
+          <div class="impl-steps">
+            <h4>Implementation Steps</h4>
+            <ol>
+              <li>Open <code>/src/pages/our-work.astro</code></li>
+              <li>Find all <code>&lt;img&gt;</code> tags in the gallery sections</li>
+              <li>Add <code>data-lightbox-gallery="our-work-gallery"</code> to each image</li>
+              <li>Ensure <code>&lt;Lightbox /&gt;</code> component is in the page (may already be in Layout)</li>
+              <li>Wrap images in <code>&lt;button&gt;</code> or <code>&lt;a&gt;</code> for proper click handling if needed</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="page-section" id="contact">
+      <div class="page-header">
+        <h2>Contact Page</h2>
+        <div class="page-path">/src/pages/contact.astro</div>
+      </div>
+      <div class="page-content">
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> Header</h3>
+          <div class="layout-block">Fix header to be same size and centered as other pages</div>
+          <div class="tech-block">
+            Match the hero section styling from service pages - consistent <code>py-20</code> or <code>py-24</code> padding, centered text
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag layout">Layout</span> Contact Info Layout</h3>
+          <div class="layout-block">
+            <ul class="checklist">
+              <li><span class="checkbox"></span> Right side info section must align EXACTLY with the bottom of the contact form (same height)</li>
+              <li><span class="checkbox"></span> Not longer than the form, not shorter - perfectly aligned</li>
+            </ul>
+          </div>
+          <div class="tech-block">
+            <strong>To achieve equal height alignment:</strong><br><br>
+            Option 1 - Flexbox stretch:<br>
+            <code>&lt;div class="grid lg:grid-cols-2 gap-8"&gt;</code><br>
+            <code>  &lt;div class="flex flex-col"&gt;...form...&lt;/div&gt;</code><br>
+            <code>  &lt;div class="flex flex-col justify-between"&gt;...info...&lt;/div&gt;</code><br>
+            <code>&lt;/div&gt;</code><br><br>
+            
+            Option 2 - Match padding:<br>
+            Give both columns same padding values and let content flow naturally.<br><br>
+            
+            Option 3 - Set explicit heights:<br>
+            If form is known height, set <code>h-[500px]</code> or similar on both columns.
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag note">Note</span> Service Areas Map</h3>
+          <div class="callout red">
+            ❌ <strong>NOT DOING</strong> - Highlighted service areas on map is out of scope for this update
+          </div>
+        </div>
+
+        <div class="change-group">
+          <h3><span class="tag copy">Copy</span> CTA Strip Section</h3>
+          <div class="copy-block">
+            <strong>Title:</strong> Rather Talk It Through?<br>
+            <strong>Body:</strong> Our team is happy to answer questions and provide a free estimate.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="resources">
+      <h2>Key Resources</h2>
+      <div class="resource-grid">
+        <div class="resource-card">
+          <h4>Master Copy Document</h4>
+          <a href="https://docs.google.com/document/d/1QZzrmitx3MAII4fjjycoJSQFGh3_1ZW9JNAJLJIcIbg/edit" target="_blank">CC | Website Copy</a>
+        </div>
+        <div class="resource-card">
+          <h4>Colleen Feedback Doc</h4>
+          <a href="https://docs.google.com/document/d/1GOkWl35AYPddEpHo1fyNRjELBNPoOZtQROeZOn3vj04/edit" target="_blank">Website Edits (Jan 26)</a>
+        </div>
+        <div class="resource-card">
+          <h4>All Photos Folder</h4>
+          <a href="https://drive.google.com/drive/folders/1MLch6y_u4DHMS0qyOdaDXmk-3oMYsDkE" target="_blank">Google Drive</a>
+        </div>
+        <div class="resource-card">
+          <h4>Exterior Gallery Photos</h4>
+          <a href="https://drive.google.com/drive/folders/1UQGXFjFIrysFzuPtIf9dVy7P-kXX8ai_" target="_blank">Google Drive</a>
+        </div>
+        <div class="resource-card">
+          <h4>Current Preview Site</h4>
+          <a href="https://cleancut-astro.vercel.app" target="_blank">cleancut-astro.vercel.app</a>
+        </div>
+        <div class="resource-card">
+          <h4>Interior Painting (Reference)</h4>
+          <a href="https://cleancut-astro.vercel.app/residential/interior-painting" target="_blank">View Page</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout green" style="margin-top: 30px;">
+      <strong>🎯 Implementation Order Recommendation:</strong><br><br>
+      1. <strong>Create EstimateModal component</strong> (new, standalone)<br>
+      2. <strong>Homepage changes</strong> (section reorder, CTA buttons, backgrounds)<br>
+      3. <strong>Exterior Painting</strong> (copy + images, similar structure to Interior)<br>
+      4. <strong>Cabinet Refinishing</strong> (copy + structural simplification)<br>
+      5. <strong>Deck Staining</strong> (copy + images)<br>
+      6. <strong>Power Washing</strong> (major restructure - simplify)<br>
+      7. <strong>Handyman</strong> (similar restructure to Power Washing)<br>
+      8. <strong>Commercial</strong> (copy + styling changes)<br>
+      9. <strong>About Us</strong> (copy update, spacing)<br>
+      10. <strong>Who We Are</strong> (layout changes + images)<br>
+      11. <strong>Our Work</strong> (cleanup + lightbox)<br>
+      12. <strong>Contact</strong> (alignment fix + copy)
+    </div>
+
+  </div>
+</body>
+</html>

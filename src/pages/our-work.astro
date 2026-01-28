@@ -220,13 +220,12 @@ const videos = [
   }
 ];
 
-// Filter configuration with counts
+// Filter configuration
 const filters = [
-  { id: 'all', label: 'All Projects', count: totalImages },
+  { id: 'all', label: 'All Projects' },
   ...galleryCategories.map(cat => ({
     id: cat.id,
-    label: cat.title,
-    count: cat.images.length
+    label: cat.title
   }))
 ];
 ---
@@ -239,20 +238,20 @@ const filters = [
 
   <main>
     <!-- Hero Section -->
-    <section class="relative min-h-[500px] py-20 lg:py-24 overflow-hidden">
+    <section class="relative min-h-[400px] flex items-center overflow-hidden">
       <img
         src="/images/Home Page/Residential Services/CC _ Home Page Photos_Interior Painting.webp"
         alt="Our work portfolio - professional painting and handyman services in Decatur and Central Illinois"
         class="absolute inset-0 w-full h-full object-cover"
       >
       <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
-      <div class="container-custom relative z-10">
+      <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
           <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 drop-shadow-lg">
             Our Work
           </h1>
           <p class="text-lg sm:text-xl lg:text-2xl text-white/95 font-medium max-w-3xl mx-auto">
-            Browse our portfolio of completed projects across Decatur, Springfield, and Central Illinois. Quality craftsmanship in every detail.
+            Quality craftsmanship in every detail.
           </p>
         </div>
       </div>
@@ -261,15 +260,6 @@ const filters = [
     <!-- Gallery Section -->
     <section class="py-16 bg-gray-50">
       <div class="container-custom">
-        <div class="text-center mb-8">
-          <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-4">
-            Project Gallery
-          </h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Explore our comprehensive portfolio showcasing quality craftsmanship across all our services
-          </p>
-        </div>
-
         <!-- Filter Bar -->
         <div class="py-4 mb-8">
           <div class="flex flex-wrap justify-center gap-2 sm:gap-3" role="tablist" aria-label="Filter gallery by project type">
@@ -288,24 +278,12 @@ const filters = [
                 ]}
               >
                 <span class="relative z-10">{filter.label}</span>
-                <span class:list={[
-                  "ml-1.5 px-2 py-0.5 text-xs rounded-full transition-colors duration-300",
-                  index === 0
-                    ? "bg-white/25 text-white"
-                    : "bg-gray-100 text-gray-500 group-hover:bg-sky-100 group-hover:text-sky-600"
-                ]}>
-                  {filter.count}
-                </span>
+
               </button>
             ))}
           </div>
           
-          <!-- Active filter indicator -->
-          <div class="mt-4 text-center">
-            <p id="filter-status" class="text-sm text-gray-500 transition-opacity duration-300">
-              Showing <span class="font-semibold text-[#144787]" id="filter-count">{totalImages}</span> projects
-            </p>
-          </div>
+
         </div>
 
         <!-- Gallery Grid -->
@@ -321,7 +299,7 @@ const filters = [
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
                 {category.images.map((image, imgIndex) => (
                   <div 
-                    class="gallery-item group overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 h-64 sm:h-72 transform hover:-translate-y-1"
+                    class="gallery-item group overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 h-64 sm:h-72 transform hover:-translate-y-1 cursor-pointer"
                     data-category={category.id}
                     style={`animation-delay: ${imgIndex * 50}ms`}
                   >
@@ -557,8 +535,6 @@ const filters = [
     const filterButtons = document.querySelectorAll('.filter-btn');
     const categories = document.querySelectorAll('.gallery-category');
     const galleryItems = document.querySelectorAll('.gallery-item');
-    const filterCount = document.getElementById('filter-count');
-    const filterStatus = document.getElementById('filter-status');
     
     // Image counts by category
     const imageCounts: Record<string, number> = {
