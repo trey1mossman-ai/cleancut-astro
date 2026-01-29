@@ -9,85 +9,73 @@ interface Props {
   title?: string;
   backgroundImage: string;
   imageAlt?: string;
-  parallax?: boolean;
 }
 
-const { faqs, title = "Frequently Asked Questions", backgroundImage, imageAlt = "Clean Cut Painting & Handyman services", parallax = false } = Astro.props;
+const { faqs, title = "Frequently Asked Questions", backgroundImage, imageAlt = "Clean Cut Painting & Handyman services" } = Astro.props;
 ---
 
-<section class="py-16 bg-gray-50">
-  <div class="container-custom">
-    <div class="grid lg:grid-cols-2 gap-12 items-start">
-      <!-- Image Column (Left) -->
-      <div class={parallax ? "" : "lg:sticky lg:top-24"}>
+<section class="py-16 relative">
+  <!-- Background Image -->
+  <img
+    src={backgroundImage}
+    alt={imageAlt}
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="lazy"
+  />
+  
+  <!-- Black Overlay -->
+  <div class="absolute inset-0 bg-black/60"></div>
+  
+  <!-- Content -->
+  <div class="container-custom relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <h2 class="text-3xl lg:text-4xl font-display font-bold text-white mb-3">
+        {title}
+      </h2>
+      <p class="text-white/80">
+        Get answers to common questions about our services
+      </p>
+    </div>
+
+    <!-- FAQ List -->
+    <div class="faq-container max-w-3xl mx-auto space-y-3">
+      {faqs.map((faq, index) => (
         <div
-          class={`faq-image-card group relative aspect-video rounded-xl overflow-hidden shadow-2xl ${parallax ? "parallax-container" : ""}`}
+          class="faq-item bg-white/95 backdrop-blur-sm rounded-lg overflow-hidden transition-all duration-300"
+          data-faq-index={index}
         >
-          <!-- Background Image -->
-          <img
-            src={backgroundImage}
-            alt={imageAlt}
-            class={`absolute inset-0 w-full h-full object-cover ${parallax ? "parallax-image" : ""}`}
-            loading="lazy"
-          />
-
-          <!-- Black overlay like home page form section -->
-          <div class="absolute inset-0 bg-black/50"></div>
+          <button
+            class="faq-trigger w-full px-5 py-4 flex items-center justify-between text-left hover:bg-white transition-colors duration-200"
+            aria-expanded="false"
+          >
+            <span class="text-[#144787] font-semibold pr-4 leading-snug text-sm sm:text-base">
+              {faq.question}
+            </span>
+            <span class="faq-icon flex-shrink-0 w-6 h-6 rounded-full bg-sky-100 flex items-center justify-center transition-transform duration-300">
+              <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-content hidden px-5 pt-2 pb-5">
+            <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+              {faq.answer}
+            </p>
+          </div>
         </div>
-      </div>
-
-      <!-- FAQ Column (Right) -->
-      <div>
-        <!-- Header -->
-        <div class="mb-8">
-          <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-3">
-            {title}
-          </h2>
-          <p class="text-gray-600">
-            Get answers to common questions about our services
-          </p>
-        </div>
-
-        <!-- FAQ List -->
-        <div class="faq-container space-y-3">
-          {faqs.map((faq, index) => (
-            <div
-              class="faq-item bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-300"
-              data-faq-index={index}
-            >
-              <button
-                class="faq-trigger w-full px-5 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors duration-200"
-                aria-expanded="false"
-              >
-                <span class="text-[#144787] font-semibold pr-4 leading-snug text-sm sm:text-base">
-                  {faq.question}
-                </span>
-                <span class="faq-icon flex-shrink-0 w-6 h-6 rounded-full bg-sky-100 flex items-center justify-center transition-transform duration-300">
-                  <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </span>
-              </button>
-              <div class="faq-content hidden px-5 pt-2 pb-5">
-                <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
-                  {faq.answer}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
 
 <style>
   .faq-item {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
   .faq-item:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   }
 
   .faq-trigger[aria-expanded="true"] .faq-icon {
@@ -97,30 +85,6 @@ const { faqs, title = "Frequently Asked Questions", backgroundImage, imageAlt = 
 
   .faq-trigger[aria-expanded="true"] .faq-icon svg {
     color: white;
-  }
-
-  .parallax-container {
-    height: 400px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .parallax-image {
-    position: absolute;
-    top: -50px;
-    left: 0;
-    right: 0;
-    bottom: -50px;
-    height: calc(100% + 100px);
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-  }
-
-  @media (max-width: 1024px) {
-    .parallax-image {
-      background-attachment: scroll;
-    }
   }
 </style>
 
