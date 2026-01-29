@@ -11,7 +11,7 @@ interface Props {
   title?: string;
 }
 
-const { steps, title = "Our Process", ctaText = "View the Full Process →" } = Astro.props;
+const { steps, title = "Our Process", ctaText = "View the Full Process" } = Astro.props;
 ---
 
 <section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover; background-position: center;">
@@ -155,7 +155,7 @@ const { steps, title = "Our Process", ctaText = "View the Full Process →" } = 
         btnText.textContent = 'Back to Start';
         btn.querySelector('svg')?.classList.add('rotate-180');
       } else {
-        btnText.textContent = btn.dataset.ctaText || 'View the Full Process →';
+        btnText.textContent = btn.dataset.ctaText || 'View the Full Process';
         btn.querySelector('svg')?.classList.remove('rotate-180');
       }
     };
