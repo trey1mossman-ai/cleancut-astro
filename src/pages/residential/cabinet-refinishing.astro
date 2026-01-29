@@ -5,8 +5,15 @@ import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
-import FAQAccordion from '../../components/FAQAccordion.astro';
+import FAQWithVideo from '../../components/FAQWithVideo.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
+import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://cleancutservice.com/' },
+  { name: 'Residential', url: 'https://cleancutservice.com/residential/' },
+  { name: 'Cabinet Refinishing', url: 'https://cleancutservice.com/residential/cabinet-refinishing/' }
+];
 
 const faqs = [
   {
@@ -60,7 +67,7 @@ const processSteps = [
         alt="Professional cabinet refinishing services in Decatur IL"
         class="absolute inset-0 w-full h-full object-cover"
       >
-      <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
           <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 drop-shadow-lg">
@@ -182,86 +189,81 @@ const processSteps = [
     <!-- Our Process Section - Horizontal Scroll Cards -->
     <ProcessScrollCards steps={processSteps} />
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section - 1 Long + 3 Under + CTA -->
     <section class="py-20 bg-gray-50">
       <div class="container-custom">
         <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-[#144787] mb-6">
           Our Cabinet Refinishing Projects
         </h2>
-        <p class="text-lg text-gray-600 text-center mb-16 max-w-2xl mx-auto">
+        <p class="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
           From start to finish, we stand behind our work with warranties and support you can trust.
         </p>
 
-        <!-- Grid Gallery -->')
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
-            <img
-              src="/images/services-optimized/interior-painting/540103861_622811744236505_5519604479028921858_n.webp"
-              alt="White and navy kitchen cabinet refinishing in Sangamon County"
-              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-              data-lightbox-gallery="cabinet-gallery"
-            />
+        <div class="max-w-5xl mx-auto">
+          <!-- Featured Long Image -->
+          <div class="mb-6">
+            <div class="gallery-item group overflow-hidden rounded-xl shadow-2xl h-80 md:h-96">
+              <img
+                src="/images/drive-photos/cab-section.jpg"
+                alt="Featured kitchen cabinet refinishing transformation in Decatur IL"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+                data-lightbox-gallery="cabinet-gallery"
+              />
+            </div>
           </div>
-          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
-            <img
-              src="/images/services-optimized/interior-painting/6t4a6843.webp"
-              alt="Painted bedroom furniture refinishing in Central Illinois"
-              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-              data-lightbox-gallery="cabinet-gallery"
-            />
-          </div>
-          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
-            <img
-              src="/images/services-optimized/interior-painting/542207858_622811790903167_5174595472123875714_n.webp"
-              alt="Built-in shelving refinishing by Clean Cut in Decatur IL"
-              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-              data-lightbox-gallery="cabinet-gallery"
-            />
-          </div>
-          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
-            <img
-              src="/images/services-optimized/interior-painting/6t4a6783.webp"
-              alt="Open concept kitchen cabinet painting in Springfield Illinois"
-              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-              data-lightbox-gallery="cabinet-gallery"
-            />
-          </div>
-          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
-            <img
-              src="/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Garage Repaint-13.webp"
-              alt="Custom wood panel and fireplace surround refinishing in Decatur IL"
-              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-              data-lightbox-gallery="cabinet-gallery"
-            />
-          </div>
-          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
-            <img
-              src="/images/services-optimized/interior-painting/2.webp"
-              alt="Modern white kitchen cabinet transformation in Central Illinois"
-              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-              data-lightbox-gallery="cabinet-gallery"
-            />
-          </div>
-        </div>
 
-        <!-- Gallery CTA -->
-        <div class="text-center mt-12">
-          <a href="/our-work" class="inline-block px-8 py-3.5 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
-            View Full Gallery
-          </a>
+          <!-- 3 Images Grid Below -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="gallery-item group overflow-hidden rounded-lg shadow-lg h-64">
+              <img
+                src="/images/services-optimized/cabinet-refinishing/copy-of-2.webp"
+                alt="White kitchen cabinet refinishing in Springfield Illinois"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                data-lightbox-gallery="cabinet-gallery"
+              />
+            </div>
+            <div class="gallery-item group overflow-hidden rounded-lg shadow-lg h-64">
+              <img
+                src="/images/drive-photos/cab-built-in-shelving.jpg"
+                alt="Built-in shelving refinishing by Clean Cut in Central Illinois"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                data-lightbox-gallery="cabinet-gallery"
+              />
+            </div>
+            <div class="gallery-item group overflow-hidden rounded-lg shadow-lg h-64">
+              <img
+                src="/images/drive-photos/cab-bookcases.jpg"
+                alt="Bookcase refinishing in Decatur Illinois"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                data-lightbox-gallery="cabinet-gallery"
+              />
+            </div>
+          </div>
+
+          <!-- Gallery CTA -->
+          <div class="text-center">
+            <a href="/our-work#cabinets" class="inline-block px-8 py-4 bg-sky-400 text-white font-bold text-lg rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+              View Full Gallery
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ Section -->
-    <FAQAccordion faqs={faqs} title="Cabinet Refinishing FAQs" initialVisible={3} />
+    <!-- FAQ Section with Video -->
+    <FAQWithVideo 
+      faqs={faqs} 
+      title="Cabinet Refinishing FAQs" 
+      videoSrc="https://player.vimeo.com/progressive_redirect/playback/919437519/rendition/1080p/file.mp4?loc=external&log_user=0&signature=7bd056d5c3a43623fc9caee83683fac77e7cae5e41d6e0143682a920ea292500f"
+      videoThumbnail="/images/services-optimized/cabinet-refinishing/copy-of-2.webp"
+      videoTitle="See Our Cabinet Refinishing Process"
+    />
     <FAQSchema faqs={faqs} />
+    <BreadcrumbSchema items={breadcrumbs} />
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

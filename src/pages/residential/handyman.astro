@@ -4,8 +4,15 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
-import FAQAccordion from '../../components/FAQAccordion.astro';
+import FAQWithVideo from '../../components/FAQWithVideo.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
+import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://cleancutservice.com/' },
+  { name: 'Residential', url: 'https://cleancutservice.com/residential/' },
+  { name: 'Handyman Services', url: 'https://cleancutservice.com/residential/handyman/' }
+];
 
 const faqs = [
   {
@@ -45,7 +52,7 @@ const faqs = [
         alt="Professional handyman services in Decatur IL"
         class="absolute inset-0 w-full h-full object-cover"
       >
-      <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
           <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 drop-shadow-lg">
@@ -58,109 +65,88 @@ const faqs = [
       </div>
     </section>
 
-    <!-- Combined Intro + Services Section (same gray background) -->
+    <!-- Intro Section - Image Left, Text Right -->
     <section class="py-16 bg-gray-50/50">
       <div class="container-custom">
-        <!-- Intro Text -->
-        <div class="max-w-4xl mx-auto text-center mb-12">
-          <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
-            Reliable Home Services You Can Trust
-          </h2>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            Clean Cut Painting & Handyman offers a full range of residential handyman services designed to enhance both the functionality and beauty of your home. Our experienced team handles projects large and small, delivering craftsmanship, reliability, and attention to detail at every step.
-          </p>
-        </div>
-
-        <!-- CTA -->
-        <div class="text-center">
-          <button data-open-estimate class="inline-block px-8 py-3.5 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
-            Start Your Project
-          </button>
+        <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+          <!-- Image -->
+          <div>
+            <img
+              src="/images/drive-photos/handyman-section1.jpg"
+              alt="Clean Cut handyman services in Central Illinois"
+              class="rounded-lg shadow-2xl w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+          <!-- Text - Left Aligned -->
+          <div>
+            <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
+              Reliable Home Services You Can Trust
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed mb-8">
+              Clean Cut Painting & Handyman offers a full range of residential handyman services designed to enhance both the functionality and beauty of your home. Our experienced team handles projects large and small, delivering craftsmanship, reliability, and attention to detail at every step.
+            </p>
+            <button data-open-estimate class="inline-block px-8 py-3.5 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+              Start Your Project
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Clear Estimates & Beyond Section -->
-    <section class="py-16 bg-white">
+    <!-- Services Section - Blue Background, No Icons -->
+    <section class="py-16 bg-[#144787]">
       <div class="container-custom">
-        <!-- Clear Estimates -->
-        <div class="max-w-6xl mx-auto mb-20">
-          <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-4 text-center">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-display font-bold text-white mb-4 text-center">
             Our Services Include
           </h2>
-          <p class="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">From small repairs to full renovations, our team delivers quality craftsmanship on every project.</p>
+          <p class="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto">From small repairs to full renovations, our team delivers quality craftsmanship on every project.</p>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 p-6 group">
-              <div class="w-12 h-12 rounded-lg bg-[#144787]/10 flex items-center justify-center mb-4 group-hover:bg-[#144787] transition-colors duration-300">
-                <svg class="w-6 h-6 text-[#144787] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zM14 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
-              </div>
-              <h3 class="text-lg font-bold text-[#144787] mb-2">Tile Projects</h3>
-              <p class="text-gray-600 text-sm">Install or repair bathroom and kitchen tile with seamless results</p>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300">
+              <h3 class="text-lg font-bold text-white mb-2">Tile Projects</h3>
+              <p class="text-white/80 text-sm">Install or repair bathroom and kitchen tile with seamless results</p>
             </div>
 
-            <div class="bg-white rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 p-6 group">
-              <div class="w-12 h-12 rounded-lg bg-[#144787]/10 flex items-center justify-center mb-4 group-hover:bg-[#144787] transition-colors duration-300">
-                <svg class="w-6 h-6 text-[#144787] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7"/></svg>
-              </div>
-              <h3 class="text-lg font-bold text-[#144787] mb-2">Backsplashes</h3>
-              <p class="text-gray-600 text-sm">Add style and functionality with expertly crafted backsplashes</p>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300">
+              <h3 class="text-lg font-bold text-white mb-2">Backsplashes</h3>
+              <p class="text-white/80 text-sm">Add style and functionality with expertly crafted backsplashes</p>
             </div>
 
-            <div class="bg-white rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 p-6 group">
-              <div class="w-12 h-12 rounded-lg bg-[#144787]/10 flex items-center justify-center mb-4 group-hover:bg-[#144787] transition-colors duration-300">
-                <svg class="w-6 h-6 text-[#144787] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-              </div>
-              <h3 class="text-lg font-bold text-[#144787] mb-2">Flooring Repair & Installation</h3>
-              <p class="text-gray-600 text-sm">Repair damaged floors or install new ones for a refreshed look</p>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300">
+              <h3 class="text-lg font-bold text-white mb-2">Flooring Repair & Installation</h3>
+              <p class="text-white/80 text-sm">Repair damaged floors or install new ones for a refreshed look</p>
             </div>
 
-            <div class="bg-white rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 p-6 group">
-              <div class="w-12 h-12 rounded-lg bg-[#144787]/10 flex items-center justify-center mb-4 group-hover:bg-[#144787] transition-colors duration-300">
-                <svg class="w-6 h-6 text-[#144787] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-              </div>
-              <h3 class="text-lg font-bold text-[#144787] mb-2">Home Projects</h3>
-              <p class="text-gray-600 text-sm">From board and batten to wainscoting, enhance your home with timeless craftsmanship</p>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300">
+              <h3 class="text-lg font-bold text-white mb-2">Home Projects</h3>
+              <p class="text-white/80 text-sm">From board and batten to wainscoting, enhance your home with timeless craftsmanship</p>
             </div>
 
-            <div class="bg-white rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 p-6 group">
-              <div class="w-12 h-12 rounded-lg bg-[#144787]/10 flex items-center justify-center mb-4 group-hover:bg-[#144787] transition-colors duration-300">
-                <svg class="w-6 h-6 text-[#144787] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
-              </div>
-              <h3 class="text-lg font-bold text-[#144787] mb-2">Custom Built-Ins & Closet Systems</h3>
-              <p class="text-gray-600 text-sm">Maximize your space with tailored storage solutions</p>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300">
+              <h3 class="text-lg font-bold text-white mb-2">Custom Built-Ins & Closet Systems</h3>
+              <p class="text-white/80 text-sm">Maximize your space with tailored storage solutions</p>
             </div>
 
-            <div class="bg-white rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 p-6 group">
-              <div class="w-12 h-12 rounded-lg bg-[#144787]/10 flex items-center justify-center mb-4 group-hover:bg-[#144787] transition-colors duration-300">
-                <svg class="w-6 h-6 text-[#144787] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
-              </div>
-              <h3 class="text-lg font-bold text-[#144787] mb-2">Custom Millwork</h3>
-              <p class="text-gray-600 text-sm">Elevate your home's character with handcrafted pieces built to last</p>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300">
+              <h3 class="text-lg font-bold text-white mb-2">Custom Millwork</h3>
+              <p class="text-white/80 text-sm">Elevate your home's character with handcrafted pieces built to last</p>
             </div>
 
-            <div class="bg-white rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 p-6 group">
-              <div class="w-12 h-12 rounded-lg bg-[#144787]/10 flex items-center justify-center mb-4 group-hover:bg-[#144787] transition-colors duration-300">
-                <svg class="w-6 h-6 text-[#144787] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-              </div>
-              <h3 class="text-lg font-bold text-[#144787] mb-2">Home Inspection Reports</h3>
-              <p class="text-gray-600 text-sm">Stay ahead of repairs with detailed assessments</p>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300">
+              <h3 class="text-lg font-bold text-white mb-2">Home Inspection Reports</h3>
+              <p class="text-white/80 text-sm">Stay ahead of repairs with detailed assessments</p>
             </div>
 
-            <div class="bg-white rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 p-6 group">
-              <div class="w-12 h-12 rounded-lg bg-[#144787]/10 flex items-center justify-center mb-4 group-hover:bg-[#144787] transition-colors duration-300">
-                <svg class="w-6 h-6 text-[#144787] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              </div>
-              <h3 class="text-lg font-bold text-[#144787] mb-2">Furniture Assembly</h3>
-              <p class="text-gray-600 text-sm">Save time with professional assembly of furniture and fixtures</p>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300">
+              <h3 class="text-lg font-bold text-white mb-2">Furniture Assembly</h3>
+              <p class="text-white/80 text-sm">Save time with professional assembly of furniture and fixtures</p>
             </div>
 
-            <div class="bg-white rounded-xl border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 p-6 group">
-              <div class="w-12 h-12 rounded-lg bg-[#144787]/10 flex items-center justify-center mb-4 group-hover:bg-[#144787] transition-colors duration-300">
-                <svg class="w-6 h-6 text-[#144787] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
-              </div>
-              <h3 class="text-lg font-bold text-[#144787] mb-2">General Maintenance</h3>
-              <p class="text-gray-600 text-sm">From small repairs to routine upkeep, keep your home in top condition</p>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300">
+              <h3 class="text-lg font-bold text-white mb-2">General Maintenance</h3>
+              <p class="text-white/80 text-sm">From small repairs to routine upkeep, keep your home in top condition</p>
             </div>
           </div>
 
@@ -170,8 +156,12 @@ const faqs = [
             </button>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Beyond the Basics -->
+    <!-- Expert Craftsmanship Section -->
+    <section class="py-16 bg-white">
+      <div class="container-custom">
         <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           <div class="order-2 lg:order-1">
             <img
@@ -196,21 +186,25 @@ const faqs = [
       </div>
     </section>
 
-    <!-- Wide Image Strip -->
-    <section class="py-0">
-      <div class="w-full h-72 md:h-96 overflow-hidden">
-        <img
-          src="/images/drive-photos/handyman-image-strip.jpg"
-          alt="Professional handyman work in Central Illinois"
-          class="w-full h-full object-cover"
-          loading="lazy"
-        />
-      </div>
+    <!-- Wide Image Strip - Parallax -->
+    <section class="relative h-72 md:h-96 overflow-hidden">
+      <div 
+        class="absolute inset-0 bg-fixed bg-cover bg-center"
+        style="background-image: url('/images/drive-photos/handyman-image-strip.jpg');"
+      ></div>
     </section>
 
     <!-- FAQ Section -->
-    <FAQAccordion faqs={faqs} title="Handyman Services FAQs" initialVisible={3} />
+    <!-- FAQ Section with Video -->
+    <FAQWithVideo 
+      faqs={faqs} 
+      title="Handyman Services FAQs" 
+      videoSrc="https://player.vimeo.com/progressive_redirect/playback/919437458/rendition/1080p/file.mp4?loc=external&log_user=0&signature=9c3e481f7d5f313ae5e65ac5c975b0ee8069d4f4804b24b7bc932659c0f08470"
+      videoThumbnail="/images/drive-photos/handyman-section1.jpg"
+      videoTitle="See Our Handyman Services"
+    />
     <FAQSchema faqs={faqs} />
+    <BreadcrumbSchema items={breadcrumbs} />
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

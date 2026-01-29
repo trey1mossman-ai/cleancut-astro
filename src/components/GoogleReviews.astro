@@ -1,6 +1,28 @@
 ---
 // Google Reviews Section - Carousel style with equal-sized cards
 
+// AggregateRating schema for star ratings in search results
+const aggregateRatingSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Clean Cut Painting & Handyman",
+  "image": "https://cleancutservice.com/images/CleanCut Image-3.webp",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1004 E Eldorado St",
+    "addressLocality": "Decatur",
+    "addressRegion": "IL",
+    "postalCode": "62521"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "89",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+};
+
 const reviews = [
   {
     name: "Tina Weakley",
@@ -385,3 +407,6 @@ function truncateText(text: string, maxLength: number): { truncated: string; isT
     }
   }
 </style>
+
+<!-- AggregateRating Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(aggregateRatingSchema, null, 2)} />

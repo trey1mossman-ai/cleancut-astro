@@ -19,7 +19,7 @@ import FloatingCallButton from '../components/FloatingCallButton.astro';
         alt="Contact Clean Cut Painting & Handyman - serving Decatur, Springfield, and Central Illinois"
         class="absolute inset-0 w-full h-full object-cover"
       >
-      <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
           <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 drop-shadow-lg">
@@ -40,55 +40,68 @@ import FloatingCallButton from '../components/FloatingCallButton.astro';
           <div class="space-y-6">
             <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">Our Locations</h2>
             <p class="text-lg text-gray-600 mb-8">
-              Visit us at one of our convenient locations or give us a call during business hours.
+              Visit us at one of our convenient locations or give us a call.
             </p>
 
-            <!-- Decatur Office -->
-            <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 p-6 border border-gray-100">
-              <h3 class="text-xl font-semibold text-[#144787] mb-4">Decatur Office</h3>
-              <div class="space-y-3 text-gray-600">
-                <div>
-                  <p class="font-semibold text-sm text-[#144787] mb-1">Address</p>
-                  <p>1004 East Eldorado Street<br>Decatur, IL</p>
+            <!-- Location Cards - Equal Height Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6">
+              <!-- Decatur Office -->
+              <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 p-6 border border-gray-100 h-full flex flex-col">
+                <h3 class="text-xl font-semibold text-[#144787] mb-4">Decatur Office</h3>
+                <div class="space-y-3 text-gray-600 flex-1">
+                  <div>
+                    <p class="font-semibold text-sm text-[#144787] mb-1">Address</p>
+                    <p>1004 East Eldorado Street<br>Decatur, IL</p>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm text-[#144787] mb-1">Phone</p>
+                    <a href="tel:+12173307310" class="text-sky-400 hover:text-sky-500 transition-colors">(217) 330-7310</a>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm text-[#144787] mb-1">Email</p>
+                    <a href="mailto:info@cleancutservice.com" class="text-sky-400 hover:text-sky-500 transition-colors">info@cleancutservice.com</a>
+                  </div>
                 </div>
-                <div>
-                  <p class="font-semibold text-sm text-[#144787] mb-1">Phone</p>
-                  <a href="tel:+12173307310" class="text-sky-400 hover:text-sky-500 transition-colors">(217) 330-7310</a>
+                <p class="text-sm italic text-gray-500 mt-4">By appointment only</p>
+              </div>
+
+              <!-- Springfield Office -->
+              <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 p-6 border border-gray-100 h-full flex flex-col">
+                <h3 class="text-xl font-semibold text-[#144787] mb-4">Springfield Office</h3>
+                <div class="space-y-3 text-gray-600 flex-1">
+                  <div>
+                    <p class="font-semibold text-sm text-[#144787] mb-1">Address</p>
+                    <p>631 E Princeton Ave, Unit D<br>Springfield, IL</p>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm text-[#144787] mb-1">Phone</p>
+                    <a href="tel:+12176725654" class="text-sky-400 hover:text-sky-500 transition-colors">(217) 672-5654</a>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm text-[#144787] mb-1">Email</p>
+                    <a href="mailto:info@cleancutservice.com" class="text-sky-400 hover:text-sky-500 transition-colors">info@cleancutservice.com</a>
+                  </div>
                 </div>
-                <div>
-                  <p class="font-semibold text-sm text-[#144787] mb-1">Email</p>
-                  <a href="mailto:info@cleancutservice.com" class="text-sky-400 hover:text-sky-500 transition-colors">info@cleancutservice.com</a>
-                </div>
-                <div>
-                  <p class="font-semibold text-sm text-[#144787] mb-1">Hours</p>
-                  <p class="text-sm">Mon-Fri: 7:30am-4:30pm<br>Sat: 8:00am-1:00pm<br>Sun: Closed</p>
-                </div>
-                <div class="pt-2">
-                  <p class="text-sm italic text-gray-600">By appointment only</p>
-                </div>
+                <p class="text-sm italic text-gray-500 mt-4">By appointment only</p>
               </div>
             </div>
 
-            <!-- Springfield Office -->
-            <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 p-6 border border-gray-100">
-              <h3 class="text-xl font-semibold text-[#144787] mb-4">Springfield Office</h3>
-              <div class="space-y-3 text-gray-600">
+            <!-- Hours + 24/7 Language Below Cards -->
+            <div class="bg-[#144787]/5 rounded-lg p-6 border border-[#144787]/10">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
-                  <p class="font-semibold text-sm text-[#144787] mb-1">Address</p>
-                  <p>631 E Princeton Ave, Unit D<br>Springfield, IL</p>
+                  <p class="font-semibold text-[#144787] mb-1">Office Hours</p>
+                  <p class="text-gray-600 text-sm">Mon-Fri: 7:30am-4:30pm | Sat: 8:00am-1:00pm</p>
                 </div>
-                <div>
-                  <p class="font-semibold text-sm text-[#144787] mb-1">Phone</p>
-                  <a href="tel:+12176725654" class="text-sky-400 hover:text-sky-500 transition-colors">(217) 672-5654</a>
-                </div>
-                <div>
-                  <p class="font-semibold text-sm text-[#144787] mb-1">Email</p>
-                  <a href="mailto:info@cleancutservice.com" class="text-sky-400 hover:text-sky-500 transition-colors">info@cleancutservice.com</a>
+                <div class="sm:text-right">
+                  <p class="font-semibold text-sky-500">Phone Line: Available 24/7</p>
+                  <p class="text-gray-600 text-sm">For new inquiries & urgent repairs</p>
                 </div>
               </div>
             </div>
           </div>
-<!-- Right Column - Contact Form -->
+
+          <!-- Right Column - Contact Form -->
           <div>
             <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">Get Your Free Estimate</h2>
             <p class="text-lg text-gray-600 mb-8">
@@ -150,8 +163,7 @@ import FloatingCallButton from '../components/FloatingCallButton.astro';
               </button>
             </form>
           </div>
-
-                  </div>
+        </div>
       </div>
     </section>
 
@@ -174,9 +186,6 @@ import FloatingCallButton from '../components/FloatingCallButton.astro';
               Email Us
             </a>
           </div>
-          <p class="text-white/80 mt-8">
-            Monday-Friday: 7:30am-4:30pm | Saturday: 8:00am-1:00pm
-          </p>
         </div>
       </div>
     </section>

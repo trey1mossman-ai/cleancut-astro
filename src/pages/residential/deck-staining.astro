@@ -5,8 +5,15 @@ import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
-import FAQAccordion from '../../components/FAQAccordion.astro';
+import FAQWithVideo from '../../components/FAQWithVideo.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
+import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://cleancutservice.com/' },
+  { name: 'Residential', url: 'https://cleancutservice.com/residential/' },
+  { name: 'Deck Staining', url: 'https://cleancutservice.com/residential/deck-staining/' }
+];
 
 const faqs = [
   {
@@ -60,7 +67,7 @@ const processSteps = [
         alt="Professional deck staining services in Decatur IL"
         class="absolute inset-0 w-full h-full object-cover"
       >
-      <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
           <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 drop-shadow-lg">
@@ -167,7 +174,7 @@ const processSteps = [
         <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           <div class="order-2 lg:order-1">
             <img
-              src="/images/drive-photos/deck-section2.jpg"
+              src="/images/services-optimized/deck-staining/543742067_18027770942725762_6809030153408573163_n.webp"
               alt="Complete deck restoration and rebuild in Springfield Illinois"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
@@ -281,9 +288,16 @@ const processSteps = [
       </div>
     </section>
 
-    <!-- FAQ Section -->
-    <FAQAccordion faqs={faqs} title="Deck Staining FAQs" initialVisible={3} />
+    <!-- FAQ Section with Video -->
+    <FAQWithVideo 
+      faqs={faqs} 
+      title="Deck Staining FAQs" 
+      videoSrc="https://player.vimeo.com/progressive_redirect/playback/919437263/rendition/1080p/file.mp4?loc=external&log_user=0&signature=5ef81898bc2b2c14a72352b272d76e9609c49156c3cb19dd66f9fd0f4b91c4c3"
+      videoThumbnail="/images/services-optimized/deck-staining/june-26.webp"
+      videoTitle="See Our Deck Staining Process"
+    />
     <FAQSchema faqs={faqs} />
+    <BreadcrumbSchema items={breadcrumbs} />
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

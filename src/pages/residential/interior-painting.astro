@@ -5,8 +5,15 @@ import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
-import FAQAccordion from '../../components/FAQAccordion.astro';
+import FAQWithVideo from '../../components/FAQWithVideo.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
+import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://cleancutservice.com/' },
+  { name: 'Residential', url: 'https://cleancutservice.com/residential/' },
+  { name: 'Interior Painting', url: 'https://cleancutservice.com/residential/interior-painting/' }
+];
 
 const processSteps = [
   { number: 1, title: "Protection and Preparation", description: "We meticulously mask and safeguard all flooring, fixtures, and contents as required." },
@@ -58,7 +65,7 @@ const faqs = [
         alt="Professional interior painting services in Decatur IL and Central Illinois"
         class="absolute inset-0 w-full h-full object-cover"
       >
-      <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
           <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 drop-shadow-lg">
@@ -289,9 +296,16 @@ const faqs = [
       </div>
     </section>
 
-    <!-- FAQ Section -->
-    <FAQAccordion faqs={faqs} title="Interior Painting FAQs" initialVisible={3} />
+    <!-- FAQ Section with Video -->
+    <FAQWithVideo 
+      faqs={faqs} 
+      title="Interior Painting FAQs" 
+      videoSrc="https://player.vimeo.com/progressive_redirect/playback/919437556/rendition/1080p/file.mp4?loc=external&log_user=0&signature=eb333e5eeba651e3cdd540e12b7fd79719a319bd5b3122d8c99aa0b625442058"
+      videoThumbnail="/images/services-optimized/interior-painting/6t4a6783.webp"
+      videoTitle="See Our Interior Painting Process"
+    />
     <FAQSchema faqs={faqs} />
+    <BreadcrumbSchema items={breadcrumbs} />
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

@@ -48,6 +48,25 @@ const businessSchemaProps = {
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={`${schemaData.contact.website}${Astro.url.pathname}`} />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={`${schemaData.contact.website}${Astro.url.pathname}`} />
+  <meta property="og:image" content={`${schemaData.contact.website}/images/CleanCut Image-3.webp`} />
+  <meta property="og:site_name" content="Clean Cut Painting & Handyman" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${schemaData.contact.website}/images/CleanCut Image-3.webp`} />
+  
+  <!-- Geo SEO -->
+  <meta name="geo.region" content="US-IL" />
+  <meta name="geo.placename" content="Decatur, Illinois" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">

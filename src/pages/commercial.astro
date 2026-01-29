@@ -5,8 +5,14 @@ import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
 import Lightbox from '../components/Lightbox.astro';
 import ProcessScrollCards from '../components/ProcessScrollCards.astro';
-import FAQAccordion from '../components/FAQAccordion.astro';
+import FAQWithVideo from '../components/FAQWithVideo.astro';
 import FAQSchema from '../components/schema/FAQSchema.astro';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://cleancutservice.com/' },
+  { name: 'Commercial Services', url: 'https://cleancutservice.com/commercial/' }
+];
 
 const faqs = [
   {
@@ -74,7 +80,7 @@ const processSteps = [
         alt="Professional commercial painting services in Decatur IL and Central Illinois"
         class="absolute inset-0 w-full h-full object-cover"
       >
-      <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
           <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 drop-shadow-lg">
@@ -205,57 +211,81 @@ const processSteps = [
     <!-- Process Section - Standalone -->
     <ProcessScrollCards steps={processSteps} />
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section - 1 Long + 3 Under + CTA -->
     <section class="py-20 bg-gray-50">
       <div class="container-custom">
         <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-[#144787] mb-6">
           Our Commercial Projects
         </h2>
-        <p class="text-lg text-gray-600 text-center mb-16 max-w-2xl mx-auto">
+        <p class="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
           Explore our portfolio of completed commercial projects showcasing our expertise across various business environments.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
-            <img
-              src="/images/services-optimized/commercial-projects/Commercial-Services-3-min.webp"
-              alt="Industrial building painting in Decatur IL"
-              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-              data-lightbox-gallery="commercial-gallery"
-            />
+        <div class="max-w-5xl mx-auto">
+          <!-- Featured Long Image -->
+          <div class="mb-6">
+            <div class="gallery-item group overflow-hidden rounded-xl shadow-2xl h-80 md:h-96">
+              <img
+                src="/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Commerical Exterior.webp"
+                alt="Featured commercial exterior painting transformation in Central Illinois"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+                data-lightbox-gallery="commercial-gallery"
+              />
+            </div>
           </div>
-          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
-            <img
-              src="/images/services-optimized/commercial-projects/553681598_18030208775725762_3952859797050168874_n.webp"
-              alt="Commercial office interior painting in Springfield Illinois"
-              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-              data-lightbox-gallery="commercial-gallery"
-            />
-          </div>
-          <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
-            <img
-              src="/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Commerical Exterior.webp"
-              alt="Commercial exterior painting transformation in Central Illinois"
-              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-              data-lightbox-gallery="commercial-gallery"
-            />
-          </div>
-        </div>
 
-        <div class="text-center mt-12">
-          <a href="/our-work" class="inline-block px-8 py-3.5 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
-            View Full Gallery
-          </a>
+          <!-- 3 Images Grid Below -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="gallery-item group overflow-hidden rounded-lg shadow-lg h-64">
+              <img
+                src="/images/services-optimized/commercial-projects/Commercial-Services-3-min.webp"
+                alt="Industrial building painting in Decatur IL"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                data-lightbox-gallery="commercial-gallery"
+              />
+            </div>
+            <div class="gallery-item group overflow-hidden rounded-lg shadow-lg h-64">
+              <img
+                src="/images/services-optimized/commercial-projects/553681598_18030208775725762_3952859797050168874_n.webp"
+                alt="Commercial office interior painting in Springfield Illinois"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                data-lightbox-gallery="commercial-gallery"
+              />
+            </div>
+            <div class="gallery-item group overflow-hidden rounded-lg shadow-lg h-64">
+              <img
+                src="/images/services-optimized/commercial-projects/warehouse-paint-min.webp"
+                alt="Warehouse painting project in Macon County IL"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                data-lightbox-gallery="commercial-gallery"
+              />
+            </div>
+          </div>
+
+          <!-- Gallery CTA -->
+          <div class="text-center">
+            <a href="/our-work#commercial" class="inline-block px-8 py-4 bg-sky-400 text-white font-bold text-lg rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+              View Full Gallery
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ Section -->
-    <FAQAccordion faqs={faqs} title="Commercial Services FAQs" initialVisible={3} />
+    <!-- FAQ Section with Video -->
+    <FAQWithVideo 
+      faqs={faqs} 
+      title="Commercial Services FAQs" 
+      videoSrc="https://player.vimeo.com/progressive_redirect/playback/919437335/rendition/1080p/file.mp4?loc=external&log_user=0&signature=c63f4c94c30150aad1912cb8e1b384a31028744d4daa1c39cb347b63c46e60b5"
+      videoThumbnail="/images/services-optimized/commercial-projects/2-3.webp"
+      videoTitle="See Our Commercial Work"
+    />
     <FAQSchema faqs={faqs} />
+    <BreadcrumbSchema items={breadcrumbs} />
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

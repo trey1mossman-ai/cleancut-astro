@@ -1,9 +1,9 @@
 # CleanCut Pros Website - Roadmap to Launch
 
 **Created:** 2026-01-20
-**Last Updated:** 2026-01-23
+**Last Updated:** 2026-01-29
 **Target Launch:** 2026-01-30
-**Current Status:** 95% Complete
+**Current Status:** 99% Complete
 
 ---
 
@@ -31,12 +31,20 @@ All service pages complete with FAQs. SEO optimization complete (schema markup, 
 - Keyword research document (500+ keywords)
 - SEO image strategy document
 
+### ✅ SEO/AEO OPTIMIZATION (Jan 29)
+- [x] Open Graph and Twitter meta tags added to Layout.astro
+- [x] BreadcrumbSchema added to all 8 service pages
+- [x] Home page H1 SEO optimized with sr-only text
+- [x] EXIF Title/Description added to 87 service images
+- [x] Power washing image folder created (4 images)
+- [x] VideoObject schema added to FAQWithVideo component
+- [x] AggregateRating schema added to GoogleReviews component
+
 ### ❌ REMAINING
 | Item | Status | Impact |
 |------|--------|--------|
-| robots.txt | Needs verification | Low - likely exists |
 | sitemap submission | Not submitted to GSC | Medium - post-launch OK |
-| Client final approval | Awaiting | Required for launch |
+| Client final approval | Awaiting Jan 29 10am meeting | Required for launch |
 
 ---
 
@@ -131,8 +139,8 @@ All 7 service pages audited and match Google Doc exactly.
 Thu Jan 22: ✅ SEO optimization complete, gallery UX complete
 Fri Jan 23: Reply to Colleen, address any feedback
 Mon Jan 27: Buffer / catch-up
-Tue Jan 28: Final testing
-Wed Jan 29: Send to Colleen for approval
+Tue Jan 28: ✅ Full website overhaul (15 phases from Colleen feedback)
+Wed Jan 29: ✅ SEO/AEO masterplan complete (8 phases), Final review with Colleen 10am MST
 Thu Jan 30: LAUNCH DAY
 ```
 
@@ -188,6 +196,8 @@ Launch is complete when:
 
 ## Changelog
 
+- **2026-01-29:** SEO/AEO masterplan executed - OG tags, BreadcrumbSchema, VideoObject, AggregateRating, EXIF metadata
+- **2026-01-28:** Full website overhaul (15 phases) from Colleen feedback meeting
 - **2026-01-23:** Roadmap updated to reflect completed SEO work from Jan 22
 - **2026-01-22:** SEO optimization complete (schema, alt texts, EXIF), gallery UX improvements
 - **2026-01-22:** FAQ section marked complete

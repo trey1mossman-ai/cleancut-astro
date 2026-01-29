@@ -5,8 +5,15 @@ import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
-import FAQAccordion from '../../components/FAQAccordion.astro';
+import FAQWithVideo from '../../components/FAQWithVideo.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
+import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://cleancutservice.com/' },
+  { name: 'Residential', url: 'https://cleancutservice.com/residential/' },
+  { name: 'Exterior Painting', url: 'https://cleancutservice.com/residential/exterior-painting/' }
+];
 
 const processSteps = [
   { number: 1, title: "Deep Cleaning", description: "We begin with a thorough pressure wash, hand scrub, and rinse to remove all dirt, mildew, and surface contaminants, ensuring a clean canvas for your project." },
@@ -61,7 +68,7 @@ const faqs = [
         alt="Professional exterior painting services in Decatur IL"
         class="absolute inset-0 w-full h-full object-cover"
       >
-      <div class="absolute inset-0 bg-gradient-to-br from-[#144787]/85 via-[#144787]/75 to-[#144787]/65 lg:from-black/70 lg:via-black/60 lg:to-black/50 backdrop-blur-md lg:backdrop-blur-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
           <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6 drop-shadow-lg">
@@ -294,9 +301,16 @@ const faqs = [
       </div>
     </section>
 
-    <!-- FAQ Section -->
-    <FAQAccordion faqs={faqs} title="Exterior Painting FAQs" initialVisible={3} />
+    <!-- FAQ Section with Video -->
+    <FAQWithVideo 
+      faqs={faqs} 
+      title="Exterior Painting FAQs" 
+      videoSrc="https://player.vimeo.com/progressive_redirect/playback/919437138/rendition/1080p/file.mp4?loc=external&log_user=0&signature=739ef3e8456ed249af4a6d9968231c76b93d06f27f2c4bbd06bae63c9aff83ce"
+      videoThumbnail="/images/services-optimized/exterior-painting/552533568_18029634086725762_2275584699687083915_n.webp"
+      videoTitle="See Our Exterior Painting Process"
+    />
     <FAQSchema faqs={faqs} />
+    <BreadcrumbSchema items={breadcrumbs} />
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

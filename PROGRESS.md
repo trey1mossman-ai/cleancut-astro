@@ -1,17 +1,60 @@
 # CleanCut Pros Progress
 
 ## Last Updated
-2026-01-28 - Full website overhaul complete (15 phases), deployed to Vercel
+2026-01-29 - SEO/AEO masterplan complete (8 phases), deployed to Vercel
 
 ## Current State
 - Preview site live: https://cleancut-astro.vercel.app
 - Production domain: cleancutservice.com (not yet pointed)
-- Implementation plan at: https://cleancut-astro.vercel.app/plan/
 - Launch target: January 30, 2026
-- All Jan 26 edits IMPLEMENTED and DEPLOYED
+- All SEO/AEO optimization COMPLETE and DEPLOYED
 - Final review with Colleen: Jan 29 at 10am MST
 
 ## Session Log
+
+### 2026-01-29
+**Focus:** SEO/AEO masterplan execution + bug fixes from previous session
+
+**Completed:**
+- Fixed About Us CTA section to match interior-painting page (solid bg, pattern overlay, correct sizing)
+- Fixed Our Work lightbox - added pointer-events-none to overlay elements so images are clickable
+- Created comprehensive SEO-AEO-MASTERPLAN.md document
+- Phase 1: Added Open Graph + Twitter meta tags to Layout.astro
+- Phase 2: Added BreadcrumbSchema to 8 pages (all 6 residential, commercial, about)
+- Phase 3: Optimized Home Page H1 with sr-only SEO text while keeping visual slogans
+- Phase 4: Added EXIF Title/Description to 87 images in services-optimized folders
+- Phase 5: Created power-washing image folder with 4 images + EXIF metadata
+- Phase 6: Added VideoObject schema to FAQWithVideo component for video rich results
+- Phase 7: Added AggregateRating schema to GoogleReviews (5-star, 89 reviews)
+- Phase 8: Built and deployed all changes to Vercel
+- Updated ROADMAP.md with SEO/AEO completion status
+
+**Files Changed:**
+- `src/layouts/Layout.astro` - OG tags, Twitter cards, geo meta tags
+- `src/components/Hero.astro` - SEO H1 with sr-only keyword text
+- `src/components/FAQWithVideo.astro` - VideoObject JSON-LD schema
+- `src/components/GoogleReviews.astro` - AggregateRating JSON-LD schema
+- `src/pages/about.astro` - BreadcrumbSchema + CTA fix
+- `src/pages/commercial.astro` - BreadcrumbSchema
+- `src/pages/our-work.astro` - Lightbox fix (pointer-events-none)
+- `src/pages/residential/*.astro` - BreadcrumbSchema on all 6 pages
+- `public/images/services-optimized/*/` - EXIF metadata on 87 images
+- `public/images/services-optimized/power-washing/` - NEW folder with 4 images
+- `SEO-AEO-MASTERPLAN.md` - NEW: Full implementation tracking document
+- `ROADMAP.md` - Updated with SEO completion status
+
+**Schema Types Now Active:**
+- LocalBusiness (all pages)
+- FAQPage (8 pages with FAQs)
+- BreadcrumbList (8 pages)
+- VideoObject (7 service pages)
+- AggregateRating (home page)
+
+**Notes for Next Session:**
+- Final review with Colleen is TODAY Jan 29 at 10am MST
+- Launch target is Jan 30
+- All SEO/AEO work complete - ready for launch
+- Post-launch: Submit sitemap to Google Search Console
 
 ### 2026-01-28
 **Focus:** Full implementation of Jan 26 website edits (15-phase overhaul)
@@ -92,13 +135,13 @@
 - CTAs should open popup form, not navigate to contact page
 
 ## Waiting On
-- Colleen Hayes - Final review at Jan 29 10am meeting, then launch approval for Jan 30
+- Colleen Hayes - Final review at Jan 29 10am MST meeting, then launch approval for Jan 30
 
 ## Next Steps
-1. Final review call with Colleen (Jan 29, 10am MST)
+1. Final review call with Colleen (Jan 29, 10am MST) - TODAY
 2. Address any feedback from review
-3. Optimize large Drive images before launch (some are 25-40MB)
-4. Launch: point cleancutservice.com to Vercel (Jan 30 target)
+3. Launch: point cleancutservice.com to Vercel (Jan 30 target)
+4. Post-launch: Submit sitemap to Google Search Console + Bing Webmaster Tools
 
 ## Key Resources
 - Colleen's feedback doc: https://docs.google.com/document/d/1GOkWl35AYPddEpHo1fyNRjELBNPoOZtQROeZOn3vj04/edit
