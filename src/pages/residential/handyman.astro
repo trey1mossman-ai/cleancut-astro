@@ -4,7 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
-import FAQWithVideo from '../../components/FAQWithVideo.astro';
+import FAQWithImage from '../../components/FAQWithImage.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
 
@@ -196,12 +196,11 @@ const faqs = [
 
     <!-- FAQ Section -->
     <!-- FAQ Section with Video -->
-    <FAQWithVideo 
-      faqs={faqs} 
-      title="Handyman Services FAQs" 
-      videoSrc="https://player.vimeo.com/progressive_redirect/playback/919437458/rendition/1080p/file.mp4?loc=external&log_user=0&signature=9c3e481f7d5f313ae5e65ac5c975b0ee8069d4f4804b24b7bc932659c0f08470"
-      videoThumbnail="/images/drive-photos/handyman-section1.jpg"
-      videoTitle="See Our Handyman Services"
+    <FAQWithImage
+      faqs={faqs}
+      title="Handyman Services FAQs"
+      backgroundImage="/images/faq-backgrounds/handyman.webp"
+      imageAlt="Handyman services by Clean Cut" parallax={true}
     />
     <FAQSchema faqs={faqs} />
     <BreadcrumbSchema items={breadcrumbs} />

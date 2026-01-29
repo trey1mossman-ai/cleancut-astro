@@ -89,7 +89,7 @@ const coreValues = [
             <div class="relative rounded-lg shadow-xl overflow-hidden">
               <div class="relative aspect-[4/3]">
                 <img
-                  src="/images/Home Page/About Us/CC _ Home Page Photos_About Us_1.webp"
+                  src="/images/Home Page/About Us/CC _ Home Page Photos_About Us_3.webp"
                   alt="Clean Cut Painting family-owned business story - serving Central Illinois since 2016"
                   width="600"
                   height="450"
@@ -149,7 +149,7 @@ const coreValues = [
             <div class="relative rounded-lg shadow-xl overflow-hidden">
               <div class="relative aspect-[4/3]">
                 <img
-                  src="/images/Home Page/About Us/CC _ Home Page Photos_About Us_3.webp"
+                  src="/images/Home Page/About Us/CC _ Home Page Photos_About Us_1.webp"
                   alt="Clean Cut Painting & Handyman expanding services throughout Decatur and Macon County"
                   width="600"
                   height="450"
@@ -171,19 +171,27 @@ const coreValues = [
       </div>
     </section>
 
-    <ProcessScrollCards steps={coreValues} title="Our Core Values" />
+    <ProcessScrollCards steps={coreValues} title="Our Core Values" ctaText="View More →" />
 
 
     <!-- Our Commitment to You -->
-    <section class="py-16 bg-white">
-      <div class="container-custom">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
-            Our Commitment to You
-          </h2>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            We do more than paint or complete repairs. We build trust. From your first call to the final walkthrough, we focus on clear communication, honest timelines, and dependable service. Clean Cut Painting &amp; Handyman is fully insured, and certificates are available on request. Safety and professionalism are at the core of everything we do.
-          </p>
+    <section class="py-16 relative">
+      <img
+        src="/images/commitment-bg.webp"
+        alt="Clean Cut team at work"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="container-custom relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-white/95 backdrop-blur-sm rounded-xl p-8 lg:p-12 shadow-2xl text-center">
+            <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
+              Our Commitment to You
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+              We do more than paint or complete repairs. We build trust. From your first call to the final walkthrough, we focus on clear communication, honest timelines, and dependable service. Clean Cut Painting &amp; Handyman is fully insured, and certificates are available on request. Safety and professionalism are at the core of everything we do.
+            </p>
+          </div>
         </div>
       </div>
     </section>

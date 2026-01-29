@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
-import FAQWithVideo from '../../components/FAQWithVideo.astro';
+import FAQWithImage from '../../components/FAQWithImage.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
 
@@ -289,12 +289,11 @@ const processSteps = [
     </section>
 
     <!-- FAQ Section with Video -->
-    <FAQWithVideo 
-      faqs={faqs} 
-      title="Deck Staining FAQs" 
-      videoSrc="https://player.vimeo.com/progressive_redirect/playback/919437263/rendition/1080p/file.mp4?loc=external&log_user=0&signature=5ef81898bc2b2c14a72352b272d76e9609c49156c3cb19dd66f9fd0f4b91c4c3"
-      videoThumbnail="/images/services-optimized/deck-staining/june-26.webp"
-      videoTitle="See Our Deck Staining Process"
+    <FAQWithImage
+      faqs={faqs}
+      title="Deck Staining FAQs"
+      backgroundImage="/images/faq-backgrounds/deck-staining.webp"
+      imageAlt="Deck staining project by Clean Cut"
     />
     <FAQSchema faqs={faqs} />
     <BreadcrumbSchema items={breadcrumbs} />

@@ -6,11 +6,12 @@ interface Step {
 }
 
 interface Props {
+  ctaText?: string;
   steps: Step[];
   title?: string;
 }
 
-const { steps, title = "Our Process" } = Astro.props;
+const { steps, title = "Our Process", ctaText = "View the Full Process →" } = Astro.props;
 ---
 
 <section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover; background-position: center;">
@@ -52,9 +53,9 @@ const { steps, title = "Our Process" } = Astro.props;
       <div class="flex justify-center mt-6">
         <button 
           class="scroll-more-btn flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/30 rounded-full text-white text-sm font-medium transition-all duration-300 group"
-          aria-label="See more steps"
+          aria-label="See more steps" data-cta-text={ctaText}
         >
-          <span class="btn-text">See Step 5</span>
+          <span class="btn-text">{ctaText}</span>
           <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
           </svg>
@@ -154,7 +155,7 @@ const { steps, title = "Our Process" } = Astro.props;
         btnText.textContent = 'Back to Start';
         btn.querySelector('svg')?.classList.add('rotate-180');
       } else {
-        btnText.textContent = 'See Step 5';
+        btnText.textContent = btn.dataset.ctaText || 'View the Full Process →';
         btn.querySelector('svg')?.classList.remove('rotate-180');
       }
     };

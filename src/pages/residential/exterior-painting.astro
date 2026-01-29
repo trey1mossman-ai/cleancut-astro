@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
-import FAQWithVideo from '../../components/FAQWithVideo.astro';
+import FAQWithImage from '../../components/FAQWithImage.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
 
@@ -302,12 +302,11 @@ const faqs = [
     </section>
 
     <!-- FAQ Section with Video -->
-    <FAQWithVideo 
-      faqs={faqs} 
-      title="Exterior Painting FAQs" 
-      videoSrc="https://player.vimeo.com/progressive_redirect/playback/919437138/rendition/1080p/file.mp4?loc=external&log_user=0&signature=739ef3e8456ed249af4a6d9968231c76b93d06f27f2c4bbd06bae63c9aff83ce"
-      videoThumbnail="/images/services-optimized/exterior-painting/552533568_18029634086725762_2275584699687083915_n.webp"
-      videoTitle="See Our Exterior Painting Process"
+    <FAQWithImage
+      faqs={faqs}
+      title="Exterior Painting FAQs"
+      backgroundImage="/images/faq-backgrounds/exterior-painting.webp"
+      imageAlt="Exterior painting project by Clean Cut"
     />
     <FAQSchema faqs={faqs} />
     <BreadcrumbSchema items={breadcrumbs} />

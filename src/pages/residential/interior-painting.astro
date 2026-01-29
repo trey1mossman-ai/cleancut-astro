@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
-import FAQWithVideo from '../../components/FAQWithVideo.astro';
+import FAQWithImage from '../../components/FAQWithImage.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
 
@@ -297,12 +297,11 @@ const faqs = [
     </section>
 
     <!-- FAQ Section with Video -->
-    <FAQWithVideo 
-      faqs={faqs} 
-      title="Interior Painting FAQs" 
-      videoSrc="https://player.vimeo.com/progressive_redirect/playback/919437556/rendition/1080p/file.mp4?loc=external&log_user=0&signature=eb333e5eeba651e3cdd540e12b7fd79719a319bd5b3122d8c99aa0b625442058"
-      videoThumbnail="/images/services-optimized/interior-painting/6t4a6783.webp"
-      videoTitle="See Our Interior Painting Process"
+    <FAQWithImage
+      faqs={faqs}
+      title="Interior Painting FAQs"
+      backgroundImage="/images/faq-backgrounds/interior-painting.webp"
+      imageAlt="Interior painting project by Clean Cut"
     />
     <FAQSchema faqs={faqs} />
     <BreadcrumbSchema items={breadcrumbs} />

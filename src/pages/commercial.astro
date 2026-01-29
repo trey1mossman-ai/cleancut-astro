@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
 import Lightbox from '../components/Lightbox.astro';
 import ProcessScrollCards from '../components/ProcessScrollCards.astro';
-import FAQWithVideo from '../components/FAQWithVideo.astro';
+import FAQWithImage from '../components/FAQWithImage.astro';
 import FAQSchema from '../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 
@@ -277,12 +277,11 @@ const processSteps = [
     </section>
 
     <!-- FAQ Section with Video -->
-    <FAQWithVideo 
-      faqs={faqs} 
-      title="Commercial Services FAQs" 
-      videoSrc="https://player.vimeo.com/progressive_redirect/playback/919437335/rendition/1080p/file.mp4?loc=external&log_user=0&signature=c63f4c94c30150aad1912cb8e1b384a31028744d4daa1c39cb347b63c46e60b5"
-      videoThumbnail="/images/services-optimized/commercial-projects/2-3.webp"
-      videoTitle="See Our Commercial Work"
+    <FAQWithImage
+      faqs={faqs}
+      title="Commercial Services FAQs"
+      backgroundImage="/images/faq-backgrounds/commercial.webp"
+      imageAlt="Commercial services by Clean Cut"
     />
     <FAQSchema faqs={faqs} />
     <BreadcrumbSchema items={breadcrumbs} />
