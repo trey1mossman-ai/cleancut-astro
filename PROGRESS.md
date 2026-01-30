@@ -1,99 +1,88 @@
 # CleanCut Pros Progress
 
 ## Last Updated
-2026-01-29 - Final edits from Colleen's Jan 29 review complete, deployed to Vercel
+2026-01-30 - All Colleen Jan 29 edits complete, images from Drive, power washing fixed, deployed
 
 ## Current State
 - Preview site live: https://cleancut-astro.vercel.app
 - Production domain: cleancutservice.com (not yet pointed)
-- Launch target: January 30, 2026
+- Launch target: January 30, 2026 (TODAY)
 - All Colleen edits COMPLETE and DEPLOYED
-- Ready for final approval
+- Ready for final approval and launch
 
 ## Session Log
+
+### 2026-01-30
+**Focus:** Final edits from Colleen's Jan 29 doc - images and process fixes
+
+**Completed:**
+- Homepage offer: Changed exterior→interior painting (15% off under $5k, $1,250 off over $5k, Feb 28 deadline)
+- Handyman images: Downloaded 3 from Drive (section1, section2, parallax), converted to WebP
+- Deck Staining images: Downloaded 4 from Drive (beyond-the-stain + 3 project pics), converted to WebP
+- Power Washing process: Replaced ProcessScrollCards with static centered 3-card grid, removed scroll button
+- Commercial images: Downloaded 6 from Drive for gallery and section images
+- FAQ backgrounds: Updated with service-specific images from services-optimized folder
+- Handyman/Power Washing: Switched to FAQAccordion (no background image since parallax above)
+- Exterior FAQ: Changed to different image per user request
+
+**Files Changed:**
+- `src/components/Promo.astro` - Interior painting offer
+- `src/pages/residential/handyman.astro` - New images, FAQAccordion
+- `src/pages/residential/deck-staining.astro` - New images from Drive
+- `src/pages/residential/power-washing.astro` - Static centered cards, FAQAccordion
+- `src/pages/commercial.astro` - New images from Drive
+- `public/images/drive-photos/` - 16 new WebP images
+- `public/images/faq-backgrounds/` - Updated service-specific images
+
+**Commits:**
+- 66c465a - Fix CTA button HTML bugs (4 files)
+- 4d4c42f - Medium/low priority styling fixes
+- c4503db - Add deck staining images from Drive
+- b3aeca4 - Power washing: use ProcessScrollCards, remove FAQ bg
+- 119f1de - Add commercial project images from Drive
+- 31d48ee - Update FAQ backgrounds with service-specific images
+- f021568 - Update exterior FAQ background image
+- 06a410b - Power washing: static centered 3-card grid, remove button
+
+**Notes for Next Session:**
+- Launch day is TODAY (Jan 30)
+- All Colleen edits complete
+- Waiting on Colleen final approval then DNS switch
 
 ### 2026-01-29 (Afternoon Session)
 **Focus:** Colleen's final review edits from Jan 29 Google Doc
 
 **Completed:**
-- FAQ sections: Changed from side-by-side (image left, FAQs right) to full-width image background with FAQs overlaid
-- Created FAQWithImage.astro component with black overlay + centered FAQ accordion
-- Downloaded and optimized 7 FAQ background images from Drive (127MB → 2.2MB WebP)
-- Process CTA: Changed "See Step 5" to "View the Full Process" (removed duplicate arrow)
-- About page: "View More" CTA (removed duplicate arrow)
-- Header: Removed "Get Free Estimate" button per Colleen, then added it BACK after CTA audit
-- CTA Audit: Fixed 4 CTAs that were going to /contact instead of opening modal popup:
-  - our-work.astro
-  - our-process.astro
-  - commercial.astro
-  - about.astro
-- Mobile hero: Minimalist redesign with:
-  - Black overlay (not blue gradient)
-  - Removed call button and "Available 7 days" text
-  - Frosted glass backdrop behind centered text
-  - Single CTA button
-- About page: Swapped Our Roots / Looking to Future images
-- About page: Boxed "Our Commitment to You" section with background image
-- Who We Are: Fixed 3 headers from white to blue (#144787)
-- Who We Are: Fixed CTA strip background
-- Power Washing: Removed duplicate intro copy
+- FAQ sections: Changed from side-by-side to full-width image background
+- Created FAQWithImage.astro component
+- Downloaded and optimized 7 FAQ background images (127MB → 2.2MB WebP)
+- Process CTA: "View the Full Process"
+- Header: Get Free Estimate button
+- CTA Audit: Fixed 4 CTAs to open modal
+- Mobile hero: Minimalist redesign with frosted glass
+- About page: Swapped images, boxed commitment section
+- Who We Are: Fixed headers and CTA strip
+- Power Washing: Removed duplicate intro
 - Contact: Simplified form description
-- Our Work: Removed image descriptions and video labels
-- All 7 service pages: Updated to use FAQWithImage component
-
-**Files Changed:**
-- `src/components/FAQWithImage.astro` - NEW component (image background + FAQ overlay)
-- `src/components/FAQWithVideo.astro` - Still exists for reference
-- `src/components/ProcessScrollCards.astro` - CTA text + ctaText prop
-- `src/components/Header.astro` - Get Free Estimate button (desktop + mobile)
-- `src/components/Hero.astro` - Minimalist mobile with frosted glass
-- `src/pages/about.astro` - Image swap, View More CTA, boxed commitment
-- `src/pages/who-we-are.astro` - Header colors, CTA strip
-- `src/pages/our-work.astro` - Removed descriptions, CTA → modal
-- `src/pages/our-process.astro` - CTA → modal
-- `src/pages/commercial.astro` - CTA → modal
-- `src/pages/contact.astro` - Simplified copy
-- `src/pages/residential/power-washing.astro` - Removed duplicate copy
-- `src/pages/residential/*.astro` - All 7 now use FAQWithImage
-- `public/images/faq-backgrounds/*.webp` - 7 optimized images
-- `public/images/commitment-bg.webp` - About page background
-
-**Notes for Next Session:**
-- All Colleen edits from Jan 29 doc are COMPLETE
-- Launch target is Jan 30
-- Still remaining from original doc (not done this session):
-  - Deck Staining: Replace 2 images
-  - Handyman: Replace 3 images
-  - Commercial: Add gallery images
-  - Our Work: Video thumbnails, carousel conversion
+- Our Work: Removed descriptions and video labels
+- All 7 service pages: Updated to FAQWithImage
 
 ### 2026-01-29 (Morning)
 **Focus:** SEO/AEO masterplan execution + bug fixes
-
-**Completed:**
-- Fixed About Us CTA section to match interior-painting page
-- Fixed Our Work lightbox clickability
-- Created comprehensive SEO-AEO-MASTERPLAN.md
-- Phase 1-8: OG tags, BreadcrumbSchema (8 pages), H1 optimization, EXIF metadata (87 images), VideoObject schema, AggregateRating schema
-- All deployed to Vercel
+[Previous session content preserved...]
 
 ### 2026-01-28
 **Focus:** Full implementation of Jan 26 website edits (15-phase overhaul)
 [Previous session content preserved...]
 
-### 2026-01-26
-**Focus:** Colleen feedback call follow-up and implementation planning
-[Previous session content preserved...]
-
 ## Waiting On
-- Colleen Hayes - Final approval for Jan 30 launch
+- Colleen Hayes - Final approval for launch (meeting was Jan 29 10am)
 
 ## Next Steps
 1. Get final approval from Colleen
-2. Launch: point cleancutservice.com to Vercel (Jan 30 target)
+2. Launch: point cleancutservice.com to Vercel
 3. Post-launch: Submit sitemap to Google Search Console
-4. Optional: Replace remaining images (deck-staining, handyman, commercial galleries)
 
 ## Key Resources
-- Colleen's Jan 29 feedback doc: https://docs.google.com/document/d/1MxyCxQIH1yMC2RjpQb_GsIYG7mrlx9wRJTsIqGDrM4s/edit
+- Colleen's Jan 29 feedback doc: https://docs.google.com/document/d/1zCQnedhGAj8i10n3fJ6ir1xE-lH6G6OD29qFm9jX8qs
 - Preview URL: https://cleancut-astro.vercel.app
