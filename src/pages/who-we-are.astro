@@ -3,6 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://cleancutservice.com/' },
+  { name: 'Who We Are', url: 'https://cleancutservice.com/who-we-are/' }
+];
 
 const leadershipTeam = [
   { name: 'Dara Geiser', title: 'Owner & President', image: '/images/team/dara-geiser.webp', alt: 'Dara Geiser, Owner and President of Clean Cut Painting & Handyman in Decatur IL' },
@@ -14,6 +20,8 @@ const leadershipTeam = [
   { name: 'Heath Kavanaugh', title: 'Project Manager', image: '/images/team/heath-kavanaugh.webp', alt: 'Heath Kavanaugh, Project Manager at Clean Cut Painting Springfield Illinois' },
 ];
 ---
+<BreadcrumbSchema items={breadcrumbs} />
+
 
 <Layout
   title="Who We Are | Clean Cut Painting & Handyman"
@@ -25,7 +33,7 @@ const leadershipTeam = [
     <!-- Hero Section with Image -->
     <section class="relative min-h-[400px] flex items-center overflow-hidden">
       <img
-        src="/images/who-we-are-hero.jpg"
+        src="/images/who-we-are-hero.webp"
         alt="Clean Cut Painting & Handyman team at work"
         class="absolute inset-0 w-full h-full object-cover"
       />
@@ -56,7 +64,7 @@ const leadershipTeam = [
           </div>
           <div class="relative rounded-2xl overflow-hidden shadow-2xl">
             <img
-              src="/images/our-approach.jpg"
+              src="/images/our-approach.webp"
               alt="Clean Cut team working together"
               class="w-full h-80 lg:h-96 object-cover"
               loading="lazy"
@@ -100,7 +108,7 @@ const leadershipTeam = [
         <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           <div class="relative rounded-2xl overflow-hidden shadow-2xl">
             <img
-              src="/images/extended-team.jpg"
+              src="/images/extended-team.webp"
               alt="Clean Cut extended team of skilled applicators and installers"
               class="w-full h-80 lg:h-96 object-cover"
               loading="lazy"
@@ -132,7 +140,7 @@ const leadershipTeam = [
           </div>
           <div class="relative rounded-2xl overflow-hidden shadow-2xl">
             <img
-              src="/images/who-we-are-hero.jpg"
+              src="/images/who-we-are-hero.webp"
               alt="Clean Cut team collaborating on a project"
               class="w-full h-80 lg:h-96 object-cover"
               loading="lazy"

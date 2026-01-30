@@ -3,7 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://cleancutservice.com/' },
+  { name: 'Contact', url: 'https://cleancutservice.com/contact/' }
+];
 ---
+
+<BreadcrumbSchema items={breadcrumbs} />
 
 <Layout
   title="Contact Us | Clean Cut Painting & Handyman"

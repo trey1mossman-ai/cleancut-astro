@@ -4,6 +4,12 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
 import Lightbox from '../components/Lightbox.astro';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://cleancutservice.com/' },
+  { name: 'Our Work', url: 'https://cleancutservice.com/our-work/' }
+];
 
 // Gallery data organized by category - ALL images from services-optimized folders
 const galleryCategories = [
@@ -31,89 +37,92 @@ const galleryCategories = [
     id: 'exterior',
     title: 'Exterior Painting',
     images: [
-      { src: '/images/services-optimized/exterior-painting/552533568_18029634086725762_2275584699687083915_n.webp', alt: 'Professional exterior house painting with blue siding in Decatur IL' },
       { src: '/images/services-optimized/exterior-painting/519661187_18021421895725762_3375230967664930050_n.webp', alt: 'Exterior painting transformation on Springfield Illinois home' },
-      { src: '/images/services-optimized/exterior-painting/2-2.webp', alt: 'Quality exterior home painting by Central Illinois contractors' },
       { src: '/images/services-optimized/exterior-painting/1.webp', alt: 'Residential exterior painting with fresh finish in Decatur Illinois' },
-      { src: '/images/services-optimized/exterior-painting/march-25.webp', alt: 'Completed exterior painting project in Sangamon County IL' },
       { src: '/images/services-optimized/exterior-painting/3-3.webp', alt: 'Professional exterior painting service by Clean Cut in Central IL' },
+      { src: '/images/services-optimized/exterior-painting/552533568_18029634086725762_2275584699687083915_n.webp', alt: 'Professional exterior house painting with blue siding in Decatur IL' },
       { src: '/images/services-optimized/exterior-painting/2-4.webp', alt: 'Exterior house painting in Decatur IL' },
+      { src: '/images/services-optimized/exterior-painting/2-2.webp', alt: 'Quality exterior home painting by Central Illinois contractors' },
       { src: '/images/services-optimized/exterior-painting/1-1.webp', alt: 'Home exterior painting project in Springfield' },
-      { src: '/images/services-optimized/exterior-painting/539451089_18026133398725762_4830453403844705301_n.webp', alt: 'Exterior painting transformation in Central Illinois' },
-      { src: '/images/services-optimized/exterior-painting/515325683_18019944374725762_2104403430114134139_n.webp', alt: 'Professional exterior painters in Macon County' },
-      { src: '/images/services-optimized/exterior-painting/539876508_18026133380725762_7240269548733735434_n.webp', alt: 'Exterior home painting services in Decatur' },
-      { src: '/images/services-optimized/exterior-painting/575511257_18035041877725762_8577609490548752017_n.webp', alt: 'Quality exterior painting in Springfield IL' },
-      { src: '/images/services-optimized/exterior-painting/500888133_546646671853013_7280622945184023242_n.webp', alt: 'Exterior painting project completed in Central Illinois' },
-      { src: '/images/services-optimized/exterior-painting/487402286_505828639268150_4215644748292993585_n.webp', alt: 'Professional exterior painters in Decatur IL' },
+      { src: '/images/services-optimized/exterior-painting/march-25.webp', alt: 'Completed exterior painting project in Sangamon County IL' },
+      { src: '/images/services-optimized/exterior-painting/4-1.webp', alt: 'Quality exterior painting work in Macon County IL' },
       { src: '/images/services-optimized/exterior-painting/552527896_18029634068725762_4311999433661823934_n.webp', alt: 'Exterior home transformation by Clean Cut' },
-      { src: '/images/services-optimized/exterior-painting/500393461_546646668519680_4024686709663572418_n.webp', alt: 'Exterior painting service in Springfield Illinois' },
-      { src: '/images/services-optimized/exterior-painting/4-1.webp', alt: 'Quality exterior painting work in Macon County IL' }
+      { src: '/images/services-optimized/exterior-painting/487402286_505828639268150_4215644748292993585_n.webp', alt: 'Professional exterior painters in Decatur IL' },
+      { src: '/images/services-optimized/exterior-painting/539451089_18026133398725762_4830453403844705301_n.webp', alt: 'Exterior painting transformation in Central Illinois' },
+      { src: '/images/services-optimized/exterior-painting/539876508_18026133380725762_7240269548733735434_n.webp', alt: 'Exterior home painting services in Decatur' },
+      { src: '/images/services-optimized/exterior-painting/515325683_18019944374725762_2104403430114134139_n.webp', alt: 'Professional exterior painters in Macon County' },
+      { src: '/images/services-optimized/exterior-painting/500888133_546646671853013_7280622945184023242_n.webp', alt: 'Exterior painting project completed in Central Illinois' },
+      { src: '/images/services-optimized/exterior-painting/575511257_18035041877725762_8577609490548752017_n.webp', alt: 'Quality exterior painting in Springfield IL' },
+      { src: '/images/services-optimized/exterior-painting/500393461_546646668519680_4024686709663572418_n.webp', alt: 'Exterior painting service in Springfield Illinois' }
     ]
   },
   {
     id: 'cabinets',
     title: 'Cabinet Refinishing',
     images: [
+      { src: '/images/drive-photos/cab-section.webp', alt: 'Cabinet refinishing project in Central Illinois' },
+      { src: '/images/drive-photos/cab-bookcases.webp', alt: 'Bookcase refinishing by Clean Cut in Decatur' },
+      { src: '/images/Home Page/Residential Services/CC _ Home Page Photos_Cabinet Refinishing.webp', alt: 'Kitchen cabinet transformation in Springfield Illinois home' },
       { src: '/images/services-optimized/cabinet-refinishing/copy-of-2.webp', alt: 'Professional cabinet refinishing by Clean Cut Painting in Decatur IL' },
-      { src: '/images/Home Page/Residential Services/CC _ Home Page Photos_Cabinet Refinishing.webp', alt: 'Kitchen cabinet transformation in Springfield Illinois home' }
+      { src: '/images/drive-photos/cab-built-in-shelving.webp', alt: 'Built-in shelving refinishing in Springfield IL' }
     ]
   },
   {
     id: 'deck',
     title: 'Deck Staining',
     images: [
+      { src: '/images/services-optimized/deck-staining/april-7.webp', alt: 'Deck staining and sealing project in Decatur IL' },
+      { src: '/images/services-optimized/deck-staining/IMG_1499-scaled-1.webp', alt: 'Deck restoration project in Macon County' },
       { src: '/images/services-optimized/deck-staining/june-26.webp', alt: 'Professional deck staining and restoration in Decatur Illinois' },
-      { src: '/images/services-optimized/deck-staining/543742067_18027770942725762_6809030153408573163_n.webp', alt: 'Deck staining project with beautiful finish in Central Illinois' },
+      { src: '/images/services-optimized/deck-staining/IMG_6912.webp', alt: 'Deck staining transformation by Clean Cut' },
+      { src: '/images/services-optimized/deck-staining/428374471_229676476883369_8376536511528935022_n.webp', alt: 'Deck refinishing in Decatur Illinois' },
+      { src: '/images/services-optimized/deck-staining/april-6.webp', alt: 'Complete deck restoration and staining in Central Illinois' },
       { src: '/images/services-optimized/deck-staining/544063718_18027770906725762_8407492106307251719_n.webp', alt: 'Deck refinishing and staining service in Springfield IL' },
       { src: '/images/services-optimized/deck-staining/543046979_18027770933725762_2680363837880653339_n.webp', alt: 'Professional deck staining for outdoor living in Macon County' },
-      { src: '/images/services-optimized/deck-staining/april-7.webp', alt: 'Deck staining and sealing project in Decatur IL' },
-      { src: '/images/services-optimized/deck-staining/april-6.webp', alt: 'Complete deck restoration and staining in Central Illinois' },
-      { src: '/images/services-optimized/deck-staining/583124510_18036460997725762_6476803754567514557_n.webp', alt: 'Deck staining project in Springfield Illinois' },
-      { src: '/images/services-optimized/deck-staining/583050791_18035947280725762_8795222823425395569_n.webp', alt: 'Professional deck refinishing in Decatur' },
-      { src: '/images/services-optimized/deck-staining/539584409_18026353604725762_4349455036942164831_n.webp', alt: 'Deck staining transformation in Central Illinois' },
-      { src: '/images/services-optimized/deck-staining/522093810_18022111262725762_1937926814355583042_n.webp', alt: 'Quality deck staining services in Macon County' },
-      { src: '/images/services-optimized/deck-staining/583432087_18036266948725762_6124534272811690662_n.webp', alt: 'Deck restoration project in Springfield IL' },
-      { src: '/images/services-optimized/deck-staining/521569188_18022111241725762_4028609377114428667_n.webp', alt: 'Professional deck staining in Decatur Illinois' },
-      { src: '/images/services-optimized/deck-staining/581050290_18035947289725762_7133093439595718612_n.webp', alt: 'Deck refinishing work in Central Illinois' },
-      { src: '/images/services-optimized/deck-staining/2.webp', alt: 'Deck staining project completion in Springfield' },
-      { src: '/images/services-optimized/deck-staining/520293447_18021643091725762_6919768983089654575_n.webp', alt: 'Quality deck staining in Macon County IL' },
+      { src: '/images/services-optimized/deck-staining/543742067_18027770942725762_6809030153408573163_n.webp', alt: 'Deck staining project with beautiful finish in Central Illinois' },
       { src: '/images/services-optimized/deck-staining/IMG_6907.webp', alt: 'Professional deck staining services' },
-      { src: '/images/services-optimized/deck-staining/IMG_6912.webp', alt: 'Deck staining transformation by Clean Cut' },
-      { src: '/images/services-optimized/deck-staining/496040817_18013439825725762_70949091219564810_n.webp', alt: 'Deck restoration in Decatur IL' },
-      { src: '/images/services-optimized/deck-staining/496713539_18013439834725762_402022853171685264_n.webp', alt: 'Professional deck refinishing project' },
-      { src: '/images/services-optimized/deck-staining/520940369_18021643070725762_272670694070179050_n.webp', alt: 'Deck staining service in Springfield Illinois' },
       { src: '/images/services-optimized/deck-staining/544829780_18027770915725762_3402197193307370423_n.webp', alt: 'Quality deck staining in Central Illinois' },
-      { src: '/images/services-optimized/deck-staining/IMG_1499-scaled-1.webp', alt: 'Deck restoration project in Macon County' },
-      { src: '/images/services-optimized/deck-staining/583291386_18036266966725762_3222189851667588108_n.webp', alt: 'Professional deck staining work' },
       { src: '/images/services-optimized/deck-staining/544306346_18027770924725762_8396586166953689471_n.webp', alt: 'Deck staining project completion' },
-      { src: '/images/services-optimized/deck-staining/428374471_229676476883369_8376536511528935022_n.webp', alt: 'Deck refinishing in Decatur Illinois' },
-      { src: '/images/services-optimized/deck-staining/538955640_18026353610725762_3758149135181438104_n.webp', alt: 'Quality deck staining services by Clean Cut' }
+      { src: '/images/services-optimized/deck-staining/2.webp', alt: 'Deck staining project completion in Springfield' },
+      { src: '/images/services-optimized/deck-staining/520940369_18021643070725762_272670694070179050_n.webp', alt: 'Deck staining service in Springfield Illinois' },
+      { src: '/images/services-optimized/deck-staining/539584409_18026353604725762_4349455036942164831_n.webp', alt: 'Deck staining transformation in Central Illinois' },
+      { src: '/images/services-optimized/deck-staining/583050791_18035947280725762_8795222823425395569_n.webp', alt: 'Professional deck refinishing in Decatur' },
+      { src: '/images/services-optimized/deck-staining/583432087_18036266948725762_6124534272811690662_n.webp', alt: 'Deck restoration project in Springfield IL' },
+      { src: '/images/services-optimized/deck-staining/581050290_18035947289725762_7133093439595718612_n.webp', alt: 'Deck refinishing work in Central Illinois' },
+      { src: '/images/services-optimized/deck-staining/521569188_18022111241725762_4028609377114428667_n.webp', alt: 'Professional deck staining in Decatur Illinois' },
+      { src: '/images/services-optimized/deck-staining/496713539_18013439834725762_402022853171685264_n.webp', alt: 'Professional deck refinishing project' },
+      { src: '/images/services-optimized/deck-staining/520293447_18021643091725762_6919768983089654575_n.webp', alt: 'Quality deck staining in Macon County IL' },
+      { src: '/images/services-optimized/deck-staining/522093810_18022111262725762_1937926814355583042_n.webp', alt: 'Quality deck staining services in Macon County' },
+      { src: '/images/services-optimized/deck-staining/538955640_18026353610725762_3758149135181438104_n.webp', alt: 'Quality deck staining services by Clean Cut' },
+      { src: '/images/services-optimized/deck-staining/583124510_18036460997725762_6476803754567514557_n.webp', alt: 'Deck staining project in Springfield Illinois' },
+      { src: '/images/services-optimized/deck-staining/496040817_18013439825725762_70949091219564810_n.webp', alt: 'Deck restoration in Decatur IL' },
+      { src: '/images/services-optimized/deck-staining/583291386_18036266966725762_3222189851667588108_n.webp', alt: 'Professional deck staining work' }
     ]
   },
   {
     id: 'handyman',
     title: 'Handyman Services',
     images: [
-      { src: '/images/services-optimized/handyman-services/559111309_18031886504725762_7943760075710809760_n.webp', alt: 'Professional handyman services in Decatur IL' },
-      { src: '/images/services-optimized/handyman-services/494971123_18012629438725762_3702347420036493057_n.webp', alt: 'Handyman repairs and improvements in Springfield' },
-      { src: '/images/services-optimized/handyman-services/543745778_18027872903725762_2813762595052589321_n.webp', alt: 'Quality handyman work in Central Illinois' },
-      { src: '/images/services-optimized/handyman-services/3-1.webp', alt: 'Professional handyman services by Clean Cut' },
-      { src: '/images/services-optimized/handyman-services/550219718_18028811201725762_6360209715903294448_n.webp', alt: 'Handyman repairs in Macon County IL' },
-      { src: '/images/services-optimized/handyman-services/3.webp', alt: 'Handyman services in Decatur Illinois' },
-      { src: '/images/services-optimized/handyman-services/123_1.webp', alt: 'Quality handyman work in Springfield IL' },
-      { src: '/images/services-optimized/handyman-services/Elevate-Your-Home-with-Clean-Cut-Residential-Handyman-Services.webp', alt: 'Residential handyman services in Central Illinois' },
-      { src: '/images/services-optimized/handyman-services/IMG_6904.webp', alt: 'Professional handyman repairs by Clean Cut' },
-      { src: '/images/services-optimized/handyman-services/2-1.webp', alt: 'Handyman project in Decatur IL' },
-      { src: '/images/services-optimized/handyman-services/546236755_18028087628725762_8575736534731332789_n.webp', alt: 'Quality handyman services in Springfield' },
-      { src: '/images/services-optimized/handyman-services/527904068_18023926166725762_8348622986948131224_n.webp', alt: 'Handyman repairs in Macon County' },
-      { src: '/images/services-optimized/handyman-services/522668714_18022441463725762_6554196337879160986_n.webp', alt: 'Professional handyman work in Central Illinois' },
-      { src: '/images/services-optimized/handyman-services/CLEAN-CUT-19-scaled-1.webp', alt: 'Handyman services by Clean Cut Painting' },
+      { src: '/images/services-optimized/handyman-services/img-5768.webp', alt: 'Handyman repairs in Macon County IL' },
       { src: '/images/services-optimized/handyman-services/img-5769.webp', alt: 'Quality handyman repairs in Decatur' },
+      { src: '/images/services-optimized/handyman-services/543745778_18027872903725762_2813762595052589321_n.webp', alt: 'Quality handyman work in Central Illinois' },
       { src: '/images/services-optimized/handyman-services/3-2.webp', alt: 'Handyman project completion in Springfield IL' },
+      { src: '/images/services-optimized/handyman-services/546236755_18028087628725762_8575736534731332789_n.webp', alt: 'Quality handyman services in Springfield' },
+      { src: '/images/services-optimized/handyman-services/3.webp', alt: 'Handyman services in Decatur Illinois' },
       { src: '/images/services-optimized/handyman-services/545268678_18028087646725762_7333235915722150678_n.webp', alt: 'Professional handyman services' },
+      { src: '/images/services-optimized/handyman-services/550219718_18028811201725762_6360209715903294448_n.webp', alt: 'Handyman repairs in Macon County IL' },
+      { src: '/images/services-optimized/handyman-services/CLEAN-CUT-19-scaled-1.webp', alt: 'Handyman services by Clean Cut Painting' },
       { src: '/images/services-optimized/handyman-services/1-2.webp', alt: 'Handyman work in Central Illinois' },
       { src: '/images/services-optimized/handyman-services/CLEAN-CUT-9-scaled-1.webp', alt: 'Quality handyman services by Clean Cut' },
-      { src: '/images/services-optimized/handyman-services/img-5768.webp', alt: 'Handyman repairs in Macon County IL' }
+      { src: '/images/services-optimized/handyman-services/123_1.webp', alt: 'Quality handyman work in Springfield IL' },
+      { src: '/images/services-optimized/handyman-services/IMG_6904.webp', alt: 'Professional handyman repairs by Clean Cut' },
+      { src: '/images/services-optimized/handyman-services/Elevate-Your-Home-with-Clean-Cut-Residential-Handyman-Services.webp', alt: 'Residential handyman services in Central Illinois' },
+      { src: '/images/services-optimized/handyman-services/2-1.webp', alt: 'Handyman project in Decatur IL' },
+      { src: '/images/services-optimized/handyman-services/3-1.webp', alt: 'Professional handyman services by Clean Cut' },
+      { src: '/images/services-optimized/handyman-services/522668714_18022441463725762_6554196337879160986_n.webp', alt: 'Professional handyman work in Central Illinois' },
+      { src: '/images/services-optimized/handyman-services/494971123_18012629438725762_3702347420036493057_n.webp', alt: 'Handyman repairs and improvements in Springfield' },
+      { src: '/images/services-optimized/handyman-services/527904068_18023926166725762_8348622986948131224_n.webp', alt: 'Handyman repairs in Macon County' },
+      { src: '/images/services-optimized/handyman-services/559111309_18031886504725762_7943760075710809760_n.webp', alt: 'Professional handyman services in Decatur IL' }
     ]
   },
   {
@@ -122,25 +131,25 @@ const galleryCategories = [
     images: [
       { src: '/images/services-optimized/commercial-projects/2-3.webp', alt: 'Commercial painting and renovation project in Decatur Illinois' },
       { src: '/images/services-optimized/commercial-projects/april-10.webp', alt: 'Commercial exterior painting service in Springfield IL' },
+      { src: '/images/services-optimized/commercial-projects/commercial-service-img-min.webp', alt: 'Professional commercial painting services' },
       { src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Commerical Exterior.webp', alt: 'Commercial building exterior painting in Central Illinois' },
       { src: '/images/services-optimized/commercial-projects/Extensive-Commercial-min.webp', alt: 'Extensive commercial painting project' },
-      { src: '/images/services-optimized/commercial-projects/553681598_18030208775725762_3952859797050168874_n.webp', alt: 'Commercial painting in Decatur IL' },
-      { src: '/images/services-optimized/commercial-projects/573612022_18034116989725762_1733292767934060651_n.webp', alt: 'Commercial project in Springfield Illinois' },
       { src: '/images/services-optimized/commercial-projects/Commercial-Services-3-min.webp', alt: 'Commercial painting services in Central Illinois' },
+      { src: '/images/services-optimized/commercial-projects/553681598_18030208775725762_3952859797050168874_n.webp', alt: 'Commercial painting in Decatur IL' },
+      { src: '/images/services-optimized/commercial-projects/warehouse-paint-min.webp', alt: 'Warehouse painting project in Macon County' },
       { src: '/images/services-optimized/commercial-projects/568716005_18033595895725762_3032063587955144306_n.webp', alt: 'Commercial painting work by Clean Cut' },
-      { src: '/images/services-optimized/commercial-projects/commercial-service-img-min.webp', alt: 'Professional commercial painting services' },
-      { src: '/images/services-optimized/commercial-projects/warehouse-paint-min.webp', alt: 'Warehouse painting project in Macon County' }
+      { src: '/images/services-optimized/commercial-projects/573612022_18034116989725762_1733292767934060651_n.webp', alt: 'Commercial project in Springfield Illinois' }
     ]
   },
   {
     id: 'other',
     title: 'Additional Projects',
     images: [
-      { src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Pool Repair & Repaint.webp', alt: 'Pool area repair and repainting project in Decatur IL' },
-      { src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Garage Repaint-12.webp', alt: 'Garage floor and wall repainting in Springfield Illinois' },
-      { src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Garage Repaint-13.webp', alt: 'Completed garage renovation and painting in Decatur Illinois' },
       { src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Deck Rebuild.webp', alt: 'Complete deck rebuild and refinishing in Central Illinois' },
-      { src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Deck & Boat House Rebuild.webp', alt: 'Deck and boat house rebuild by Clean Cut in Macon County IL' }
+      { src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Deck & Boat House Rebuild.webp', alt: 'Deck and boat house rebuild by Clean Cut in Macon County IL' },
+      { src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Garage Repaint-13.webp', alt: 'Completed garage renovation and painting in Decatur Illinois' },
+      { src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Pool Repair & Repaint.webp', alt: 'Pool area repair and repainting project in Decatur IL' },
+      { src: '/images/Home Page/Recent Projects/CC _ Home Page Photos_Recent Work_Garage Repaint-12.webp', alt: 'Garage floor and wall repainting in Springfield Illinois' }
     ]
   }
 ];
@@ -219,6 +228,8 @@ const navLinks = [
   { id: 'other', label: 'Additional Projects' }
 ];
 ---
+<BreadcrumbSchema items={breadcrumbs} />
+
 
 <Layout
   title="Our Work | Clean Cut Painting & Handyman Gallery"
@@ -272,7 +283,7 @@ const navLinks = [
               {category.title}
             </h2>
             
-            {category.images.length > 6 ? (
+            {category.images.length > 0 ? (
               <!-- Carousel for categories with 6+ images -->
               <div class="relative">
                 <!-- Arrow Left -->
@@ -347,63 +358,6 @@ const navLinks = [
             )}
           </div>
         ))}
-      </div>
-    </section>
-
-    <!-- Video Gallery Section -->
-    <section class="py-16 bg-white">
-      <div class="container-custom">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-4">
-            Video Gallery
-          </h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Watch our team in action and see the quality craftsmanship we bring to every project
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {videos.map((video) => (
-            <div 
-              class="video-card group relative aspect-video rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform "
-              data-video-id={video.id}
-              data-video-src={video.src}
-            >
-              <img
-                src={video.thumbnail}
-                alt={`${video.title} - Watch video`}
-                class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-              />
-              
-              
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="play-btn w-16 h-16 sm:w-20 sm:h-20 bg-white/95 rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-105 transition-all duration-300 group-hover:bg-sky-400">
-                  <svg class="w-7 h-7 sm:w-8 sm:h-8 text-[#144787] group-hover:text-white ml-1 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-              </div>
-              
-              <!-- Video title/category removed per client request -->
-              
-              <div class="video-container absolute inset-0 hidden">
-                <video 
-                  class="w-full h-full object-cover" 
-                  controls 
-                  preload="none"
-                  playsinline
-                >
-                  <source src={video.src} type="video/mp4" />
-                </video>
-              </div>
-              
-              <div class="loading-spinner absolute inset-0 hidden items-center justify-center bg-[#144787]/80">
-                <div class="w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
 

@@ -42,9 +42,36 @@ const allTestimonials = [
 
 const featuredTestimonial = allTestimonials[0];
 const thumbnailTestimonials = allTestimonials.slice(1);
+
+// VideoObject schema for each testimonial
+const videoSchemas = allTestimonials.map(t => ({
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": `${t.name} - Clean Cut Customer Testimonial`,
+  "description": `${t.tagline} - ${t.name} shares their experience with Clean Cut Painting & Handyman in Central Illinois`,
+  "thumbnailUrl": `https://cleancutservice.com${t.thumbnail}`,
+  "contentUrl": `https://cleancutservice.com${t.video}`,
+  "uploadDate": "2026-01-01",
+  "duration": "PT1M30S",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Clean Cut Painting & Handyman",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cleancutservice.com/logo.webp"
+    }
+  }
+}));
 ---
 
-<section class="py-16 relative overflow-hidden" style="background-image: url('/images/pattern-bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<!-- VideoObject Schema for Testimonials -->
+{videoSchemas.map(schema => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema, null, 2)} />
+))}
+
+---
+
+<section class="py-16 relative overflow-hidden" style="background-image: url('/images/pattern-bg.webp'); background-size: cover; background-position: center; background-repeat: no-repeat;">
   <div class="container-custom relative z-10">
     <!-- Section Header -->
     <div class="text-center mb-8">
