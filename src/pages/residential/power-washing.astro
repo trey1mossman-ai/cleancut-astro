@@ -7,7 +7,7 @@ import Lightbox from '../../components/Lightbox.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
-import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
+
 const breadcrumbs = [
   { name: 'Home', url: 'https://cleancutservice.com/' },
   { name: 'Residential', url: 'https://cleancutservice.com/residential/' },
@@ -132,7 +132,27 @@ const processSteps = [
       </div>
     </section>
     <!-- Our Process Section - Horizontal Scroll Cards -->
-    <ProcessScrollCards steps={processSteps} />
+    <!-- Our Process Section - Static Centered Cards -->
+    <section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover; background-position: center;">
+      <div class="absolute inset-0 bg-[#144787]/90"></div>
+      <div class="relative z-10">
+        <div class="container-custom mb-10">
+          <h2 class="text-3xl lg:text-4xl font-display font-bold text-center text-white mb-3">Our Process</h2>
+          <p class="text-white/70 text-center max-w-2xl mx-auto">Turning Your Vision into Reality</p>
+        </div>
+        <div class="container-custom">
+          <div class="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            {processSteps.map((step) => (
+              <article class="bg-white rounded-xl shadow-xl p-6">
+                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-sky-400 to-sky-500 text-white flex items-center justify-center text-xl font-bold shadow-md mb-5">{step.number}</div>
+                <h3 class="text-lg font-bold text-[#144787] mb-3 leading-snug">{step.title}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Wide Image Strip - Parallax -->
     <section class="relative h-72 md:h-96 overflow-hidden">
       <div 
