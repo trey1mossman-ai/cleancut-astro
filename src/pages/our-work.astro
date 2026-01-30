@@ -361,6 +361,67 @@ const navLinks = [
       </div>
     </section>
 
+
+    <!-- Video Gallery Section -->
+    <section class="py-16 bg-white">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-4">
+            Video Gallery
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Watch our team in action and see the quality craftsmanship we bring to every project
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {videos.map((video) => (
+            <div
+              class="video-card group relative aspect-video rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
+              data-video-id={video.id}
+              data-video-src={video.src}
+            >
+              <!-- Video element with poster from first frame -->
+              <video
+                class="absolute inset-0 w-full h-full object-cover"
+                preload="metadata"
+                muted
+                playsinline
+              >
+                <source src={video.src + "#t=0.5"} type="video/mp4" />
+              </video>
+
+              <!-- Play button overlay -->
+              <div class="play-overlay absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors duration-300">
+                <div class="play-btn w-16 h-16 sm:w-20 sm:h-20 bg-white/95 rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-105 transition-all duration-300 group-hover:bg-sky-400">
+                  <svg class="w-7 h-7 sm:w-8 sm:h-8 text-[#144787] group-hover:text-white ml-1 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Full video container (shown when playing) -->
+              <div class="video-container absolute inset-0 hidden">
+                <video
+                  class="w-full h-full object-cover"
+                  controls
+                  preload="none"
+                  playsinline
+                >
+                  <source src={video.src} type="video/mp4" />
+                </video>
+              </div>
+
+              <!-- Loading spinner -->
+              <div class="loading-spinner absolute inset-0 hidden items-center justify-center bg-[#144787]/80">
+                <div class="w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover; background-position: center;">
       <div class="absolute inset-0 bg-[#144787]/90"></div>
