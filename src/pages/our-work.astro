@@ -559,6 +559,27 @@ const navLinks = [
     // VIDEO GALLERY - Click to Play Functionality
     // ============================================
     
+    // Function to stop all videos and reset their UI
+    function stopAllVideos() {
+      document.querySelectorAll(".video-card").forEach(otherCard => {
+        const otherContainer = otherCard.querySelector(".video-container");
+        const otherVideo = otherContainer?.querySelector("video");
+        const otherPreview = otherCard.querySelector("video:not(.video-container video)");
+        const otherOverlay = otherCard.querySelector(".play-overlay");
+        
+        if (otherContainer?.classList.contains("playing")) {
+          otherVideo?.pause();
+          otherVideo.currentTime = 0;
+          otherContainer.classList.add("hidden");
+          otherContainer.classList.remove("playing");
+          otherPreview?.classList.remove("hidden", "opacity-0");
+          otherOverlay?.classList.remove("hidden", "opacity-0");
+          otherCard.style.cursor = "pointer";
+        }
+      });
+    }
+
+
     const videoCards = document.querySelectorAll('.video-card');
     
     videoCards.forEach(card => {
@@ -574,6 +595,9 @@ const navLinks = [
         if (!videoContainer || !video) return;
         
         if (videoContainer.classList.contains('playing')) return;
+
+        // Stop any other playing videos first
+        stopAllVideos();
         
         loadingSpinner?.classList.remove('hidden');
         loadingSpinner?.classList.add('flex');
