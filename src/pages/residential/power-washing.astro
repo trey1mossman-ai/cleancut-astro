@@ -4,16 +4,15 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
-import FAQWithImage from '../../components/FAQWithImage.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
-
+import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
 const breadcrumbs = [
   { name: 'Home', url: 'https://cleancutservice.com/' },
   { name: 'Residential', url: 'https://cleancutservice.com/residential/' },
   { name: 'Power Washing', url: 'https://cleancutservice.com/residential/power-washing/' }
 ];
-
 const faqs = [
   {
     question: "How often should I power wash my home?",
@@ -40,20 +39,17 @@ const faqs = [
     answer: "Most residential jobs take 2-4 hours depending on home size and surfaces cleaned. We'll give you a time estimate upfront."
   }
 ];
-
 const processSteps = [
   { number: 1, title: "Hand Scrub and Deep Clean", description: "We don't just power wash; we go the extra mile by hand scrubbing and deep cleaning all surfaces. This includes windows, light fixtures, and door and window frames. Every inch of your home receives the attention it needs to shine." },
   { number: 2, title: "Gutter Care Excellence", description: "Our commitment extends to the health of your gutters. We not only remove debris but also go a step further by thoroughly flushing your downspouts. This ensures optimal function, preventing potential issues and safeguarding your home." },
   { number: 3, title: "Concrete Revitalization", description: "When it comes to cleaning concrete, we utilize a specialized concrete degreaser. This powerful solution ensures the thorough removal of all surface contaminants, leaving your concrete surfaces looking refreshed and renewed." }
 ];
 ---
-
 <Layout
   title="Power Washing | Professional Pressure Washing Services"
   description="Power washing services that go beyond the basics with meticulous attention to detail and comprehensive home care. Serving Decatur & Springfield IL. Free estimates!"
 >
   <Header />
-
   <main>
     <!-- Hero Section - Centered -->
     <section class="relative min-h-[350px] flex items-center overflow-hidden">
@@ -74,7 +70,6 @@ const processSteps = [
         </div>
       </div>
     </section>
-
     <!-- Clear Estimates & Beyond Section -->
     <section class="py-16 bg-white">
       <div class="container-custom">
@@ -100,7 +95,6 @@ const processSteps = [
             />
           </div>
         </div>
-
         <!-- Beyond Basic -->
         <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           <div class="order-2 lg:order-1">
@@ -137,33 +131,8 @@ const processSteps = [
         </div>
       </div>
     </section>
-
-    <!-- Our Process Section - Centered Static Grid -->
-    <section class="py-16 bg-[#144787]">
-      <div class="container-custom">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl lg:text-4xl font-display font-bold text-white mb-4">
-            Our Process
-          </h2>
-          <p class="text-lg text-white/80 max-w-2xl mx-auto">
-            A thorough approach that delivers exceptional results
-          </p>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {processSteps.map((step) => (
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center">
-              <div class="w-14 h-14 bg-sky-400 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span class="text-2xl font-bold text-white">{step.number}</span>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-4">{step.title}</h3>
-              <p class="text-white/80 text-sm leading-relaxed">{step.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
+    <!-- Our Process Section - Horizontal Scroll Cards -->
+    <ProcessScrollCards steps={processSteps} />
     <!-- Wide Image Strip - Parallax -->
     <section class="relative h-72 md:h-96 overflow-hidden">
       <div 
@@ -171,17 +140,13 @@ const processSteps = [
         style="background-image: url('/images/drive-photos/pw-image-strip.jpg');"
       ></div>
     </section>
-
     <!-- FAQ Section with Video -->
-    <FAQWithImage
+    <FAQAccordion
       faqs={faqs}
       title="Power Washing FAQs"
-      backgroundImage="/images/faq-backgrounds/power-washing.webp"
-      imageAlt="Power washing project by Clean Cut"
     />
     <FAQSchema faqs={faqs} />
     <BreadcrumbSchema items={breadcrumbs} />
-
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">
       <div class="absolute inset-0 opacity-20" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover;"></div>
@@ -205,7 +170,6 @@ const processSteps = [
       </div>
     </section>
   </main>
-
   <Footer />
   <FloatingCallButton />
   <Lightbox />
