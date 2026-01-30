@@ -4,7 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FloatingCallButton from '../../components/FloatingCallButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
-import FAQWithImage from '../../components/FAQWithImage.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
 
@@ -196,11 +196,11 @@ const faqs = [
 
     <!-- FAQ Section -->
     <!-- FAQ Section with Video -->
-    <FAQWithImage
+    <FAQAccordion
       faqs={faqs}
       title="Handyman Services FAQs"
-      backgroundImage="/images/faq-backgrounds/handyman.webp"
-      imageAlt="Handyman services by Clean Cut" 
+      
+       
     />
     <FAQSchema faqs={faqs} />
     <BreadcrumbSchema items={breadcrumbs} />
