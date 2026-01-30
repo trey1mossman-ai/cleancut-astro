@@ -1,7 +1,7 @@
 # CleanCut Pros Progress
 
 ## Last Updated
-2026-01-30 - All Colleen Jan 29 edits complete, images from Drive, power washing fixed, deployed
+2026-01-30 - Colleen's Jan 30 email feedback complete, video gallery restored, mobile footer redesigned
 
 ## Current State
 - Preview site live: https://cleancut-astro.vercel.app
@@ -12,7 +12,35 @@
 
 ## Session Log
 
-### 2026-01-30
+### 2026-01-30 (Late Morning)
+**Focus:** Colleen's Jan 30 email feedback - Our Work page, deck image, mobile footer
+
+**Completed:**
+- Deck Staining page: Replaced "Transforming Outdoor Spaces" image with cropped version from Drive
+- Our Work video gallery: Restored videos without image thumbnails (uses video first frame as poster)
+- Video playback: Only one video can play at a time (others auto-pause)
+- Removed broken Cabinet Refinishing video (Vimeo 403 Forbidden)
+- Cabinet section: Added 3 more images (cab-section, cab-bookcases, cab-built-in-shelving)
+- Gallery sections: Made ALL sections use same carousel style (including Additional Projects)
+- Image ordering: Reordered all gallery sections by file size (highest quality first)
+- Footer logo: Fixed broken path by converting PNG to WebP
+- Mobile footer: Complete redesign with prominent call/estimate CTAs, larger touch targets, cleaner layout
+
+**Files Changed:**
+- `src/pages/our-work.astro` - Video gallery restored, all sections carousel, images reordered
+- `src/pages/residential/deck-staining.astro` - New cropped deck image
+- `src/components/Footer.astro` - Mobile-first redesign
+- `public/CC - Footer Logo.webp` - Converted from PNG
+- `public/images/drive-photos/deck-transforming.webp` - New cropped deck image
+
+**Commits:**
+- 663f6ab - Reorder Our Work gallery images by quality
+- 5396db0 - Improve mobile footer design
+- 919c95f - Restore video gallery section without thumbnails
+- 6cf6fd0 - Remove broken Cabinet Refinishing video
+- 9f0fae2 - Only allow one video to play at a time
+
+### 2026-01-30 (Morning)
 **Focus:** Final edits from Colleen's Jan 29 doc - images and process fixes
 
 **Completed:**
@@ -34,21 +62,6 @@
 - `public/images/drive-photos/` - 16 new WebP images
 - `public/images/faq-backgrounds/` - Updated service-specific images
 
-**Commits:**
-- 66c465a - Fix CTA button HTML bugs (4 files)
-- 4d4c42f - Medium/low priority styling fixes
-- c4503db - Add deck staining images from Drive
-- b3aeca4 - Power washing: use ProcessScrollCards, remove FAQ bg
-- 119f1de - Add commercial project images from Drive
-- 31d48ee - Update FAQ backgrounds with service-specific images
-- f021568 - Update exterior FAQ background image
-- 06a410b - Power washing: static centered 3-card grid, remove button
-
-**Notes for Next Session:**
-- Launch day is TODAY (Jan 30)
-- All Colleen edits complete
-- Waiting on Colleen final approval then DNS switch
-
 ### 2026-01-29 (Afternoon Session)
 **Focus:** Colleen's final review edits from Jan 29 Google Doc
 
@@ -69,11 +82,9 @@
 
 ### 2026-01-29 (Morning)
 **Focus:** SEO/AEO masterplan execution + bug fixes
-[Previous session content preserved...]
 
 ### 2026-01-28
 **Focus:** Full implementation of Jan 26 website edits (15-phase overhaul)
-[Previous session content preserved...]
 
 ## Waiting On
 - Colleen Hayes - Final approval for launch (meeting was Jan 29 10am)
