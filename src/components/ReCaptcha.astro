@@ -1,0 +1,33 @@
+---
+// ReCAPTCHA v3 Component
+// To enable: Add your site key below and include this component in Layout.astro
+
+// UNCOMMENT AND ADD YOUR SITE KEY TO ENABLE RECAPTCHA:
+// const RECAPTCHA_SITE_KEY = 'YOUR_SITE_KEY_HERE';
+const RECAPTCHA_SITE_KEY = ''; // Leave empty to disable
+
+const isEnabled = RECAPTCHA_SITE_KEY && RECAPTCHA_SITE_KEY.length > 0;
+---
+
+{isEnabled && (
+  <>
+    <script is:inline define:vars={{ RECAPTCHA_SITE_KEY }}>
+      // Make site key available globally for form scripts
+      window.RECAPTCHA_SITE_KEY = RECAPTCHA_SITE_KEY;
+    </script>
+    <script is:inline src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}></script>
+  </>
+)}
+
+<!-- 
+  INSTRUCTIONS TO ENABLE RECAPTCHA:
+  
+  1. Get your reCAPTCHA v3 site key from: https://www.google.com/recaptcha/admin
+  2. Replace the empty string above with your site key:
+     const RECAPTCHA_SITE_KEY = '6Le...your-key-here';
+  3. Include this component in Layout.astro before </body>:
+     <ReCaptcha />
+  
+  The forms are already set up to use reCAPTCHA when available.
+  They will work without it (leads marked as "ReCaptcha Failed" in n8n).
+-->

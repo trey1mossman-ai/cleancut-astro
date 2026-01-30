@@ -115,10 +115,16 @@ const breadcrumbs = [
             <p class="text-lg text-gray-600 mb-8">
               Fill out the form below and we'll get back to you within 24 hours.
             </p>
-            <form class="space-y-4">
+            <form 
+              id="contact-form"
+              action="https://flow.voxemarketing.com/webhook/b6a9cc41-bace-4fce-ba1f-514cfaa8af19"
+              method="POST"
+              class="space-y-4"
+            >
               <div>
                 <input
                   type="text"
+                  name="full-name"
                   placeholder="Full Name *"
                   required
                   class="w-full h-12 px-4 py-2.5 bg-white border border-gray-200 rounded-lg focus:border-sky-400 focus:ring-2 focus:ring-sky-400/10 focus:outline-none transition-all"
@@ -127,6 +133,7 @@ const breadcrumbs = [
               <div>
                 <input
                   type="tel"
+                  name="phone"
                   placeholder="Phone Number *"
                   required
                   class="w-full h-12 px-4 py-2.5 bg-white border border-gray-200 rounded-lg focus:border-sky-400 focus:ring-2 focus:ring-sky-400/10 focus:outline-none transition-all"
@@ -135,6 +142,7 @@ const breadcrumbs = [
               <div>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email Address *"
                   required
                   class="w-full h-12 px-4 py-2.5 bg-white border border-gray-200 rounded-lg focus:border-sky-400 focus:ring-2 focus:ring-sky-400/10 focus:outline-none transition-all"
@@ -142,6 +150,7 @@ const breadcrumbs = [
               </div>
               <div>
                 <select
+                  name="service"
                   required
                   class="w-full h-12 px-4 py-2.5 bg-white border border-gray-200 rounded-lg focus:border-sky-400 focus:ring-2 focus:ring-sky-400/10 focus:outline-none transition-all"
                 >
@@ -158,11 +167,16 @@ const breadcrumbs = [
               </div>
               <div>
                 <textarea
+                  name="message"
                   placeholder="Message (Optional)"
                   rows="5"
                   class="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-lg focus:border-sky-400 focus:ring-2 focus:ring-sky-400/10 focus:outline-none transition-all resize-none"
                 ></textarea>
               </div>
+
+              <!-- Hidden reCAPTCHA field - will be populated by JS if reCAPTCHA is enabled -->
+              <input type="hidden" name="g-recaptcha-response" id="contact-recaptcha-token" value="">
+
               <button
                 type="submit"
                 class="w-full px-6 py-3 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transition-colors shadow-md"
@@ -202,3 +216,30 @@ const breadcrumbs = [
   <Footer />
   <FloatingCallButton />
 </Layout>
+
+<script>
+  // Handle reCAPTCHA if available
+  const contactForm = document.getElementById('contact-form') as HTMLFormElement;
+  
+  contactForm?.addEventListener('submit', async (e) => {
+    // If reCAPTCHA is available, get token first
+    if (typeof grecaptcha !== 'undefined' && window.RECAPTCHA_SITE_KEY) {
+      e.preventDefault();
+      
+      try {
+        const token = await grecaptcha.execute(window.RECAPTCHA_SITE_KEY, {action: 'contact_form_submit'});
+        const recaptchaInput = document.getElementById('contact-recaptcha-token') as HTMLInputElement;
+        if (recaptchaInput) {
+          recaptchaInput.value = token;
+        }
+        // Now submit the form
+        contactForm.submit();
+      } catch (err) {
+        console.error('reCAPTCHA error:', err);
+        // Submit anyway without reCAPTCHA
+        contactForm.submit();
+      }
+    }
+    // If no reCAPTCHA, form submits normally
+  });
+</script>
