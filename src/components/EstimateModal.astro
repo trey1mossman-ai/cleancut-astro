@@ -2,9 +2,7 @@
 // EstimateModal - Global popup form triggered by data-open-estimate buttons
 // Referenced from Layout.astro, available on all pages
 // Posts to n8n webhook for lead processing
-
-// reCAPTCHA site key - uncomment and add key when available
-// const RECAPTCHA_SITE_KEY = '';
+// reCAPTCHA handled by /js/grecaptchav3.js
 ---
 
 <!-- Estimate Modal -->
@@ -16,7 +14,7 @@
   <div class="absolute inset-0 flex items-center justify-center p-4">
     <div id="estimate-form-container" class="relative bg-white rounded-2xl shadow-2xl w-full max-w-md transform transition-all duration-300 scale-95 opacity-0">
       <!-- Close Button -->
-      <button id="close-estimate-form" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors z-10">
+      <button id="close-estimate-form" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors z-10" type="button">
         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
@@ -36,10 +34,10 @@
         method="POST"
       >
         <div>
-          <label for="estimate-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+          <label for="estimate-name-modal" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
           <input
             type="text"
-            id="estimate-name"
+            id="estimate-name-modal"
             name="full-name"
             required
             class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400 outline-none transition-all"
@@ -48,10 +46,10 @@
         </div>
 
         <div>
-          <label for="estimate-email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+          <label for="estimate-email-modal" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
           <input
             type="email"
-            id="estimate-email"
+            id="estimate-email-modal"
             name="email"
             required
             class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400 outline-none transition-all"
@@ -60,10 +58,10 @@
         </div>
 
         <div>
-          <label for="estimate-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+          <label for="estimate-phone-modal" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
           <input
             type="tel"
-            id="estimate-phone"
+            id="estimate-phone-modal"
             name="phone"
             class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400 outline-none transition-all"
             placeholder="(217) 555-1234"
@@ -71,9 +69,9 @@
         </div>
 
         <div>
-          <label for="estimate-service" class="block text-sm font-medium text-gray-700 mb-1">Service Interested In</label>
+          <label for="estimate-service-modal" class="block text-sm font-medium text-gray-700 mb-1">Service Interested In</label>
           <select
-            id="estimate-service"
+            id="estimate-service-modal"
             name="service"
             class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400 outline-none transition-all bg-white"
           >
@@ -89,12 +87,8 @@
           </select>
         </div>
 
-        <!-- Hidden reCAPTCHA field - will be populated by JS if reCAPTCHA is enabled -->
-        <input type="hidden" name="g-recaptcha-response" id="estimate-recaptcha-token" value="">
-
         <button
           type="submit"
-          id="estimate-submit-btn"
           class="w-full py-3 bg-sky-400 text-white font-semibold rounded-lg hover:bg-sky-500 transition-colors shadow-lg flex items-center justify-center gap-2"
         >
           <span>Get My Free Estimate</span>
@@ -105,26 +99,6 @@
 
         <p class="text-xs text-gray-500 text-center">We'll respond within 24 hours to schedule your free on-site evaluation.</p>
       </form>
-
-      <!-- Loading State -->
-      <div id="estimate-loading" class="hidden p-8 text-center">
-        <div class="w-16 h-16 border-4 border-sky-400/30 border-t-sky-400 rounded-full animate-spin mx-auto mb-4"></div>
-        <p class="text-gray-600">Submitting your request...</p>
-      </div>
-
-      <!-- Error Message -->
-      <div id="estimate-error" class="hidden p-8 text-center">
-        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold text-red-600 mb-2">Something went wrong</h3>
-        <p class="text-gray-600 mb-4">Please try again or call us directly at <a href="tel:+12173307310" class="text-sky-400">(217) 330-7310</a>.</p>
-        <button id="estimate-retry-btn" class="px-6 py-2 bg-[#144787] text-white font-semibold rounded-lg hover:bg-[#1a5299] transition-colors">
-          Try Again
-        </button>
-      </div>
     </div>
   </div>
 </div>
@@ -134,10 +108,6 @@
   const estimateBackdrop = document.getElementById('estimate-backdrop');
   const estimateFormContainer = document.getElementById('estimate-form-container');
   const closeEstimateBtn = document.getElementById('close-estimate-form');
-  const estimateForm = document.getElementById('estimate-form') as HTMLFormElement;
-  const estimateLoading = document.getElementById('estimate-loading');
-  const estimateError = document.getElementById('estimate-error');
-  const estimateRetryBtn = document.getElementById('estimate-retry-btn');
 
   function openEstimateModal() {
     estimateModal?.classList.remove('hidden');
@@ -154,27 +124,7 @@
     setTimeout(() => {
       estimateModal?.classList.add('hidden');
       document.body.style.overflow = '';
-      resetEstimateForm();
     }, 300);
-  }
-
-  function resetEstimateForm() {
-    estimateForm?.reset();
-    estimateForm?.classList.remove('hidden');
-    estimateLoading?.classList.add('hidden');
-    estimateError?.classList.add('hidden');
-  }
-
-  function showLoading() {
-    estimateForm?.classList.add('hidden');
-    estimateLoading?.classList.remove('hidden');
-    estimateError?.classList.add('hidden');
-  }
-
-  function showError() {
-    estimateForm?.classList.add('hidden');
-    estimateLoading?.classList.add('hidden');
-    estimateError?.classList.remove('hidden');
   }
 
   // Listen for all [data-open-estimate] buttons on the page
@@ -187,36 +137,10 @@
 
   closeEstimateBtn?.addEventListener('click', closeEstimateModal);
   estimateBackdrop?.addEventListener('click', closeEstimateModal);
-  estimateRetryBtn?.addEventListener('click', resetEstimateForm);
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !estimateModal?.classList.contains('hidden')) {
       closeEstimateModal();
     }
-  });
-
-  // Form submission - let it submit naturally to the webhook
-  // The webhook will redirect to /thank-you on success
-  estimateForm?.addEventListener('submit', async (e) => {
-    // If reCAPTCHA is available, get token first
-    if (typeof grecaptcha !== 'undefined' && window.RECAPTCHA_SITE_KEY) {
-      e.preventDefault();
-      showLoading();
-      
-      try {
-        const token = await grecaptcha.execute(window.RECAPTCHA_SITE_KEY, {action: 'contact_form_submit'});
-        const recaptchaInput = document.getElementById('estimate-recaptcha-token') as HTMLInputElement;
-        if (recaptchaInput) {
-          recaptchaInput.value = token;
-        }
-        // Now submit the form
-        estimateForm.submit();
-      } catch (err) {
-        console.error('reCAPTCHA error:', err);
-        // Submit anyway without reCAPTCHA
-        estimateForm.submit();
-      }
-    }
-    // If no reCAPTCHA, form submits normally
   });
 </script>
