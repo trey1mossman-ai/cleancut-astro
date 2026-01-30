@@ -1,6 +1,95 @@
-<footer class="bg-black text-white py-10">
+<footer class="bg-black text-white py-8 md:py-10">
   <div class="container-custom">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
+    <!-- Mobile Layout -->
+    <div class="md:hidden">
+      <!-- Logo -->
+      <div class="flex justify-center mb-6">
+        <img src="/CC - Footer Logo.webp" alt="Clean Cut Painting & Handyman" width="260" height="162" class="w-auto h-auto max-w-[220px]">
+      </div>
+      
+      <!-- Quick Contact CTA -->
+      <div class="flex flex-col gap-3 mb-6">
+        <a href="tel:+12173307310" class="flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-600 text-white py-3 px-4 rounded-lg font-semibold transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          (217) 330-7310
+        </a>
+        <button data-open-estimate class="flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-[#144787] py-3 px-4 rounded-lg font-semibold transition-colors">
+          Get Free Estimate
+        </button>
+      </div>
+      
+      <!-- Address & Hours in 2 columns -->
+      <div class="grid grid-cols-2 gap-4 mb-6 text-sm">
+        <div>
+          <h3 class="font-semibold text-xs mb-2 text-white/80 uppercase tracking-wide">Address</h3>
+          <p class="text-gray-300 leading-relaxed">1004 E Eldorado St<br>Decatur, IL 62521</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-xs mb-2 text-white/80 uppercase tracking-wide">Hours</h3>
+          <div class="text-gray-300 leading-relaxed">
+            <p>Mon-Fri: 7:30am-4:30pm</p>
+            <p>Sat: 8:00am-1:00pm</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Services -->
+      <div class="mb-6">
+        <h3 class="font-semibold text-xs mb-3 text-white/80 uppercase tracking-wide text-center">Services</h3>
+        <div class="grid grid-cols-3 gap-2 text-center text-sm">
+          <a class="text-gray-300 hover:text-sky-400 py-1" href="/residential/interior-painting">Interior</a>
+          <a class="text-gray-300 hover:text-sky-400 py-1" href="/residential/exterior-painting">Exterior</a>
+          <a class="text-gray-300 hover:text-sky-400 py-1" href="/residential/cabinet-refinishing">Cabinets</a>
+          <a class="text-gray-300 hover:text-sky-400 py-1" href="/residential/deck-staining">Decks</a>
+          <a class="text-gray-300 hover:text-sky-400 py-1" href="/residential/power-washing">Power Wash</a>
+          <a class="text-gray-300 hover:text-sky-400 py-1" href="/residential/handyman">Handyman</a>
+        </div>
+      </div>
+      
+      <!-- Social Icons - Centered -->
+      <div class="flex justify-center gap-4 mb-6">
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/profile.php?id=100095230540722" target="_blank" rel="noopener noreferrer" class="group" aria-label="Facebook">
+          <div class="w-10 h-10 bg-gray-700/50 rounded-full flex items-center justify-center group-hover:bg-[#1877F2] transition-all duration-300">
+            <svg class="w-5 h-5 fill-gray-300 group-hover:fill-white transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </div>
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/cleancutdecatur" target="_blank" rel="noopener noreferrer" class="group" aria-label="Instagram">
+          <div class="w-10 h-10 bg-gray-700/50 rounded-full flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-[#f9ce34] group-hover:via-[#ee2a7b] group-hover:to-[#6228d7] transition-all duration-300">
+            <svg class="w-5 h-5 fill-gray-300 group-hover:fill-white transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </div>
+        </a>
+        <!-- Yelp -->
+        <a href="https://www.yelp.com/biz/clean-cut-painting-and-handyman-services-decatur" target="_blank" rel="noopener noreferrer" class="group" aria-label="Yelp">
+          <div class="w-10 h-10 bg-gray-700/50 rounded-full flex items-center justify-center group-hover:bg-[#d32323] transition-all duration-300">
+            <svg class="w-5 h-5 fill-gray-300 group-hover:fill-white transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.905-4.308a1.072 1.072 0 011.596-.206 9.194 9.194 0 011.576 2.593c.336.79-.11 1.848-.906 2.118zm-3.278 5.635a1.073 1.073 0 01-1.604.14l-3.93-3.28c-.77-.642-.378-1.876.592-1.862l5.22.076c.792.012 1.4.857 1.114 1.604a9.22 9.22 0 01-1.392 3.322zm-6.278-1.93l-.095 5.218c-.015.793-.9 1.345-1.624 1.014a9.195 9.195 0 01-2.983-2.092 1.073 1.073 0 01.146-1.6l4.332-3.13c.832-.6 1.907.247 1.624 1.09zm-3.88-5.21c.198.98-.853 1.728-1.658 1.18L.783 9.322a1.073 1.073 0 01-.202-1.6A9.198 9.198 0 015.276 5.14c.795-.123 1.536.57 1.398 1.368l-.97 4.58zm2.36-4.063V1.985c0-.792.896-1.294 1.626-.912a9.196 9.196 0 013.382 3.263c.43.69.09 1.627-.69 1.795l-3.113.67c-.996.216-1.705-.726-1.406-1.604z"/>
+            </svg>
+          </div>
+        </a>
+        <!-- Google -->
+        <a href="https://www.google.com/search?q=clean+cut+painting+and+handyman+decatur+il" target="_blank" rel="noopener noreferrer" class="group" aria-label="Google Reviews">
+          <div class="w-10 h-10 bg-gray-700/50 rounded-full flex items-center justify-center group-hover:bg-white transition-all duration-300">
+            <svg class="w-5 h-5 transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path class="fill-gray-300 group-hover:fill-[#4285F4]" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path class="fill-gray-300 group-hover:fill-[#34A853]" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path class="fill-gray-300 group-hover:fill-[#FBBC05]" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path class="fill-gray-300 group-hover:fill-[#EA4335]" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Desktop Layout (unchanged from original) -->
+    <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
       <div class="lg:col-span-3 flex items-start justify-center md:justify-start pt-4">
         <img src="/CC - Footer Logo.webp" alt="Clean Cut Painting & Handyman" width="320" height="200" class="w-full h-auto max-w-[286px] lg:max-w-full scale-110">
       </div>
@@ -98,7 +187,8 @@
         </div>
       </div>
     </div>
-    <div class="border-t border-gray-700/50 pt-6 mt-8">
+    
+    <div class="border-t border-gray-700/50 pt-6 mt-6 md:mt-8">
       <p class="text-xs text-gray-400 text-center">© 2025 Clean Cut Painting & Handyman. All rights reserved. • Licensed • Bonded • Insured</p>
     </div>
   </div>
