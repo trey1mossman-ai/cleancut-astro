@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://cleancutservice.com',
+  site: 'https://www.cleancutservice.com',
   server: {
     port: 3000
   },
