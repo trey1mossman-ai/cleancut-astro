@@ -1,99 +1,309 @@
-# CleanCut Pros Progress
+# CleanCut Pros - Project Documentation
 
 ## Last Updated
-2026-01-30 - Colleen's Jan 30 email feedback complete, video gallery restored, mobile footer redesigned
+2026-01-30 - **SITE IS LIVE** on Cloudflare Pages
 
-## Current State
-- Preview site live: https://cleancut-astro.vercel.app
-- Production domain: cleancutservice.com (not yet pointed)
-- Launch target: January 30, 2026 (TODAY)
-- All Colleen edits COMPLETE and DEPLOYED
-- Ready for final approval and launch
+---
+
+## Production Environment
+
+### Live Site
+- **URL:** https://www.cleancutservice.com
+- **Hosting:** Cloudflare Pages
+- **Domain Registrar:** GoDaddy (redirects non-www → www)
+- **SSL:** Cloudflare (automatic)
+
+### Repository
+- **Production Repo:** https://github.com/CleanCutDecatur/decatur-website
+- **Development Repo:** https://github.com/trey1mossman-ai/cleancut-astro
+- **Local Path:** `/Users/treymossman/Projects/cleancut-static/cleancut-astro`
+
+### Git Remotes
+```bash
+origin     → trey1mossman-ai/cleancut-astro (development)
+cloudflare → CleanCutDecatur/decatur-website (production)
+```
+
+---
+
+## Deployment SOP
+
+### Standard Deployment (Push to Production)
+```bash
+cd /Users/treymossman/Projects/cleancut-static/cleancut-astro
+
+# 1. Make changes locally
+# 2. Test build
+npm run build
+
+# 3. Commit changes
+git add -A
+git commit -m "description of changes"
+
+# 4. Push to production (Cloudflare auto-deploys)
+git push cloudflare main
+
+# 5. Optional: Also push to development repo
+git push origin main
+```
+
+### Cloudflare Build Settings
+| Setting | Value |
+|---------|-------|
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Node.js version | `20` (set via NODE_VERSION env var) |
+| Framework preset | Astro |
+
+### Build Time
+- Typical build: ~30-60 seconds
+- Deploy propagation: ~1-2 minutes
+
+### Troubleshooting Builds
+- Check Cloudflare Pages dashboard for build logs
+- Common issues:
+  - Node version (must be 20+)
+  - File size limit (25MB max per file)
+  - No wrangler.toml needed (use dashboard settings)
+
+---
+
+## Tech Stack
+
+| Component | Technology |
+|-----------|------------|
+| Framework | Astro 5.x |
+| Styling | Tailwind CSS 4.x |
+| Build | Vite |
+| Hosting | Cloudflare Pages |
+| Forms | n8n webhook → GoHighLevel CRM |
+| reCAPTCHA | v3 (badge hidden, disclosed in Privacy Policy) |
+| Analytics | Google Search Console |
+| Images | WebP with EXIF metadata |
+
+---
+
+## Key Files & Structure
+
+```
+cleancut-astro/
+├── src/
+│   ├── components/        # Reusable components
+│   │   ├── Header.astro
+│   │   ├── Footer.astro
+│   │   ├── EstimateModal.astro
+│   │   ├── Promo.astro           # Call-only promo offer
+│   │   ├── GoogleReviews.astro
+│   │   ├── VideoTestimonials.astro
+│   │   └── schema/               # JSON-LD structured data
+│   ├── layouts/
+│   │   └── Layout.astro          # Main layout (meta tags, GSC verification)
+│   ├── pages/
+│   │   ├── index.astro           # Homepage
+│   │   ├── about.astro
+│   │   ├── contact.astro
+│   │   ├── commercial.astro
+│   │   ├── our-work.astro
+│   │   ├── our-process.astro
+│   │   ├── who-we-are.astro
+│   │   ├── privacy-policy.astro
+│   │   ├── thank-you.astro       # Form submission redirect
+│   │   └── residential/
+│   │       ├── interior-painting.astro
+│   │       ├── exterior-painting.astro
+│   │       ├── cabinet-refinishing.astro
+│   │       ├── deck-staining.astro
+│   │       ├── power-washing.astro
+│   │       └── handyman.astro
+│   ├── data/
+│   │   └── schema.ts             # Loads SCHEMA-DATA.yaml
+│   └── styles/
+│       └── global.css
+├── public/
+│   ├── images/
+│   │   ├── drive-photos/         # Client photos with EXIF
+│   │   ├── services-optimized/   # Service page images with EXIF
+│   │   ├── faq-backgrounds/
+│   │   └── Home Page/
+│   ├── videos/
+│   │   └── testimonials/
+│   ├── js/
+│   │   └── grecaptchav3.js       # reCAPTCHA script
+│   └── robots.txt
+├── SCHEMA-DATA.yaml              # Single source of truth for business data
+├── astro.config.mjs
+├── tailwind.config.js
+└── package.json
+```
+
+---
+
+## Forms & Lead Capture
+
+### Webhook Endpoint
+```
+https://flow.voxemarketing.com/webhook/b6a9cc41-bace-4fce-ba1f-514cfaa8af19
+```
+
+### Form Fields
+| Field | Name Attribute |
+|-------|----------------|
+| Full Name | `full-name` |
+| Email | `email` |
+| Phone | `phone` |
+| Service | `service` |
+| reCAPTCHA | `g-recaptcha-response` (auto-added) |
+
+### Form Locations
+- EstimateModal.astro (site-wide modal)
+- contact.astro (contact page form)
+
+### reCAPTCHA
+- Site key: `6LeBhlArAAAAAK4QNqNpQmU3g0YBnviLRoFk6kqw`
+- Badge: Hidden via CSS (disclosed in Privacy Policy)
+- Script: `/js/grecaptchav3.js`
+
+---
+
+## SEO Configuration
+
+### Google Search Console
+- Property: `https://www.cleancutservice.com`
+- Verification: Meta tag in Layout.astro
+- Sitemap: Submitted (`sitemap-index.xml`)
+
+### Canonical URL
+- **www.cleancutservice.com** (GoDaddy redirects non-www → www)
+
+### Sitemap
+- Auto-generated by @astrojs/sitemap
+- Location: `/sitemap-index.xml`
+- Contains all 15 pages
+
+### robots.txt
+```
+User-agent: *
+Allow: /
+Sitemap: https://www.cleancutservice.com/sitemap-index.xml
+```
+
+### Structured Data (JSON-LD)
+- LocalBusiness schema (all pages)
+- BreadcrumbList (inner pages)
+- FAQPage (service pages)
+- AggregateRating (reviews section)
+- VideoObject (testimonials)
+
+### EXIF Metadata
+- All 121 images have:
+  - Title
+  - Description
+  - Artist: Clean Cut Painting & Handyman
+  - Copyright: © 2026 Clean Cut Painting & Handyman
+  - GPS: 39.846140, -88.943339 (Decatur office)
+
+---
+
+## Business Information (SCHEMA-DATA.yaml)
+
+### NAP (Name, Address, Phone)
+```
+Clean Cut Painting & Handyman
+1004 E Eldorado St, Decatur, IL 62521
+(217) 330-7310
+```
+
+### Springfield Office
+```
+631 E Princeton Ave, Unit D
+Springfield, IL 62703
+(217) 672-5654
+```
+
+### Hours
+- Mon-Fri: 7:30am - 4:30pm
+- Sat: 8:00am - 1:00pm
+- Sun: Closed
+
+### Social/Listings
+- Facebook: https://www.facebook.com/profile.php?id=100095230540722
+- Instagram: https://www.instagram.com/cleancutdecatur
+- GMB: https://maps.app.goo.gl/hLobyq7uRhDd1dQf9
+
+---
+
+## Current Promo (Call-Only)
+- **Offer:** Interior painting - 15% off under $5k, $1,250 off over $5k
+- **Deadline:** Book by Feb 28 for Feb/March projects
+- **CTA:** Call (217) 330-7310, mention "Spring Savings"
+- **Location:** Homepage promo section
+
+---
+
+## Client Contact
+- **Primary:** Colleen Hayes
+- **Email:** colleen@cleancutservice.com
+- **Company:** Clean Cut Painting & Handyman Services LLC
+
+---
 
 ## Session Log
 
-### 2026-01-30 (Late Morning)
-**Focus:** Colleen's Jan 30 email feedback - Our Work page, deck image, mobile footer
+### 2026-01-30 (Evening) - LAUNCH DAY
+**Deployed to production on Cloudflare Pages**
 
-**Completed:**
-- Deck Staining page: Replaced "Transforming Outdoor Spaces" image with cropped version from Drive
-- Our Work video gallery: Restored videos without image thumbnails (uses video first frame as poster)
-- Video playback: Only one video can play at a time (others auto-pause)
-- Removed broken Cabinet Refinishing video (Vimeo 403 Forbidden)
-- Cabinet section: Added 3 more images (cab-section, cab-bookcases, cab-built-in-shelving)
-- Gallery sections: Made ALL sections use same carousel style (including Additional Projects)
-- Image ordering: Reordered all gallery sections by file size (highest quality first)
-- Footer logo: Fixed broken path by converting PNG to WebP
-- Mobile footer: Complete redesign with prominent call/estimate CTAs, larger touch targets, cleaner layout
+Completed:
+- Pushed to CleanCutDecatur/decatur-website repo
+- Configured Cloudflare Pages build settings
+- Fixed Node version (set NODE_VERSION=20)
+- Removed oversized file (25MB deck-cropped.jpg)
+- Updated canonical URLs to www.cleancutservice.com
+- Added Google Search Console verification tag
+- Submitted sitemap to GSC
+- Fixed VideoObject uploadDate timezone
+- Hid reCAPTCHA badge (CSS)
+- Removed redundant mobile footer CTAs
+- Fixed stray "---" showing on homepage
+- Created Privacy Policy page
+- Added dynamic copyright year
+- Added GMB link throughout site
+- Restored image quality (commercial, deck-project images)
+- Fixed EXIF on all 121 images
+- Fixed image rotation (handyman images)
 
-**Files Changed:**
-- `src/pages/our-work.astro` - Video gallery restored, all sections carousel, images reordered
-- `src/pages/residential/deck-staining.astro` - New cropped deck image
-- `src/components/Footer.astro` - Mobile-first redesign
-- `public/CC - Footer Logo.webp` - Converted from PNG
-- `public/images/drive-photos/deck-transforming.webp` - New cropped deck image
+### 2026-01-30 (Morning/Afternoon)
+- Colleen's final feedback implementation
+- Video gallery restoration
+- Mobile footer redesign
+- Image quality audit and fixes
 
-**Commits:**
-- 663f6ab - Reorder Our Work gallery images by quality
-- 5396db0 - Improve mobile footer design
-- 919c95f - Restore video gallery section without thumbnails
-- 6cf6fd0 - Remove broken Cabinet Refinishing video
-- 9f0fae2 - Only allow one video to play at a time
-
-### 2026-01-30 (Morning)
-**Focus:** Final edits from Colleen's Jan 29 doc - images and process fixes
-
-**Completed:**
-- Homepage offer: Changed exterior→interior painting (15% off under $5k, $1,250 off over $5k, Feb 28 deadline)
-- Handyman images: Downloaded 3 from Drive (section1, section2, parallax), converted to WebP
-- Deck Staining images: Downloaded 4 from Drive (beyond-the-stain + 3 project pics), converted to WebP
-- Power Washing process: Replaced ProcessScrollCards with static centered 3-card grid, removed scroll button
-- Commercial images: Downloaded 6 from Drive for gallery and section images
-- FAQ backgrounds: Updated with service-specific images from services-optimized folder
-- Handyman/Power Washing: Switched to FAQAccordion (no background image since parallax above)
-- Exterior FAQ: Changed to different image per user request
-
-**Files Changed:**
-- `src/components/Promo.astro` - Interior painting offer
-- `src/pages/residential/handyman.astro` - New images, FAQAccordion
-- `src/pages/residential/deck-staining.astro` - New images from Drive
-- `src/pages/residential/power-washing.astro` - Static centered cards, FAQAccordion
-- `src/pages/commercial.astro` - New images from Drive
-- `public/images/drive-photos/` - 16 new WebP images
-- `public/images/faq-backgrounds/` - Updated service-specific images
-
-### 2026-01-29 (Afternoon Session)
-**Focus:** Colleen's final review edits from Jan 29 Google Doc
-
-**Completed:**
-- FAQ sections: Changed from side-by-side to full-width image background
-- Created FAQWithImage.astro component
-- Downloaded and optimized 7 FAQ background images (127MB → 2.2MB WebP)
-- Process CTA: "View the Full Process"
-- Header: Get Free Estimate button
-- CTA Audit: Fixed 4 CTAs to open modal
-- Mobile hero: Minimalist redesign with frosted glass
-- About page: Swapped images, boxed commitment section
-- Who We Are: Fixed headers and CTA strip
-- Power Washing: Removed duplicate intro
-- Contact: Simplified form description
-- Our Work: Removed descriptions and video labels
-- All 7 service pages: Updated to FAQWithImage
-
-### 2026-01-29 (Morning)
-**Focus:** SEO/AEO masterplan execution + bug fixes
+### 2026-01-29
+- SEO/AEO implementation
+- FAQ section redesign
+- CTA audit
 
 ### 2026-01-28
-**Focus:** Full implementation of Jan 26 website edits (15-phase overhaul)
+- Full 15-phase website overhaul
 
-## Waiting On
-- Colleen Hayes - Final approval for launch (meeting was Jan 29 10am)
+---
 
-## Next Steps
-1. Get final approval from Colleen
-2. Launch: point cleancutservice.com to Vercel
-3. Post-launch: Submit sitemap to Google Search Console
+## Maintenance Notes
 
-## Key Resources
-- Colleen's Jan 29 feedback doc: https://docs.google.com/document/d/1zCQnedhGAj8i10n3fJ6ir1xE-lH6G6OD29qFm9jX8qs
-- Preview URL: https://cleancut-astro.vercel.app
+### To Update Content
+1. Edit files in `/Users/treymossman/Projects/cleancut-static/cleancut-astro`
+2. Run `npm run build` to test
+3. `git push cloudflare main` to deploy
+
+### To Update Business Info
+- Edit `SCHEMA-DATA.yaml` (single source of truth)
+- Rebuild and deploy
+
+### To Add New Images
+1. Convert to WebP (quality 80, max width 1600px)
+2. Add EXIF metadata with exiftool
+3. Place in appropriate folder under `public/images/`
+
+### Annual Tasks
+- Copyright year auto-updates on build
+- Review and update promo offers
+- Check GSC for crawl errors
