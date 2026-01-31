@@ -20,8 +20,8 @@
 
 ### Git Remotes
 ```bash
-origin     → trey1mossman-ai/cleancut-astro (development)
-cloudflare → CleanCutDecatur/decatur-website (production)
+origin     → trey1mossman-ai/cleancut-astro (development - includes docs)
+cloudflare → CleanCutDecatur/decatur-website (production - website only)
 ```
 
 ---
@@ -40,12 +40,29 @@ npm run build
 git add -A
 git commit -m "description of changes"
 
-# 4. Push to production (Cloudflare auto-deploys)
-git push cloudflare main
-
-# 5. Optional: Also push to development repo
+# 4. Push to development repo (includes docs, PROGRESS.md, etc.)
 git push origin main
+
+# 5. Push to production (Cloudflare auto-deploys)
+# IMPORTANT: Only push website changes, not docs
+git push cloudflare main
 ```
+
+### What Goes Where
+
+| Repo | Purpose | What to Push |
+|------|---------|--------------|
+| `origin` (trey1mossman-ai) | Development & docs | Everything - code, docs, PROGRESS.md, notes |
+| `cloudflare` (CleanCutDecatur) | Production website | Website code only - avoid pushing docs/notes |
+
+### When to Push to Cloudflare
+- ✅ Website code changes (pages, components, styles)
+- ✅ Image updates
+- ✅ Content changes
+- ✅ Bug fixes
+- ❌ Documentation updates (PROGRESS.md, etc.)
+- ❌ Development notes
+- ❌ Non-website files
 
 ### Cloudflare Build Settings
 | Setting | Value |
@@ -292,16 +309,29 @@ Completed:
 ### To Update Content
 1. Edit files in `/Users/treymossman/Projects/cleancut-static/cleancut-astro`
 2. Run `npm run build` to test
-3. `git push cloudflare main` to deploy
+3. Commit: `git add -A && git commit -m "description"`
+4. Push to origin: `git push origin main`
+5. If website change, also push to cloudflare: `git push cloudflare main`
 
 ### To Update Business Info
 - Edit `SCHEMA-DATA.yaml` (single source of truth)
-- Rebuild and deploy
+- Rebuild and deploy to cloudflare
 
 ### To Add New Images
 1. Convert to WebP (quality 80, max width 1600px)
-2. Add EXIF metadata with exiftool
+2. Add EXIF metadata with exiftool:
+```bash
+exiftool -overwrite_original \
+  -Title="Service Name - Clean Cut Decatur IL" \
+  -Description="Description here" \
+  -Artist="Clean Cut Painting & Handyman" \
+  -Copyright="© 2026 Clean Cut Painting & Handyman" \
+  -GPSLatitude="39.846140" -GPSLatitudeRef="N" \
+  -GPSLongitude="88.943339" -GPSLongitudeRef="W" \
+  image.webp
+```
 3. Place in appropriate folder under `public/images/`
+4. Push to cloudflare
 
 ### Annual Tasks
 - Copyright year auto-updates on build
