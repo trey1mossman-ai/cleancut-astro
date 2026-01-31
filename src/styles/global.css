@@ -48,3 +48,7 @@
     @apply text-3xl lg:text-4xl font-display font-bold text-dark-blue mb-4;
   }
 }
+/* Hide reCAPTCHA badge - required text is in Privacy Policy */
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
