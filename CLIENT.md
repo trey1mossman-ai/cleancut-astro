@@ -6,7 +6,7 @@
 - **Business:** Residential and commercial cleaning, painting, handyman services
 - **Brand:** CleanCut Pros
 - **Location:** Decatur, IL area
-- **Website:** https://cleancut-astro.vercel.app
+- **Website:** https://www.cleancutservice.com
 
 ## Key Stakeholders
 
@@ -43,7 +43,7 @@ Thanks, / Warm regards,
 - **Jan 20, 2026:** All 7 service pages audited and corrected against Google Doc
 
 ### Current Status
-- Site deployed to Vercel (auto-deploys from main)
+- Site deployed to Cloudflare Pages (auto-deploys from cloudflare remote)
 - All service pages match Google Doc exactly
 - Interior painting page approved
 
@@ -66,5 +66,5 @@ Thanks, / Warm regards,
 - Simple stakeholder structure - just Colleen
 - Very collaborative and provides good feedback
 - Likes to see updates quickly implemented
-- Deployed to Vercel (auto-deploys from main branch)
+- Deployed to Cloudflare Pages (auto-deploys from cloudflare remote)
 - Privacy note: De-identify specific addresses in project locations

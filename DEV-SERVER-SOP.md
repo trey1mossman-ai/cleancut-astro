@@ -53,18 +53,18 @@ nohup npm run dev > /tmp/cleancut-dev.log 2>&1 &
 
 ## Deployment
 
-**Vercel (auto-deploy):**
+**Cloudflare Pages (auto-deploy):**
 ```bash
 git add -A
 git commit -m "Update: [description]"
 git push origin main
 ```
 
-Vercel automatically builds and deploys when you push to main.
+Cloudflare Pages automatically builds and deploys when you push to cloudflare remote.
 
 **Manual deploy (if needed):**
 ```bash
-npx vercel --prod
+git push cloudflare main
 ```
 
-**Live Site:** https://cleancut-astro.vercel.app
+**Live Site:** https://www.cleancutservice.com

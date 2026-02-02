@@ -58,7 +58,7 @@ Phone: (217) 672-5654
 ## Technical Checklist
 
 - [ ] Build and test locally (npm run build)
-- [ ] Deploy to Vercel (push to main)
+- [ ] Deploy to Cloudflare Pages (push to cloudflare remote)
 - [ ] Verify mobile responsiveness
 - [ ] Test all forms work correctly
 
@@ -68,4 +68,4 @@ Phone: (217) 672-5654
 
 **Live Site:** https://cleancut-astro.vercel.app
 **GitHub:** https://github.com/trey1mossman-ai/cleancut-astro
-**Deploy:** Push to main branch → Vercel auto-deploys
+**Deploy:** Push to cloudflare remote → Cloudflare Pages auto-deploys

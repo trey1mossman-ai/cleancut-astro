@@ -1,7 +1,7 @@
 # Sub-Agent Learnings: CleanCut Pros
 
 > Project-specific learnings for the CleanCut painting & handyman service website.
-> Stack: Astro + Tailwind + Vercel
+> Stack: Astro + Tailwind + Cloudflare Pages
 
 ---
 
@@ -10,7 +10,7 @@
 - **Client:** Colleen (Decatur, IL)
 - **Type:** Service business website
 - **Stack:** Astro, Tailwind CSS
-- **Deployment:** Vercel (auto-deploys from main)
+- **Deployment:** Cloudflare Pages (auto-deploys from main)
 - **Status:** Deployed, ongoing maintenance
 
 ---
@@ -50,7 +50,7 @@ Audit against Google Doc before making changes. Don't assume.
 
 - **2026-01-20:** Full audit of all 7 service pages against Google Doc
 - **2026-01-16:** Interior painting page approved by client
-- **2026-01-22:** Docs updated to Vercel-only deployment
+- **2026-01-22:** Docs updated to Cloudflare Pages-only deployment
 
 ---
 

@@ -134,15 +134,15 @@ cleancut-astro/
 
 ## Deployment Notes
 
-**Host:** Vercel (auto-deploys from main branch)
+**Host:** Cloudflare Pages (auto-deploys from cloudflare remote)
 
-**Live Site:** https://cleancut-astro.vercel.app
+**Live Site:** https://www.cleancutservice.com
 
 **Deployment:**
-1. Push to `main` branch
-2. Vercel automatically builds and deploys
+1. Push to `cloudflare` remote
+2. Cloudflare automatically builds and deploys
 
-**Manual Deploy:** `npx vercel --prod`
+**Manual Deploy:** `git push cloudflare main`
 
 **Build Command:** `npm run build`
 **Output Directory:** `dist/`
@@ -162,8 +162,8 @@ npm run build      # Build static site to dist/
 npm run preview    # Preview built site locally
 
 # Deploy
-git push origin main   # Vercel auto-deploys
-npx vercel --prod      # Manual deploy
+git push cloudflare main   # Production deploy
+git push cloudflare main      # Manual deploy
 ```
 
 ---

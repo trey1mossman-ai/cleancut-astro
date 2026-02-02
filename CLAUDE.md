@@ -7,16 +7,55 @@ Marketing website for CleanCut Pros, a painting and handyman service company bas
 | Item | Value |
 |------|-------|
 | **Client** | CleanCut Pros (Colleen) |
-| **Location** | Decatur, IL |
+| **Location** | Decatur, IL + Springfield, IL |
 | **Stack** | Astro 5 + Tailwind CSS 4 |
-| **Deployment** | Vercel (auto-deploys from main) |
-| **Status** | Deployed |
+| **Deployment** | Cloudflare Pages (auto-deploys from cloudflare remote) |
+| **Live Site** | https://www.cleancutservice.com |
+| **Status** | LIVE |
 
 ## Tech Stack
 - **Framework:** Astro 5.x (static site generation)
 - **Styling:** Tailwind CSS 4.x (via Vite plugin)
-- **Images:** Sharp for optimization
+- **Hosting:** Cloudflare Pages
+- **Domain:** GoDaddy (redirects non-www → www)
 - **Build:** `npm run build` → `dist/`
+
+## Git Remotes
+| Remote | Repo | Purpose |
+|--------|------|---------|
+| `origin` | trey1mossman-ai/cleancut-astro | Development (includes docs) |
+| `cloudflare` | CleanCutDecatur/decatur-website | **PRODUCTION** (website only) |
+
+## Deployment
+
+### To Deploy to Production:
+```bash
+cd /Users/treymossman/Projects/cleancut-static/cleancut-astro
+
+# 1. Test build locally
+npm run build
+
+# 2. Commit changes
+git add -A
+git commit -m "Update: [description]"
+
+# 3. Push to development (includes docs)
+git push origin main
+
+# 4. Push to PRODUCTION (Cloudflare auto-deploys)
+git push cloudflare main
+```
+
+### What Goes Where
+| Remote | Push | Don't Push |
+|--------|------|------------|
+| `origin` | Everything (code + docs) | - |
+| `cloudflare` | Website code only | Docs, PROGRESS.md, dev notes |
+
+### Cloudflare Build Settings
+- Build command: `npm run build`
+- Output directory: `dist`
+- Node version: 20 (NODE_VERSION env var)
 
 ## Project Structure
 ```
@@ -38,34 +77,9 @@ dist/               # Build output
 
 ## Key Rules
 1. **All business data must come from SCHEMA-DATA.yaml** - never fabricate
-2. **Deploy via Vercel** - push to main, auto-deploys
+2. **Deploy via cloudflare remote** - push to cloudflare, auto-deploys
 3. **Images need EXIF/IPTC metadata** before going live (geo-tagged, keywords)
 4. **Follow SEO-CONFIG.yaml** for meta tags and keywords
-
-## Services Offered
-- Residential painting (interior/exterior)
-- Commercial painting
-- Handyman services
-- Pressure washing
-- Drywall repair
-
-## Deployment
-
-**Live Site:** https://cleancut-astro.vercel.app
-
-**To Deploy:**
-```bash
-# Automatic (preferred)
-git add -A
-git commit -m "Update: [description]"
-git push origin main
-# Vercel auto-builds and deploys
-
-# Manual (if needed)
-npx vercel --prod
-```
-
-**GitHub Repo:** `trey1mossman-ai/cleancut-astro` (public)
 
 ## Email Communication (MANDATORY)
 
@@ -85,5 +99,5 @@ npx vercel --prod
 ```
 
 ## Session Notes
-- Site is deployed and live on Vercel
-- Check PROJECT-STATUS.md for detailed checklist
+- Site is LIVE on Cloudflare Pages at cleancutservice.com
+- Check PROGRESS.md for detailed session log

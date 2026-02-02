@@ -1,45 +1,85 @@
 # CleanCut Deployment Setup
 
 ## Overview
-CleanCut Astro site is deployed via Vercel.
+CleanCut Astro site is deployed via **Cloudflare Pages**.
 
 ## URLs
-- **Live Site:** https://cleancut-astro.vercel.app
-- **GitHub Repo:** https://github.com/trey1mossman-ai/cleancut-astro
+- **Live Site:** https://www.cleancutservice.com
+- **Production Repo:** https://github.com/CleanCutDecatur/decatur-website
+- **Development Repo:** https://github.com/trey1mossman-ai/cleancut-astro
 
-## Branch Structure
-- `main` - Source code (Astro components, pages, assets) - Vercel auto-deploys from this branch
+## Git Remotes
+```bash
+origin     → trey1mossman-ai/cleancut-astro (development - includes docs)
+cloudflare → CleanCutDecatur/decatur-website (PRODUCTION - website only)
+```
 
 ## Deployment Workflow
 
-### To Deploy Updates:
-1. Make changes on `main` branch
-2. Commit and push to `main`
-3. Vercel automatically builds and deploys
-
+### Standard Deploy to Production:
 ```bash
 cd /Users/treymossman/Projects/cleancut-static/cleancut-astro
+
+# 1. Test build locally
+npm run build
+
+# 2. Commit changes
 git add -A
 git commit -m "Update: [description]"
+
+# 3. Push to development repo (includes docs)
 git push origin main
+
+# 4. Push to PRODUCTION (Cloudflare auto-deploys)
+git push cloudflare main
 ```
 
-Vercel handles the build (`npm run build`) and deployment automatically.
+### What Goes Where
 
-### Manual Deploy (if needed):
-```bash
-npx vercel --prod
-```
+| Remote | Purpose | What to Push |
+|--------|---------|--------------|
+| `origin` | Development & docs | Everything - code, docs, PROGRESS.md |
+| `cloudflare` | **PRODUCTION** | Website code only - no docs/notes |
 
-## Video Compression
-Videos were compressed from 185-272MB to 9-14MB each using ffmpeg:
-```bash
-ffmpeg -i input.mp4 -c:v libx264 -crf 28 -preset medium -c:a aac -b:a 128k output.mp4
-```
+### When to Push to Cloudflare
+- ✅ Website code changes (pages, components, styles)
+- ✅ Image/asset updates
+- ✅ Content changes
+- ✅ Bug fixes
+- ❌ Documentation updates (PROGRESS.md, etc.)
+- ❌ Development notes
+- ❌ Non-website files
+
+## Cloudflare Build Settings
+
+| Setting | Value |
+|---------|-------|
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Node.js version | `20` (set via NODE_VERSION env var) |
+| Framework preset | Astro |
+
+## Build Time
+- Typical build: ~30-60 seconds
+- Deploy propagation: ~1-2 minutes
+
+## Domain Setup
+- **Registrar:** GoDaddy
+- **DNS:** Cloudflare
+- **Redirect:** non-www → www (automatic)
+- **SSL:** Cloudflare (automatic)
+
+## Troubleshooting
+
+### Common Build Issues
+- **Node version:** Must be 20+ (set NODE_VERSION=20 in Cloudflare env)
+- **File size:** 25MB max per file
+- **No wrangler.toml needed:** Use dashboard settings
+
+### Check Build Status
+- Cloudflare Pages dashboard shows build logs
+- Builds trigger automatically on push to cloudflare remote
 
 ## Setup Date
-2026-01-13
-
-## Notes
-- Vercel auto-deploys from main branch on every push
-- All video files under 100MB (GitHub limit)
+- **Initial:** 2026-01-13
+- **Live on Cloudflare:** 2026-01-30

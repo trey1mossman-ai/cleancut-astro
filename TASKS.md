@@ -128,7 +128,7 @@ npm run build
 # Test locally (optional)
 npm run preview
 
-# Deploy to Vercel (automatic)
+# Deploy to Cloudflare Pages (automatic)
 git add -A
 git commit -m "Update: [description]"
 git push origin main
@@ -180,4 +180,4 @@ https://cleancut-astro.vercel.app
 2. Check current task status
 3. View Colleen's mockup: `open ~/Desktop/colleen-edits.png`
 4. Build and test after each major change
-5. Push to main to deploy (Vercel auto-deploys)
+5. Push to main to deploy (Cloudflare Pages auto-deploys)
