@@ -83,3 +83,32 @@ git push cloudflare main
 ## Setup Date
 - **Initial:** 2026-01-13
 - **Live on Cloudflare:** 2026-01-30
+
+## Production Deploy Workflow (IMPORTANT)
+
+The cloudflare repo should NOT contain internal docs. Use this workflow:
+
+### For website-only changes (most deploys):
+```bash
+# Create clean production branch from cloudflare
+git checkout -b prod-deploy cloudflare/main
+
+# Cherry-pick website changes from main
+git checkout main -- src/ public/ astro.config.mjs package.json
+
+# Commit, push, cleanup
+git add -A
+git commit -m "feat: description"
+git push cloudflare prod-deploy:main
+git checkout main
+git branch -D prod-deploy
+```
+
+### Files that should NEVER go to cloudflare:
+- *.md files (except README.md)
+- docs/ folder
+- .claude/ folder
+- PROGRESS.md, CLIENT.md, etc.
+
+### Cleaned up on 2026-02-02:
+Removed all internal docs from cloudflare repo. Going forward, only website code should be pushed to production.
