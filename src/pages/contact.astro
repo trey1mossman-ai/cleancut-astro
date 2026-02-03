@@ -43,9 +43,9 @@ const breadcrumbs = [
     <!-- Contact Form Section -->
     <section class="py-16 bg-gray-50">
       <div class="container-custom">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:items-end">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <!-- Left Column - Contact Info -->
-          <div class="space-y-6">
+          <div class="flex flex-col h-full space-y-6">
             <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">Our Locations</h2>
             <p class="text-lg text-gray-600 mb-8">
               Visit us at one of our convenient locations or give us a call.
@@ -79,7 +79,7 @@ const breadcrumbs = [
                 <div class="space-y-3 text-gray-600 flex-1">
                   <div>
                     <p class="font-semibold text-sm text-[#144787] mb-1">Address</p>
-                    <p>631 E Princeton Ave, Unit D<br>Springfield, IL</p>
+                    <a href="https://maps.app.goo.gl/GBpRbG44QXbm1Jnm9" target="_blank" rel="noopener" class="text-sky-400 hover:text-sky-500 transition-colors">631 E Princeton Ave, Unit D<br>Springfield, IL</a>
                   </div>
                   <div>
                     <p class="font-semibold text-sm text-[#144787] mb-1">Phone</p>
@@ -95,7 +95,7 @@ const breadcrumbs = [
             </div>
 
             <!-- Hours + 24/7 Language Below Cards -->
-            <div class="bg-[#144787]/5 rounded-lg p-6 border border-[#144787]/10">
+            <div class="mt-auto bg-[#144787]/5 rounded-lg p-6 border border-[#144787]/10">
               <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
                   <p class="font-semibold text-[#144787] mb-1">Office Hours</p>
@@ -110,7 +110,7 @@ const breadcrumbs = [
           </div>
 
           <!-- Right Column - Contact Form -->
-          <div>
+          <div class="flex flex-col h-full">
             <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">Get Your Free Estimate</h2>
             <p class="text-lg text-gray-600 mb-8">
               Fill out the form below and we'll get back to you within 24 hours.
