@@ -1,0 +1,49 @@
+# CleanCut Pros - URL Redirects for Cloudflare Pages
+# Created: 2026-02-05
+# Purpose: 301 redirect old URLs to new structure for GSC indexing fix
+
+# =============================================================================
+# OLD SERVICE PAGES → NEW /residential/ STRUCTURE
+# =============================================================================
+/interior-painting              /residential/interior-painting/         301
+/exterior-painting              /residential/exterior-painting/         301
+/cabinet-refinishing            /residential/cabinet-refinishing/       301
+/power-washing                  /residential/power-washing/             301
+/handyman-services              /residential/handyman/                  301
+/deck-repairs-and-restaining    /residential/deck-staining/             301
+/deck-staining                  /residential/deck-staining/             301
+
+# Old /painting/ structure
+/painting/interior              /residential/interior-painting/         301
+/painting/interior/             /residential/interior-painting/         301
+/painting/exterior              /residential/exterior-painting/         301
+/painting/exterior/             /residential/exterior-painting/         301
+
+# =============================================================================
+# OLD COMMERCIAL PAGES
+# =============================================================================
+/commercial-painting            /commercial/                            301
+/commercial-services            /commercial/                            301
+/commercial-services/           /commercial/                            301
+
+# =============================================================================
+# LEGACY/REMOVED PAGES → HOMEPAGE
+# =============================================================================
+/sample-page                    /                                       301
+/sample-page/                   /                                       301
+/reviews                        /our-work/                              301
+/reviews/                       /our-work/                              301
+/hibu-video-splash              /                                       301
+/hibu-video-splash/             /                                       301
+
+# =============================================================================
+# TRAILING SLASH NORMALIZATION (non-trailing → trailing)
+# =============================================================================
+/contact                        /contact/                               301
+/about                          /about/                                 301
+/our-process                    /our-process/                           301
+/our-work                       /our-work/                              301
+/commercial                     /commercial/                            301
+/who-we-are                     /who-we-are/                            301
+/privacy-policy                 /privacy-policy/                        301
+/thank-you                      /thank-you/                             301
