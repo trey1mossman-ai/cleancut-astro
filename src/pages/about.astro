@@ -4,11 +4,12 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
 import ProcessScrollCards from '../components/ProcessScrollCards.astro';
+import FAQSchema from '../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://cleancutservice.com/' },
-  { name: 'About Us', url: 'https://cleancutservice.com/about/' }
+  { name: 'Home', url: 'https://www.cleancutservice.com/' },
+  { name: 'About Us', url: 'https://www.cleancutservice.com/about/' }
 ];
 
 const coreValues = [
@@ -38,6 +39,33 @@ const coreValues = [
     description: "We bring focus, energy, and dedication to every project, striving for excellence in every detail."
   }
 ];
+
+const faqs = [
+  {
+    "question": "Who owns Clean Cut Painting & Handyman?",
+    "answer": "Clean Cut Painting & Handyman is owned and operated by Dara Mossman. Founded in 2016, the company is a woman-owned business proudly serving residential and commercial customers across Central Illinois."
+  },
+  {
+    "question": "Is Clean Cut a licensed and insured company?",
+    "answer": "Yes. Clean Cut Painting & Handyman is fully licensed, bonded, and insured. We are also BBB accredited since 2019, giving you peace of mind on every project."
+  },
+  {
+    "question": "How long has Clean Cut been in business?",
+    "answer": "Clean Cut has been serving Central Illinois since 2016. In that time we have completed thousands of residential and commercial projects across Decatur, Springfield, and surrounding communities."
+  },
+  {
+    "question": "What areas does Clean Cut serve?",
+    "answer": "We serve a 60-mile radius across Central Illinois, including Decatur, Springfield, Champaign-Urbana, Mount Zion, Forsyth, Chatham, Taylorville, Lincoln, Mattoon, Bloomington-Normal, and many more communities."
+  },
+  {
+    "question": "What services does Clean Cut offer?",
+    "answer": "We offer interior painting, exterior painting, cabinet refinishing, deck staining and restoration, power washing, handyman services, and commercial painting and maintenance."
+  },
+  {
+    "question": "Does Clean Cut offer free estimates?",
+    "answer": "Yes, we provide free, no-obligation estimates for all of our services. Contact us by phone at (217) 330-7310 or through our website to schedule yours."
+  }
+];
 ---
 
 <Layout
@@ -53,7 +81,7 @@ const coreValues = [
         src="/images/clean-cut-about.webp"
         alt="Clean Cut Painting & Handyman professional team serving Decatur Illinois and Central IL"
         class="absolute inset-0 w-full h-full object-cover"
-      >
+       width="1280" height="854">
       <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
@@ -200,7 +228,7 @@ const coreValues = [
         src="/images/commitment-bg.webp"
         alt="Clean Cut team at work"
         class="absolute inset-0 w-full h-full object-cover"
-      />
+       width="1920" height="1280"/>
       <div class="absolute inset-0 bg-black/50"></div>
       <div class="container-custom relative z-10">
         <div class="max-w-4xl mx-auto">
@@ -237,6 +265,53 @@ const coreValues = [
         </div>
       </div>
     </section>
+
+    
+    <!-- Internal Links -->
+    <section class="py-12 bg-white">
+      <div class="container-custom">
+        <h2 class="text-2xl font-display font-bold text-[#144787] text-center mb-8">Learn More About Clean Cut</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <a href="/our-process/" class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-sky-300 hover:shadow-md transition-all duration-300 group">
+            <h3 class="text-base font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-1">Our Process</h3>
+            <p class="text-gray-500 text-sm">See how we deliver quality results on every project</p>
+          </a>
+          <a href="/who-we-are/" class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-sky-300 hover:shadow-md transition-all duration-300 group">
+            <h3 class="text-base font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-1">Meet the Team</h3>
+            <p class="text-gray-500 text-sm">Get to know the people behind Clean Cut</p>
+          </a>
+          <a href="/our-work/" class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-sky-300 hover:shadow-md transition-all duration-300 group">
+            <h3 class="text-base font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-1">Our Work</h3>
+            <p class="text-gray-500 text-sm">Browse our portfolio of completed projects</p>
+          </a>
+          <a href="/contact/" class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-sky-300 hover:shadow-md transition-all duration-300 group">
+            <h3 class="text-base font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-1">Contact Us</h3>
+            <p class="text-gray-500 text-sm">Request your free estimate today</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container-custom max-w-4xl">
+        <h2 class="text-3xl font-display font-bold text-[#144787] text-center mb-10">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <details class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden group">
+              <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
+                <h3 class="text-lg font-semibold text-[#144787] pr-4">{faq.question}</h3>
+                <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 leading-relaxed">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+    <FAQSchema faqs={faqs} />
   </main>
 
   <Footer />

@@ -1,72 +1,65 @@
 # Clean Cut Painting & Handyman
+> Professional painting and handyman services in Decatur and Springfield, Illinois since 2016.
 
-> Professional painting and handyman services serving Decatur, Springfield, and Central Illinois since 2012.
-
-## Company Overview
-
-Clean Cut Painting & Handyman is a family-owned business providing residential and commercial painting, deck staining, power washing, cabinet refinishing, and handyman services. We are known for exceptional craftsmanship, transparent pricing, and a commitment to customer satisfaction.
+## Business Overview
+Clean Cut Painting & Handyman is a woman-owned, professional painting and handyman company serving residential and commercial customers across Central Illinois. Founded in 2016, they operate from two offices in Decatur and Springfield, covering a 60-mile service radius throughout the region.
 
 ## Contact Information
+- **Website:** https://www.cleancutservice.com
+- **Email:** info@cleancutservice.com
+- **Phone (Decatur):** (217) 330-7310
+- **Phone (Springfield):** (217) 672-5654
 
-- **Business Name**: Clean Cut Painting & Handyman
-- **Phone**: (217) 899-6857
-- **Email**: info@cleancutservice.com
-- **Address**: 1004 E Eldorado St, Decatur, IL 62521
-- **Website**: https://cleancutservice.com
-- **Hours**: Monday-Friday 7:00 AM - 5:00 PM
+## Locations
 
-## Service Areas
+### Decatur Office (Headquarters)
+- 1004 E Eldorado St, Decatur, IL 62521
+- Phone: (217) 330-7310
 
-Primary: Decatur, Springfield, Champaign-Urbana, Bloomington-Normal, Illinois
-Counties Served: Macon, Sangamon, Champaign, McLean, DeWitt, Piatt, Christian, Logan, Menard
+### Springfield Office
+- 631 E Princeton Ave, Unit D, Springfield, IL 62703
+- Phone: (217) 672-5654
 
-## Services Offered
+## Hours of Operation
+- Monday - Friday: 7:30 AM - 4:30 PM
+- Saturday: 8:00 AM - 1:00 PM
+- Sunday: Closed
+
+## Services
 
 ### Residential Services
-- Interior Painting (walls, ceilings, trim, doors, accent walls)
-- Exterior Painting (siding, trim, gutters, soffits, fascia, garage doors)
-- Deck Staining and Restoration
-- Power Washing (driveways, patios, decks, siding)
-- Cabinet Refinishing
-- Handyman Services (repairs, installations, maintenance)
+- **Interior Painting:** https://www.cleancutservice.com/residential/interior-painting/
+- **Exterior Painting:** https://www.cleancutservice.com/residential/exterior-painting/
+- **Cabinet Refinishing:** https://www.cleancutservice.com/residential/cabinet-refinishing/
+- **Deck Staining & Restoration:** https://www.cleancutservice.com/residential/deck-staining/
+- **Power Washing:** https://www.cleancutservice.com/residential/power-washing/
+- **Handyman Services:** https://www.cleancutservice.com/residential/handyman/
 
 ### Commercial Services
-- Office and retail space painting
-- Industrial facility painting
-- Multi-unit property maintenance
-- Commercial power washing
+- **Commercial Painting & Maintenance:** https://www.cleancutservice.com/commercial/
 
-## Unique Value Proposition
+## Service Areas
+Central Illinois including Decatur, Springfield, Champaign-Urbana, Mount Zion, Forsyth, Chatham, Auburn, Riverton, Rochester, Taylorville, Lincoln, Mattoon, Bloomington-Normal, and surrounding communities within a 60-mile radius.
 
-1. **Family-Owned**: Personal attention and accountability on every project
-2. **Comprehensive Preparation**: Proper surface prep before any coating application
-3. **Quality Materials**: Premium paints and stains for long-lasting results
-4. **Transparent Pricing**: Detailed written estimates with no hidden fees
-5. **Satisfaction Guarantee**: Not finished until you're 100% satisfied
+## Key Pages
+- **Home:** https://www.cleancutservice.com/
+- **About Us:** https://www.cleancutservice.com/about/
+- **Who We Are:** https://www.cleancutservice.com/who-we-are/
+- **Our Process:** https://www.cleancutservice.com/our-process/
+- **Our Work:** https://www.cleancutservice.com/our-work/
+- **Contact:** https://www.cleancutservice.com/contact/
 
-## Credentials
+## Team Leadership
+- **Dara Mossman** - Owner & President
+- **Tyler Tate** - Chief Revenue Officer
+- **Jim Hayes** - Operations Manager
+- **Sergio Razo-Lopez** - Lead Painter
+- **Heath Cleary** - Lead Painter
+- **Colleen Enriquez** - Office Manager
 
-- Google Rating: 5.0 stars (89+ reviews)
-- Licensed and Insured
-- Serving Central Illinois since 2012
+## Reviews & Reputation
+- **Google Rating:** 4.7 stars from 300+ reviews
+- **BBB Accredited** since 2019
 
-## Leadership Team
-
-- Dara Geiser - Owner & President
-- Colby Geiser - Operations Manager
-- Jack Geiser - Operations Manager
-
-## Documentation
-
-- [Home](https://cleancutservice.com/)
-- [Services - Interior Painting](https://cleancutservice.com/residential/interior-painting/)
-- [Services - Exterior Painting](https://cleancutservice.com/residential/exterior-painting/)
-- [Services - Deck Staining](https://cleancutservice.com/residential/deck-staining/)
-- [Services - Power Washing](https://cleancutservice.com/residential/power-washing/)
-- [Services - Cabinet Refinishing](https://cleancutservice.com/residential/cabinet-refinishing/)
-- [Services - Handyman](https://cleancutservice.com/residential/handyman/)
-- [Commercial Services](https://cleancutservice.com/commercial/)
-- [Our Work Gallery](https://cleancutservice.com/our-work/)
-- [Our Process](https://cleancutservice.com/our-process/)
-- [Who We Are](https://cleancutservice.com/who-we-are/)
-- [Contact](https://cleancutservice.com/contact/)
+## About the Owner
+Dara Mossman founded Clean Cut Painting & Handyman in 2016. The company is woman-owned and committed to craftsmanship, collaboration, and community in Central Illinois.

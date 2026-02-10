@@ -17,6 +17,7 @@ import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
 import FAQSchema from '../components/schema/FAQSchema.astro';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 
 const faqs = [
   {
@@ -63,6 +64,7 @@ const faqs = [
     <ServiceAreas />
     <FAQAccordion faqs={faqs} title="Frequently Asked Questions" initialVisible={3} />
     <FAQSchema faqs={faqs} />
+    <BreadcrumbSchema items={[{ name: "Home", url: "https://www.cleancutservice.com/" }]} />
     <CareersCTA />
   </main>
 

@@ -7,11 +7,12 @@ import Lightbox from '../../components/Lightbox.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+import ServiceSchema from '../../components/schema/ServiceSchema.astro';
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://cleancutservice.com/' },
-  { name: 'Residential', url: 'https://cleancutservice.com/residential/' },
-  { name: 'Power Washing', url: 'https://cleancutservice.com/residential/power-washing/' }
+  { name: 'Home', url: 'https://www.cleancutservice.com/' },
+  { name: 'Residential', url: 'https://www.cleancutservice.com/residential/' },
+  { name: 'Power Washing', url: 'https://www.cleancutservice.com/residential/power-washing/' }
 ];
 const faqs = [
   {
@@ -46,7 +47,7 @@ const processSteps = [
 ];
 ---
 <Layout
-  title="Power Washing | Professional Pressure Washing Services"
+  title="Power Washing Decatur & Springfield IL | Clean Cut"
   description="Power washing services that go beyond the basics with meticulous attention to detail and comprehensive home care. Serving Decatur & Springfield IL. Free estimates!"
 >
   <Header />
@@ -57,7 +58,7 @@ const processSteps = [
         src="/images/Home Page/Residential Services/CC _ Home Page Photos_Power Washing.webp"
         alt="Professional power washing services in Decatur IL"
         class="absolute inset-0 w-full h-full object-cover"
-      >
+       width="2250" height="1459">
       <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
@@ -92,7 +93,7 @@ const processSteps = [
               alt="Power washing transformation by Clean Cut in Decatur IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
-            />
+             width="1600" height="1067"/>
           </div>
         </div>
         <!-- Beyond Basic -->
@@ -103,7 +104,7 @@ const processSteps = [
               alt="Hand scrubbing and power washing in Springfield Illinois"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
-            />
+             width="1600" height="1600"/>
           </div>
           <div class="order-1 lg:order-2">
             <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
@@ -167,6 +168,25 @@ const processSteps = [
     />
     <FAQSchema faqs={faqs} />
     <BreadcrumbSchema items={breadcrumbs} />
+    <ServiceSchema name="Power Washing Services" description="Professional power washing services in Decatur, Springfield, and Central Illinois. Houses, driveways, patios, decks, fences, and commercial properties." url="https://www.cleancutservice.com/residential/power-washing/" />
+    
+    <!-- Related Services -->
+    <section class="py-12 bg-gray-50">
+      <div class="container-custom">
+        <h2 class="text-2xl font-display font-bold text-[#144787] text-center mb-8">Related Services</h2>
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <a href="/residential/exterior-painting/" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg hover:border-sky-200 transition-all duration-300 text-center group">
+            <h3 class="text-lg font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-2">Exterior Painting</h3>
+            <p class="text-gray-600 text-sm">Follow up with a fresh coat of paint</p>
+          </a>
+          <a href="/residential/deck-staining/" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg hover:border-sky-200 transition-all duration-300 text-center group">
+            <h3 class="text-lg font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-2">Deck Staining</h3>
+            <p class="text-gray-600 text-sm">Stain your deck after a thorough wash</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">
       <div class="absolute inset-0 opacity-20" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover;"></div>

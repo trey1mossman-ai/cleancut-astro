@@ -3,11 +3,39 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
+import FAQSchema from '../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://cleancutservice.com/' },
-  { name: 'Contact', url: 'https://cleancutservice.com/contact/' }
+  { name: 'Home', url: 'https://www.cleancutservice.com/' },
+  { name: 'Contact', url: 'https://www.cleancutservice.com/contact/' }
+];
+
+const faqs = [
+  {
+    "question": "What are your business hours?",
+    "answer": "Our office is open Monday through Friday from 7:30 AM to 4:30 PM and Saturday from 8:00 AM to 1:00 PM. We are closed on Sundays. You can also reach us anytime through our website contact form."
+  },
+  {
+    "question": "Do you serve my area?",
+    "answer": "We serve a 60-mile radius across Central Illinois, including Decatur, Springfield, Champaign-Urbana, Mount Zion, Forsyth, Chatham, Taylorville, Lincoln, Mattoon, and Bloomington-Normal. Contact us to confirm service in your area."
+  },
+  {
+    "question": "How fast do you respond to inquiries?",
+    "answer": "We respond to all inquiries within 24 hours, and most are answered the same business day. For urgent requests, call our Decatur office at (217) 330-7310 or our Springfield office at (217) 672-5654."
+  },
+  {
+    "question": "How do I get a free estimate?",
+    "answer": "You can request a free estimate by calling (217) 330-7310, filling out the form on our contact page, or emailing info@cleancutservice.com. We will schedule a convenient time to visit your property."
+  },
+  {
+    "question": "Do you have offices in both Decatur and Springfield?",
+    "answer": "Yes. Our Decatur headquarters is at 1004 E Eldorado St, Decatur, IL 62521, and our Springfield office is at 631 E Princeton Ave, Unit D, Springfield, IL 62703."
+  },
+  {
+    "question": "What information should I have ready when requesting an estimate?",
+    "answer": "It helps to know the approximate scope of your project (number of rooms, exterior areas, etc.), your preferred timeline, and any specific concerns like surface damage or color preferences. We will handle the rest during our on-site visit."
+  }
 ];
 ---
 
@@ -26,7 +54,7 @@ const breadcrumbs = [
         src="/images/Correct-Hero.webp"
         alt="Contact Clean Cut Painting & Handyman - serving Decatur, Springfield, and Central Illinois"
         class="absolute inset-0 w-full h-full object-cover"
-      >
+       width="1600" height="900">
       <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
@@ -213,6 +241,27 @@ const breadcrumbs = [
         </div>
       </div>
     </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container-custom max-w-4xl">
+        <h2 class="text-3xl font-display font-bold text-[#144787] text-center mb-10">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <details class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden group">
+              <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
+                <h3 class="text-lg font-semibold text-[#144787] pr-4">{faq.question}</h3>
+                <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 leading-relaxed">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+    <FAQSchema faqs={faqs} />
   </main>
 
   <Footer />

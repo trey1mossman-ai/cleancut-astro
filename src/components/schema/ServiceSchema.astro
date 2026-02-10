@@ -1,0 +1,47 @@
+---
+/**
+ * ServiceSchema.astro
+ * Generates JSON-LD structured data for Service schema
+ * Links to LocalBusiness via provider reference
+ */
+
+interface Props {
+  name: string;
+  description: string;
+  url: string;
+  providerName?: string;
+  providerUrl?: string;
+  areaServed?: string[];
+  image?: string;
+}
+
+const {
+  name,
+  description,
+  url,
+  providerName = 'Clean Cut Painting & Handyman',
+  providerUrl = 'https://www.cleancutservice.com',
+  areaServed = ['Decatur, IL', 'Springfield, IL'],
+  image
+} = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: name,
+  description: description,
+  url: url,
+  provider: {
+    '@type': 'LocalBusiness',
+    '@id': providerUrl + '#business',
+    name: providerName
+  },
+  areaServed: areaServed.map(area => ({
+    '@type': 'Place',
+    name: area
+  })),
+  ...(image && { image: image })
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema, null, 2)} />

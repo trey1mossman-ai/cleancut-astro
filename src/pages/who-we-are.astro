@@ -3,11 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
+import FAQSchema from '../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://cleancutservice.com/' },
-  { name: 'Who We Are', url: 'https://cleancutservice.com/who-we-are/' }
+  { name: 'Home', url: 'https://www.cleancutservice.com/' },
+  { name: 'Who We Are', url: 'https://www.cleancutservice.com/who-we-are/' }
 ];
 
 const leadershipTeam = [
@@ -20,13 +21,40 @@ const leadershipTeam = [
   { name: 'Sergio Sanchez', title: 'Director of Production', image: '/images/team/sergio-sanchez.webp', alt: 'Sergio Sanchez, Project Manager at Clean Cut Painting & Handyman Macon County' },
   { name: 'Heath Kavanaugh', title: 'Director of Production', image: '/images/team/heath-kavanaugh.webp', alt: 'Heath Kavanaugh, Project Manager at Clean Cut Painting Springfield Illinois' },
 ];
+
+const faqs = [
+  {
+    "question": "How big is the Clean Cut team?",
+    "answer": "Our team includes experienced project managers, lead painters, and skilled tradespeople. Key team members include Tyler Tate (Chief Revenue Officer), Sergio Sanchez and Heath Kavanaugh (Directors of Production), and Colleen Hayes (Director of Marketing)."
+  },
+  {
+    "question": "Does Clean Cut hire locally?",
+    "answer": "Yes. We are committed to hiring locally in Central Illinois. Our team members live and work in the communities we serve, including Decatur and Springfield."
+  },
+  {
+    "question": "What makes the Clean Cut team different?",
+    "answer": "Every team member is trained in our proven process and held to the highest standards of craftsmanship. We focus on communication, attention to detail, and leaving every job site cleaner than we found it."
+  },
+  {
+    "question": "Is Clean Cut a woman-owned business?",
+    "answer": "Yes. Clean Cut Painting & Handyman was founded and is owned by Dara Geiser, making it a woman-owned business serving Central Illinois since 2016."
+  },
+  {
+    "question": "How does Clean Cut ensure quality on every project?",
+    "answer": "We follow a structured process from estimate through final walkthrough. Every project gets dedicated oversight from a project manager, with quality checkpoints at each stage and a satisfaction guarantee."
+  },
+  {
+    "question": "Can I meet the team before my project starts?",
+    "answer": "Absolutely. During your free estimate, you will meet with a project manager who will be your point of contact throughout the entire project. We believe in building relationships, not just painting walls."
+  }
+];
 ---
 <BreadcrumbSchema items={breadcrumbs} />
 
 
 <Layout
   title="Who We Are | Clean Cut Painting & Handyman"
-  description="Meet the Clean Cut team. Craftsmanship, collaboration, and commitment to excellence in every project."
+  description="Meet the Clean Cut team in Decatur & Springfield, IL. 10+ years of painting & handyman experience. Woman-owned, licensed, bonded & insured."
 >
   <Header />
 
@@ -37,7 +65,7 @@ const leadershipTeam = [
         src="/images/who-we-are-hero.webp"
         alt="Clean Cut Painting & Handyman team at work"
         class="absolute inset-0 w-full h-full object-cover"
-      />
+       width="1600" height="1067"/>
       <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
@@ -69,7 +97,7 @@ const leadershipTeam = [
               alt="Clean Cut team working together"
               class="w-full h-80 lg:h-96 object-cover"
               loading="lazy"
-            />
+             width="1600" height="2134"/>
           </div>
         </div>
       </div>
@@ -117,7 +145,7 @@ const leadershipTeam = [
               alt="Clean Cut extended team of skilled applicators and installers"
               class="w-full h-80 lg:h-96 object-cover"
               loading="lazy"
-            />
+             width="1600" height="1068"/>
           </div>
           <div>
             <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
@@ -149,7 +177,7 @@ const leadershipTeam = [
               alt="Clean Cut team collaborating on a project"
               class="w-full h-80 lg:h-96 object-cover"
               loading="lazy"
-            />
+             width="1600" height="1067"/>
           </div>
         </div>
       </div>
@@ -177,6 +205,49 @@ const leadershipTeam = [
         </div>
       </div>
     </section>
+
+    
+    <!-- Internal Links -->
+    <section class="py-12 bg-white">
+      <div class="container-custom">
+        <h2 class="text-2xl font-display font-bold text-[#144787] text-center mb-8">Explore Clean Cut</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          <a href="/about/" class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-sky-300 hover:shadow-md transition-all duration-300 group">
+            <h3 class="text-base font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-1">About Us</h3>
+            <p class="text-gray-500 text-sm">Our story, mission, and core values</p>
+          </a>
+          <a href="/our-process/" class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-sky-300 hover:shadow-md transition-all duration-300 group">
+            <h3 class="text-base font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-1">Our Process</h3>
+            <p class="text-gray-500 text-sm">How we deliver exceptional results</p>
+          </a>
+          <a href="/our-work/" class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-sky-300 hover:shadow-md transition-all duration-300 group">
+            <h3 class="text-base font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-1">Our Work</h3>
+            <p class="text-gray-500 text-sm">See completed projects across Central IL</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container-custom max-w-4xl">
+        <h2 class="text-3xl font-display font-bold text-[#144787] text-center mb-10">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <details class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden group">
+              <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
+                <h3 class="text-lg font-semibold text-[#144787] pr-4">{faq.question}</h3>
+                <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 leading-relaxed">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+    <FAQSchema faqs={faqs} />
   </main>
 
   <Footer />

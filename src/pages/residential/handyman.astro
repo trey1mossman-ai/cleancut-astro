@@ -7,11 +7,12 @@ import Lightbox from '../../components/Lightbox.astro';
 import FAQAccordion from '../../components/FAQAccordion.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+import ServiceSchema from '../../components/schema/ServiceSchema.astro';
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://cleancutservice.com/' },
-  { name: 'Residential', url: 'https://cleancutservice.com/residential/' },
-  { name: 'Handyman Services', url: 'https://cleancutservice.com/residential/handyman/' }
+  { name: 'Home', url: 'https://www.cleancutservice.com/' },
+  { name: 'Residential', url: 'https://www.cleancutservice.com/residential/' },
+  { name: 'Handyman Services', url: 'https://www.cleancutservice.com/residential/handyman/' }
 ];
 
 const faqs = [
@@ -35,11 +36,16 @@ const faqs = [
     question: "Do you build custom shelving or built-ins?",
     answer: "Yes! Custom built-ins, closet systems, and shelving are specialties. We design and build to fit your space perfectly."
   }
+  ,
+  {
+    question: "Do you offer emergency handyman services?",
+    answer: "While we do not offer 24/7 emergency service, we do our best to accommodate urgent repair needs quickly. Contact our office at (217) 330-7310 and we will work to schedule your repair as soon as possible, often within a few business days."
+  }
 ];
 ---
 
 <Layout
-  title="Handyman Services | Clean Cut Painting & Handyman"
+  title="Handyman Services Decatur & Springfield IL | Clean Cut"
   description="Elevate your home with Clean Cut residential handyman services. From tile projects to custom built-ins, we handle all your home improvement needs. Free estimates!"
 >
   <Header />
@@ -51,7 +57,7 @@ const faqs = [
         src="/images/Home Page/Residential Services/CC _ Home Page Photos_Handyman Services.webp"
         alt="Professional handyman services in Decatur IL"
         class="absolute inset-0 w-full h-full object-cover"
-      >
+       width="1600" height="1038">
       <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
@@ -76,7 +82,7 @@ const faqs = [
               alt="Clean Cut handyman services in Central Illinois"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
-            />
+             width="1600" height="1600"/>
           </div>
           <!-- Text - Left Aligned -->
           <div>
@@ -169,7 +175,7 @@ const faqs = [
               alt="Clean Cut handyman professional at work in Springfield IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
-            />
+             width="1600" height="1600"/>
           </div>
           <div class="order-1 lg:order-2">
             <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
@@ -204,6 +210,25 @@ const faqs = [
     />
     <FAQSchema faqs={faqs} />
     <BreadcrumbSchema items={breadcrumbs} />
+    <ServiceSchema name="Handyman Services" description="Professional handyman services in Decatur, Springfield, and Central Illinois. Drywall repair, tile work, door installation, trim, caulking, and small home repairs." url="https://www.cleancutservice.com/residential/handyman/" />
+
+    
+    <!-- Related Services -->
+    <section class="py-12 bg-gray-50">
+      <div class="container-custom">
+        <h2 class="text-2xl font-display font-bold text-[#144787] text-center mb-8">Related Services</h2>
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <a href="/residential/interior-painting/" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg hover:border-sky-200 transition-all duration-300 text-center group">
+            <h3 class="text-lg font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-2">Interior Painting</h3>
+            <p class="text-gray-600 text-sm">Paint after drywall and trim repairs</p>
+          </a>
+          <a href="/residential/cabinet-refinishing/" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg hover:border-sky-200 transition-all duration-300 text-center group">
+            <h3 class="text-lg font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-2">Cabinet Refinishing</h3>
+            <p class="text-gray-600 text-sm">Refresh your cabinets alongside repairs</p>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

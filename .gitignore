@@ -23,3 +23,8 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .vercel
+
+# GSC data exports
+gsc-data/
+*.zip
+*.csv

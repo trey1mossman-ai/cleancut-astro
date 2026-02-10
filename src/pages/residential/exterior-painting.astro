@@ -8,11 +8,12 @@ import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
 import FAQWithImage from '../../components/FAQWithImage.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+import ServiceSchema from '../../components/schema/ServiceSchema.astro';
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://cleancutservice.com/' },
-  { name: 'Residential', url: 'https://cleancutservice.com/residential/' },
-  { name: 'Exterior Painting', url: 'https://cleancutservice.com/residential/exterior-painting/' }
+  { name: 'Home', url: 'https://www.cleancutservice.com/' },
+  { name: 'Residential', url: 'https://www.cleancutservice.com/residential/' },
+  { name: 'Exterior Painting', url: 'https://www.cleancutservice.com/residential/exterior-painting/' }
 ];
 
 const processSteps = [
@@ -55,7 +56,7 @@ const faqs = [
 ---
 
 <Layout
-  title="Exterior Painting | Clean Cut Painting & Handyman"
+  title="Exterior Painting Decatur & Springfield IL | Clean Cut"
   description="Transform your home's exterior with precision and expertise. Professional exterior painting services in Decatur & Springfield IL. Free estimates!"
 >
   <Header />
@@ -67,7 +68,7 @@ const faqs = [
         src="/images/Home Page/Residential Services/CC _ Home Page Photos_Exterior Painting.webp"
         alt="Professional exterior painting services in Decatur IL"
         class="absolute inset-0 w-full h-full object-cover"
-      >
+       width="2250" height="1459">
       <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
@@ -103,7 +104,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
-            />
+             width="1600" height="1600"/>
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Siding & Brick</p>
             </div>
@@ -115,7 +116,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
-            />
+             width="1600" height="1600"/>
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Gutters, Soffits & Fascia</p>
             </div>
@@ -127,7 +128,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
-            />
+             width="1600" height="1600"/>
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Porch Post & Railings</p>
             </div>
@@ -139,7 +140,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
-            />
+             width="1600" height="1068"/>
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Garage Doors</p>
             </div>
@@ -179,7 +180,7 @@ const faqs = [
               alt="Exterior painting consultation with Clean Cut in Decatur IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
-            />
+             width="1600" height="1600"/>
           </div>
         </div>
 
@@ -191,7 +192,7 @@ const faqs = [
               alt="Clean Cut crew working on exterior painting project in Springfield IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
-            />
+             width="1080" height="1080"/>
           </div>
           <div class="order-1 lg:order-2">
             <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
@@ -230,7 +231,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
               data-lightbox-gallery="exterior-gallery"
-            />
+             width="1600" height="1600"/>
           </div>
         </div>
 
@@ -243,7 +244,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="exterior-gallery"
-            />
+             width="1600" height="1599"/>
           </div>
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
@@ -252,7 +253,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="exterior-gallery"
-            />
+             width="1600" height="1599"/>
           </div>
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
@@ -261,7 +262,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="exterior-gallery"
-            />
+             width="1600" height="1600"/>
           </div>
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
@@ -270,7 +271,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="exterior-gallery"
-            />
+             width="1600" height="1600"/>
           </div>
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
@@ -279,7 +280,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="exterior-gallery"
-            />
+             width="1600" height="1600"/>
           </div>
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
@@ -288,7 +289,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="exterior-gallery"
-            />
+             width="1600" height="1600"/>
           </div>
         </div>
 
@@ -310,6 +311,29 @@ const faqs = [
     />
     <FAQSchema faqs={faqs} />
     <BreadcrumbSchema items={breadcrumbs} />
+    <ServiceSchema name="Exterior House Painting" description="Professional exterior house painting in Decatur, Springfield, and Central Illinois. Siding, trim, porches, garages, and weather-resistant finishes." url="https://www.cleancutservice.com/residential/exterior-painting/" />
+
+    
+    <!-- Related Services -->
+    <section class="py-12 bg-gray-50">
+      <div class="container-custom">
+        <h2 class="text-2xl font-display font-bold text-[#144787] text-center mb-8">Related Services</h2>
+        <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <a href="/residential/interior-painting/" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg hover:border-sky-200 transition-all duration-300 text-center group">
+            <h3 class="text-lg font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-2">Interior Painting</h3>
+            <p class="text-gray-600 text-sm">Complete your home makeover inside and out</p>
+          </a>
+          <a href="/residential/deck-staining/" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg hover:border-sky-200 transition-all duration-300 text-center group">
+            <h3 class="text-lg font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-2">Deck Staining</h3>
+            <p class="text-gray-600 text-sm">Protect and beautify your deck</p>
+          </a>
+          <a href="/residential/power-washing/" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg hover:border-sky-200 transition-all duration-300 text-center group">
+            <h3 class="text-lg font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-2">Power Washing</h3>
+            <p class="text-gray-600 text-sm">Prep your surfaces with professional power washing</p>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

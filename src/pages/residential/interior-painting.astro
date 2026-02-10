@@ -8,11 +8,12 @@ import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
 import FAQWithImage from '../../components/FAQWithImage.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+import ServiceSchema from '../../components/schema/ServiceSchema.astro';
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://cleancutservice.com/' },
-  { name: 'Residential', url: 'https://cleancutservice.com/residential/' },
-  { name: 'Interior Painting', url: 'https://cleancutservice.com/residential/interior-painting/' }
+  { name: 'Home', url: 'https://www.cleancutservice.com/' },
+  { name: 'Residential', url: 'https://www.cleancutservice.com/residential/' },
+  { name: 'Interior Painting', url: 'https://www.cleancutservice.com/residential/interior-painting/' }
 ];
 
 const processSteps = [
@@ -52,7 +53,7 @@ const faqs = [
 ---
 
 <Layout
-  title="Interior Painting | Clean Cut Painting & Handyman"
+  title="Interior Painting Decatur & Springfield IL | Clean Cut"
   description="Transform your indoor spaces with precision and style. Professional interior painting services in Decatur & Springfield IL. Free estimates!"
 >
   <Header />
@@ -64,7 +65,7 @@ const faqs = [
         src="/images/Home Page/Residential Services/CC _ Home Page Photos_Interior Painting.webp"
         alt="Professional interior painting services in Decatur IL and Central Illinois"
         class="absolute inset-0 w-full h-full object-cover"
-      >
+       width="2250" height="1459">
       <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
@@ -100,7 +101,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
-            />
+             width="1920" height="1281"/>
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Walls</p>
             </div>
@@ -112,7 +113,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
-            />
+             width="1920" height="1281"/>
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Ceilings</p>
             </div>
@@ -124,7 +125,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
-            />
+             width="1920" height="1281"/>
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Trim</p>
             </div>
@@ -136,7 +137,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
-            />
+             width="1920" height="1281"/>
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Doors</p>
             </div>
@@ -174,7 +175,7 @@ const faqs = [
               alt="Interior painting consultation with Clean Cut in Macon County"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
-            />
+             width="1080" height="1080"/>
           </div>
         </div>
 
@@ -186,7 +187,7 @@ const faqs = [
               alt="Professional interior painting results in Springfield Illinois"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
-            />
+             width="1080" height="1080"/>
           </div>
           <div class="order-1 lg:order-2">
             <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
@@ -225,7 +226,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
               data-lightbox-gallery="interior-gallery"
-            />
+             width="2250" height="1459"/>
           </div>
         </div>
 
@@ -238,7 +239,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="interior-gallery"
-            />
+             width="1920" height="1281"/>
           </div>
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
@@ -247,7 +248,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="interior-gallery"
-            />
+             width="1920" height="1281"/>
           </div>
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
@@ -256,7 +257,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="interior-gallery"
-            />
+             width="1920" height="1281"/>
           </div>
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
@@ -265,7 +266,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="interior-gallery"
-            />
+             width="1080" height="1080"/>
           </div>
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
@@ -274,7 +275,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="interior-gallery"
-            />
+             width="960" height="1200"/>
           </div>
           <div class="gallery-item group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-72">
             <img
@@ -283,7 +284,7 @@ const faqs = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
               data-lightbox-gallery="interior-gallery"
-            />
+             width="1080" height="1080"/>
           </div>
         </div>
 
@@ -305,6 +306,29 @@ const faqs = [
     />
     <FAQSchema faqs={faqs} />
     <BreadcrumbSchema items={breadcrumbs} />
+    <ServiceSchema name="Interior Painting Services" description="Professional interior painting services for homes in Decatur, Springfield, and Central Illinois. Bedrooms, living rooms, kitchens, trim, ceilings, and accent walls." url="https://www.cleancutservice.com/residential/interior-painting/" />
+
+    
+    <!-- Related Services -->
+    <section class="py-12 bg-gray-50">
+      <div class="container-custom">
+        <h2 class="text-2xl font-display font-bold text-[#144787] text-center mb-8">Related Services</h2>
+        <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <a href="/residential/exterior-painting/" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg hover:border-sky-200 transition-all duration-300 text-center group">
+            <h3 class="text-lg font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-2">Exterior Painting</h3>
+            <p class="text-gray-600 text-sm">Complete your home refresh with exterior painting</p>
+          </a>
+          <a href="/residential/cabinet-refinishing/" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg hover:border-sky-200 transition-all duration-300 text-center group">
+            <h3 class="text-lg font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-2">Cabinet Refinishing</h3>
+            <p class="text-gray-600 text-sm">Transform your kitchen with cabinet refinishing</p>
+          </a>
+          <a href="/residential/handyman/" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg hover:border-sky-200 transition-all duration-300 text-center group">
+            <h3 class="text-lg font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-2">Handyman Services</h3>
+            <p class="text-gray-600 text-sm">Drywall repair, trim, and more</p>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

@@ -1,0 +1,97 @@
+# SEO Status Template
+# Copy to {project-root}/seo-status.yaml for each website project.
+# Updated by seo gate checks. Do not edit manually during audits.
+
+project: "cleancut"
+last_audit: null
+standards_version: "1.0"  # matches standards-registry.yaml version
+
+gates:
+
+  schema:
+    status: not_started  # not_started | partial | pass | fail
+    last_checked: null
+    types_implemented: []
+    missing: []
+    schema_data_verified: false
+    notes: ""
+
+  local_seo:
+    status: not_started
+    last_checked: null
+    gbp_claimed: false
+    gbp_optimized: false
+    nap_consistent: false
+    citations_count: 0
+    citations_tier1_complete: false
+    review_strategy_active: false
+    notes: ""
+
+  images:
+    status: not_started
+    last_checked: null
+    total_images: 0
+    exif_tagged: 0
+    missing_alt: 0
+    notes: ""
+
+  aeo:
+    status: not_started
+    last_checked: null
+    answer_first_pages: 0
+    faq_schema_pages: 0
+    speakable_schema: false
+    notes: ""
+
+  geo:
+    status: not_started
+    last_checked: null
+    llms_txt: false
+    ai_crawlers_allowed: false
+    notes: ""
+
+  on_page:
+    status: not_started
+    last_checked: null
+    pages_audited: 0
+    pages_passing: 0
+    notes: ""
+
+  technical:
+    status: not_started
+    last_checked: null
+    sitemap_submitted: false
+    robots_txt_configured: false
+    https: false
+    core_web_vitals_passing: false
+    lighthouse_performance: null
+    lighthouse_seo: null
+    lighthouse_accessibility: null
+    mobile_first: false
+    notes: ""
+
+  content:
+    status: not_started
+    last_checked: null
+    service_pages: 0
+    area_pages: 0
+    blog_posts: 0
+    topic_clusters_mapped: false
+    keyword_research_done: false
+    notes: ""
+
+  accessibility:
+    status: not_started
+    last_checked: null
+    wcag_level: null  # null | "A" | "AA" | "AAA"
+    notes: ""
+
+  tracking:
+    status: not_started
+    last_checked: null
+    gsc_connected: false
+    ga4_installed: false
+    gbp_insights: false
+    conversion_tracking: false
+    rank_tracking_tool: null
+    notes: ""

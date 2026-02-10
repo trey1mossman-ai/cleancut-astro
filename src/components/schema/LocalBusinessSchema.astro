@@ -2,6 +2,7 @@
 /**
  * LocalBusinessSchema.astro
  * Generates JSON-LD structured data for LocalBusiness schema
+ * Supports multiple locations with separate schema entries
  * ALL data comes from props - NO hardcoded business values
  */
 
@@ -43,14 +44,12 @@ const {
   areaServed
 } = Astro.props;
 
-// Generate schema for primary location (first in array)
-const primaryLocation = locations[0];
-
-const schema = {
+// Build schema for each location
+const schemas = locations.map((location, index) => ({
   '@context': 'https://schema.org',
-  '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
-  '@id': `${url}#business`,
-  name: businessName,
+  '@type': ['LocalBusiness', 'HomeAndConstructionBusiness', 'HousePainter', 'HandymanService'],
+  '@id': index === 0 ? `${url}#business` : `${url}#business-${location.city?.toLowerCase()}`,
+  name: location.name ? `${businessName} - ${location.name}` : businessName,
   description: description,
   url: url,
   ...(logo && { logo: logo }),
@@ -58,18 +57,18 @@ const schema = {
   priceRange: priceRange,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: primaryLocation.streetAddress,
-    addressLocality: primaryLocation.city,
-    addressRegion: primaryLocation.state,
-    postalCode: primaryLocation.postalCode,
-    addressCountry: primaryLocation.country || 'US'
+    streetAddress: location.streetAddress,
+    addressLocality: location.city,
+    addressRegion: location.state,
+    postalCode: location.postalCode,
+    addressCountry: location.country || 'US'
   },
-  telephone: primaryLocation.telephone,
-  ...(primaryLocation.latitude && primaryLocation.longitude && {
+  telephone: location.telephone,
+  ...(location.latitude && location.longitude && {
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: primaryLocation.latitude,
-      longitude: primaryLocation.longitude
+      latitude: location.latitude,
+      longitude: location.longitude
     }
   }),
   ...(openingHours && openingHours.length > 0 && {
@@ -77,7 +76,9 @@ const schema = {
   }),
   ...(sameAs && sameAs.length > 0 && { sameAs: sameAs }),
   ...(areaServed && areaServed.length > 0 && { areaServed: areaServed })
-};
+}));
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(schema, null, 2)} />
+{schemas.map(schema => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema, null, 2)} />
+))}

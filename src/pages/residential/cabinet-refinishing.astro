@@ -8,11 +8,12 @@ import ProcessScrollCards from '../../components/ProcessScrollCards.astro';
 import FAQWithImage from '../../components/FAQWithImage.astro';
 import FAQSchema from '../../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+import ServiceSchema from '../../components/schema/ServiceSchema.astro';
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://cleancutservice.com/' },
-  { name: 'Residential', url: 'https://cleancutservice.com/residential/' },
-  { name: 'Cabinet Refinishing', url: 'https://cleancutservice.com/residential/cabinet-refinishing/' }
+  { name: 'Home', url: 'https://www.cleancutservice.com/' },
+  { name: 'Residential', url: 'https://www.cleancutservice.com/residential/' },
+  { name: 'Cabinet Refinishing', url: 'https://www.cleancutservice.com/residential/cabinet-refinishing/' }
 ];
 
 const faqs = [
@@ -54,7 +55,7 @@ const processSteps = [
 ---
 
 <Layout
-  title="Cabinet Refinishing | Clean Cut Painting & Handyman"
+  title="Cabinet Refinishing Decatur & Springfield IL | Clean Cut"
   description="Transform your kitchen cabinets, bathroom vanities, and built-ins with professional refinishing. A cost-effective alternative to replacement. Free estimates in Decatur & Springfield IL!"
 >
   <Header />
@@ -66,7 +67,7 @@ const processSteps = [
         src="/images/Home Page/Residential Services/CC _ Home Page Photos_Cabinet Refinishing.webp"
         alt="Professional cabinet refinishing services in Decatur IL"
         class="absolute inset-0 w-full h-full object-cover"
-      >
+       width="2250" height="1459">
       <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
@@ -102,7 +103,7 @@ const processSteps = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
-            />
+             width="1080" height="1080"/>
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Kitchen Cabinets</p>
             </div>
@@ -114,7 +115,7 @@ const processSteps = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
-            />
+             width="2250" height="1459"/>
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Bathroom Vanities</p>
             </div>
@@ -126,7 +127,7 @@ const processSteps = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
-            />
+             width="1600" height="1200"/>
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Built-In Shelving</p>
             </div>
@@ -138,7 +139,7 @@ const processSteps = [
               class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               data-lightbox-gallery="services-gallery"
-            />
+             width="1600" height="2000"/>
             <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 pointer-events-none">
               <p class="text-white font-semibold">Bookcases</p>
             </div>
@@ -178,7 +179,7 @@ const processSteps = [
               alt="Cabinet refinishing consultation with Clean Cut in Decatur IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
-            />
+             width="1920" height="1281"/>
           </div>
         </div>
 
@@ -209,7 +210,7 @@ const processSteps = [
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
                 data-lightbox-gallery="cabinet-gallery"
-              />
+               width="1600" height="2134"/>
             </div>
           </div>
 
@@ -222,7 +223,7 @@ const processSteps = [
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
                 data-lightbox-gallery="cabinet-gallery"
-              />
+               width="1080" height="1080"/>
             </div>
             <div class="gallery-item group overflow-hidden rounded-lg shadow-lg h-64">
               <img
@@ -231,7 +232,7 @@ const processSteps = [
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
                 data-lightbox-gallery="cabinet-gallery"
-              />
+               width="1600" height="1200"/>
             </div>
             <div class="gallery-item group overflow-hidden rounded-lg shadow-lg h-64">
               <img
@@ -240,7 +241,7 @@ const processSteps = [
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
                 data-lightbox-gallery="cabinet-gallery"
-              />
+               width="1600" height="2000"/>
             </div>
           </div>
 
@@ -263,6 +264,25 @@ const processSteps = [
     />
     <FAQSchema faqs={faqs} />
     <BreadcrumbSchema items={breadcrumbs} />
+    <ServiceSchema name="Cabinet Painting & Refinishing" description="Professional cabinet painting and refinishing in Decatur, Springfield, and Central Illinois. Kitchen cabinets, bathroom vanities, and built-ins." url="https://www.cleancutservice.com/residential/cabinet-refinishing/" />
+
+    
+    <!-- Related Services -->
+    <section class="py-12 bg-gray-50">
+      <div class="container-custom">
+        <h2 class="text-2xl font-display font-bold text-[#144787] text-center mb-8">Related Services</h2>
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <a href="/residential/interior-painting/" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg hover:border-sky-200 transition-all duration-300 text-center group">
+            <h3 class="text-lg font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-2">Interior Painting</h3>
+            <p class="text-gray-600 text-sm">Complete your kitchen refresh with new wall colors</p>
+          </a>
+          <a href="/residential/handyman/" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg hover:border-sky-200 transition-all duration-300 text-center group">
+            <h3 class="text-lg font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-2">Handyman Services</h3>
+            <p class="text-gray-600 text-sm">Hardware, shelving, and trim installations</p>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

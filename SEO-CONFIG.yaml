@@ -393,7 +393,7 @@ images:
 technical:
   sitemap: "/sitemap.xml"
   robots: "/robots.txt"
-  canonical_domain: "https://cleancut-astro.vercel.app"
+  canonical_domain: "https://www.cleancutservice.com"
   
   required_pages:
     - sitemap.xml

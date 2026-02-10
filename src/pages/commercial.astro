@@ -8,10 +8,11 @@ import ProcessScrollCards from '../components/ProcessScrollCards.astro';
 import FAQWithImage from '../components/FAQWithImage.astro';
 import FAQSchema from '../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+import ServiceSchema from '../components/schema/ServiceSchema.astro';
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://cleancutservice.com/' },
-  { name: 'Commercial Services', url: 'https://cleancutservice.com/commercial/' }
+  { name: 'Home', url: 'https://www.cleancutservice.com/' },
+  { name: 'Commercial Services', url: 'https://www.cleancutservice.com/commercial/' }
 ];
 
 const faqs = [
@@ -67,7 +68,7 @@ const processSteps = [
 ---
 
 <Layout
-  title="Commercial Services | Clean Cut Painting & Handyman"
+  title="Commercial Painting & Services Decatur IL | Clean Cut"
   description="Professional commercial painting and renovation services in Decatur & Springfield IL. Flexible scheduling, minimal business disruption. Free estimates!"
 >
   <Header />
@@ -79,7 +80,7 @@ const processSteps = [
         src="/images/Home Page/Commerical Services/CC _ Home Page Photos_Commercial Painting Services.webp"
         alt="Professional commercial painting services in Decatur IL and Central Illinois"
         class="absolute inset-0 w-full h-full object-cover"
-      >
+       width="1600" height="1600">
       <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10 py-20 lg:py-24">
         <div class="max-w-4xl mx-auto text-center text-white">
@@ -111,7 +112,7 @@ const processSteps = [
               alt="Commercial restaurant exterior painting in Decatur Illinois"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
-            />
+             width="1200" height="876"/>
           </div>
         </div>
       </div>
@@ -155,7 +156,7 @@ const processSteps = [
               alt="Industrial warehouse painting by professional commercial painters in Central IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
-            />
+             width="1200" height="792"/>
           </div>
           <div class="order-1 lg:order-2">
             <h2 class="text-3xl lg:text-4xl font-display font-bold text-[#144787] mb-6">
@@ -201,7 +202,7 @@ const processSteps = [
               alt="Commercial storefront painting in Springfield IL"
               class="rounded-lg shadow-2xl w-full h-auto"
               loading="lazy"
-            />
+             width="1600" height="1600"/>
           </div>
         </div>
       </div>
@@ -231,7 +232,7 @@ const processSteps = [
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
                 data-lightbox-gallery="commercial-gallery"
-              />
+               width="1600" height="1600"/>
             </div>
           </div>
 
@@ -244,7 +245,7 @@ const processSteps = [
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
                 data-lightbox-gallery="commercial-gallery"
-              />
+               width="1200" height="1600"/>
             </div>
             <div class="gallery-item group overflow-hidden rounded-lg shadow-lg h-64">
               <img
@@ -253,7 +254,7 @@ const processSteps = [
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
                 data-lightbox-gallery="commercial-gallery"
-              />
+               width="1200" height="900"/>
             </div>
             <div class="gallery-item group overflow-hidden rounded-lg shadow-lg h-64">
               <img
@@ -262,7 +263,7 @@ const processSteps = [
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
                 data-lightbox-gallery="commercial-gallery"
-              />
+               width="1197" height="796"/>
             </div>
           </div>
 
@@ -285,6 +286,7 @@ const processSteps = [
     />
     <FAQSchema faqs={faqs} />
     <BreadcrumbSchema items={breadcrumbs} />
+    <ServiceSchema name="Commercial Painting & Maintenance Services" description="Professional commercial painting and maintenance services for businesses in Decatur, Springfield, and Central Illinois. Offices, retail, restaurants, warehouses, and industrial facilities." url="https://www.cleancutservice.com/commercial/" />
 
     <!-- CTA Section -->
     <section class="py-16 relative bg-[#144787]">

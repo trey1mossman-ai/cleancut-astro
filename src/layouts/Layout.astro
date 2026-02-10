@@ -7,11 +7,13 @@ import { schemaData, getOpeningHoursSpecification, getSameAsLinks } from '../dat
 interface Props {
   title: string;
   description?: string;
+  robots?: string;
 }
 
 const {
   title,
-  description = "Transform your space with Clean Cut's professional painting and handyman services in Decatur and Springfield IL. Interior & exterior painting, cabinet refinishing, deck staining. Free estimates!"
+  description = "Transform your space with Clean Cut's professional painting and handyman services in Decatur and Springfield IL. Interior & exterior painting, cabinet refinishing, deck staining. Free estimates!",
+  robots
 } = Astro.props;
 
 // Prepare schema data for LocalBusinessSchema component
@@ -43,6 +45,7 @@ const businessSchemaProps = {
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="preload" as="image" href="/images/CleanCut Image-3.webp" type="image/webp" />
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
@@ -51,6 +54,7 @@ const businessSchemaProps = {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  {robots && <meta name="robots" content={robots} />}
   <link rel="canonical" href={`${schemaData.contact.website}${Astro.url.pathname}`} />
   
   <!-- Open Graph -->
@@ -84,8 +88,29 @@ const businessSchemaProps = {
   </div>
   <EstimateModal />
   
-  <!-- reCAPTCHA v3 -->
-  <script is:inline src="https://www.google.com/recaptcha/api.js?render=6LeBhlArAAAAAK4QNqNpQmU3g0YBnviLRoFk6kqw"></script>
-  <script is:inline src="/js/grecaptchav3.js"></script>
+  <!-- reCAPTCHA v3 - Lazy loaded on user interaction for better CWV -->
+  <script is:inline>
+    (function() {
+      var loaded = false;
+      function loadRecaptcha() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://www.google.com/recaptcha/api.js?render=6LeBhlArAAAAAK4QNqNpQmU3g0YBnviLRoFk6kqw';
+        s.onload = function() {
+          var s2 = document.createElement('script');
+          s2.src = '/js/grecaptchav3.js';
+          document.head.appendChild(s2);
+        };
+        document.head.appendChild(s);
+        ['mousemove','scroll','keydown','touchstart','click'].forEach(function(e) {
+          document.removeEventListener(e, loadRecaptcha);
+        });
+      }
+      ['mousemove','scroll','keydown','touchstart','click'].forEach(function(e) {
+        document.addEventListener(e, loadRecaptcha, { once: true, passive: true });
+      });
+    })();
+  </script>
 </body>
 </html>

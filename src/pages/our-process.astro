@@ -4,11 +4,39 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
 import Lightbox from '../components/Lightbox.astro';
+import FAQSchema from '../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://cleancutservice.com/' },
-  { name: 'Our Process', url: 'https://cleancutservice.com/our-process/' }
+  { name: 'Home', url: 'https://www.cleancutservice.com/' },
+  { name: 'Our Process', url: 'https://www.cleancutservice.com/our-process/' }
+];
+
+const faqs = [
+  {
+    "question": "How long does a typical painting project take?",
+    "answer": "Project timelines vary based on scope. A single room interior paint job typically takes 1-2 days, while a full exterior can take 3-5 days. We provide a detailed timeline during your free estimate so you know exactly what to expect."
+  },
+  {
+    "question": "What is the first step to starting a project?",
+    "answer": "The first step is scheduling a free estimate. We will visit your property, assess the scope of work, discuss your vision, and provide a detailed, no-obligation quote. Call (217) 330-7310 or fill out our contact form."
+  },
+  {
+    "question": "How does Clean Cut prepare surfaces before painting?",
+    "answer": "Preparation is the foundation of every great paint job. We mask and protect all surfaces, remove hardware and fixtures, repair drywall or wood damage, sand rough areas, and apply primer where needed before any paint goes on."
+  },
+  {
+    "question": "What happens if I am not satisfied with the work?",
+    "answer": "Your satisfaction is guaranteed. We conduct a final walkthrough with you at the end of every project. If anything does not meet your expectations, we address it immediately at no additional cost."
+  },
+  {
+    "question": "Do you clean up after the project is complete?",
+    "answer": "Yes. Clean up is part of our standard process. We remove all materials, reinstall hardware and fixtures, and leave your space looking better than we found it. A clean job site is non-negotiable for our team."
+  },
+  {
+    "question": "What paint brands and products does Clean Cut use?",
+    "answer": "We use premium paints from trusted brands like Sherwin-Williams and Benjamin Moore. We will recommend the right product for your specific project based on surface type, environment, and desired finish."
+  }
 ];
 ---
 
@@ -28,7 +56,7 @@ const breadcrumbs = [
         src="/images/Correct-Hero.webp"
         alt="Clean Cut Painting professional process for residential and commercial projects in Decatur IL"
         class="absolute inset-0 w-full h-full object-cover"
-      >
+       width="1600" height="900">
       <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/50"></div>
       <div class="container-custom relative z-10">
         <div class="max-w-4xl mx-auto text-center text-white">
@@ -202,7 +230,7 @@ const breadcrumbs = [
         alt="Professional painting craftsmanship by Clean Cut contractors in Springfield Illinois"
         class="absolute inset-0 w-full h-full object-cover"
         loading="lazy"
-      />
+       width="1920" height="1281"/>
     </section>
 
     <!-- Team Section -->
@@ -321,7 +349,7 @@ const breadcrumbs = [
         alt="Completed interior painting project by Clean Cut Painting in Central Illinois"
         class="absolute inset-0 w-full h-full object-cover"
         loading="lazy"
-      />
+       width="1920" height="1281"/>
     </section>
 
     <!-- Process Detail Section -->
@@ -418,6 +446,53 @@ const breadcrumbs = [
         </div>
       </div>
     </section>
+
+    
+    <!-- Internal Links -->
+    <section class="py-12 bg-white">
+      <div class="container-custom">
+        <h2 class="text-2xl font-display font-bold text-[#144787] text-center mb-8">Ready to Get Started?</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <a href="/residential/interior-painting/" class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-sky-300 hover:shadow-md transition-all duration-300 group">
+            <h3 class="text-base font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-1">Interior Painting</h3>
+            <p class="text-gray-500 text-sm">Transform your rooms with professional painting</p>
+          </a>
+          <a href="/residential/exterior-painting/" class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-sky-300 hover:shadow-md transition-all duration-300 group">
+            <h3 class="text-base font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-1">Exterior Painting</h3>
+            <p class="text-gray-500 text-sm">Protect and beautify your home exterior</p>
+          </a>
+          <a href="/about/" class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-sky-300 hover:shadow-md transition-all duration-300 group">
+            <h3 class="text-base font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-1">All Services</h3>
+            <p class="text-gray-500 text-sm">View our full range of services</p>
+          </a>
+          <a href="/contact/" class="bg-gray-50 rounded-xl p-5 border border-gray-200 hover:border-sky-300 hover:shadow-md transition-all duration-300 group">
+            <h3 class="text-base font-semibold text-[#144787] group-hover:text-sky-600 transition-colors mb-1">Contact Us</h3>
+            <p class="text-gray-500 text-sm">Schedule your free estimate</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container-custom max-w-4xl">
+        <h2 class="text-3xl font-display font-bold text-[#144787] text-center mb-10">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <details class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden group">
+              <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors">
+                <h3 class="text-lg font-semibold text-[#144787] pr-4">{faq.question}</h3>
+                <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 leading-relaxed">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+    <FAQSchema faqs={faqs} />
   </main>
 
   <Footer />
