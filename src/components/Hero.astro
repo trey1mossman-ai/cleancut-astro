@@ -2,10 +2,20 @@
 // Hero component for Clean Cut Painting & Handyman
 ---
 
-<section class="relative min-h-[500px] lg:min-h-[700px] flex items-center overflow-hidden" style="background-image: url('/images/CleanCut Image-3.webp'); background-size: cover; background-position: center center;">
+<section class="relative min-h-[500px] lg:min-h-[700px] flex items-center overflow-hidden">
+  <!-- Hero background image - actual img for LCP optimization -->
+  <img
+    src="/images/CleanCut Image-3.webp"
+    alt=""
+    fetchpriority="high"
+    decoding="async"
+    class="absolute inset-0 w-full h-full object-cover object-center"
+    width="1920"
+    height="1080"
+  />
   <!-- Black overlay -->
   <div class="absolute inset-0 bg-black/40 lg:bg-black/50"></div>
-  
+
   <div class="container-custom relative z-10 py-12 lg:py-24">
     <div class="grid lg:grid-cols-2 gap-10 items-center">
       <div class="text-white text-center lg:text-left">
@@ -17,12 +27,12 @@
             <span class="uppercase block mb-1" aria-hidden="true">QUALITY COMPLETIONS.</span>
             <span class="uppercase block" aria-hidden="true">IMMEDIATE RESPONSE.</span>
           </h1>
-          
+
           <button data-open-estimate class="w-full px-8 py-3.5 bg-sky-700 text-white font-semibold rounded-lg hover:bg-sky-800 transition-all duration-300 shadow-xl text-base">
             Get My Free Estimate
           </button>
         </div>
-        
+
         <!-- Desktop: original layout -->
         <div class="hidden lg:block">
           <h1 class="text-5xl xl:text-6xl font-display font-bold mb-8 drop-shadow-lg">
@@ -31,11 +41,11 @@
             <span class="uppercase block mb-2" aria-hidden="true">QUALITY COMPLETIONS.</span>
             <span class="uppercase block" aria-hidden="true">IMMEDIATE RESPONSE.</span>
           </h1>
-          
+
           <p class="text-lg lg:text-xl text-white/90 font-display font-medium mb-10 uppercase max-w-2xl">
             PAINTING AND HANDYMAN SERVICES IN DECATUR, SPRINGFIELD, SURROUNDING AREAS, AND MORE.
           </p>
-          
+
           <div class="flex flex-row gap-6 items-start">
             <button data-open-estimate class="px-8 py-3.5 bg-sky-700 text-white font-semibold rounded-lg hover:bg-sky-800 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl text-base">
               Get My Free Estimate
