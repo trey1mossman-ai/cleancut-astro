@@ -2,6 +2,7 @@
 import '../styles/global.css'
 import EstimateModal from '../components/EstimateModal.astro';
 import LocalBusinessSchema from '../components/schema/LocalBusinessSchema.astro';
+import WebPageSchema from '../components/schema/WebPageSchema.astro';
 import { schemaData, getOpeningHoursSpecification, getSameAsLinks } from '../data/schema';
 
 interface Props {
@@ -96,6 +97,7 @@ const businessSchemaProps = {
   
   <!-- Structured Data: LocalBusiness -->
   <LocalBusinessSchema {...businessSchemaProps} />
+  <WebPageSchema name={title} description={description} url={`${schemaData.contact.website}${Astro.url.pathname}`} />
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->

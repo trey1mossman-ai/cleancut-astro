@@ -18,6 +18,7 @@ import FloatingCallButton from '../components/FloatingCallButton.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
 import FAQSchema from '../components/schema/FAQSchema.astro';
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+import WebSiteSchema from '../components/schema/WebSiteSchema.astro';
 
 const faqs = [
   {
@@ -66,6 +67,7 @@ const faqs = [
     <FAQSchema faqs={faqs} />
     <BreadcrumbSchema items={[{ name: "Home", url: "https://www.cleancutservice.com/" }]} />
     <CareersCTA />
+    <WebSiteSchema name="Clean Cut Painting & Handyman" url="https://www.cleancutservice.com" />
   </main>
 
   <Footer />

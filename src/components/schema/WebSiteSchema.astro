@@ -1,0 +1,23 @@
+---
+/**
+ * WebSiteSchema.astro
+ * JSON-LD structured data for WebSite schema
+ * Homepage only
+ */
+
+interface Props {
+  name: string;
+  url: string;
+}
+
+const { name, url } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name,
+  url
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema, null, 2)} />

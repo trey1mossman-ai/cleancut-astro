@@ -5,6 +5,36 @@ import Footer from '../components/Footer.astro';
 import FloatingCallButton from '../components/FloatingCallButton.astro';
 import Lightbox from '../components/Lightbox.astro';
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import FAQSchema from '../components/schema/FAQSchema.astro';
+
+
+const faqs = [
+  {
+    question: "What types of projects does Clean Cut handle?",
+    answer: "We handle interior and exterior painting, cabinet refinishing, deck staining and restoration, handyman repairs, power washing, and commercial painting and maintenance across Central Illinois."
+  },
+  {
+    question: "Can I see examples of your work before hiring you?",
+    answer: "Absolutely! Our portfolio above showcases completed residential and commercial projects across Decatur, Springfield, and Central Illinois. We also share project photos on our Facebook page."
+  },
+  {
+    question: "How do you ensure quality on every project?",
+    answer: "Every project follows our proven multi-step process: thorough surface preparation, premium materials, skilled application, and a final walkthrough. We back our work with warranty protection."
+  },
+  {
+    question: "Do you take on both small and large projects?",
+    answer: "Yes. From a single room repaint to a full commercial building exterior, we bring the same level of professionalism and attention to detail to every job."
+  },
+  {
+    question: "How long does a typical painting project take?",
+    answer: "Timelines depend on scope. A single room may take 1-2 days, while a full exterior can take a week or more. We provide detailed timelines in every estimate so you know what to expect."
+  },
+  {
+    question: "What areas do you serve?",
+    answer: "We serve a 60-mile radius across Central Illinois, including Decatur, Springfield, Champaign-Urbana, Mount Zion, Forsyth, Chatham, Taylorville, Lincoln, Mattoon, and Bloomington-Normal."
+  }
+];
 
 const breadcrumbs = [
   { name: 'Home', url: 'https://www.cleancutservice.com/' },
@@ -72,15 +102,15 @@ const galleryCategories = [
     title: 'Deck Staining',
     images: [
       { src: '/images/services-optimized/deck-staining/april-7.webp', alt: 'Deck staining and sealing project in Decatur IL' },
-      { src: '/images/services-optimized/deck-staining/IMG_1499-scaled-1.webp', alt: 'Deck restoration project in Macon County' },
+      { src: '/images/services-optimized/deck-staining/deck-restoration-macon-county.webp', alt: 'Deck restoration project in Macon County' },
       { src: '/images/services-optimized/deck-staining/june-26.webp', alt: 'Professional deck staining and restoration in Decatur Illinois' },
-      { src: '/images/services-optimized/deck-staining/IMG_6912.webp', alt: 'Deck staining transformation by Clean Cut' },
+      { src: '/images/services-optimized/deck-staining/deck-staining-transformation.webp', alt: 'Deck staining transformation by Clean Cut' },
       { src: '/images/services-optimized/deck-staining/428374471_229676476883369_8376536511528935022_n.webp', alt: 'Deck refinishing in Decatur Illinois' },
       { src: '/images/services-optimized/deck-staining/april-6.webp', alt: 'Complete deck restoration and staining in Central Illinois' },
       { src: '/images/services-optimized/deck-staining/544063718_18027770906725762_8407492106307251719_n.webp', alt: 'Deck refinishing and staining service in Springfield IL' },
       { src: '/images/services-optimized/deck-staining/543046979_18027770933725762_2680363837880653339_n.webp', alt: 'Professional deck staining for outdoor living in Macon County' },
       { src: '/images/services-optimized/deck-staining/543742067_18027770942725762_6809030153408573163_n.webp', alt: 'Deck staining project with beautiful finish in Central Illinois' },
-      { src: '/images/services-optimized/deck-staining/IMG_6907.webp', alt: 'Professional deck staining services' },
+      { src: '/images/services-optimized/deck-staining/deck-staining-professional.webp', alt: 'Professional deck staining services' },
       { src: '/images/services-optimized/deck-staining/544829780_18027770915725762_3402197193307370423_n.webp', alt: 'Quality deck staining in Central Illinois' },
       { src: '/images/services-optimized/deck-staining/544306346_18027770924725762_8396586166953689471_n.webp', alt: 'Deck staining project completion' },
       { src: '/images/services-optimized/deck-staining/2.webp', alt: 'Deck staining project completion in Springfield' },
@@ -115,7 +145,7 @@ const galleryCategories = [
       { src: '/images/services-optimized/handyman-services/1-2.webp', alt: 'Handyman work in Central Illinois' },
       { src: '/images/services-optimized/handyman-services/CLEAN-CUT-9-scaled-1.webp', alt: 'Quality handyman services by Clean Cut' },
       { src: '/images/services-optimized/handyman-services/123_1.webp', alt: 'Quality handyman work in Springfield IL' },
-      { src: '/images/services-optimized/handyman-services/IMG_6904.webp', alt: 'Professional handyman repairs by Clean Cut' },
+      { src: '/images/services-optimized/handyman-services/handyman-repairs-professional.webp', alt: 'Professional handyman repairs by Clean Cut' },
       { src: '/images/services-optimized/handyman-services/Elevate-Your-Home-with-Clean-Cut-Residential-Handyman-Services.webp', alt: 'Residential handyman services in Central Illinois' },
       { src: '/images/services-optimized/handyman-services/2-1.webp', alt: 'Handyman project in Decatur IL' },
       { src: '/images/services-optimized/handyman-services/3-1.webp', alt: 'Professional handyman services by Clean Cut' },
@@ -415,6 +445,10 @@ const navLinks = [
         </div>
       </div>
     </section>
+
+    <!-- FAQ Section -->
+    <FAQAccordion faqs={faqs} title="Frequently Asked Questions About Our Work" initialVisible={3} />
+    <FAQSchema faqs={faqs} />
 
     <!-- CTA Section -->
     <section class="py-16 relative overflow-hidden" style="background-image: url('/patterns/pattern-04.webp'); background-size: cover; background-position: center;">
