@@ -3,15 +3,17 @@
 ---
 
 <section class="relative min-h-[500px] lg:min-h-[700px] flex items-center overflow-hidden">
-  <!-- Hero background image - actual img for LCP optimization -->
+  <!-- Hero background image - responsive srcset for LCP optimization -->
   <img
     src="/images/CleanCut Image-3.webp"
+    srcset="/images/CleanCut Image-3-mobile.webp 640w, /images/CleanCut Image-3-tablet.webp 1024w, /images/CleanCut Image-3.webp 1600w"
+    sizes="100vw"
     alt=""
     fetchpriority="high"
     decoding="async"
     class="absolute inset-0 w-full h-full object-cover object-center"
-    width="1920"
-    height="1080"
+    width="1600"
+    height="1066"
   />
   <!-- Black overlay -->
   <div class="absolute inset-0 bg-black/40 lg:bg-black/50"></div>
