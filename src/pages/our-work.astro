@@ -288,7 +288,7 @@ const navLinks = [
           {navLinks.map((link) => (
             <a
               href={`#${link.id}`}
-              class="nav-link px-4 py-2 sm:px-5 sm:py-2.5 rounded-full font-semibold text-sm sm:text-base bg-gray-100 text-gray-700 hover:bg-sky-400 hover:text-white transition-all duration-300"
+              class="nav-link px-4 py-2 sm:px-5 sm:py-2.5 rounded-full font-semibold text-sm sm:text-base bg-gray-100 text-gray-700 hover:bg-sky-500 hover:text-white transition-all duration-300"
             >
               {link.label}
             </a>
@@ -311,7 +311,7 @@ const navLinks = [
               <div class="relative">
                 <!-- Arrow Left -->
                 <button 
-                  class="carousel-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-sky-400 hover:text-white transition-all duration-300 group"
+                  class="carousel-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-sky-500 hover:text-white transition-all duration-300 group"
                   data-carousel={category.id}
                 >
                   <svg class="w-6 h-6 text-[#144787] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -348,7 +348,7 @@ const navLinks = [
                 
                 <!-- Arrow Right -->
                 <button 
-                  class="carousel-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-sky-400 hover:text-white transition-all duration-300 group"
+                  class="carousel-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center hover:bg-sky-500 hover:text-white transition-all duration-300 group"
                   data-carousel={category.id}
                 >
                   <svg class="w-6 h-6 text-[#144787] group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -416,7 +416,7 @@ const navLinks = [
 
               <!-- Play button overlay -->
               <div class="play-overlay absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors duration-300">
-                <div class="play-btn w-16 h-16 sm:w-20 sm:h-20 bg-white/95 rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-105 transition-all duration-300 group-hover:bg-sky-400">
+                <div class="play-btn w-16 h-16 sm:w-20 sm:h-20 bg-white/95 rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-105 transition-all duration-300 group-hover:bg-sky-500">
                   <svg class="w-7 h-7 sm:w-8 sm:h-8 text-[#144787] group-hover:text-white ml-1 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
@@ -461,7 +461,7 @@ const navLinks = [
             Let's transform your space with professional painting and handyman services. Contact us today for a free estimate!
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button data-open-estimate class="px-8 py-4 bg-sky-400 text-white font-bold text-lg rounded-lg hover:bg-sky-500 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
+            <button data-open-estimate class="px-8 py-4 bg-sky-500 text-white font-bold text-lg rounded-lg hover:bg-sky-600 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
               Get Free Estimate
             </button>
             <a href="tel:+12173307310" class="px-8 py-4 bg-white text-[#144787] font-bold text-lg rounded-lg hover:bg-gray-100 transform hover:-translate-y-0.5 transition-all duration-300 shadow-xl">
@@ -500,7 +500,7 @@ const navLinks = [
   
   /* Active nav link */
   .nav-link.active {
-    @apply bg-sky-400 text-white;
+    @apply bg-sky-500 text-white;
   }
   
   /* Video card transitions */

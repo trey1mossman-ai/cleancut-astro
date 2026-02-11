@@ -125,7 +125,7 @@ function truncateText(text: string, maxLength: number): { truncated: string; isT
           href="https://maps.app.goo.gl/hLobyq7uRhDd1dQf9"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-sm font-medium text-[#4285F4] hover:underline"
+          class="text-sm font-medium text-[#1a73e8] hover:underline"
         >
           View All
         </a>
@@ -186,7 +186,7 @@ function truncateText(text: string, maxLength: number): { truncated: string; isT
                     </div>
 
                     <div class="flex-1">
-                      <h4 class="font-semibold text-gray-900">{review.name}</h4>
+                      <p class="font-semibold text-gray-900">{review.name}</p>
                       <!-- Stars -->
                       <div class="flex gap-0.5 mt-1">
                         {[...Array(5)].map((_, i) => (
@@ -209,7 +209,7 @@ function truncateText(text: string, maxLength: number): { truncated: string; isT
                       set:html={highlightText(review.text.replace(/\n/g, '<br/>'))}
                     />
                     {isTruncated && (
-                      <button class="read-more-btn text-[#4285F4] text-sm font-medium mt-2 hover:underline">
+                      <button class="read-more-btn text-[#1a73e8] text-sm font-medium mt-2 hover:underline">
                         Read more
                       </button>
                     )}
@@ -235,7 +235,7 @@ function truncateText(text: string, maxLength: number): { truncated: string; isT
       <div id="reviews-carousel-dots" class="flex justify-center gap-2 mt-8">
         {reviews.map((_, index) => (
           <button
-            class="reviews-carousel-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300 hover:bg-gray-400"
+            class="reviews-carousel-dot relative w-3 h-3 rounded-full bg-gray-300 transition-all duration-300 hover:bg-gray-400 cursor-pointer before:absolute before:inset-[-16px] before:content-['']"
             data-index={index}
             aria-label={`Go to review ${index + 1}`}
           />
@@ -263,7 +263,7 @@ function truncateText(text: string, maxLength: number): { truncated: string; isT
         href="https://maps.app.goo.gl/hLobyq7uRhDd1dQf9"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-6 py-3 bg-sky-400 text-white rounded-full hover:bg-sky-500 transition-all duration-300 shadow-md hover:shadow-lg"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-sky-500 text-white rounded-full hover:bg-sky-600 transition-all duration-300 shadow-md hover:shadow-lg"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
