@@ -55,10 +55,12 @@ const images = [
           <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
             {images.map((_, index) => (
               <button
-                class="carousel-dot relative w-3 h-3 rounded-full cursor-pointer bg-white/50 hover:bg-white/80 transition-all duration-300 before:absolute before:inset-[-16px] before:content-['']"
+                class="carousel-dot w-11 h-11 flex items-center justify-center cursor-pointer"
                 data-index={index}
                 aria-label={`Go to image ${index + 1}`}
-              />
+              >
+                <span class="dot-visual w-3 h-3 rounded-full bg-white/50 transition-all duration-300"></span>
+              </button>
             ))}
           </div>
         </div>
@@ -84,7 +86,7 @@ const images = [
         </p>
 
 
-        <a href="/about" class="inline-flex items-center px-6 py-3 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+        <a href="/about" class="inline-flex items-center px-6 py-3 bg-sky-600 text-white font-semibold rounded-lg hover:bg-sky-700 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
           Meet the Team
         </a>
       </div>
@@ -116,12 +118,14 @@ const images = [
 
     // Update dots
     dots.forEach((dot, index) => {
+      const visual = dot.querySelector('.dot-visual');
+      if (!visual) return;
       if (index === currentIndex) {
-        dot.classList.remove('bg-white/50');
-        dot.classList.add('bg-white', 'scale-125');
+        visual.classList.remove('bg-white/50');
+        visual.classList.add('bg-white', 'scale-125');
       } else {
-        dot.classList.remove('bg-white', 'scale-125');
-        dot.classList.add('bg-white/50');
+        visual.classList.remove('bg-white', 'scale-125');
+        visual.classList.add('bg-white/50');
       }
     });
   }
